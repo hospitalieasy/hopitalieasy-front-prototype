@@ -1,7 +1,7 @@
 # How to run this project [GUIDLINE]
 
-## 1-) clone this project
+### 1-) Clone this project on your local machine
 
-## 2-) open the terminal and write npm install
+### 2-) Open the terminal and type npm install
 
-## 3-) after npm install command, you can run the project with npm start on [http://localhost:3000]
+### 3-) After npm install command, you can run the project with npm start on [http://localhost:3000]
