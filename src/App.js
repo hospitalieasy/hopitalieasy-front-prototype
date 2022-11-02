@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import DoctorLogin from "./pages/DoctorLogin";
-import Entry from "./pages/Entry";
-import Error from "./pages/Error";
-import PatientLogin from "./pages/PatientLogin";
-import PatientScreen from "./pages/PatientScreen";
-import PatientSignUp from "./pages/PatientSignUp";
+import DoctorLogin from "./pages/pages/DoctorLogin";
+import Entry from "./pages/pages/Entry";
+import Error from "./pages/pages/Error";
+import PatientLogin from "./pages/pages/PatientLogin";
+import PatientScreen from "./pages/pages/PatientScreen";
+import PatientSignUp from "./pages/pages/PatientSignUp";
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Entry />} />
         <Route path="patient-login" element={<PatientLogin />} />
-        <Route path="patient-sign-up" element={<PatientSignUp/>}/>
+        <Route path="patient-sign-up" element={<PatientSignUp />} />
         <Route path="doctor-login" element={<DoctorLogin />} />
-        <Route path="patient-screen" element={<PatientScreen/>} />
+        <Route path="patient-screen" element={<PatientScreen />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
