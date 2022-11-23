@@ -1,6 +1,7 @@
 import { DefaultBoxBase } from "./DefaultBox.style";
 
-const DefaultBox = ({ children }) => {
+const DefaultBox = (props) => {
+    const { children } = props;
     return (
         <DefaultBoxBase>
             {children}
