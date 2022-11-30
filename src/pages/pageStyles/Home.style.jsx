@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const HomeBase = styled.div`
+    height: 100%;
+    width: 100%;
+`;
+
 export const RoleSection = styled.div`
     width: 100%;
     height: 100%;
@@ -14,3 +19,12 @@ export const RoleSelectWrapper = styled.div`
     background-color: #fff;
     border-radius: 7px;
 `;
+
+export const NavbarWrapper = styled.div`
+    height: 10%;
+    width: 100%;
+`;
+
+
+
+

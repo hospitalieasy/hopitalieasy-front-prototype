@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const PatientSignUpBase = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #385170;
 `;
 
 export const SignUpSection = styled.div`
