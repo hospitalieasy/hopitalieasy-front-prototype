@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   background: #f1b963;
-  height: 100vh;
+  height: 85vh;
+  border-bottom: 1px solid;
 }
 .tea-title {
   font-size: 50px;

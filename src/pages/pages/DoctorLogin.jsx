@@ -1,11 +1,11 @@
 import { DoctorLoginBase, FormContent, FormSide, FormWrapper, LoginSection, SliderSide, Title } from "../pageStyles/DoctorLogin.style";
 
+import Loading from "..//..//Animations/Loading"
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import React from "react";
 
 const DoctorLogin = () => {
     return (
-
         <DoctorLoginBase>
             <LoginSection>
                 <FormSide>
@@ -17,10 +17,10 @@ const DoctorLogin = () => {
                     </FormContent>
                 </FormSide>
                 <SliderSide>
+                    <Loading />
                 </SliderSide>
             </LoginSection>
         </DoctorLoginBase>
-
     );
 }
 

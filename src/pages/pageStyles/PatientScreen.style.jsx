@@ -7,11 +7,12 @@ export const PatientScreenBase = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #385170;
+    
 `;
 
 export const MenuItemsWrapper = styled.div`
     height: 100%;
     width: 6%;
     display: flex;
-    margin-top: 65px;
+    padding-top: 65px;
 `;

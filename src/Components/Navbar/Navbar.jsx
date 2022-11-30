@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <NavbarBase>
             <LeftSide>
-                Logo
+                <span style={{ padding: "0px 5px", color: "#333", background: "#fff", borderRadius: "2px" }}>H</span><span style={{ fontSize: "23px" }}>ospitalieasy</span>
             </LeftSide>
             <RightSide>
                 <ItemContainer>
@@ -17,7 +17,7 @@ const Navbar = () => {
                     ))}
                 </ItemContainer>
             </RightSide>
-        </NavbarBase>
+        </NavbarBase >
     )
 }
 

@@ -1,4 +1,4 @@
-import { RoleSelectorBase, SelectWrapper } from "./RoleSelector.style";
+import { CustomButton, LeftSide, RightSide, RoleSelectorBase } from "./RoleSelector.style";
 
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
@@ -7,11 +7,13 @@ import React from "react";
 const RoleSelector = () => {
     return (
         <RoleSelectorBase>
-            <SelectWrapper>
-                <Button component={Link} to={'/patient-login'} variant="contained" color="secondary" size="large">Patient
-                </Button>
-                <Button component={Link} to={'/doctor-login'} variant="contained" size="large">Doctor</Button>
-            </SelectWrapper>
+            <LeftSide>
+                <CustomButton component={Link} to={'/patient-login'} variant="outlined" size="large">Patient
+                </CustomButton>
+            </LeftSide>
+            <RightSide>
+                <CustomButton component={Link} to={'/doctor-login'} variant="outlined" size="large">Doctor</CustomButton>
+            </RightSide>
         </RoleSelectorBase>
     );
 }

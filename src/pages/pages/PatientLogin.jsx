@@ -1,6 +1,7 @@
 import { FormContent, FormSide, FormWrapper, Label, LoginSection, PatientLoginBase, SliderSide, Title } from "../pageStyles/PatientLogin.style";
 
 import { Link } from "react-router-dom";
+import Loading from "../../Animations/Loading";
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import React from "react";
 
@@ -18,6 +19,7 @@ const PatientLogin = () => {
                     </FormContent>
                 </FormSide>
                 <SliderSide>
+                    <Loading />
                 </SliderSide>
             </LoginSection>
         </PatientLoginBase>

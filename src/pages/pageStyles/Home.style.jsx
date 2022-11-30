@@ -13,13 +13,6 @@ export const RoleSection = styled.div`
     align-items: center;
 `;
 
-export const RoleSelectWrapper = styled.div`
-    height: 300px;
-    width: 80%;
-    background-color: #fff;
-    border-radius: 7px;
-`;
-
 export const NavbarWrapper = styled.div`
     height: 10%;
     width: 100%;

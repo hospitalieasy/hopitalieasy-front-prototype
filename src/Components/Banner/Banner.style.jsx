@@ -3,5 +3,5 @@ import styled from "styled-components";
 export const BannerBase = styled.div`
     width: 100%;
     height: 75vh;
-    background-color: #385170; 
+    background-color: #fff; 
 `;
