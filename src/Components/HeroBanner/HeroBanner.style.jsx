@@ -1,5 +1,3 @@
-import "..//..//Animations-CSS/Fonts/font.css"
-
 import styled from "styled-components";
 
 export const HeroBannerBase = styled.div`

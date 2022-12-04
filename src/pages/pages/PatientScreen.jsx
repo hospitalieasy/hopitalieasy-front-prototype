@@ -1,6 +1,7 @@
 import { MenuItemsWrapper, PatientScreenBase } from "../pageStyles/PatientScreen.style";
 
 import DefaultBox from "../../Components/DefaultBox/DefaultBox";
+import DefaultLayout from "..//..//Components/DefaultLayout/DefaultLayout"
 import ItemList from "../../Components/ItemList/ItemList";
 import axios from 'axios';
 import { useState } from "react";
@@ -24,32 +25,34 @@ const PatientScreen = () => {
     }
 
     return (
-        <PatientScreenBase>
-            <MenuItemsWrapper>
-                <ItemList displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
-            </MenuItemsWrapper>
-            <DefaultBox>
-                {findIndexItem === 0 && (
-                    <div>index is 0</div>
-                )}
+        <DefaultLayout>
+            <PatientScreenBase>
+                <MenuItemsWrapper>
+                    <ItemList displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
+                </MenuItemsWrapper>
+                <DefaultBox>
+                    {findIndexItem === 0 && (
+                        <div>index is 0</div>
+                    )}
 
-                {findIndexItem === 1 && (
-                    <div>index is 1</div>
-                )}
+                    {findIndexItem === 1 && (
+                        <div>index is 1</div>
+                    )}
 
-                {findIndexItem === 2 && (
-                    <div>
-                        index is 2
-                        <h3> username : {username} </h3>
-                        <h3> password : {password} </h3>
-                    </div>
-                )}
+                    {findIndexItem === 2 && (
+                        <div>
+                            index is 2
+                            <h3> username : {username} </h3>
+                            <h3> password : {password} </h3>
+                        </div>
+                    )}
 
-                {findIndexItem === 3 && (
-                    <div>index is 3</div>
-                )}
-            </DefaultBox>
-        </PatientScreenBase>
+                    {findIndexItem === 3 && (
+                        <div>index is 3</div>
+                    )}
+                </DefaultBox>
+            </PatientScreenBase>
+        </DefaultLayout>
     );
 }
 

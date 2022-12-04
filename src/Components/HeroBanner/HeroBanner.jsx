@@ -4,7 +4,7 @@ import { ButtonWrapper, Content, Description, HeroBannerBase, ImageContainer, Le
 
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import Loading from "..//..//Animations-CSS/Loading/Loading"
+import Loading from "../Loading/Loading";
 import React from "react";
 
 const HeroBanner = () => {

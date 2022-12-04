@@ -2,7 +2,7 @@ import { FormContent, FormSide, FormWrapper, Label, LoginSection, PatientLoginBa
 
 import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout";
 import { Link } from "react-router-dom";
-import Loading from "../../Animations-CSS/Loading/Loading";
+import Loading from "../../Components/Loading/Loading";
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import React from "react";
 
@@ -21,7 +21,8 @@ const PatientLogin = () => {
                         </FormContent>
                     </FormSide>
                     <SliderSide>
-                        <Loading />
+                        {/* <Loading /> */}
+
                     </SliderSide>
                 </LoginSection>
             </PatientLoginBase>
