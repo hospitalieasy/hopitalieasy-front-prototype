@@ -1,6 +1,6 @@
 import { DoctorLoginBase, FormContent, FormSide, FormWrapper, LoginSection, SliderSide, Title } from "../pageStyles/DoctorLogin.style";
 
-import Loading from "..//..//Animations/Loading"
+import Loading from "..//..//Animations-CSS/Loading/Loading"
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import React from "react";
 

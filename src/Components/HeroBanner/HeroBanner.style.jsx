@@ -1,7 +1,6 @@
-import { Button } from "@mui/material";
 import styled from "styled-components";
 
-export const RoleSelectorBase = styled.div`
+export const HeroBannerBase = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
@@ -15,6 +14,7 @@ export const LeftSide = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border-right: 1px solid;
 `;
 
 export const RightSide = styled.div`

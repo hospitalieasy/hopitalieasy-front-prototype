@@ -1,28 +1,22 @@
-import "..//..//Animations/loading.css"
+import "..//..//Animations-CSS/Loading/loading.css";
 
-import { HomeBase, NavbarWrapper, RoleSection, RoleSelectWrapper } from "../pageStyles/Home.style";
+import { HomeBase, PatternLayout } from "../pageStyles/Home.style";
 
-import Banner from "../../Components/Banner/Banner";
-import Loading from "../../Animations/Loading";
+import HeroBanner from "../../Components/HeroBanner/HeroBanner";
+import Loading from "../../Animations-CSS/Loading/Loading";
 import Navbar from "../../Components/Navbar/Navbar";
 import React from "react";
-import RoleSelector from "../../Components/RoleSelector/RoleSelector";
 
 const Home = () => {
     return (
         <HomeBase>
-            <NavbarWrapper>
+            <PatternLayout>
                 <Navbar />
-            </NavbarWrapper>
-            <Banner>
-                <RoleSection>
-                    <RoleSelector />
-                </RoleSection>
-            </Banner>
-            <Loading />
-            <Loading />
-            <Loading />
-            <Loading />
+                <HeroBanner />
+                <Loading />
+                <Loading />
+                <Loading />
+            </PatternLayout>
         </HomeBase>
     );
 }

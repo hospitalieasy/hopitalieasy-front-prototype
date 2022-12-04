@@ -1,30 +1,39 @@
-import { Item, ItemContainer, LeftSide, NavbarBase, RightSide } from "./Navbar.style";
+import "..//..//Animations-CSS/Button/Button.css"
+
+import { ButtonContainer, ButtonItem, LeftSide, MidSide, NavItem, NavItemContainer, NavbarBase, RightSide } from "./Navbar.style";
 
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
-    const navbarItem = ["Home", "About", "Contact"];
     return (
         <NavbarBase>
             <LeftSide>
-                <span style={{ padding: "0px 5px", color: "#333", background: "#fff", borderRadius: "2px" }}>H</span><span style={{ fontSize: "23px" }}>ospitalieasy</span>
+                <img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/null/external-hospital-medical-kiranshastry-gradient-kiranshastry-1.png" alt="" />
             </LeftSide>
+            <MidSide>
+                <NavItemContainer>
+                    <NavItem>
+                        Home
+                    </NavItem>
+                    <NavItem>
+                        About
+                    </NavItem>
+                    <NavItem>
+                        Contact Us
+                    </NavItem>
+                </NavItemContainer>
+            </MidSide>
             <RightSide>
-                <ItemContainer>
-                    {navbarItem.map((item, index) => (
-                        <Item key={index} item={item}>
-                            {navbarItem[index]}
-                        </Item>
-                    ))}
-                    <Item>
-                        <Button component={Link} to={'/doctor-login'} variant="contained" size="medium">Doctor</Button>
-                    </Item>
-                    <Item>
-                        <Button component={Link} to={'/patient-login'} variant="contained" color="secondary" size="medium">Patient</Button>
-                    </Item>
-                </ItemContainer>
+                <ButtonContainer>
+                    <ButtonItem>
+                        <Button className="patient-button" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="medium">Patient</Button>
+                    </ButtonItem>
+                    <ButtonItem>
+                        <Button className="doctor-button" component={Link} to={'/doctor-login'} variant="contained" size="medium">Doctor</Button>
+                    </ButtonItem>
+                </ButtonContainer>
             </RightSide>
         </NavbarBase >
     )
