@@ -2,9 +2,9 @@ import { FormContent, FormSide, FormWrapper, Label, LoginSection, PatientLoginBa
 
 import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout";
 import { Link } from "react-router-dom";
-import Loading from "../../Components/Loading/Loading";
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import React from "react";
+import SlideShow from "../../Components/SlideShow/SlideShow";
 
 const PatientLogin = () => {
     return (
@@ -21,8 +21,7 @@ const PatientLogin = () => {
                         </FormContent>
                     </FormSide>
                     <SliderSide>
-                        {/* <Loading /> */}
-
+                        <SlideShow />
                     </SliderSide>
                 </LoginSection>
             </PatientLoginBase>

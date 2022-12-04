@@ -1,9 +1,9 @@
 import { DoctorLoginBase, FormContent, FormSide, FormWrapper, LoginSection, SliderSide, Title } from "../pageStyles/DoctorLogin.style";
 
 import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout";
-import Loading from "../../Components/Loading/Loading";
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import React from "react";
+import SlideShow from "../../Components/SlideShow/SlideShow";
 
 const DoctorLogin = () => {
     return (
@@ -19,7 +19,7 @@ const DoctorLogin = () => {
                         </FormContent>
                     </FormSide>
                     <SliderSide>
-                        <Loading />
+                        <SlideShow />
                     </SliderSide>
                 </LoginSection>
             </DoctorLoginBase>

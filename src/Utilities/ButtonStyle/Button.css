@@ -55,3 +55,23 @@ Navbar Items and Hero Banner Items
 .MuiButton-root.patient:hover {
   border-color: #1e1436;
 }
+
+/*
+Slide Items
+*/
+
+.MuiButton-root.prev {
+  background-color: black;
+}
+
+.MuiButton-root.prev:hover {
+  background-color: #7440e5;
+}
+
+.MuiButton-root.next {
+  background-color: black;
+}
+
+.MuiButton-root.next:hover {
+  background-color: #7440e5;
+}
