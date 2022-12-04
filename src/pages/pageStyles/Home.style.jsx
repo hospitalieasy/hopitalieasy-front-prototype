@@ -14,15 +14,8 @@ export const PatternLayout = styled.div`
     width: 100%;
 `;
 
-export const RoleSection = styled.div`
-    width: 90%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    border-radius: 10px;
-    border: 1px solid;
+export const SvgContainer = styled.div`
+    height: 70vh;
 `;
 
 

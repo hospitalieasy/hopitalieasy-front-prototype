@@ -1,6 +1,6 @@
 import "..//..//Animations-CSS/Loading/loading.css";
 
-import { HomeBase, PatternLayout } from "../pageStyles/Home.style";
+import { HomeBase, PatternLayout, SvgContainer } from "../pageStyles/Home.style";
 
 import HeroBanner from "../../Components/HeroBanner/HeroBanner";
 import Loading from "../../Animations-CSS/Loading/Loading";
@@ -13,9 +13,15 @@ const Home = () => {
             <PatternLayout>
                 <Navbar />
                 <HeroBanner />
-                <Loading />
-                <Loading />
-                <Loading />
+                <SvgContainer>
+                    <Loading />
+                </SvgContainer>
+                <SvgContainer>
+                    <Loading />
+                </SvgContainer>
+                <SvgContainer>
+                    <Loading />
+                </SvgContainer>
             </PatternLayout>
         </HomeBase>
     );
