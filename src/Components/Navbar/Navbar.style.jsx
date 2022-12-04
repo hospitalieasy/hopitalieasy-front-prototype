@@ -1,6 +1,5 @@
 import "..//..//Animations-CSS/Fonts/font.css"
 
-import { Button } from "@mui/material";
 import styled from "styled-components";
 
 export const NavbarBase = styled.div`
@@ -9,7 +8,6 @@ export const NavbarBase = styled.div`
     display: flex;
     align-items: center;
     padding: 10px 50px;
-    font-family: 'Roboto', sans-serif;
 `;
 
 export const LeftSide = styled.div`
@@ -33,17 +31,12 @@ export const RightSide = styled.div`
 `;
 
 export const NavItemContainer = styled.div`
-    width: 80%;
+    width: 100%;
     display: flex;
     margin: auto;
     align-items: center;
     justify-content: space-between;
 `;
-
-export const CustomWrapper = styled.div`
-   
-`;
-
 
 export const ButtonContainer = styled.div`
     display: flex;

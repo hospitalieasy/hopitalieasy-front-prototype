@@ -6,7 +6,6 @@ export const PatientLoginBase = styled.div`
     display: flex;
     align-items: center; 
     justify-content: center;
-    background-color: #385170;
 `;
 
 export const LoginSection = styled.div`

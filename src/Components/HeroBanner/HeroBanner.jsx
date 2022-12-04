@@ -1,3 +1,5 @@
+import "..//..//Utilities/ButtonStyle/Button.css"
+
 import { ButtonWrapper, Content, Description, HeroBannerBase, ImageContainer, LeftSide, RightSide, Title } from "./HeroBanner.style";
 
 import { Button } from "@mui/material";

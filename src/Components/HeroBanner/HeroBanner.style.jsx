@@ -1,3 +1,5 @@
+import "..//..//Animations-CSS/Fonts/font.css"
+
 import styled from "styled-components";
 
 export const HeroBannerBase = styled.div`
@@ -38,8 +40,7 @@ export const Content = styled.div`
 export const Title = styled.div`
     font-size: 40px;
     color: #fff;
-    font-family: 'Roboto', sans-serif;
-
+    font-family: 'Montserrat', sans-serif;
 `;
 
 export const Description = styled.div`

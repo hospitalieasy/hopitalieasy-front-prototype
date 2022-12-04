@@ -10,13 +10,15 @@ const Navbar = () => {
     return (
         <NavbarBase>
             <LeftSide>
-                <img src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/null/external-hospital-hospital-and-healthcare-xnimrodx-lineal-gradient-xnimrodx.png" alt="" />
+                <Link to={"/"}>
+                    <img src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/null/external-hospital-hospital-and-healthcare-xnimrodx-lineal-gradient-xnimrodx.png" alt="" />
+                </Link>
             </LeftSide>
             <MidSide>
                 <NavItemContainer>
                     <Button className="home" component={Link} to={'/'} size="medium">Home</Button>
-                    <Button className="about" component={Link} to={'/patient-login'} size="medium">About</Button>
-                    <Button className="contact" component={Link} to={'/patient-login'} size="medium">Contact Us</Button>
+                    <Button className="about" component={Link} to={'/about'} size="medium">About</Button>
+                    <Button className="contact" component={Link} to={'/contact'} size="medium">Contact</Button>
                 </NavItemContainer>
             </MidSide>
             <RightSide>

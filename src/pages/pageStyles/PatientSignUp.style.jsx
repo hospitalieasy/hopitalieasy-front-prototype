@@ -7,7 +7,6 @@ export const PatientSignUpBase = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #385170;
 `;
 
 export const SignUpSection = styled.div`
@@ -16,6 +15,7 @@ export const SignUpSection = styled.div`
     border-radius: 7px;
     background-color: #fff;
     text-align: center;
+    border: 1px solid;
 `;
 
 

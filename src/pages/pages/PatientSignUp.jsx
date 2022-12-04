@@ -5,7 +5,6 @@ import SignUpForm from "../../Components/SingUpForm/SignUpForm";
 
 const PatientSignUp = () => {
     return (
-
         <PatientSignUpBase>
             <SignUpSection>
                 <FormContent>
@@ -14,7 +13,6 @@ const PatientSignUp = () => {
                 </FormContent>
             </SignUpSection>
         </PatientSignUpBase>
-
     );
 }
 

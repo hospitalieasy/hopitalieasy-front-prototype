@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useState } from "react";
 
 const PatientScreen = () => {
+
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [findIndexItem, setFindIndexItem] = useState();
@@ -22,9 +23,7 @@ const PatientScreen = () => {
         console.log(response.data[0].date);
     }
 
-
     return (
-
         <PatientScreenBase>
             <MenuItemsWrapper>
                 <ItemList displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
@@ -51,7 +50,6 @@ const PatientScreen = () => {
                 )}
             </DefaultBox>
         </PatientScreenBase>
-
     );
 }
 
