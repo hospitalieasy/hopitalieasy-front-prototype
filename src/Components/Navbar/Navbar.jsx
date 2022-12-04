@@ -1,6 +1,6 @@
-import "..//..//Animations-CSS/Button/Button.css"
+import "..//..//Utilities/ButtonStyle/Button.css"
 
-import { ButtonContainer, ButtonItem, LeftSide, MidSide, NavItem, NavItemContainer, NavbarBase, RightSide } from "./Navbar.style";
+import { ButtonContainer, ButtonItem, LeftSide, MidSide, NavItemContainer, NavbarBase, RightSide } from "./Navbar.style"
 
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -10,28 +10,22 @@ const Navbar = () => {
     return (
         <NavbarBase>
             <LeftSide>
-                <img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/null/external-hospital-medical-kiranshastry-gradient-kiranshastry-1.png" alt="" />
+                <img src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/null/external-hospital-hospital-and-healthcare-xnimrodx-lineal-gradient-xnimrodx.png" alt="" />
             </LeftSide>
             <MidSide>
                 <NavItemContainer>
-                    <NavItem>
-                        Home
-                    </NavItem>
-                    <NavItem>
-                        About
-                    </NavItem>
-                    <NavItem>
-                        Contact Us
-                    </NavItem>
+                    <Button className="home" component={Link} to={'/'} size="medium">Home</Button>
+                    <Button className="about" component={Link} to={'/patient-login'} size="medium">About</Button>
+                    <Button className="contact" component={Link} to={'/patient-login'} size="medium">Contact Us</Button>
                 </NavItemContainer>
             </MidSide>
             <RightSide>
                 <ButtonContainer>
                     <ButtonItem>
-                        <Button className="patient-button" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="medium">Patient</Button>
+                        <Button className="patient" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="medium">Patient</Button>
                     </ButtonItem>
                     <ButtonItem>
-                        <Button className="doctor-button" component={Link} to={'/doctor-login'} variant="contained" size="medium">Doctor</Button>
+                        <Button className="doctor" component={Link} to={'/doctor-login'} variant="contained" size="medium">Doctor</Button>
                     </ButtonItem>
                 </ButtonContainer>
             </RightSide>

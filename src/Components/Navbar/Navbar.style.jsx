@@ -1,5 +1,6 @@
 import "..//..//Animations-CSS/Fonts/font.css"
 
+import { Button } from "@mui/material";
 import styled from "styled-components";
 
 export const NavbarBase = styled.div`
@@ -35,18 +36,14 @@ export const NavItemContainer = styled.div`
     width: 80%;
     display: flex;
     margin: auto;
+    align-items: center;
     justify-content: space-between;
-    
 `;
 
-export const NavItem = styled.div`
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #fff;
-    padding: 5px 20px;
+export const CustomWrapper = styled.div`
    
 `;
+
 
 export const ButtonContainer = styled.div`
     display: flex;
@@ -56,6 +53,7 @@ export const ButtonContainer = styled.div`
 export const ButtonItem = styled.div`
     padding: 0px 15px;
 `;
+
 
 
 

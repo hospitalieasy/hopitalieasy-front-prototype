@@ -17,9 +17,8 @@ const HeroBanner = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure aliquid suscipit rerum neque aut consectetur?
                     </Description>
                     <ButtonWrapper>
-                        <Button className="patient-button" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="large">Patient</Button>
-
-                        <Button className="doctor-button" component={Link} to={'/doctor-login'} variant="contained" size="large">Doctor</Button>
+                        <Button className="patient" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="large">Patient</Button>
+                        <Button className="doctor" component={Link} to={'/doctor-login'} variant="contained" size="large">Doctor</Button>
                     </ButtonWrapper>
                 </Content>
             </LeftSide>

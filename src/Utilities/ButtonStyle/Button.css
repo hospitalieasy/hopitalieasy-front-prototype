@@ -1,0 +1,50 @@
+/*
+Navbar Items
+*/
+
+.MuiButton-root.home {
+  color: #fff;
+  padding: 6px 30px;
+  text-transform: capitalize;
+}
+
+.MuiButton-root.home:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.about {
+  color: #fff;
+  padding: 6px 30px;
+  text-transform: capitalize;
+}
+
+.MuiButton-root.about:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.contact {
+  color: #fff;
+  padding: 6px 30px;
+  text-transform: capitalize;
+}
+
+.MuiButton-root.contact:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.doctor {
+  background-color: #1c23a8;
+}
+
+.MuiButton-root.doctor:hover {
+  background-color: #7440e5;
+}
+
+.MuiButton-root.patient {
+  color: #7440e5;
+  border-color: #7440e5;
+}
+
+.MuiButton-root.patient:hover {
+  border-color: #1e1436;
+}
