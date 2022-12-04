@@ -17,7 +17,7 @@ const Home = () => {
             <SvgContainer>
                 <Loading />
             </SvgContainer>
-            <SvgContainer>
+            <SvgContainer className="section-down">
                 <Loading />
             </SvgContainer>
 

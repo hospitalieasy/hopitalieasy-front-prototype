@@ -3,7 +3,7 @@ import "./loading.css"
 const Loading = ({ height, width }) => {
     return (
         <div className="base-tea" height={height} width={width}>
-            <span className="tea-title">We'll be back after coffee!</span>
+            <span className="tea-title">See you in the full version!</span>
             <svg className="tea" width="37" height="48" viewBox="0 0 37 48" fill="#fff" xmlns="http://www.w3.org/2000/svg">
                 <path d="M27.0819 17H3.02508C1.91076 17 1.01376 17.9059 1.0485 19.0197C1.15761 22.5177 1.49703 29.7374 2.5 34C4.07125 40.6778 7.18553 44.8868 8.44856 46.3845C8.79051 46.79 9.29799 47 9.82843 47H20.0218C20.639 47 21.2193 46.7159 21.5659 46.2052C22.6765 44.5687 25.2312 40.4282 27.5 34C28.9757 29.8188 29.084 22.4043 29.0441 18.9156C29.0319 17.8436 28.1539 17 27.0819 17Z" stroke="var(--secondary)" strokeWidth="2"></path>
                 <path d="M29 23.5C29 23.5 34.5 20.5 35.5 25.4999C36.0986 28.4926 34.2033 31.5383 32 32.8713C29.4555 34.4108 28 34 28 34" stroke="var(--secondary)" strokeWidth="2"></path>

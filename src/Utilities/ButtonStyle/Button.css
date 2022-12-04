@@ -39,6 +39,16 @@ Navbar Items
 Navbar Items and Hero Banner Items
 */
 
+.MuiButton-root.info {
+  letter-spacing: 2px;
+  padding: 15px 35px;
+  background: linear-gradient(to right, #ad06fa, #019ef3);
+}
+
+.MuiButton-root.info:hover {
+  background: linear-gradient(to right, #1c23a8, #1c23a8);
+}
+
 .MuiButton-root.doctor {
   background-color: #7440e5;
 }

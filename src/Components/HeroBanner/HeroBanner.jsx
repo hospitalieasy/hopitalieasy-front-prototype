@@ -1,9 +1,10 @@
 import "..//..//Utilities/ButtonStyle/Button.css"
+import "..//..//Utilities//ButtonStyle/Button.css"
 
 import { ButtonWrapper, Content, Description, HeroBannerBase, ImageContainer, LeftSide, RightSide, Title } from "./HeroBanner.style";
 
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import Loading from "../Loading/Loading";
 import React from "react";
 
@@ -19,9 +20,17 @@ const HeroBanner = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure aliquid suscipit rerum neque aut consectetur?
                     </Description>
                     <ButtonWrapper>
-                        <Button className="patient" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="large">Patient</Button>
-                        <Button className="doctor" component={Link} to={'/doctor-login'} variant="contained" size="large">Doctor</Button>
+                        <Link
+                            activeClass="active"
+                            to="section-down"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                        ><Button className="info" variant="contained" size="large">Get Started</Button>
+                        </Link>
                     </ButtonWrapper>
+
                 </Content>
             </LeftSide>
             <RightSide>
@@ -29,7 +38,7 @@ const HeroBanner = () => {
                     <Loading />
                 </ImageContainer>
             </RightSide>
-        </HeroBannerBase>
+        </HeroBannerBase >
     );
 }
 

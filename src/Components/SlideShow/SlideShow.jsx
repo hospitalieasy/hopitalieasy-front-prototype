@@ -1,19 +1,20 @@
 import "..//..//Utilities/ButtonStyle/Button.css"
 
-import { ButtonContainer, Content, ImageContainer, SlideShowBase } from './SlideShow.style';
+import { Content, ImageContainer, SlideShowBase } from './SlideShow.style';
 
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { Button } from '@mui/material';
 import React from 'react';
 import ReactSwipe from 'react-swipe';
+
+/* import { Button } from '@mui/material'; */
+/* import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; */
 
 const SlideShow = () => {
     let reactSwipeEl;
 
     function start() {
         setTimeout(function () {
-            reactSwipeEl.next();
+            reactSwipeEl?.next();
             start();
         }, 5000);
     }
@@ -42,10 +43,10 @@ const SlideShow = () => {
 
                 </ReactSwipe>
             </ImageContainer>
-            <ButtonContainer>
+            {/* <ButtonContainer>
                 <Button className='prev' onClick={() => reactSwipeEl.prev()} variant="contained" size="small"><ArrowBackIosIcon /></Button>
                 <Button className='next' onClick={() => reactSwipeEl.next()} variant="contained" size="small"><ArrowForwardIosIcon /></Button>
-            </ButtonContainer>
+            </ButtonContainer> */}
         </SlideShowBase>
     );
 };

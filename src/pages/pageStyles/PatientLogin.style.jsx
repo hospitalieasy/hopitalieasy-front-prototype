@@ -50,7 +50,7 @@ export const FormWrapper = styled.div`
 export const SliderSide = styled.div`
     height: 100%;
     width: 50%;
-    background-color: #2E244C;
+    background: linear-gradient(to right, #8d2eb9, #3ab1c8);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 `;

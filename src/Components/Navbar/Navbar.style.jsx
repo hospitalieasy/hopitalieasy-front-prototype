@@ -29,7 +29,7 @@ export const RightSide = styled.div`
 `;
 
 export const NavItemContainer = styled.div`
-    width: 40%;
+    width: 55%;
     display: flex;
     margin: auto;
     align-items: center;

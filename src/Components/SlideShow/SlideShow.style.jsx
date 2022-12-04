@@ -7,12 +7,12 @@ export const SlideShowBase = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 50px;
+    padding: 60px 130px;
 `;
 
 export const ImageContainer = styled.div`
     height: 100%;
-    width: 70%;
+    width: 100%;
     border: 1px solid;
     border-color: #fff;
     border-radius: 10px;
@@ -24,10 +24,10 @@ export const Content = styled.div`
     color: #fff;
 `;
 
-export const ButtonContainer = styled.div`
+/* export const ButtonContainer = styled.div`
     height: 20%;
     width: 30%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-`;
+`; */
