@@ -15,15 +15,6 @@ export const LeftSide = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid;
-    -webkit-transition: background-color 0.5s ease-out;
-    -moz-transition: background-color 0.5s ease-out;
-    -o-transition: background-color 0.5s ease-out;
-    transition: background-color 0.5s ease-out;
-        &:hover{
-            background-color: #83cee0;;
-            cursor: pointer;
-        }
 `;
 
 export const RightSide = styled.div`
@@ -32,19 +23,8 @@ export const RightSide = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    -webkit-transition: background-color 0.5s ease-out;
-    -moz-transition: background-color 0.5s ease-out;
-    -o-transition: background-color 0.5s ease-out;
-    transition: background-color 0.5s ease-out;
-        &:hover{
-            background-color: #83cee0;;
-            cursor: pointer;
-        }
+    
 `;
 
-export const CustomButton = styled(Button)`
-    height: 200px;
-    width: 300px;
-`;
 
 

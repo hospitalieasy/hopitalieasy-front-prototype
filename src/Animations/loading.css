@@ -4,11 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f1b963;
+  background-color: #142d4c;
   height: 85vh;
-  border-bottom: 1px solid;
 }
 .tea-title {
+  color: #fff;
   font-size: 50px;
   font-family: "Caveat", cursive;
   margin-top: 16px;

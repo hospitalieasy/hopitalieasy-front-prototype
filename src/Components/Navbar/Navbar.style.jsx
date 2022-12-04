@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavbarBase = styled.div`
     height: 100%;
     width: 100%;
-    background-color: #0D0F14;
+    background-color: #142d4c;
     display: flex;
     align-items: center;
     font-size: 20px;
