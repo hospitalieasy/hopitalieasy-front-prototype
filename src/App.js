@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import About from "./pages/pages/About";
-import Error from "./pages/pages/Error";
-import Future from "./pages/pages/Future";
-import Home from "./pages/pages/Home";
-import PatientLogin from "./pages/pages/PatientLogin";
-import PatientScreen from "./pages/pages/PatientScreen";
-import PatientSignUp from "./pages/pages/PatientSignUp";
+import About from "./pages/general/About";
+import Error from "./pages/general/Error";
+import Future from "./pages/general/Future";
+import Home from "./pages/general/Home";
+import PatientLogin from "./pages/general/PatientLogin";
+import PatientScreen from "./pages/general/PatientScreen";
+import PatientSignUp from "./pages/general/PatientSignUp";
 
 function App() {
   return (

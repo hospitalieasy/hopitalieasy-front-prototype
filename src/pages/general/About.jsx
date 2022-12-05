@@ -1,16 +1,16 @@
+import { AboutBase } from "../general/styles/About.style";
 import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout"
-import { FutureBase } from "../pageStyles/Future.style";
 import Loading from "../../Components/Loading/Loading"
 import React from "react";
 
-const Future = () => {
+const About = () => {
     return (
         <DefaultLayout>
-            <FutureBase>
+            <AboutBase>
                 <Loading />
-            </FutureBase>
+            </AboutBase>
         </DefaultLayout>
     );
 }
 
-export default Future;
+export default About;

@@ -1,5 +1,3 @@
-import "..//..//Utilities/Fonts/font.css"
-
 import styled from "styled-components";
 
 export const FooterBase = styled.div`

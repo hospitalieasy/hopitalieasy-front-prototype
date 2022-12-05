@@ -4,7 +4,7 @@ import HeroBanner from "../../Components/HeroBanner/HeroBanner";
 import Loading from "../../Components/Loading/Loading";
 import Navbar from "../../Components/Navbar/Navbar";
 import React from "react";
-import { SvgContainer } from "../pageStyles/Home.style";
+import { SvgContainer } from "../general/styles/Home.style";
 
 const Home = () => {
     return (

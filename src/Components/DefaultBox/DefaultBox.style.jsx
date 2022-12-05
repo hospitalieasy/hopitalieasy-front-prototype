@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const DefaultBoxBase = styled.div`
-    width: 90%;
-    height: 92vh;
-    background-color: #fff;
+    width: ${props => props.width};
+    height: ${props => props.height};
+    background: ${props => props.background};
     border-radius: 10px;
 `;

@@ -1,6 +1,6 @@
-import { MenuItemsWrapper, PatientScreenBase, ScreenWrapper } from "../pageStyles/PatientScreen.style";
+import { ContentWrapper, MenuItemsWrapper, PatientScreenBase, ScreenWrapper } from "../general/styles/PatientScreen.style";
 
-import DefaultLayout from "..//..//Components/DefaultLayout/DefaultLayout"
+import DefaultBox from "..//..//Components/DefaultBox/DefaultBox"
 import ItemList from "../../Components/ItemList/ItemList";
 import { PatternLayout } from "../../Components/DefaultLayout/DefaultLayout.style";
 import axios from 'axios';
@@ -32,15 +32,15 @@ const PatientScreen = () => {
             <ScreenWrapper>
                 <PatternLayout>
                     {findIndexItem === 0 && (
-                        <>
-                            <div style={{ color: "#fff" }}>index is 0</div>
-                        </>
+                        <ContentWrapper>
+                            <DefaultBox width={"75%"} height={"75vh"} background={"#1e1c36"} />
+                        </ContentWrapper>
                     )}
 
                     {findIndexItem === 1 && (
-                        <>
-                            <div style={{ color: "#fff" }}>index is 1</div>
-                        </>
+                        <ContentWrapper>
+                            <DefaultBox width={"75%"} height={"75vh"} background={"#1e1c36"} />
+                        </ContentWrapper>
                     )}
 
                     {findIndexItem === 2 && (
