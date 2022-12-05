@@ -1,4 +1,4 @@
-import "..//..//Utilities/style/Button.css"
+import "..//..//utilities/style/Button.css"
 
 import { ButtonWrapper, Content, Description, HeroBannerBase, ImageContainer, LeftSide, RightSide, Title } from "./HeroBanner.style";
 

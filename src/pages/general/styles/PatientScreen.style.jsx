@@ -9,7 +9,7 @@ export const PatientScreenBase = styled.div`
 
 export const MenuItemsWrapper = styled.div`
     height: 100%;
-    width: 6%;
+    width: 17%;
 `;
 
 export const ScreenWrapper = styled.div`

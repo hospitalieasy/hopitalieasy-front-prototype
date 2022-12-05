@@ -1,4 +1,4 @@
-import "..//..//Utilities/style/Button.css"
+import "..//..//utilities/style/Button.css"
 
 import { Content, ImageContainer, SlideShowBase } from './SlideShow.style';
 

@@ -11,7 +11,7 @@ const PatientLogin = () => {
     return (
         <DefaultLayout>
             <PatientLoginBase>
-                <DefaultBox width={"90%"} height={"90vh"}>
+                <DefaultBox width={"90%"} height={"90vh"} background={"#fff"}>
                     <FormWrapper>
                         <ContentWrapper>
                             <LoginSide>
