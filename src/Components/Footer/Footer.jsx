@@ -23,10 +23,10 @@ const Footer = () => {
                     <MenuContainer>
                         <MenuItem>
                             <Title>
-                                About Us
+                                Lorem, ipsum.
                             </Title>
                             <Description>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, fugiat!
+                                Lorem ipsum dolor sit amet.
                             </Description>
                         </MenuItem>
 

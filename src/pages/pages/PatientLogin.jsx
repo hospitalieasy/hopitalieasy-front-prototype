@@ -18,7 +18,9 @@ const PatientLogin = () => {
                                 <LoginForm title={"Patient Login"} buttonLabel={"Login"} address={"/patient-screen"} />
                             </LoginSide>
                             <Label>
-                                Don't you have an account? <span style={{ fontWeight: "700", cursor: "pointer" }} >Sign Up Here!</span>
+                                <Link style={{ textDecoration: "none", color: "inherit" }} component={Link} to={'/patient-sign-up'}>
+                                    Don't you have an account? <span style={{ fontWeight: "700", cursor: "pointer" }} >Sign Up Here!</span>
+                                </Link>
                             </Label>
                             <IconWrapper>
                                 <Link component={Link} to={'/'}>

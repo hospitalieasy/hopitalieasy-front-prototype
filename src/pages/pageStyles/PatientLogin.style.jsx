@@ -29,6 +29,8 @@ export const Label = styled.div`
     width: 100%;
     margin-top: -135px;
     padding-left: 85px;
+    text-decoration: none;
+    outline: none;
 `;
 
 export const IconWrapper = styled.div`

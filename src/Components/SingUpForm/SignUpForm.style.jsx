@@ -3,23 +3,19 @@ import styled from "styled-components";
 export const SingUpFormBase = styled.div`
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
 `;
 
 export const FormWrapper = styled.div`
-    width: 33%;
-    height: 100%;
-    padding: 20px 0px;
+    width: 70%;
+    height: 75%;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    border-radius: 10px;
-    border: 1px solid;
-`;
-
-export const ContentWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: auto;
+    justify-content: space-between;
+    padding: 50px;
+    border-radius: 7px;
+    margin-left: 35px;
 `;
 
 export const UserAcceptContent = styled.div`
@@ -28,20 +24,13 @@ export const UserAcceptContent = styled.div`
     margin-left: -10px;
 `;
 
-export const IconWrapper = styled.div`
-    position: absolute;
-    margin-left: 400px;
-    cursor: pointer;
-`;
-
 export const Label = styled.div`
     font-size: 16px;
     margin-left: 10px;
 `;
 
 export const Title = styled.div`
-    font-size: 28px;
-    text-align: center;
+    font-size: 30px;
 `;
 
 
