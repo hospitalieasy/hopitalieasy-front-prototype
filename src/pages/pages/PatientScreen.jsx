@@ -24,7 +24,7 @@ const PatientScreen = () => {
     }
 
     return (
-        <DefaultLayout>
+        <>
             <PatientScreenBase>
                 <MenuItemsWrapper>
                     <ItemList displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
@@ -49,7 +49,7 @@ const PatientScreen = () => {
                     )}
                 </ScreenWrapper>
             </PatientScreenBase>
-        </DefaultLayout>
+        </>
     );
 }
 
