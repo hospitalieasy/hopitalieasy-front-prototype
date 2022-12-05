@@ -2,6 +2,7 @@ import { MenuItemsWrapper, PatientScreenBase, ScreenWrapper } from "../pageStyle
 
 import DefaultLayout from "..//..//Components/DefaultLayout/DefaultLayout"
 import ItemList from "../../Components/ItemList/ItemList";
+import { PatternLayout } from "../../Components/DefaultLayout/DefaultLayout.style";
 import axios from 'axios';
 import { useState } from "react";
 
@@ -24,18 +25,22 @@ const PatientScreen = () => {
     }
 
     return (
-        <>
-            <PatientScreenBase>
-                <MenuItemsWrapper>
-                    <ItemList displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
-                </MenuItemsWrapper>
-                <ScreenWrapper>
+        <PatientScreenBase>
+            <MenuItemsWrapper>
+                <ItemList displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
+            </MenuItemsWrapper>
+            <ScreenWrapper>
+                <PatternLayout>
                     {findIndexItem === 0 && (
-                        <div style={{ color: "#fff" }}>index is 0</div>
+                        <>
+                            <div style={{ color: "#fff" }}>index is 0</div>
+                        </>
                     )}
 
                     {findIndexItem === 1 && (
-                        <div style={{ color: "#fff" }}>index is 1</div>
+                        <>
+                            <div style={{ color: "#fff" }}>index is 1</div>
+                        </>
                     )}
 
                     {findIndexItem === 2 && (
@@ -47,9 +52,9 @@ const PatientScreen = () => {
                     {findIndexItem === 3 && (
                         <div style={{ color: "#fff" }} >index is 3</div>
                     )}
-                </ScreenWrapper>
-            </PatientScreenBase>
-        </>
+                </PatternLayout>
+            </ScreenWrapper>
+        </PatientScreenBase>
     );
 }
 
