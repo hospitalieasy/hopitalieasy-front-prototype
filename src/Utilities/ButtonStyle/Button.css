@@ -43,6 +43,20 @@ Navbar Items and Hero Banner Items
   letter-spacing: 2px;
   padding: 15px 35px;
   background: linear-gradient(to right, #ad06fa, #019ef3);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
 
 .MuiButton-root.info:hover {

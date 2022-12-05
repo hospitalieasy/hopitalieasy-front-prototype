@@ -38,7 +38,7 @@ export const Title = styled.div`
 
 export const Label = styled.div`
     font-size: 16px;
-    margin-left: 20px;
+    margin-left: 26px;
 `;
 
 export const FormWrapper = styled.div`
@@ -50,9 +50,24 @@ export const FormWrapper = styled.div`
 export const SliderSide = styled.div`
     height: 100%;
     width: 50%;
-    background: linear-gradient(to right, #8d2eb9, #3ab1c8);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    animation: gradient 15s ease infinite;
+    background: linear-gradient(to right, #8d2eb9, #3ab1c8);
+	background-size: 200% 200%;
+	animation: gradient 12s ease infinite;
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 `;
 
 

@@ -10,10 +10,10 @@ export const ErrorBase = styled.div`
 `;
 
 export const Label = styled.div`
-    background-color: #e6d0ef;
+    background: linear-gradient(to right, #ad06fa, #019ef3);
     padding: 50px;
     border-radius: 10px;
-    color: black;
+    color: #000000;
     font-size: 30px;
     font-weight: 600;
 `;

@@ -30,7 +30,6 @@ const HeroBanner = () => {
                         ><Button className="info" variant="contained" size="large">Get Started</Button>
                         </Link>
                     </ButtonWrapper>
-
                 </Content>
             </LeftSide>
             <RightSide>

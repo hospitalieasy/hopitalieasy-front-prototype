@@ -53,6 +53,20 @@ export const SliderSide = styled.div`
     background: linear-gradient(to right, #f9c840, #9000ff);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    background-size: 200% 200%;
+	animation: gradient 12s ease infinite;
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 `;
 
 

@@ -20,7 +20,7 @@ const Home = () => {
             <SvgContainer className="section-down">
                 <Loading />
             </SvgContainer>
-
+            
         </DefaultLayout>
     );
 }
