@@ -47,6 +47,13 @@ export const FormWrapper = styled.div`
     margin: 16px 0;
 `;
 
+export const LogoutIcon = styled.div`
+    position: absolute;
+    bottom: 0;
+    margin: 0px 30px 70px;
+    cursor: pointer;
+`;
+
 export const SliderSide = styled.div`
     height: 100%;
     width: 50%;

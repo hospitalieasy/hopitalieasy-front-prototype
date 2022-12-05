@@ -1,4 +1,5 @@
 import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout";
+import Footer from "../../Components/Footer/Footer";
 import HeroBanner from "../../Components/HeroBanner/HeroBanner";
 import Loading from "../../Components/Loading/Loading";
 import Navbar from "../../Components/Navbar/Navbar";
@@ -17,10 +18,11 @@ const Home = () => {
             <SvgContainer>
                 <Loading />
             </SvgContainer>
-            <SvgContainer className="section-down">
+            <SvgContainer>
                 <Loading />
             </SvgContainer>
-            
+
+            <Footer />
         </DefaultLayout>
     );
 }

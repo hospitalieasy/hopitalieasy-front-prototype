@@ -30,6 +30,13 @@ export const FormContent = styled.div`
     margin-left: 50px;
 `;
 
+export const LogoutIcon = styled.div`
+    position: absolute;
+    bottom: 0;
+    margin: 0px 30px 70px;
+    cursor: pointer;
+`;
+
 export const Title = styled.div`
     font-size: 30px;
     margin-left: 20px;

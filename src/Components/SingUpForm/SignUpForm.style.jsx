@@ -6,14 +6,20 @@ export const SingUpFormBase = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-    width: 100%;
+    width: 33%;
     height: 100%;
+    padding: 20px 0px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 24px;
     margin: auto;
-    border-radius: 7px;
+    border-radius: 10px;
+    border: 1px solid;
+`;
+
+export const ContentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 `;
 
 export const UserAcceptContent = styled.div`
@@ -22,9 +28,21 @@ export const UserAcceptContent = styled.div`
     margin-left: -10px;
 `;
 
+export const IconWrapper = styled.div`
+    position: absolute;
+    margin-left: 400px;
+    cursor: pointer;
+`;
+
 export const Label = styled.div`
     font-size: 16px;
     margin-left: 10px;
 `;
+
+export const Title = styled.div`
+    font-size: 28px;
+    text-align: center;
+`;
+
 
 

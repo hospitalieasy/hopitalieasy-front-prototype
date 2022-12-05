@@ -22,7 +22,7 @@ const HeroBanner = () => {
                     <ButtonWrapper>
                         <Link
                             activeClass="active"
-                            to="section-down"
+                            to="footer"
                             spy={true}
                             smooth={true}
                             offset={-70}
