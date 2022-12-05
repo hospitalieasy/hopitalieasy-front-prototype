@@ -8,50 +8,18 @@ export const DoctorLoginBase = styled.div`
     justify-content: center;
 `;
 
-export const LoginSection = styled.div`
-    height: 85vh;
-    width: 90%;
-    background-color: #fff;
-    display: flex;
-    border-radius: 7px;
-`;
-
-export const FormSide = styled.div`
-    height: 100%;
-    width: 50%;
-    background-color: #fff;
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-`;
-
-export const FormContent = styled.div`
-    width: 350px;
-    margin-left: 50px;
-`;
-
-export const LogoutIcon = styled.div`
-    position: absolute;
-    bottom: 0;
-    margin: 0px 30px 70px;
-    cursor: pointer;
-`;
-
-export const Title = styled.div`
-    font-size: 30px;
-    margin-left: 20px;
-    font-weight: 500;
-`;
-
-export const Label = styled.div`
-    font-size: 16px;
-    margin-left: 20px;
-`;
-
 export const FormWrapper = styled.div`
-    width: 350px;
-    height: 250px;
-    margin: 16px 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+`;
+
+export const LoginSide = styled.div`
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
 `;
 
 export const SliderSide = styled.div`
