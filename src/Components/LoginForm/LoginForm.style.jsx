@@ -16,6 +16,7 @@ export const FormWrapper = styled.div`
     padding: 50px;
     border-radius: 7px;
     margin-left: 35px;
+    margin-bottom: 30px;
 `;
 
 export const Title = styled.div`

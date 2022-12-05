@@ -26,7 +26,7 @@ const Navbar = () => {
                         <Button className="patient" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="medium">Patient</Button>
                     </ButtonItem>
                     <ButtonItem>
-                        <Button className="doctor" component={Link} to={'/doctor-login'} variant="contained" size="medium">Doctor</Button>
+                        <Button className="doctor" component={Link} to={'/future-content'} variant="contained" size="medium">Doctor</Button>
                     </ButtonItem>
                 </ButtonContainer>
             </RightSide>

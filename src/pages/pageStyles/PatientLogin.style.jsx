@@ -27,8 +27,13 @@ export const LoginSide = styled.div`
 
 export const Label = styled.div`
     width: 100%;
-    margin-top: -120px;
+    margin-top: -135px;
     padding-left: 85px;
+`;
+
+export const IconWrapper = styled.div`
+    margin-top: 50px;
+    padding-left: 30px;
 `;
 
 export const SliderSide = styled.div`

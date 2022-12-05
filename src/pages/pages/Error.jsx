@@ -1,7 +1,6 @@
 import { ErrorBase, Label } from "../pageStyles/Error.style";
 
 import DefaultLayout from "..//..//Components//DefaultLayout/DefaultLayout"
-import { Link } from "react-router-dom";
 import React from "react";
 
 const Error = () => {

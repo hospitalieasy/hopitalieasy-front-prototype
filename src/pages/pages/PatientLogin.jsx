@@ -1,7 +1,8 @@
-import { ContentWrapper, FormWrapper, Label, LoginSide, PatientLoginBase, SliderSide } from "../pageStyles/PatientLogin.style";
+import { ContentWrapper, FormWrapper, IconWrapper, Label, LoginSide, PatientLoginBase, SliderSide } from "../pageStyles/PatientLogin.style";
 
 import DefaultBox from "../../Components/DefaultBox/DefaultBox";
 import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout";
+import { Link } from "react-router-dom";
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import React from "react";
 import SlideShow from "../../Components/SlideShow/SlideShow";
@@ -14,11 +15,16 @@ const PatientLogin = () => {
                     <FormWrapper>
                         <ContentWrapper>
                             <LoginSide>
-                                <LoginForm title={"Patient"} buttonLabel={"Login"} />
+                                <LoginForm title={"Patient Login"} buttonLabel={"Login"} address={"/patient-screen"} />
                             </LoginSide>
                             <Label>
                                 Don't you have an account? <span style={{ fontWeight: "700", cursor: "pointer" }} >Sign Up Here!</span>
                             </Label>
+                            <IconWrapper>
+                                <Link component={Link} to={'/'}>
+                                    <img src="https://img.icons8.com/ios-filled/42/null/logout-rounded-left.png" alt="" />
+                                </Link>
+                            </IconWrapper>
                         </ContentWrapper>
                         <SliderSide>
                             <SlideShow />
