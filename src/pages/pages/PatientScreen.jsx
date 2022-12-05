@@ -1,6 +1,5 @@
-import { MenuItemsWrapper, PatientScreenBase } from "../pageStyles/PatientScreen.style";
+import { MenuItemsWrapper, PatientScreenBase, ScreenWrapper } from "../pageStyles/PatientScreen.style";
 
-import DefaultBox from "../../Components/DefaultBox/DefaultBox";
 import DefaultLayout from "..//..//Components/DefaultLayout/DefaultLayout"
 import ItemList from "../../Components/ItemList/ItemList";
 import axios from 'axios';
@@ -30,27 +29,25 @@ const PatientScreen = () => {
                 <MenuItemsWrapper>
                     <ItemList displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
                 </MenuItemsWrapper>
-                <DefaultBox>
+                <ScreenWrapper>
                     {findIndexItem === 0 && (
-                        <div>index is 0</div>
+                        <div style={{ color: "#fff" }}>index is 0</div>
                     )}
 
                     {findIndexItem === 1 && (
-                        <div>index is 1</div>
+                        <div style={{ color: "#fff" }}>index is 1</div>
                     )}
 
                     {findIndexItem === 2 && (
-                        <div>
+                        <div style={{ color: "#fff" }}>
                             index is 2
-                            <h3> username : {username} </h3>
-                            <h3> password : {password} </h3>
                         </div>
                     )}
 
                     {findIndexItem === 3 && (
-                        <div>index is 3</div>
+                        <div style={{ color: "#fff" }} >index is 3</div>
                     )}
-                </DefaultBox>
+                </ScreenWrapper>
             </PatientScreenBase>
         </DefaultLayout>
     );

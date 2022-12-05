@@ -10,7 +10,10 @@ export const PatientScreenBase = styled.div`
 
 export const MenuItemsWrapper = styled.div`
     height: 100%;
-    width: 6%;
-    display: flex;
-    padding-top: 65px;
+    width: 100%;
+`;
+
+export const ScreenWrapper = styled.div`
+    height: 100%;
+    width: 100%;
 `;
