@@ -19,12 +19,17 @@ export const FormWrapper = styled.div`
 export const UserAcceptContent = styled.div`
     display: flex;
     align-items: center;
-    margin-left: -10px;
 `;
 
 export const Label = styled.div`
     font-size: 16px;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
+`;
+
+export const Text = styled.div`
+    padding-right: 30px;
 `;
 
 export const Title = styled.div`
