@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -38,7 +39,7 @@ export default function ProfileMenu(props) {
                 }}
             >
                 <MenuItem onClick={profileHandler}>My Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem component={Link} to={'/'}>Logout</MenuItem>
             </Menu>
         </div>
     );

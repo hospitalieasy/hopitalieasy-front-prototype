@@ -7,7 +7,10 @@ export const SlideShowBase = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 60px 130px;
+    padding: ${props => props.padding};
+    background: ${props => props.background};
+    width: ${props => props.width};
+    height: ${props => props.height};
 `;
 
 export const ImageContainer = styled.div`

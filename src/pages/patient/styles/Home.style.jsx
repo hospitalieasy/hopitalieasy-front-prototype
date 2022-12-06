@@ -1,5 +1,3 @@
-import { HeightTwoTone } from "@mui/icons-material";
-import { height } from "@mui/system";
 import styled from "styled-components";
 
 export const HomeBase = styled.div`
@@ -24,7 +22,6 @@ export const Section = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 15px 0px;
-    align-items: center;
 `;
 
 

@@ -28,7 +28,7 @@ const PatientLogin = () => {
                             </IconWrapper>
                         </ContentWrapper>
                         <SliderSide>
-                            <SlideShow />
+                            <SlideShow padding={"60px 130px"} />
                         </SliderSide>
                     </FormWrapper>
                 </DefaultBox>

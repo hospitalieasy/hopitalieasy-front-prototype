@@ -9,7 +9,8 @@ import ReactSwipe from 'react-swipe';
 /* import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; */
 
-const SlideShow = () => {
+const SlideShow = (props) => {
+    const { padding, background, width, height } = props;
     let reactSwipeEl;
 
     function start() {
@@ -21,7 +22,7 @@ const SlideShow = () => {
     start();
 
     return (
-        <SlideShowBase>
+        <SlideShowBase padding={padding} background={background} width={width} height={height}>
             <ImageContainer>
                 <ReactSwipe
                     className="carousel"
