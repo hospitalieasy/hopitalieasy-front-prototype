@@ -10,10 +10,6 @@ const ItemArray = [
         text: "Home",
         icon: <CottageOutlinedIcon fontSize='large' />
     },
-    {
-        text: "User",
-        icon: <PersonIcon fontSize='large' />
-    },
 ];
 
 export default ItemArray;

@@ -8,9 +8,15 @@ import { useState } from "react";
 
 const PatientScreen = () => {
 
-    const [username, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+    /* const [username, setUserName] = useState("");
+    const [password, setPassword] = useState(""); */
     const [findIndexItem, setFindIndexItem] = useState();
+    const [profile, setProfile] = useState(false);
+
+    const profileHandler = (is) => {
+        setProfile(is);
+    }
+
     const displayInfo = async (e) => {
         e.preventDefault();
 
@@ -19,29 +25,32 @@ const PatientScreen = () => {
             `
         );
 
-        setUserName(response.data[0].date);
-        setPassword(response.data[1].summary);
+        /* setUserName(response.data[0].date);
+        setPassword(response.data[1].summary); */
         console.log(response.data[0].date);
     }
 
     return (
         <PatientScreenBase>
             <MenuItemsWrapper>
-                <ItemList displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
+                <ItemList setProfile={setProfile} displayInfo={displayInfo} setFindIndexItem={setFindIndexItem} />
             </MenuItemsWrapper>
             <ScreenWrapper>
                 <>
-                    {findIndexItem === 1 && (
-                        <Home />
+                    {findIndexItem === 0 && (!profile) && (
+                        <Home profileHandler={profileHandler} />
+                    )}
+                    {findIndexItem === 0 && profile && (
+                        <UserInfo profileHandler={profileHandler} />
                     )}
 
-                    {findIndexItem === 2 && (
-                        <UserInfo />
+                    {findIndexItem === 1 && (!profile) && (
+                        <Home profileHandler={profileHandler} />
+                    )}
+                    {findIndexItem === 1 && profile && (
+                        <UserInfo profileHandler={profileHandler} />
                     )}
 
-                    {findIndexItem === 3 && (
-                        <div style={{ color: "#fff" }} >index is 3</div>
-                    )}
                 </>
             </ScreenWrapper>
         </PatientScreenBase>

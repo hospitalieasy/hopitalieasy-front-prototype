@@ -1,15 +1,17 @@
 import { ContentWrapper, HomeBase, Section } from "./styles/Home.style";
 
+import AppBar from "../../Components/AppBar/AppBar";
 import DefaultBox from "../../Components/DefaultBox/DefaultBox"
 
-const Home = () => {
+const Home = (props) => {
+    const { profileHandler } = props;
     return (
         <HomeBase>
             <ContentWrapper>
 
-                <Section width={"95%"} height={"15%"}>
-                    <DefaultBox width={"100%"} height={"100%"} background={"#1e1c36"}>
-
+                <Section width={"95%"} height={"10%"}>
+                    <DefaultBox width={"100%"} height={"100%"}>
+                        <AppBar profileHandler={profileHandler} />
                     </DefaultBox>
                 </Section>
 

@@ -17,6 +17,7 @@ const InformationTab = (props) => {
     const { title, buttonLabel, address } = props;
     return (
         <InformationTabBase>
+            <Title>User Information</Title>
             <FormWrapper>
                 <Title>{title}</Title>
                 <Section>

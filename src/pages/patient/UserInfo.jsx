@@ -1,16 +1,18 @@
 import { ContentWrapper, Section, UserInfoBase } from "./styles/UserInfo.style";
 
+import AppBar from "../../Components/AppBar/AppBar";
 import DefaultBox from "../../Components/DefaultBox/DefaultBox"
 import InformationTab from "../../Components/InformationTab/InformationTab";
 
-const UserInfo = () => {
+const UserInfo = (props) => {
+    const { profileHandler } = props;
     return (
         <UserInfoBase>
             <ContentWrapper>
 
-                <Section width={"95%"} height={"15%"}>
-                    <DefaultBox width={"100%"} height={"100%"} background={"#1e1c36"}>
-
+                <Section width={"95%"} height={"10%"}>
+                    <DefaultBox width={"100%"} height={"100%"}>
+                        <AppBar profileHandler={profileHandler} />
                     </DefaultBox>
                 </Section>
 

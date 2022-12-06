@@ -6,10 +6,11 @@ export const InformationTabBase = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 `;
 
 export const FormWrapper = styled.div`
-    width: 100%;
+    width: 80%;
     height: 60%;
     display: flex;
     flex-direction: column;
@@ -36,7 +37,7 @@ export const Label = styled.div`
 export const ButtonWrapper = styled.div`
     width: 18%;
     height: 9%;
-    margin-left: 75px;
+    margin-left: -350px;
 `;
 
 
