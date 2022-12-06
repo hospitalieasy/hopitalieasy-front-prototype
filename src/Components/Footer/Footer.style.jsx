@@ -94,11 +94,3 @@ export const CreditWrapper = styled.div`
     border-right: 1px solid;
     align-items: center;
 `;
-
-export const NameLabel = styled.div`
-    width: 100%;
-`;
-
-export const Icon = styled.div`
-    cursor: pointer;
-`;

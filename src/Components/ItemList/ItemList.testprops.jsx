@@ -1,21 +1,18 @@
 import CottageOutlinedIcon from '@mui/icons-material/CottageOutlined';
-import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 
 const ItemArray = [
     {
-        icon: "LOGO"
+        text: "LOGO",
+        icon: ""
     },
     {
+        text: "Home",
         icon: <CottageOutlinedIcon fontSize='large' />
     },
-
     {
+        text: "User",
         icon: <PersonIcon fontSize='large' />
-    },
-
-    {
-        icon: <LogoutIcon fontSize='large' />
     },
 ];
 

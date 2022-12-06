@@ -1,6 +1,7 @@
-import { BottomMenu, CreditWrapper, Description, FooterBase, Icon, Link, MenuContainer, MenuItem, NameLabel, PatternLayout, Title, TopMenu } from "./Footer.style";
+import { BottomMenu, CreditWrapper, FooterBase, MenuContainer, PatternLayout, TopMenu } from "./Footer.style";
 
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Credit from "../FooterCredit/Credit";
+import FooterMenuItem from "../FooterItem/FooterItem";
 
 const Footer = () => {
 
@@ -21,67 +22,16 @@ const Footer = () => {
             <PatternLayout>
                 <TopMenu>
                     <MenuContainer>
-                        <MenuItem>
-                            <Title>
-                                Lorem, ipsum.
-                            </Title>
-                            <Description>
-                                Lorem ipsum dolor sit amet.
-                            </Description>
-                        </MenuItem>
-
-                        <MenuItem>
-                            <Title>
-                                Lorem, ipsum.
-                            </Title>
-                            <Link>
-                                Lorem ipsum dolor sit amet.
-                            </Link>
-                        </MenuItem>
-
-                        <MenuItem>
-                            <Title>
-                                Lorem, ipsum.
-                            </Title>
-                            <Link>
-                                Lorem ipsum dolor sit amet.
-                            </Link>
-                        </MenuItem>
+                        <FooterMenuItem title={"asd"} description={"asd"} />
+                        <FooterMenuItem title={"asd"} description={"asd"} />
+                        <FooterMenuItem title={"asd"} description={"asd"} />
                     </MenuContainer>
                 </TopMenu>
                 <BottomMenu>
-                    <CreditWrapper>
-                        <NameLabel>
-                            Created By
-                        </NameLabel>
-                    </CreditWrapper>
-
-                    <CreditWrapper>
-                        <NameLabel>
-                            İsmail Altar Ulaş
-                        </NameLabel>
-                        <Icon>
-                            <LinkedInIcon fontSize="large" onClick={linkAltar} />
-                        </Icon>
-                    </CreditWrapper>
-
-                    <CreditWrapper>
-                        <NameLabel>
-                            Beste Sakar
-                        </NameLabel>
-                        <Icon>
-                            <LinkedInIcon fontSize="large" onClick={linkBeste} />
-                        </Icon>
-                    </CreditWrapper>
-
-                    <CreditWrapper>
-                        <NameLabel>
-                            Şinasi Ege Karataş
-                        </NameLabel>
-                        <Icon>
-                            <LinkedInIcon fontSize="large" onClick={linkEge} />
-                        </Icon>
-                    </CreditWrapper>
+                    <CreditWrapper>Created By</CreditWrapper>
+                    <Credit title={"İsmail Altar Ulaş"} link={linkAltar} />
+                    <Credit title={"Beste Sakar"} link={linkBeste} />
+                    <Credit title={"Şinasi Ege Karataş"} link={linkEge} />
                 </BottomMenu>
             </PatternLayout>
         </FooterBase>

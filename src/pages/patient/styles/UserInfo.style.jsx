@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InformationBase = styled.div`
+export const UserInfoBase = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
@@ -9,8 +9,8 @@ export const InformationBase = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-    height: 95%;
-    width: 95%;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -18,10 +18,10 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Section = styled.div`
-    height: 100%;
-    width: 90%;
+    height: ${props => props.height};
+    width: ${props => props.width};
     display: flex;
-    justify-content: space-between;
+    margin: 15px 0px;
     align-items: center;
 `;
 

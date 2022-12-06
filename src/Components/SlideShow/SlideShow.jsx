@@ -28,7 +28,6 @@ const SlideShow = () => {
                     swipeOptions={{ continuous: true }}
                     ref={el => (reactSwipeEl = el)}
                 >
-
                     <Content>
                         <h1>Slide 1</h1>
                     </Content>

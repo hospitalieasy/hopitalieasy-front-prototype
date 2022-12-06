@@ -1,7 +1,8 @@
 import { MenuItemsWrapper, PatientScreenBase, ScreenWrapper } from "../general/styles/PatientScreen.style";
 
-import Information from "../patient/Information";
+import Home from "../patient/Home";
 import ItemList from "../../Components/ItemList/ItemList";
+import UserInfo from "../patient/UserInfo";
 import axios from 'axios';
 import { useState } from "react";
 
@@ -30,16 +31,12 @@ const PatientScreen = () => {
             </MenuItemsWrapper>
             <ScreenWrapper>
                 <>
-                    {findIndexItem === 0 && (
-                        <div style={{ color: "#fff" }} >index is 0</div>
-                    )}
-
                     {findIndexItem === 1 && (
-                        <div style={{ color: "#fff" }} >index is 1</div>
+                        <Home />
                     )}
 
                     {findIndexItem === 2 && (
-                        <Information />
+                        <UserInfo />
                     )}
 
                     {findIndexItem === 3 && (

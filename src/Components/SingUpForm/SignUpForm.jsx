@@ -9,9 +9,7 @@ const SignUpForm = ({ label }) => {
     return (
         <SingUpFormBase>
             <FormWrapper>
-                <Title>
-                    Sign Up
-                </Title>
+                <Title>Sign Up</Title>
                 <TextField id="outlined-basic" label="e-mail" variant="standard" style={{ padding: "10px 0px" }} />
                 <TextField id="outlined-password-input" label="password" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }} />
                 <UserAcceptContent style={{ padding: "10px 0px" }}>
