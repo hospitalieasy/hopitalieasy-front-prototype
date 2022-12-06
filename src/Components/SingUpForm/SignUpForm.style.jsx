@@ -4,18 +4,16 @@ export const SingUpFormBase = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
 `;
 
 export const FormWrapper = styled.div`
-    width: 70%;
-    height: 75%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 50px;
-    border-radius: 7px;
-    margin-left: 35px;
+    padding: 25px;
+    margin: 0px 35px;
 `;
 
 export const UserAcceptContent = styled.div`
@@ -31,6 +29,7 @@ export const Label = styled.div`
 
 export const Title = styled.div`
     font-size: 30px;
+    margin-bottom: 30px;
 `;
 
 

@@ -26,15 +26,16 @@ export const LoginSide = styled.div`
 `;
 
 export const Label = styled.div`
-    width: 100%;
+    width: 68%;
+    height: 10%;
     margin-top: -135px;
     padding-left: 85px;
-    text-decoration: none;
-    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const IconWrapper = styled.div`
-    margin-top: 50px;
     padding-left: 30px;
 `;
 

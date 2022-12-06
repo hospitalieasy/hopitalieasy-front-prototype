@@ -6,7 +6,6 @@ import Future from "./pages/general/Future";
 import Home from "./pages/general/Home";
 import PatientLogin from "./pages/general/PatientLogin";
 import PatientScreen from "./pages/general/PatientScreen";
-import PatientSignUp from "./pages/general/PatientSignUp";
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="patient-login" element={<PatientLogin />} />
-        <Route path="patient-sign-up" element={<PatientSignUp />} />
         <Route path="patient-screen" element={<PatientScreen />} />
         <Route path="future-content" element={<Future />} />
         <Route path="*" element={<Error />} />

@@ -1,0 +1,37 @@
+import * as React from 'react';
+
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import SignUpForm from "..//SingUpForm/SignUpForm";
+
+export default function SignUpPop() {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    return (
+        <div>
+            <Button variant="contained" onClick={handleClickOpen}>
+                Sign Up Here
+            </Button>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <SignUpForm />
+                <DialogActions>
+                    <Button onClick={handleClose}>Close</Button>
+                </DialogActions>
+            </Dialog>
+        </div>
+    );
+}

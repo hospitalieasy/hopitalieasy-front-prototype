@@ -5,6 +5,7 @@ import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout";
 import { Link } from "react-router-dom";
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import React from "react";
+import SignUpPop from "../../Components/SignUpPop/SignUpPop";
 import SlideShow from "../../Components/SlideShow/SlideShow";
 
 const PatientLogin = () => {
@@ -18,9 +19,7 @@ const PatientLogin = () => {
                                 <LoginForm title={"Patient Login"} buttonLabel={"Login"} address={"/patient-screen"} />
                             </LoginSide>
                             <Label>
-                                <Link style={{ textDecoration: "none", color: "inherit" }} component={Link} to={'/patient-sign-up'}>
-                                    Don't you have an account? <span style={{ fontWeight: "700", cursor: "pointer" }} >Sign Up Here!</span>
-                                </Link>
+                                Don't you have an account? <SignUpPop />
                             </Label>
                             <IconWrapper>
                                 <Link component={Link} to={'/'}>
