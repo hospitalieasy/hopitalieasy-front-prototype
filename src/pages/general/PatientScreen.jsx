@@ -2,6 +2,7 @@ import { PatientScreenBase, ScreenWrapper } from "../general/styles/PatientScree
 
 import Future from "..//..//pages/general/Future";
 import Home from "../patient/Home";
+import { PatternLayout } from "../../Components/DefaultLayout/DefaultLayout.style";
 import UserInfo from "..//..//pages/patient/UserInfo";
 import { useState } from "react";
 
@@ -34,27 +35,27 @@ const PatientScreen = () => {
     return (
         <PatientScreenBase>
             <ScreenWrapper>
+                <PatternLayout>
+                    {menuIndex === null && (!profileIndex) && (
+                        <Home setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setMenuIndex={setMenuIndex} />
+                    )}
 
-                {menuIndex === null && (!profileIndex) && (
-                    <Home setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setMenuIndex={setMenuIndex} />
-                )}
+                    {(profileIndex) && (!profileIndexCloser) && (
+                        <UserInfo setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
+                    )}
 
-                {(profileIndex) && (!profileIndexCloser) && (
-                    <UserInfo setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
-                )}
+                    {menuIndex === 0 && (profileIndexCloser) && (
+                        <Home setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setMenuIndex={setMenuIndex} />
+                    )}
 
-                {menuIndex === 0 && (profileIndexCloser) && (
-                    <Home setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setMenuIndex={setMenuIndex} />
-                )}
+                    {menuIndex === 1 && (profileIndexCloser) && (
+                        <h2 style={{ color: "#fff" }}>appointment</h2>
+                    )}
 
-                {menuIndex === 1 && (profileIndexCloser) && (
-                    <h2 style={{ color: "#fff" }}>appointment</h2>
-                )}
-
-                {menuIndex === 2 && (profileIndexCloser) && (
-                    <h2 style={{ color: "#fff" }}>test result</h2>
-                )}
-
+                    {menuIndex === 2 && (profileIndexCloser) && (
+                        <h2 style={{ color: "#fff" }}>test result</h2>
+                    )}
+                </PatternLayout>
             </ScreenWrapper>
         </PatientScreenBase>
     );

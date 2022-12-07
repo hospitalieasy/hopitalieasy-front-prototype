@@ -10,7 +10,7 @@ import ReactSwipe from 'react-swipe';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; */
 
 const SlideShow = (props) => {
-    const { padding, background, width, height } = props;
+    const { padding, background, width, height, color } = props;
     let reactSwipeEl;
 
     function start() {
@@ -30,21 +30,21 @@ const SlideShow = (props) => {
                     ref={el => (reactSwipeEl = el)}
                 >
                     <Content>
-                        <Title>Hospitalieasy Makes Your Life Easy!</Title>
-                        <Label>Lorem ipsum dolor sit.</Label>
-                        <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio consectetur, molestiae excepturi nobis architecto corporis!</Description>
+                        <Title color={color}>Hospitalieasy Makes Your Life Easy!</Title>
+                        <Label color={color}>Lorem ipsum dolor sit.</Label>
+                        <Description color={color}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio consectetur, molestiae excepturi nobis architecto corporis!</Description>
                     </Content>
 
                     <Content>
-                        <Title>Get Appointment</Title>
-                        <Label>Lorem ipsum dolor sit.</Label>
-                        <Description>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste perferendis vitae ut quas numquam at tempora alias minima, doloremque sint. Autem, tempore! Dolores, delectus veniam? Iste accusamus consequuntur eligendi deserunt.</Description>
+                        <Title color={color}>Get Appointment</Title>
+                        <Label color={color}>Lorem ipsum dolor sit.</Label>
+                        <Description color={color}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste perferendis vitae ut quas numquam at tempora alias minima, doloremque sint. Autem, tempore! Dolores, delectus veniam? Iste accusamus consequuntur eligendi deserunt.</Description>
                     </Content>
 
                     <Content>
-                        <Title>See Your Results</Title>
-                        <Label>Lorem ipsum dolor sit.</Label>
-                        <Description>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste perferendis vitae ut quas numquam at tempora alias minima, doloremque sint. Autem, tempore! Dolores, delectus veniam? Iste accusamus consequuntur eligendi deserunt.</Description>
+                        <Title color={color}>See Your Results</Title>
+                        <Label color={color}>Lorem ipsum dolor sit.</Label>
+                        <Description color={color}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste perferendis vitae ut quas numquam at tempora alias minima, doloremque sint. Autem, tempore! Dolores, delectus veniam? Iste accusamus consequuntur eligendi deserunt.</Description>
                     </Content>
 
                 </ReactSwipe>

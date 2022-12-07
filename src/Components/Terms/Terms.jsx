@@ -80,11 +80,6 @@ export default function Terms() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid in a adipisci inventore. Placeat reprehenderit expedita eligendi harum! Ad mollitia nostrum animi! Possimus sapiente labore voluptates repellat aperiam error ullam.
                     </Typography>
                 </DialogContent>
-                <DialogActions>
-                    <Button className='terms-close' autoFocus onClick={handleClose}>
-                        Close
-                    </Button>
-                </DialogActions>
             </BootstrapDialog>
         </div>
     );

@@ -33,7 +33,7 @@ const HeroBanner = () => {
                 </Content>
             </LeftSide>
             <RightSide>
-                <SlideShow />
+                <SlideShow color={"#fff"} />
             </RightSide>
         </HeroBannerBase >
     );

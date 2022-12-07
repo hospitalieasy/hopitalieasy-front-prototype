@@ -17,10 +17,10 @@ const UserInfo = (props) => {
                 </Section1>
 
                 <Section2 width={"95%"} height={"100%"}>
-                    <DefaultBox width={"65%"} height={"100%"} background={"linear-gradient(to right,#e5dbfa, #afb3fc, #8f93fd)"}>
+                    <DefaultBox width={"65%"} height={"100%"} background={"linear-gradient(to right,#ffffff, #eae0fb, #ebe0ff)"}>
                         <InformationTab buttonLabel={"SAVE"} />
                     </DefaultBox >
-                    <DefaultBox width={"30%"} height={"65%"} background={"linear-gradient(to right,#e5dbfa, #afb3fc, #8f93fd)"}>
+                    <DefaultBox width={"30%"} height={"65%"} background={"linear-gradient(to right,#ffffff, #eae0fb, #ebe0ff)"}>
                         <LoginForm width={"100%"} height={"100%"} buttonLabel={"CHANGE PASSWORD"} title={"Change Your Password"} fontSize={"24px"} label={"new password"} />
                     </DefaultBox>
                 </Section2>

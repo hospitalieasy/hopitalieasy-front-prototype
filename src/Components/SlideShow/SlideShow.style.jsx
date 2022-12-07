@@ -26,21 +26,21 @@ export const Content = styled.div`
 
 export const Title = styled.div`
     font-size: 30px;
-    color: #fff;
+    color: ${props => props.color};
     margin-bottom: 30px;
     font-family: 'Montserrat', sans-serif;
 `;
 
 export const Label = styled.div`
     font-size: 22px;
-    color: #fff;
+    color: ${props => props.color};
     margin-bottom: 30px;
     font-family: 'Montserrat', sans-serif;
 `;
 
 export const Description = styled.div`
     font-size: 18px;
-    color: #fff;
+    color: ${props => props.color};
     font-family: 'Barlow', sans-serif;
 `;
 

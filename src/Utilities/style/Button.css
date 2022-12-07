@@ -121,14 +121,6 @@ Sign Up Screen
   background-color: #1e1436;
 }
 
-.MuiButton-root.terms-close {
-  color: #000;
-}
-
-.MuiButton-root.terms-close:hover {
-  background-color: #3f3b49;
-  color: #fff;
-}
 /*
 Slide Items
 */
