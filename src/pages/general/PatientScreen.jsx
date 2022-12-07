@@ -1,6 +1,5 @@
 import { PatientScreenBase, ScreenWrapper } from "../general/styles/PatientScreen.style";
 
-import Future from "..//..//pages/general/Future";
 import Home from "../patient/Home";
 import { PatternLayout } from "../../Components/DefaultLayout/DefaultLayout.style";
 import UserInfo from "..//..//pages/patient/UserInfo";
