@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import { Link } from "react-scroll";
 import Loading from "../Loading/Loading";
 import React from "react";
+import SlideShow from "../SlideShow/SlideShow";
 
 const HeroBanner = () => {
     return (
@@ -32,9 +33,7 @@ const HeroBanner = () => {
                 </Content>
             </LeftSide>
             <RightSide>
-                <ImageContainer>
-                    <Loading />
-                </ImageContainer>
+                <SlideShow />
             </RightSide>
         </HeroBannerBase >
     );

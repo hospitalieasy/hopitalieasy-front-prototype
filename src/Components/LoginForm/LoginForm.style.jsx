@@ -1,3 +1,5 @@
+import "..//..//utilities/fonts/font.css"
+
 import styled from "styled-components";
 
 export const LoginFormBase = styled.div`
@@ -21,6 +23,7 @@ export const FormWrapper = styled.div`
 export const Title = styled.div`
     font-size: ${props => props.fontSize};
     width: 100%;
+    font-family: 'Montserrat', sans-serif;
 `;
 
 export const Label = styled.div`

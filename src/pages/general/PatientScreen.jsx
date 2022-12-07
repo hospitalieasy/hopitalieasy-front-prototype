@@ -10,9 +10,9 @@ import { useState } from "react";
 
 const PatientScreen = () => {
 
-    const [findIndexItem, setFindIndexItem] = useState(null);
+    const [menuIndex, setMenuIndex] = useState(null);
     const [profileIndex, setProfileIndex] = useState(false);
-    const [profileIndexCloser, setProfileIndexCloser] = useState(true);
+    const [profileIndexCloser, setProfileIndexCloser] = useState();
 
 
     /* const [username, setUserName] = useState("");
@@ -34,17 +34,27 @@ const PatientScreen = () => {
     return (
         <PatientScreenBase>
             <ScreenWrapper>
-                {findIndexItem === null && (!profileIndex) && (
-                    <Home setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setFindIndexItem={setFindIndexItem} />
+
+                {menuIndex === null && (!profileIndex) && (
+                    <Home setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setMenuIndex={setMenuIndex} />
                 )}
 
-                {(profileIndex) && (profileIndexCloser) && (
-                    <UserInfo setProfileIndexCloser={setProfileIndexCloser} setFindIndexItem={setFindIndexItem} setProfileIndex={setProfileIndex} />
+                {(profileIndex) && (!profileIndexCloser) && (
+                    <UserInfo setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
                 )}
 
-                {findIndexItem !== null && (!profileIndexCloser) && (
-                    <Future />
+                {menuIndex === 0 && (profileIndexCloser) && (
+                    <Home setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setMenuIndex={setMenuIndex} />
                 )}
+
+                {menuIndex === 1 && (profileIndexCloser) && (
+                    <h2 style={{ color: "#fff" }}>appointment</h2>
+                )}
+
+                {menuIndex === 2 && (profileIndexCloser) && (
+                    <h2 style={{ color: "#fff" }}>test result</h2>
+                )}
+
             </ScreenWrapper>
         </PatientScreenBase>
     );

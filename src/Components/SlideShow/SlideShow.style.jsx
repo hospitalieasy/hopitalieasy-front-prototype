@@ -1,3 +1,5 @@
+import "..//..//utilities/fonts/font.css"
+
 import styled from "styled-components";
 
 export const SlideShowBase = styled.div`
@@ -16,15 +18,30 @@ export const SlideShowBase = styled.div`
 export const ImageContainer = styled.div`
     height: 100%;
     width: 100%;
-    border: 1px solid;
-    border-color: #fff;
-    border-radius: 10px;
 `;
 
 export const Content = styled.div`
-    display: flex;  
-    justify-content: center;
+    padding: 8px 30px;
+`;
+
+export const Title = styled.div`
+    font-size: 30px;
     color: #fff;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+`;
+
+export const Label = styled.div`
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+`;
+
+export const Description = styled.div`
+    font-size: 18px;
+    color: #fff;
+    font-family: 'Barlow', sans-serif;
 `;
 
 /* export const ButtonContainer = styled.div`

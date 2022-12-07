@@ -18,6 +18,7 @@ const Navbar = () => {
                 <NavItemContainer>
                     <Button className="home" component={Link} to={'/'} size="medium">Home</Button>
                     <Button className="about" component={Link} to={'/about'} size="medium">About</Button>
+                    <Button className="about" component={Link} to={'/contact'} size="medium">Contact</Button>
                 </NavItemContainer>
             </MidSide>
             <RightSide>

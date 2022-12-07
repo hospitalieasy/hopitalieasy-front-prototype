@@ -71,13 +71,64 @@ Navbar Items and Hero Banner Items
 }
 
 /*
-Navbar Items and Hero Banner Items
+Login screen
+*/
+
+.MuiButton-root.login {
+  background-color: #000;
+}
+
+.MuiButton-root.login:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.sign-here {
+  padding: 5px 10px;
+  background-color: #000;
+}
+
+.MuiButton-root.sign-here:hover {
+  background-color: #1e1436;
+}
+
+/*
+Sign Up Screen
 */
 
 .MuiButton-root.sign {
-  padding: 5px 10px;
+  background-color: #000;
+  margin: 10px 0px;
 }
 
+.MuiButton-root.sign:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.sign-close {
+  color: #000;
+}
+
+.MuiButton-root.sign-close:hover {
+  background-color: #3f3b49;
+  color: #fff;
+}
+
+.MuiButton-root.terms {
+  background-color: #000;
+}
+
+.MuiButton-root.terms:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.terms-close {
+  color: #000;
+}
+
+.MuiButton-root.terms-close:hover {
+  background-color: #3f3b49;
+  color: #fff;
+}
 /*
 Slide Items
 */

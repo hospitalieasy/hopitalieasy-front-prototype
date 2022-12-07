@@ -16,11 +16,11 @@ const actions = [
 
 
 export default function BasicSpeedDial(props) {
-    const { setFindIndexItem, setProfileIndexCloser } = props;
+    const { setMenuIndex, setProfileIndexCloser } = props;
 
-    const handleClick = (index) => {
-        setFindIndexItem(index);
-        setProfileIndexCloser(false);
+    const handleIndexClick = (index) => {
+        setMenuIndex(index);
+        setProfileIndexCloser(true);
     };
 
     return (
@@ -33,7 +33,7 @@ export default function BasicSpeedDial(props) {
             >
                 {actions.map((item, index) => (
                     <SpeedDialAction
-                        onClick={() => handleClick(index)}
+                        onClick={() => handleIndexClick(index)}
                         key={item.name}
                         icon={item.icon}
                         tooltipTitle={item.name}

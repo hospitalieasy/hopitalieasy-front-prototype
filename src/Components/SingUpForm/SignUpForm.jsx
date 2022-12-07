@@ -22,7 +22,7 @@ const SignUpForm = ({ label }) => {
                         <Terms />
                     </Label>
                 </UserAcceptContent>
-                <Button component={Link} to={'/patient-screen'} variant="contained" color="success" style={{ backgroundColor: "black", margin: "10px 0px" }}>Sign Up</Button>
+                <Button className="sign" component={Link} to={'/patient-screen'} variant="contained" color="success">Sign Up</Button>
             </FormWrapper>
         </SingUpFormBase>
     );

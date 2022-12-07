@@ -6,13 +6,13 @@ import InformationTab from "../../Components/InformationTab/InformationTab";
 import LoginForm from "../../Components/LoginForm/LoginForm";
 
 const UserInfo = (props) => {
-    const { setProfileIndex, setFindIndexItem, setProfileIndexCloser } = props;
+    const { setProfileIndex, setMenuIndex, setProfileIndexCloser } = props;
     return (
         <UserInfoBase>
             <ContentWrapper>
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
-                        <AppBar setProfileIndexCloser={setProfileIndexCloser} setFindIndexItem={setFindIndexItem} setProfileIndex={setProfileIndex} />
+                        <AppBar setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
                     </DefaultBox>
                 </Section1>
 

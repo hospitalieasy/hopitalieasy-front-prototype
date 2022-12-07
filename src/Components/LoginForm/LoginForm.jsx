@@ -13,7 +13,7 @@ const LoginForm = (props) => {
                 <Title fontSize={fontSize}>{title}</Title>
                 <TextField id="outlined-basic" label="e-mail" variant="standard" onChange={(e) => setMail(e.target.value)} />
                 <TextField id="outlined-password-input" label={label} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPass(e.target.value)} />
-                <Button style={{ backgroundColor: "black" }} component={Link} to={address} variant="contained">
+                <Button className="login" component={Link} to={address} variant="contained">
                     <Label>{buttonLabel}</Label>
                 </Button>
             </FormWrapper>

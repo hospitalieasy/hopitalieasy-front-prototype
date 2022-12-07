@@ -1,6 +1,6 @@
 import "..//..//utilities/style/Button.css"
 
-import { Content, ImageContainer, SlideShowBase } from './SlideShow.style';
+import { Content, Description, ImageContainer, Label, SlideShowBase, Title } from './SlideShow.style';
 
 import React from 'react';
 import ReactSwipe from 'react-swipe';
@@ -30,15 +30,21 @@ const SlideShow = (props) => {
                     ref={el => (reactSwipeEl = el)}
                 >
                     <Content>
-                        <h1>Slide 1</h1>
+                        <Title>Hospitalieasy Makes Your Life Easy!</Title>
+                        <Label>Lorem ipsum dolor sit.</Label>
+                        <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio consectetur, molestiae excepturi nobis architecto corporis!</Description>
                     </Content>
 
                     <Content>
-                        <h1>Slide 2</h1>
+                        <Title>Get Appointment</Title>
+                        <Label>Lorem ipsum dolor sit.</Label>
+                        <Description>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste perferendis vitae ut quas numquam at tempora alias minima, doloremque sint. Autem, tempore! Dolores, delectus veniam? Iste accusamus consequuntur eligendi deserunt.</Description>
                     </Content>
 
                     <Content>
-                        <h1>Slide 3</h1>
+                        <Title>See Your Results</Title>
+                        <Label>Lorem ipsum dolor sit.</Label>
+                        <Description>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste perferendis vitae ut quas numquam at tempora alias minima, doloremque sint. Autem, tempore! Dolores, delectus veniam? Iste accusamus consequuntur eligendi deserunt.</Description>
                     </Content>
 
                 </ReactSwipe>

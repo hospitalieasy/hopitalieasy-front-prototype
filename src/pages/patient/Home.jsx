@@ -5,20 +5,20 @@ import DefaultBox from "../../Components/DefaultBox/DefaultBox"
 import SlideShow from "..//..//Components/SlideShow/SlideShow"
 
 const Home = (props) => {
-    const { setProfileIndex, setFindIndexItem, setProfileIndexCloser } = props;
+    const { setProfileIndex, setMenuIndex, setProfileIndexCloser } = props;
     return (
         <HomeBase>
             <ContentWrapper>
 
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
-                        <AppBar setProfileIndexCloser={setProfileIndexCloser} setFindIndexItem={setFindIndexItem} setProfileIndex={setProfileIndex} />
+                        <AppBar setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
                     </DefaultBox>
                 </Section1>
 
                 <Section2 width={"95%"} height={"50%"}>
                     <DefaultBox width={"45%"} height={"100%"} background={"#1e1c36"}>
-                        <SlideShow padding={"30px 0px 30px 70px"} width={"85%"} height={"100%"} />
+                        <SlideShow padding={"30px 30px"} width={"85%"} height={"100%"} />
                     </DefaultBox>
                     <DefaultBox width={"30%"} height={"100%"} background={"#1e1c36"}>
                         <h3 style={{ color: "#fff" }}>beden görseli</h3>

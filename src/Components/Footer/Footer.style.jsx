@@ -25,11 +25,12 @@ export const TopMenu = styled.div`
 
 
 export const MenuContainer = styled.div`
-    width: 80%;
+    width: 90%;
     height: 100%;
     display: flex;
     margin: auto;
 `;
+
 
 export const MenuItem = styled.div`
     height: 100%;

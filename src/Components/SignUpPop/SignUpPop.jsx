@@ -31,7 +31,7 @@ export default function SignUpPop() {
             >
                 <SignUpForm />
                 <DialogActions>
-                    <Button onClick={handleClose}>Close</Button>
+                    <Button className="sign-close" onClick={handleClose}>Close</Button>
                 </DialogActions>
             </Dialog>
         </div>

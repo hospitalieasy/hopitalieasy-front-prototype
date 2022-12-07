@@ -6,28 +6,23 @@ export const HeroBannerBase = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    padding: 100px 50px;
+    padding: 50px 50px;
 `;
 
 export const LeftSide = styled.div`
-    height: 100%;
+    height: 60vh;
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+   
 `;
 
 export const RightSide = styled.div`
-    height: 100%;
+    height: 60vh;
     width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 `;
 
-export const ImageContainer = styled.div`
-    height: 39.4vh;
-`;
 
 export const Content = styled.div`
     height: 100%;

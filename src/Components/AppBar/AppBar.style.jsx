@@ -20,6 +20,9 @@ export const Title = styled.div`
     color: #fff;
     font-size: 30px;
     width: 52%;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-family: 'Barlow', sans-serif;
 `;
 
 export const SpeedDialWrapper = styled.div`

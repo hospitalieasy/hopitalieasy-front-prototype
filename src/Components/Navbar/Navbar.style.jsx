@@ -19,7 +19,6 @@ export const LeftSide = styled.div`
 export const MidSide = styled.div`
     height: 100%;
     width: 32%;
-    display: flex;
 `;
 
 export const RightSide = styled.div`
@@ -29,7 +28,7 @@ export const RightSide = styled.div`
 `;
 
 export const NavItemContainer = styled.div`
-    width: 60%;
+    width: 100%;
     display: flex;
     margin: auto;
     align-items: center;

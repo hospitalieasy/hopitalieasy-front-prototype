@@ -7,7 +7,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 export default function ProfileMenu(props) {
-    const { setProfileIndex } = props;
+    const { setProfileIndex, setProfileIndexCloser } = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -22,6 +22,7 @@ export default function ProfileMenu(props) {
 
     const profileHandler = () => {
         setProfileIndex(true);
+        setProfileIndexCloser(false);
     };
 
 

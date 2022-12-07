@@ -1,7 +1,6 @@
-import { BottomMenu, CreditWrapper, FooterBase, MenuContainer, PatternLayout, TopMenu } from "./Footer.style";
+import { BottomMenu, CreditWrapper, Description, FooterBase, MenuContainer, MenuItem, PatternLayout, Title, TopMenu } from "./Footer.style";
 
 import Credit from "../FooterCredit/Credit";
-import FooterMenuItem from "../FooterItem/FooterItem";
 
 const Footer = () => {
 
@@ -22,9 +21,18 @@ const Footer = () => {
             <PatternLayout>
                 <TopMenu>
                     <MenuContainer>
-                        <FooterMenuItem title={"Hospitalieasy"} description={"New Way of Treatment"} />
-                        <FooterMenuItem title={"About Us"} description={"Who we are?"} />
-                        <FooterMenuItem title={"Contact Us"} description={"Ask your questions"} />
+                        <MenuItem>
+                            <Title>Hospitalieasy</Title>
+                            <Description>Lorem ipsum dolor sit amet.</Description>
+                        </MenuItem>
+                        <MenuItem>
+                            <Title>About</Title>
+                            <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, alias.</Description>
+                        </MenuItem>
+                        <MenuItem>
+                            <Title>Contact</Title>
+                            <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, itaque.</Description>
+                        </MenuItem>
                     </MenuContainer>
                 </TopMenu>
                 <BottomMenu>

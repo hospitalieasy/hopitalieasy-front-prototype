@@ -61,7 +61,7 @@ export default function Terms() {
 
     return (
         <div>
-            <Button variant="contained" onClick={handleClickOpen}>
+            <Button className='terms' variant="contained" onClick={handleClickOpen}>
                 See The Terms
             </Button>
             <BootstrapDialog
@@ -81,7 +81,7 @@ export default function Terms() {
                     </Typography>
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
+                    <Button className='terms-close' autoFocus onClick={handleClose}>
                         Close
                     </Button>
                 </DialogActions>
