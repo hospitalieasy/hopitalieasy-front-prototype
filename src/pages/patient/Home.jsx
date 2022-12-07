@@ -21,7 +21,7 @@ const Home = (props) => {
                         <SlideShow padding={"30px 0px 30px 70px"} width={"85%"} height={"100%"} />
                     </DefaultBox>
                     <DefaultBox width={"29%"} height={"100%"} background={"#1e1c36"}>
-                        <h3 style={{ color: "#fff" }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quos culpa quia asperiores autem in facere. Praesentium debitis impedit possimus numquam necessitatibus aut natus iusto quia, voluptas hic repellendus enim.</h3>
+                        <h3 style={{ color: "#fff" }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolores ipsam sequi quos itaque a doloremque officia dicta illo! Magnam.</h3>
                     </DefaultBox>
                     <DefaultBox width={"19%"} height={"50%"} background={"#1e1c36"}>
                         <h3 style={{ color: "#fff" }}> kitle endex hesaplama</h3>

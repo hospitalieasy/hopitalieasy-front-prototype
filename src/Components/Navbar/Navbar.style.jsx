@@ -11,25 +11,25 @@ export const NavbarBase = styled.div`
 export const LeftSide = styled.div`
     font-size: 30px;
     height: 100%;
-    width: 33%;
+    width: 32%;
     color: #fff;
     padding-left: 15px;
 `;
 
 export const MidSide = styled.div`
     height: 100%;
-    width: 35%;
+    width: 32%;
     display: flex;
 `;
 
 export const RightSide = styled.div`
     height: 100%;
-    width: 33%;
+    width: 32%;
     display: flex;
 `;
 
 export const NavItemContainer = styled.div`
-    width: 55%;
+    width: 60%;
     display: flex;
     margin: auto;
     align-items: center;
@@ -37,12 +37,14 @@ export const NavItemContainer = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
+    width: 55%;
     display: flex;
     margin-left: auto;
+    justify-content: space-between;
 `;
 
 export const ButtonItem = styled.div`
-    padding: 0px 15px;
+    
 `;
 
 

@@ -9,12 +9,15 @@ export const PatientScreenBase = styled.div`
 
 export const MenuItemsWrapper = styled.div`
     height: 100%;
-    width: 15%;
+    width: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const ScreenWrapper = styled.div`
     height: 100%;
-    width: 100%;
+    width: 88%;
 `;
 
 export const ContentWrapper = styled.div`

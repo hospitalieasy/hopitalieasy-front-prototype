@@ -19,9 +19,11 @@ export default function ProfileMenu(props) {
     };
 
     return (
-        <div>
+
+        <>
             <Button
                 id="basic-button"
+                className='profile'
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
@@ -41,6 +43,7 @@ export default function ProfileMenu(props) {
                 <MenuItem onClick={profileHandler}>My Profile</MenuItem>
                 <MenuItem component={Link} to={'/'}>Logout</MenuItem>
             </Menu>
-        </div>
+        </>
+
     );
 }

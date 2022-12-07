@@ -7,6 +7,7 @@ Navbar Items
   color: #fff;
   padding: 6px 30px;
   text-transform: capitalize;
+  width: 50%;
 }
 
 .MuiButton-root.home:hover {
@@ -17,6 +18,7 @@ Navbar Items
   font-family: "Montserrat", sans-serif;
   color: #fff;
   padding: 6px 30px;
+  width: 50%;
   text-transform: capitalize;
 }
 
@@ -69,6 +71,14 @@ Navbar Items and Hero Banner Items
 }
 
 /*
+Navbar Items and Hero Banner Items
+*/
+
+.MuiButton-root.sign {
+  padding: 5px 10px;
+}
+
+/*
 Slide Items
 */
 
@@ -101,12 +111,18 @@ Information Tab
 AppBar
 */
 
+.MuiButton-root.profile {
+  padding: 0px;
+  width: 10%;
+  min-width: 0px;
+}
+
 .MuiButton-root.notification {
-  padding: 10px;
+  padding: 6px;
   background: #fff;
+  min-width: 0px;
 }
 
 .MuiButton-root.notification:hover {
   border: none;
-  padding: 10px;
 }

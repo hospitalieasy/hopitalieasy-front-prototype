@@ -27,7 +27,7 @@ export const LoginSide = styled.div`
 `;
 
 export const Label = styled.div`
-    width: 68%;
+    width: 67%;
     height: 10%;
     margin-top: -135px;
     padding-left: 85px;

@@ -1,3 +1,5 @@
+import "..//..//utilities/style/Button.css"
+
 import { FormWrapper, Label, SingUpFormBase, Text, Title, UserAcceptContent } from "./SignUpForm.style"
 import { Switch, TextField } from "@mui/material";
 

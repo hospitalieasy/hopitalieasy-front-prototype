@@ -14,14 +14,12 @@ const ItemList = (props) => {
         <ItemListBase>
             {ItemArray.map((item, index) => (
                 <Item key={index} item={item} displayInfo={displayInfo} >
-                    <div onClick={() => handleClick(index)} index={index}>
-                        <ItemWrapper>
+                    <ItemWrapper onClick={() => handleClick(index)} index={index}>
+                        <>
                             {item.icon}
-                            <TextWrapper>
-                                {item.text}
-                            </TextWrapper>
-                        </ItemWrapper>
-                    </div>
+                            <TextWrapper>{item.text}</TextWrapper>
+                        </>
+                    </ItemWrapper>
                 </Item>
             ))}
         </ItemListBase>
