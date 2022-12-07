@@ -23,6 +23,7 @@ export const LoginSide = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    margin-left: 30px;
 `;
 
 export const Label = styled.div`

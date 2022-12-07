@@ -16,7 +16,7 @@ const PatientLogin = () => {
                     <FormWrapper>
                         <ContentWrapper>
                             <LoginSide>
-                                <LoginForm title={"Patient Login"} buttonLabel={"Login"} address={"/patient-screen"} />
+                                <LoginForm title={"Patient Login"} buttonLabel={"Login"} address={"/patient-screen"} width={"70%"} height={"70%"} fontSize={"30px"} label={" password"} />
                             </LoginSide>
                             <Label>
                                 Don't you have an account? <SignUpPop />

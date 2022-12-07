@@ -8,19 +8,19 @@ export const LoginFormBase = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-    width: 70%;
-    height: 70%;
+    /* width: 70%;
+    height: 70%; */
+    width: ${props => props.width};
+    height: ${props => props.height};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 50px;
-    border-radius: 7px;
-    margin-left: 35px;
-    margin-bottom: 30px;
 `;
 
 export const Title = styled.div`
-    font-size: 30px;
+    font-size: ${props => props.fontSize};
+    width: 100%;
 `;
 
 export const Label = styled.div`
