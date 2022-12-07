@@ -22,9 +22,9 @@ const Footer = () => {
             <PatternLayout>
                 <TopMenu>
                     <MenuContainer>
-                        <FooterMenuItem title={"asd"} description={"asd"} />
-                        <FooterMenuItem title={"asd"} description={"asd"} />
-                        <FooterMenuItem title={"asd"} description={"asd"} />
+                        <FooterMenuItem title={"Hospitalieasy"} description={"New Way of Treatment"} />
+                        <FooterMenuItem title={"About Us"} description={"Who we are?"} />
+                        <FooterMenuItem title={"Contact Us"} description={"Ask your questions"} />
                     </MenuContainer>
                 </TopMenu>
                 <BottomMenu>

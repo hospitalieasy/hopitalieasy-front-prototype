@@ -17,12 +17,22 @@ export const ContentWrapper = styled.div`
     align-items: center;
 `;
 
-export const Section = styled.div`
+export const Section1 = styled.div`
     height: ${props => props.height};
     width: ${props => props.width};
     display: flex;
     margin: 15px 0px;
     align-items: center;
+`;
+
+
+export const Section2 = styled.div`
+    height: ${props => props.height};
+    width: ${props => props.width};
+    display: flex;
+    margin: 15px 0px;
+    align-items: center;
+    justify-content: space-between;
 `;
 
 

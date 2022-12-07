@@ -5,25 +5,16 @@ export const PatientScreenBase = styled.div`
     height: 100vh;
     display: flex;
     background: linear-gradient(to right, #27296d, #35376e, #31254e);
-`;
-
-export const MenuItemsWrapper = styled.div`
-    height: 100%;
-    width: 12%;
-    display: flex;
     align-items: center;
     justify-content: center;
 `;
 
 export const ScreenWrapper = styled.div`
     height: 100%;
-    width: 88%;
+    width: 95%;
 `;
 
-export const ContentWrapper = styled.div`
-    height: 100%;
+export const SvgContainer = styled.div`
+    height: 100vh;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 `;

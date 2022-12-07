@@ -10,6 +10,15 @@ const ItemArray = [
         text: "Home",
         icon: <CottageOutlinedIcon fontSize='large' />
     },
+    {
+        text: "Appointment",
+        icon: <CottageOutlinedIcon fontSize='large' />
+    },
+    {
+        text: "",
+        icon: <CottageOutlinedIcon fontSize='large' />
+    },
+
 ];
 
 export default ItemArray;

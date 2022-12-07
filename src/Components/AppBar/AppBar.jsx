@@ -1,16 +1,20 @@
 import "..//..//utilities/style/Button.css"
 
-import { AppBarBase, ContentWrapper, LeftSide, NotificationWrapper, ProfileWrapper, RightSide } from "./AppBar.style"
+import { AppBarBase, ContentWrapper, LeftSide, NotificationWrapper, ProfileWrapper, RightSide, SpeedDialWrapper, Title } from "./AppBar.style"
 
+import BasicSpeedDial from "..//SpeedDial/SpeedDial"
 import NotificationPop from "../NotificationPop/NotificationPop"
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 const AppBar = (props) => {
-    const { profileHandler } = props;
+    const { setProfileIndex, setFindIndexItem, setProfileIndexCloser } = props;
     return (
         <AppBarBase>
             <LeftSide>
-                Hello Altar Welcome!
+                <Title>Hello Altar Welcome!</Title>
+                <SpeedDialWrapper>
+                    <BasicSpeedDial setProfileIndexCloser={setProfileIndexCloser} setFindIndexItem={setFindIndexItem} />
+                </SpeedDialWrapper>
             </LeftSide>
             <RightSide>
                 <ContentWrapper>
@@ -18,7 +22,7 @@ const AppBar = (props) => {
                         <NotificationPop />
                     </NotificationWrapper>
                     <ProfileWrapper>
-                        <ProfileMenu profileHandler={profileHandler} />
+                        <ProfileMenu setProfileIndex={setProfileIndex} />
                     </ProfileWrapper>
                 </ContentWrapper>
             </RightSide>

@@ -1,41 +1,44 @@
-import { ContentWrapper, HomeBase, Section1, Section2, Section3 } from "./styles/Home.style";
+import { ContentWrapper, HomeBase, Section1, Section2 } from "./styles/Home.style";
 
 import AppBar from "../../Components/AppBar/AppBar";
 import DefaultBox from "../../Components/DefaultBox/DefaultBox"
 import SlideShow from "..//..//Components/SlideShow/SlideShow"
 
 const Home = (props) => {
-    const { profileHandler } = props;
+    const { setProfileIndex, setFindIndexItem, setProfileIndexCloser } = props;
     return (
         <HomeBase>
             <ContentWrapper>
 
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
-                        <AppBar profileHandler={profileHandler} />
+                        <AppBar setProfileIndexCloser={setProfileIndexCloser} setFindIndexItem={setFindIndexItem} setProfileIndex={setProfileIndex} />
                     </DefaultBox>
                 </Section1>
 
                 <Section2 width={"95%"} height={"50%"}>
-                    <DefaultBox width={"44%"} height={"100%"} background={"#1e1c36"}>
+                    <DefaultBox width={"45%"} height={"100%"} background={"#1e1c36"}>
                         <SlideShow padding={"30px 0px 30px 70px"} width={"85%"} height={"100%"} />
                     </DefaultBox>
-                    <DefaultBox width={"29%"} height={"100%"} background={"#1e1c36"}>
-                        <h3 style={{ color: "#fff" }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolores ipsam sequi quos itaque a doloremque officia dicta illo! Magnam.</h3>
+                    <DefaultBox width={"30%"} height={"100%"} background={"#1e1c36"}>
+                        <h3 style={{ color: "#fff" }}>beden görseli</h3>
                     </DefaultBox>
-                    <DefaultBox width={"19%"} height={"50%"} background={"#1e1c36"}>
+                    <DefaultBox width={"20%"} height={"60%"} background={"#1e1c36"}>
                         <h3 style={{ color: "#fff" }}> kitle endex hesaplama</h3>
                     </DefaultBox>
                 </Section2>
 
-                <Section3 width={"95%"} height={"35%"}>
-                    <DefaultBox margin={"0px 30px 0px 0px"} width={"30%"} height={"100%"} background={"#1e1c36"}>
-                        <h3 style={{ color: "#fff" }}> en yakın hastane</h3>
+                <Section2 width={"95%"} height={"35%"}>
+                    <DefaultBox width={"45%"} height={"95%"} background={"#1e1c36"}>
+                        <h3 style={{ color: "#fff" }}>uygulama bilgileri</h3>
                     </DefaultBox>
-                    <DefaultBox margin={"0px 30px 0px 0px"} width={"30%"} height={"100%"} background={"#1e1c36"}>
+                    <DefaultBox width={"25%"} height={"85%"} background={"#1e1c36"}>
                         <h3 style={{ color: "#fff" }}> en yakın eczane</h3>
                     </DefaultBox>
-                </Section3>
+                    <DefaultBox width={"25%"} height={"85%"} background={"#1e1c36"}>
+                        <h3 style={{ color: "#fff" }}> en yakın eczane</h3>
+                    </DefaultBox>
+                </Section2>
 
             </ContentWrapper>
         </HomeBase>
