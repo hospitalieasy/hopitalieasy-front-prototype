@@ -1,38 +1,39 @@
-import { PatientScreenBase, ScreenWrapper } from "../general/styles/PatientScreen.style";
+import { AppScreenBase, ScreenWrapper } from "../Styles/AppScreen.style";
 
-import Home from "../patient/Home";
-import { PatternLayout } from "../../Components/DefaultLayout/DefaultLayout.style";
-import UserInfo from "..//..//pages/patient/UserInfo";
+import Appointment from "../Pages/Appointment"
+import Home from "./Home";
+import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.style";
+import TestResult from "../Pages/TestResult"
+import UserInfo from "./UserInfo";
+import axios from "axios";
 import { useState } from "react";
 
 /* import axios from 'axios'; */
 
 
-const PatientScreen = () => {
+const AppScreen = () => {
 
     const [menuIndex, setMenuIndex] = useState(null);
     const [profileIndex, setProfileIndex] = useState(false);
     const [profileIndexCloser, setProfileIndexCloser] = useState();
 
 
-    /* const [username, setUserName] = useState("");
-    const [password, setPassword] = useState(""); */
+    const [id, setId] = useState();
+    const [password, setPassword] = useState("");
 
-    /*  const displayInfo = async (e) => {
-         e.preventDefault();
- 
-         const response = await axios.get(
-             `https://hospitaleasytest20221124115956.azurewebsites.net/WeatherForecast
-               `
-         );
- 
-         setUserName(response.data[0].date);
-         setPassword(response.data[1].summary);
-         console.log(response.data[0].date);
-     }  */
+    const displayInfo = async (e) => {
+        e.preventDefault();
+
+        const response = await axios.get(
+            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+        );
+
+        setId(response.data[0].PatientId);
+        setPassword(response.data[0].Password);
+    };
 
     return (
-        <PatientScreenBase>
+        <AppScreenBase>
             <ScreenWrapper>
                 <PatternLayout>
                     {menuIndex === null && (!profileIndex) && (
@@ -48,16 +49,16 @@ const PatientScreen = () => {
                     )}
 
                     {menuIndex === 1 && (profileIndexCloser) && (
-                        <h2 style={{ color: "#fff" }}>appointment</h2>
+                        <Appointment setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setMenuIndex={setMenuIndex} />
                     )}
 
                     {menuIndex === 2 && (profileIndexCloser) && (
-                        <h2 style={{ color: "#fff" }}>test result</h2>
+                        <TestResult setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} setMenuIndex={setMenuIndex} />
                     )}
                 </PatternLayout>
             </ScreenWrapper>
-        </PatientScreenBase>
+        </AppScreenBase>
     );
 }
 
-export default PatientScreen;
+export default AppScreen;

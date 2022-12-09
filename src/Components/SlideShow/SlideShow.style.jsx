@@ -1,5 +1,3 @@
-import "..//..//utilities/fonts/font.css"
-
 import styled from "styled-components";
 
 export const SlideShowBase = styled.div`

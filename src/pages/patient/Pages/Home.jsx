@@ -1,13 +1,13 @@
-import { ContentWrapper, HomeBase, Section1, Section2 } from "./styles/Home.style";
+import { ContentWrapper, HomeBase, Section1, Section2 } from "../Styles/Home.style";
 
-import AppBar from "../../Components/AppBar/AppBar";
-import DefaultBox from "../../Components/DefaultBox/DefaultBox"
-import SlideShow from "..//..//Components/SlideShow/SlideShow"
+import AppBar from "../../../Components/AppBar/AppBar";
+import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
+import SlideShow from "../../../Components/SlideShow/SlideShow"
 
 const Home = (props) => {
-    const { setProfileIndex, setMenuIndex, setProfileIndexCloser } = props;
+    const { setProfileIndex, setMenuIndex, setProfileIndexCloser, displayInfo } = props;
     return (
-        <HomeBase>
+        <HomeBase onClick={displayInfo}>
             <ContentWrapper>
 
                 <Section1 width={"95%"} height={"10%"}>

@@ -1,6 +1,4 @@
-import "..//..//utilities/style/Button.css"
-
-import * as React from 'react';
+import "..//..//Utilities/Style/Button.css"
 
 import { ButtonWrapper, FormWrapper, InformationTabBase, Label, Section, Title } from "./InformationTab.style"
 

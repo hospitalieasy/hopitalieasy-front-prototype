@@ -1,9 +1,9 @@
-import { ContentWrapper, Section1, Section2, UserInfoBase } from "./styles/UserInfo.style";
+import { ContentWrapper, Section1, Section2, UserInfoBase } from "..//Styles/UserInfo.style";
 
-import AppBar from "../../Components/AppBar/AppBar";
-import DefaultBox from "../../Components/DefaultBox/DefaultBox"
-import InformationTab from "../../Components/InformationTab/InformationTab";
-import LoginForm from "../../Components/LoginForm/LoginForm";
+import AppBar from "..//..//..//Components/AppBar/AppBar";
+import DefaultBox from "..//..//..//Components/DefaultBox/DefaultBox"
+import InformationTab from "..//..//..//Components/InformationTab/InformationTab";
+import LoginForm from "..//..//..//Components/LoginForm/LoginForm";
 
 const UserInfo = (props) => {
     const { setProfileIndex, setMenuIndex, setProfileIndexCloser } = props;

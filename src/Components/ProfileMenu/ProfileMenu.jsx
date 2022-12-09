@@ -27,7 +27,6 @@ export default function ProfileMenu(props) {
 
 
     return (
-
         <>
             <Button
                 id="basic-button"
@@ -38,8 +37,7 @@ export default function ProfileMenu(props) {
                 onClick={handleClick}
             >
                 <Avatar sx={{ bgcolor: "#fff", color: "#000" }}>A</Avatar>
-            </Button>
-            <Menu
+            </Button><Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}
@@ -52,6 +50,5 @@ export default function ProfileMenu(props) {
                 <MenuItem component={Link} to={'/'}>Logout</MenuItem>
             </Menu>
         </>
-
     );
 }

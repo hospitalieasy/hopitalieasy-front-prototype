@@ -1,4 +1,4 @@
-import "..//..//utilities/style/Button.css"
+import "..//..//Utilities/Style/Button.css"
 
 import { FormWrapper, Label, SingUpFormBase, Text, Title, UserAcceptContent } from "./SignUpForm.style"
 import { Switch, TextField } from "@mui/material";
@@ -13,8 +13,11 @@ const SignUpForm = ({ label }) => {
         <SingUpFormBase>
             <FormWrapper>
                 <Title>Sign Up</Title>
-                <TextField id="outlined-basic" label="e-mail" variant="standard" style={{ padding: "10px 0px" }} />
-                <TextField id="outlined-password-input" label="password" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }} />
+                <TextField id="outlined-basic" label="Name" variant="standard" style={{ padding: "10px 0px" }} />
+                <TextField id="outlined-basic" label="Surname" variant="standard" style={{ padding: "10px 0px" }} />
+                <TextField id="outlined-basic" label="E-mail" variant="standard" style={{ padding: "10px 0px" }} />
+                <TextField id="outlined-password-input" label="Password" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }} />
+                <TextField id="outlined-basic" label="Tel-no" variant="standard" style={{ padding: "10px 0px" }} />
                 <UserAcceptContent style={{ padding: "10px 0px" }}>
                     <Switch {...label} defaultChecked color="warning" />
                     <Label>

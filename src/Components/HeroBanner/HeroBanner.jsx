@@ -1,11 +1,9 @@
-import "..//..//utilities/style/Button.css"
+import "..//..//Utilities/Style/Button.css"
 
-import { ButtonWrapper, Content, Description, HeroBannerBase, ImageContainer, LeftSide, RightSide, Title } from "./HeroBanner.style";
+import { ButtonWrapper, Content, Description, HeroBannerBase, LeftSide, RightSide, Title } from "./HeroBanner.style";
 
 import { Button } from "@mui/material";
 import { Link } from "react-scroll";
-import Loading from "../Loading/Loading";
-import React from "react";
 import SlideShow from "../SlideShow/SlideShow";
 
 const HeroBanner = () => {

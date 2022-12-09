@@ -1,4 +1,4 @@
-import "..//..//utilities/style/Button.css"
+import "..//..//Utilities/Style/Button.css"
 
 import { ButtonContainer, ButtonItem, LeftSide, MidSide, NavItemContainer, NavbarBase, RightSide } from "./Navbar.style"
 

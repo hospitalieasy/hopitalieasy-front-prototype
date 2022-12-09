@@ -1,4 +1,4 @@
-import { ErrorBase, Label } from "../general/styles/Error.style";
+import { ErrorBase, Label } from "./Error.style"
 
 import DefaultLayout from "..//..//Components//DefaultLayout/DefaultLayout"
 import React from "react";

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PatientSignUpBase = styled.div`
+export const LoginBase = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
@@ -8,26 +8,33 @@ export const PatientSignUpBase = styled.div`
     justify-content: center;
 `;
 
-export const FormWrapper = styled.div`
-    height: 100%;
-    width: 100%;
-    display: flex;
-`;
-
-export const ContentWrapper = styled.div`
+export const LoginSide = styled.div`
     height: 100%;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
 `;
 
-export const LoginSide = styled.div`
+export const Title = styled.div`
     width: 100%;
-    height: 100%;
+    font-size: 30px;
+    margin-bottom: 35px;
+    margin-left: 20px;
+`;
+
+export const SignUpWrapper = styled.div`
+    width: 65%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+    margin-top: -20px;
 `;
 
 export const IconWrapper = styled.div`
-    margin-top: -65px;
-    padding-left: 30px;
+    margin-top: 45px;
 `;
 
 export const SliderSide = styled.div`

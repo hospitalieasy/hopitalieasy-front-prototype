@@ -1,9 +1,9 @@
 import { DefaultBoxBase } from "./DefaultBox.style";
 
 const DefaultBox = (props) => {
-    const { children, width, height, background, margin } = props;
+    const { children, width, height, background, margin, display } = props;
     return (
-        <DefaultBoxBase margin={margin} width={width} height={height} background={background}>
+        <DefaultBoxBase display={display} margin={margin} width={width} height={height} background={background}>
             {children}
         </DefaultBoxBase>
     );

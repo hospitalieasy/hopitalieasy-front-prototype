@@ -14,7 +14,7 @@ export const PatternLayout = styled.div`
 `;
 
 export const SvgContainer = styled.div`
-    height: 70vh;
+    height: 100vh;
 `;
 
 

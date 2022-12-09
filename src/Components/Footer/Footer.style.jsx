@@ -1,5 +1,3 @@
-import "..//..//utilities/fonts/font.css"
-
 import styled from "styled-components";
 
 export const FooterBase = styled.div`
@@ -93,4 +91,5 @@ export const CreditWrapper = styled.div`
     font-family: 'Barlow', sans-serif;
     border-right: 1px solid;
     align-items: center;
+    justify-content: center;
 `;

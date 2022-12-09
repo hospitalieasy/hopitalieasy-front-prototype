@@ -1,4 +1,4 @@
-import "..//..//utilities/style/Button.css"
+import "..//..//Utilities/Style/Button.css"
 
 import * as React from 'react';
 
@@ -19,7 +19,7 @@ export default function SignUpPop() {
     };
 
     return (
-        <div>
+        <>
             <Button className='sign' variant="contained" onClick={handleClickOpen}>
                 Sign Here
             </Button>
@@ -34,6 +34,6 @@ export default function SignUpPop() {
                     <Button className="sign-close" onClick={handleClose}>Close</Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </>
     );
 }

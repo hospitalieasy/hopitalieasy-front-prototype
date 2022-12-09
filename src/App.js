@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import About from "./pages/general/About";
-import Contact from "./pages/general/Contact";
-import Error from "./pages/general/Error";
-import Future from "./utilities/pages/Future";
-import Home from "./pages/general/Home";
-import PatientLogin from "./pages/general/PatientLogin";
-import PatientScreen from "./pages/general/PatientScreen";
+import About from "./Pages/Common/Pages/About";
+import AppScreen from "./Pages/Patient/Pages/AppScreen";
+import Contact from "./Pages/Common/Pages/Contact";
+import Error from "./Utilities/Pages/Error";
+import Future from "./Utilities/Pages/Future";
+import Home from "./Pages/Common/Pages/Home";
+import Login from "./Pages/Patient/Pages/Login";
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="patient-login" element={<PatientLogin />} />
-        <Route path="patient-screen" element={<PatientScreen />} />
-        <Route path="future-content" element={<Future />} />
+        <Route path="/patient-login" element={<Login />} />
+        <Route path="/app-screen" element={<AppScreen />} />
+        <Route path="/future-content" element={<Future />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
