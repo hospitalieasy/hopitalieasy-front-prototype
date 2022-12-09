@@ -6,14 +6,14 @@ import React from "react";
 import { TextField } from "@mui/material";
 
 const LoginForm = (props) => {
-    const { setMail, setPass, title, address } = props;
+    const { setMail, setPass, title, address, width, height, padding, buttonLabel, text, fontSize } = props;
     return (
-        <LoginFormBase>
-            <Title>{title} Login</Title>
+        <LoginFormBase padding={padding} width={width} height={height}>
+            <Title fontSize={fontSize}>{title}</Title>
             <TextField id="outlined-basic" label="E-mail" variant="standard" onChange={(e) => setMail(e.target.value)} />
-            <TextField id="outlined-password-input" label={"Password"} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPass(e.target.value)} />
+            <TextField id="outlined-password-input" label={text} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPass(e.target.value)} />
             <Button className="login" component={Link} to={address} variant="contained">
-                <Label>Login</Label>
+                <Label>{buttonLabel}</Label>
             </Button>
         </LoginFormBase>
     );

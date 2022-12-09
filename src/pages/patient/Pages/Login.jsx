@@ -15,7 +15,7 @@ const Login = () => {
                 <DefaultBox display={"flex"} width={"90%"} height={"90%"} background={"#fff"}>
                     <LoginSide>
                         <Title>Welcome to Hospitalieasy!</Title>
-                        <LoginForm title={"Patient"} address={"/app-screen"} />
+                        <LoginForm padding={"25px"} width={"65%"} height={"60%"} buttonLabel={"LOGIN"} title={"Patient Login"} fontSize={"28px"} text={"Password"} address={"/app-screen"} />
                         <SignUpWrapper>
                             Don't you have an account? <SignUpPop />
                         </SignUpWrapper>

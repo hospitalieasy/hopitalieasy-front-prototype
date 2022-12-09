@@ -3,8 +3,8 @@ import { AppScreenBase, ScreenWrapper } from "../Styles/AppScreen.style";
 import Appointment from "../Pages/Appointment"
 import Home from "./Home";
 import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.style";
+import Profile from "./Profile";
 import TestResult from "../Pages/TestResult"
-import UserInfo from "./UserInfo";
 import axios from "axios";
 import { useState } from "react";
 
@@ -41,7 +41,7 @@ const AppScreen = () => {
                     )}
 
                     {(profileIndex) && (!profileIndexCloser) && (
-                        <UserInfo setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
+                        <Profile setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
                     )}
 
                     {menuIndex === 0 && (profileIndexCloser) && (

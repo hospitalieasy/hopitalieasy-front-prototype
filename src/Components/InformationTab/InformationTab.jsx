@@ -1,58 +1,31 @@
 import "..//..//Utilities/Style/Button.css"
 
-import { ButtonWrapper, FormWrapper, InformationTabBase, Label, Section, Title } from "./InformationTab.style"
+import { FormWrapper, InformationTabBase, Section, Title } from "./InformationTab.style"
 
-import { Button } from "@mui/material";
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormLabel from '@mui/material/FormLabel';
-import { Link } from 'react-router-dom';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
 import { TextField } from "@mui/material";
 
 const InformationTab = (props) => {
-    const { title, buttonLabel, address } = props;
+    const { title } = props;
     return (
         <InformationTabBase>
             <Title>User Information</Title>
             <FormWrapper>
                 <Title>{title}</Title>
                 <Section>
-                    <TextField id="outlined-basic" label="Name" variant="outlined" />
-                    <TextField id="outlined-basic" label="Surname" variant="outlined" />
+                    <TextField disabled id="filled-disabled" label="Name" defaultValue="Altar" variant="filled" />
+                    <TextField disabled id="filled-disabled" label="Surname" defaultValue="Ulas" variant="filled" />
                 </Section>
 
                 <Section>
-                    <TextField id="outlined-basic" label="Age" variant="outlined" />
-                    <TextField id="outlined-basic" label="Tel-no" variant="outlined" />
+                    <TextField disabled id="filled-disabled" label="Birthday" defaultValue="04/07/2000" variant="filled" />
+                    <TextField disabled id="filled-disabled" label="E-mail" defaultValue="altarulas@hotmail.com" variant="filled" />
                 </Section>
 
                 <Section>
-                    <FormControl>
-                        <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-radio-buttons-group-label"
-                            defaultValue="female"
-                            name="radio-buttons-group"
-                        >
-                            <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        </RadioGroup>
-                    </FormControl>
-                    <TextField
-                        label="Address"
-                        multiline
-                        rows={3}
-                        defaultValue=""
-                    />
+                    <TextField disabled id="filled-disabled" label="Password" defaultValue="Password" variant="filled" />
+                    <TextField disabled id="filled-disabled" label="Phone" defaultValue="505353535" variant="filled" />
                 </Section>
             </FormWrapper>
-            <ButtonWrapper>
-                <Button className='save' style={{ backgroundColor: "black" }} component={Link} to={address} variant="contained">
-                    <Label>{buttonLabel}</Label>
-                </Button>
-            </ButtonWrapper>
         </InformationTabBase>
     );
 }
