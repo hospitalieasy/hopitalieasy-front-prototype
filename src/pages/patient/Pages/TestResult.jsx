@@ -5,9 +5,9 @@ import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
 import Loading from "..//..//..//Utilities/Components/Loading/Loading"
 
 const Appointment = (props) => {
-    const { setProfileIndex, setMenuIndex, setProfileIndexCloser, displayInfo } = props;
+    const { setProfileIndex, setMenuIndex, setProfileIndexCloser } = props;
     return (
-        <TestResultBase onClick={displayInfo}>
+        <TestResultBase>
             <ContentWrapper>
 
                 <Section1 width={"95%"} height={"10%"}>

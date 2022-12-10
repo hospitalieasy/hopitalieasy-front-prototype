@@ -7,11 +7,12 @@ import NotificationPop from "../NotificationPop/NotificationPop"
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 const AppBar = (props) => {
-    const { setProfileIndex, setMenuIndex, setProfileIndexCloser } = props;
+    const { log, setLog, setProfileIndex, setMenuIndex, setProfileIndexCloser, name } = props;
+
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi Altar Welcome!</Title>
+                <Title>Hi {name} Welcome!</Title>
                 <SpeedDialWrapper>
                     <BasicSpeedDial setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} />
                 </SpeedDialWrapper>
@@ -22,7 +23,7 @@ const AppBar = (props) => {
                         <NotificationPop />
                     </NotificationWrapper>
                     <ProfileWrapper>
-                        <ProfileMenu setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} />
+                        <ProfileMenu log={log} setLog={setLog} setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} />
                     </ProfileWrapper>
                 </ContentWrapper>
             </RightSide>

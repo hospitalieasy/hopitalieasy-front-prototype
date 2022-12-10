@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfileMenu(props) {
-    const { setProfileIndex, setProfileIndexCloser } = props;
+    const { log, setLog, setProfileIndex, setProfileIndexCloser } = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -23,6 +23,12 @@ export default function ProfileMenu(props) {
     const profileHandler = () => {
         setProfileIndex(true);
         setProfileIndexCloser(false);
+    };
+
+    const navigate = useNavigate();
+    const logoutHandler = () => {
+
+        navigate("/");
     };
 
 
@@ -47,7 +53,7 @@ export default function ProfileMenu(props) {
                 }}
             >
                 <MenuItem onClick={profileHandler}>My Profile</MenuItem>
-                <MenuItem component={Link} to={'/'}>Logout</MenuItem>
+                <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </Menu>
         </>
     );

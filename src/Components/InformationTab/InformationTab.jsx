@@ -5,25 +5,34 @@ import { FormWrapper, InformationTabBase, Section, Title } from "./InformationTa
 import { TextField } from "@mui/material";
 
 const InformationTab = (props) => {
-    const { title } = props;
+    const {
+        name,
+        surname,
+        birthday,
+        email,
+        password,
+        phone,
+        title,
+    } = props;
+
     return (
         <InformationTabBase>
             <Title>User Information</Title>
             <FormWrapper>
                 <Title>{title}</Title>
                 <Section>
-                    <TextField disabled id="filled-disabled" label="Name" defaultValue="Altar" variant="filled" />
-                    <TextField disabled id="filled-disabled" label="Surname" defaultValue="Ulas" variant="filled" />
+                    <TextField disabled id="filled-disabled" label="Name" defaultValue={name} variant="filled" />
+                    <TextField disabled id="filled-disabled" label="Surname" defaultValue={surname} variant="filled" />
                 </Section>
 
                 <Section>
-                    <TextField disabled id="filled-disabled" label="Birthday" defaultValue="04/07/2000" variant="filled" />
-                    <TextField disabled id="filled-disabled" label="E-mail" defaultValue="altarulas@hotmail.com" variant="filled" />
+                    <TextField disabled id="filled-disabled" label="Birthday" defaultValue={birthday} variant="filled" />
+                    <TextField disabled id="filled-disabled" label="E-mail" defaultValue={email} variant="filled" />
                 </Section>
 
                 <Section>
-                    <TextField disabled id="filled-disabled" label="Password" defaultValue="Password" variant="filled" />
-                    <TextField disabled id="filled-disabled" label="Phone" defaultValue="505353535" variant="filled" />
+                    <TextField disabled id="filled-disabled" label="Password" defaultValue={password} variant="filled" />
+                    <TextField disabled id="filled-disabled" label="Phone" defaultValue={phone} variant="filled" />
                 </Section>
             </FormWrapper>
         </InformationTabBase>

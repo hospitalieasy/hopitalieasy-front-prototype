@@ -22,6 +22,7 @@ export const Title = styled.div`
     font-size: 30px;
     margin-bottom: 35px;
     margin-left: 20px;
+    margin-top: 50px;
 `;
 
 export const SignUpWrapper = styled.div`
@@ -30,11 +31,12 @@ export const SignUpWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0px 25px;
-    margin-top: -20px;
+    margin-top: 0px;
 `;
 
 export const IconWrapper = styled.div`
-    margin-top: 45px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 `;
 
 export const SliderSide = styled.div`

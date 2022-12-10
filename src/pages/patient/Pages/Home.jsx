@@ -5,14 +5,24 @@ import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
 import SlideShow from "../../../Components/SlideShow/SlideShow"
 
 const Home = (props) => {
-    const { setProfileIndex, setMenuIndex, setProfileIndexCloser, displayInfo } = props;
-    return (
-        <HomeBase onClick={displayInfo}>
-            <ContentWrapper>
 
+    const {
+        name,
+        setProfileIndex,
+        setMenuIndex,
+        setProfileIndexCloser
+    } = props;
+
+    return (
+        <HomeBase>
+            <ContentWrapper>
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
-                        <AppBar setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
+                        <AppBar
+                            name={name}
+                            setProfileIndexCloser={setProfileIndexCloser}
+                            setMenuIndex={setMenuIndex}
+                            setProfileIndex={setProfileIndex} />
                     </DefaultBox>
                 </Section1>
 
@@ -24,7 +34,7 @@ const Home = (props) => {
                         <h3 style={{ color: "#000" }}>beden görseli</h3>
                     </DefaultBox>
                     <DefaultBox width={"20%"} height={"60%"} background="#fff">
-                        <h3 style={{ color: "#000" }}> kitle endex hesaplama</h3>
+                        <h3 style={{ color: "#000" }}>vücut kitle endex hesaplama</h3>
                     </DefaultBox>
                 </Section2>
 
@@ -33,10 +43,10 @@ const Home = (props) => {
                         <h3 style={{ color: "#000" }}>uygulama bilgileri</h3>
                     </DefaultBox>
                     <DefaultBox width={"25%"} height={"85%"} background="#fff">
-                        <h3 style={{ color: "#000" }}> en yakın eczane</h3>
+                        <h3 style={{ color: "#000" }}> en yakın hastane map</h3>
                     </DefaultBox>
                     <DefaultBox width={"25%"} height={"85%"} background="#fff">
-                        <h3 style={{ color: "#000" }}> en yakın eczane</h3>
+                        <h3 style={{ color: "#000" }}> en yakın eczane map</h3>
                     </DefaultBox>
                 </Section2>
 
