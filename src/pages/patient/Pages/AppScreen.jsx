@@ -7,13 +7,12 @@ import Home from "./Home";
 import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.style";
 import Profile from "./Profile";
 import TestResult from "../Pages/TestResult"
+import { UserContext } from "../../../Utilities/Components/UserContext/UserContext";
 
 const AppScreen = () => {
 
     const { setCurrentUser } = useContext(AuthContext);
-    const [menuIndex, setMenuIndex] = useState(null);
-    const [profileIndex, setProfileIndex] = useState(false);
-    const [profileIndexCloser, setProfileIndexCloser] = useState(false);
+    const { menuIndex, setMenuIndex, profileIndex, setProfileIndex, profileIndexCloser, setProfileIndexCloser } = useContext(UserContext);
 
     const response = [
         {

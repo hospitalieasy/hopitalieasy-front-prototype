@@ -23,7 +23,7 @@ const AppBar = (props) => {
                         <NotificationPop />
                     </NotificationWrapper>
                     <ProfileWrapper>
-                        <ProfileMenu setCurrentUser={setCurrentUser} setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} />
+                        <ProfileMenu setMenuIndex={setMenuIndex} setCurrentUser={setCurrentUser} setProfileIndexCloser={setProfileIndexCloser} setProfileIndex={setProfileIndex} />
                     </ProfileWrapper>
                 </ContentWrapper>
             </RightSide>

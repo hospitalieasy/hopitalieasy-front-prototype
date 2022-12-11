@@ -25,8 +25,8 @@ const Home = (props) => {
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
                         <AppBar
-                            setCurrentUser={setCurrentUser}
                             name={name}
+                            setCurrentUser={setCurrentUser}
                             setProfileIndexCloser={setProfileIndexCloser}
                             setMenuIndex={setMenuIndex}
                             setProfileIndex={setProfileIndex} />

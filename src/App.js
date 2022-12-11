@@ -16,6 +16,15 @@ import { useState } from "react";
 function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [menuIndex, setMenuIndex] = useLocalStorage("menu-index", null);
+  const [profileIndex, setProfileIndex] = useLocalStorage(
+    "profile-index",
+    false
+  );
+  const [profileIndexCloser, setProfileIndexCloser] = useLocalStorage(
+    "profile-index-closer",
+    false
+  );
   const [currentUser, setCurrentUser] = useLocalStorage("current-user", false);
 
   return (
@@ -26,6 +35,12 @@ function App() {
           setEmail,
           password,
           setPassword,
+          menuIndex,
+          setMenuIndex,
+          profileIndex,
+          setProfileIndex,
+          profileIndexCloser,
+          setProfileIndexCloser,
         }}
       >
         <AuthContext.Provider value={{ currentUser, setCurrentUser }}>

@@ -6,7 +6,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 export default function ProfileMenu(props) {
-    const { setCurrentUser, setProfileIndex, setProfileIndexCloser } = props;
+    const { setMenuIndex, setCurrentUser, setProfileIndex, setProfileIndexCloser } = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -26,6 +26,9 @@ export default function ProfileMenu(props) {
 
     const logoutHandler = () => {
         setCurrentUser(false);
+        setMenuIndex(null);
+        setProfileIndex(false);
+        setProfileIndexCloser(false);
     };
 
     return (
