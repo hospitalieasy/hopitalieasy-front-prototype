@@ -8,7 +8,7 @@ import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.s
 import Profile from "./Profile";
 import TestResult from "../Pages/TestResult"
 
-const AppScreen = (props) => {
+const AppScreen = () => {
 
     const { setCurrentUser } = useContext(AuthContext);
     const [menuIndex, setMenuIndex] = useState(null);
@@ -102,6 +102,12 @@ const AppScreen = (props) => {
                         {menuIndex === 1 && (profileIndexCloser) && (
                             <Appointment
                                 setCurrentUser={setCurrentUser}
+                                name={name}
+                                surname={surname}
+                                birthday={birthday}
+                                email={email}
+                                password={password}
+                                phone={phone}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
@@ -111,6 +117,12 @@ const AppScreen = (props) => {
                         {menuIndex === 2 && (profileIndexCloser) && (
                             <TestResult
                                 setCurrentUser={setCurrentUser}
+                                name={name}
+                                surname={surname}
+                                birthday={birthday}
+                                email={email}
+                                password={password}
+                                phone={phone}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}

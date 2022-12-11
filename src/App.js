@@ -30,9 +30,9 @@ function App() {
       >
         <AuthContext.Provider value={{ currentUser, setCurrentUser }}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="/patient-login" element={<Login />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/app-screen" element={<AppScreen />} />

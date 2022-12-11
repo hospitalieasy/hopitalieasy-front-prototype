@@ -1,6 +1,7 @@
 import { AboutBase } from "..//Styles/About.style";
 import DefaultLayout from "../../../Components/DefaultLayout/DefaultLayout"
 import Loading from "../../../Utilities/Components/Loading/Loading";
+import { Outlet } from "react-router-dom";
 import React from "react";
 
 const About = () => {
@@ -8,6 +9,7 @@ const About = () => {
         <DefaultLayout>
             <AboutBase>
                 <Loading />
+                <Outlet />
             </AboutBase>
         </DefaultLayout>
     );

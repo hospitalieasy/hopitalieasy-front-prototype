@@ -7,15 +7,16 @@ import LoginForm from "../../../Components/LoginForm/LoginForm";
 
 const Profile = (props) => {
     const {
+        setCurrentUser,
         name,
         surname,
         birthday,
         email,
         password,
         phone,
+        setProfileIndexCloser,
         setProfileIndex,
         setMenuIndex,
-        setProfileIndexCloser
     } = props;
 
     return (
@@ -23,12 +24,16 @@ const Profile = (props) => {
             <ContentWrapper>
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
-                        <AppBar name={name} setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
+                        <AppBar
+                            setCurrentUser={setCurrentUser}
+                            name={name}
+                            setProfileIndexCloser={setProfileIndexCloser}
+                            setMenuIndex={setMenuIndex}
+                            setProfileIndex={setProfileIndex} />
                     </DefaultBox>
                 </Section1>
                 <Section2 width={"95%"} height={"100%"}>
                     <DefaultBox width={"65%"} height={"100%"} background="#fff">
-
                         <InformationTab
                             name={name}
                             surname={surname}
@@ -38,7 +43,6 @@ const Profile = (props) => {
                             phone={phone}
                             buttonLabel={"SAVE"}
                         />
-
                     </DefaultBox >
                     <DefaultBox width={"30%"} height={"65%"} background="#fff">
                         <LoginForm padding={"40px"} width={"100%"} height={"100%"} buttonLabel={"CHANGE PASSWORD"} title={"Change Your Password"} fontSize={"24px"} text={"New password"} />

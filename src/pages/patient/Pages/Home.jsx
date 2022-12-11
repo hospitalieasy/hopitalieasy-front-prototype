@@ -9,9 +9,14 @@ const Home = (props) => {
     const {
         setCurrentUser,
         name,
+        surname,
+        birthday,
+        email,
+        password,
+        phone,
+        setProfileIndexCloser,
         setProfileIndex,
         setMenuIndex,
-        setProfileIndexCloser
     } = props;
 
     return (
