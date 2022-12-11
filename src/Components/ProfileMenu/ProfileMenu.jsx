@@ -4,8 +4,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import useLocalStorage from '../../Hooks/LocalStorage/useLocalStorage';
-import { useNavigate } from 'react-router-dom';
 
 export default function ProfileMenu(props) {
     const { setCurrentUser, setProfileIndex, setProfileIndexCloser } = props;

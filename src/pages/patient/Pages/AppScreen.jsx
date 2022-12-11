@@ -10,7 +10,7 @@ import TestResult from "../Pages/TestResult"
 
 const AppScreen = (props) => {
 
-    const { currentUser, setCurrentUser } = useContext(AuthContext);
+    const { setCurrentUser } = useContext(AuthContext);
     const [menuIndex, setMenuIndex] = useState(null);
     const [profileIndex, setProfileIndex] = useState(false);
     const [profileIndexCloser, setProfileIndexCloser] = useState(false);

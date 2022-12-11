@@ -1,6 +1,6 @@
+import { Navigate, Outlet } from "react-router-dom";
+
 import { AuthContext } from "../Auth/AuthContext";
-import Home from "../../../Pages/Common/Pages/Home";
-import { Outlet } from "react-router-dom";
 import { useContext } from "react";
 
 const ProtectedRoutes = () => {
@@ -11,7 +11,7 @@ const ProtectedRoutes = () => {
   };
   const isAuth = useAuth();
 
-  return isAuth ? <Outlet /> : <Home />;
+  return isAuth ? <Outlet /> : <Navigate to={"/"} />;
 };
 
 export default ProtectedRoutes;
