@@ -42,7 +42,7 @@ const Login = () => {
                             Don't you have an account? <SignUpPop />
                         </SignUpWrapper>
                         <IconWrapper>
-                            <Link component={Link} to={'/'}>
+                            <Link component={Link} to={'/home'}>
                                 <img src="https://img.icons8.com/ios-filled/42/null/logout-rounded-left.png" alt="" />
                             </Link>
                         </IconWrapper>

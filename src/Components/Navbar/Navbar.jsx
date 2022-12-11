@@ -5,8 +5,7 @@ import { ButtonContainer, ButtonItem, LeftSide, MidSide, NavItemContainer, Navba
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const Navbar = (props) => {
-
+const Navbar = () => {
     return (
         <NavbarBase>
             <LeftSide>
