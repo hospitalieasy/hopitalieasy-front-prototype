@@ -2,15 +2,15 @@ import { AppScreenBase, ScreenWrapper } from "../Styles/AppScreen.style";
 import { useContext, useState } from "react";
 
 import Appointment from "../Pages/Appointment"
+import { AuthContext } from "../../../Utilities/Components/Auth/AuthContext";
 import Home from "./Home";
 import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.style";
 import Profile from "./Profile";
 import TestResult from "../Pages/TestResult"
-import { UserContext } from "..//..//..//UserContext";
 
-const AppScreen = () => {
-    const { log, setLog } = useContext(UserContext);
+const AppScreen = (props) => {
 
+    const { currentUser, setCurrentUser } = useContext(AuthContext);
     const [menuIndex, setMenuIndex] = useState(null);
     const [profileIndex, setProfileIndex] = useState(false);
     const [profileIndexCloser, setProfileIndexCloser] = useState(false);
@@ -56,6 +56,7 @@ const AppScreen = () => {
                     <>
                         {menuIndex === null && (!profileIndex) && (
                             <Home
+                                setCurrentUser={setCurrentUser}
                                 name={name}
                                 surname={surname}
                                 birthday={birthday}
@@ -70,8 +71,7 @@ const AppScreen = () => {
 
                         {(profileIndex) && (!profileIndexCloser) && (
                             <Profile
-                                log={log}
-                                setLog={setLog}
+                                setCurrentUser={setCurrentUser}
                                 name={name}
                                 surname={surname}
                                 birthday={birthday}
@@ -86,6 +86,7 @@ const AppScreen = () => {
 
                         {menuIndex === 0 && (profileIndexCloser) && (
                             <Home
+                                setCurrentUser={setCurrentUser}
                                 name={name}
                                 surname={surname}
                                 birthday={birthday}
@@ -100,6 +101,7 @@ const AppScreen = () => {
 
                         {menuIndex === 1 && (profileIndexCloser) && (
                             <Appointment
+                                setCurrentUser={setCurrentUser}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
@@ -108,6 +110,7 @@ const AppScreen = () => {
 
                         {menuIndex === 2 && (profileIndexCloser) && (
                             <TestResult
+                                setCurrentUser={setCurrentUser}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}

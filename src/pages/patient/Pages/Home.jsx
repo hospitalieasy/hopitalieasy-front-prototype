@@ -7,6 +7,7 @@ import SlideShow from "../../../Components/SlideShow/SlideShow"
 const Home = (props) => {
 
     const {
+        setCurrentUser,
         name,
         setProfileIndex,
         setMenuIndex,
@@ -19,6 +20,7 @@ const Home = (props) => {
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
                         <AppBar
+                            setCurrentUser={setCurrentUser}
                             name={name}
                             setProfileIndexCloser={setProfileIndexCloser}
                             setMenuIndex={setMenuIndex}
@@ -51,7 +53,7 @@ const Home = (props) => {
                 </Section2>
 
             </ContentWrapper>
-        </HomeBase>
+        </HomeBase >
     );
 }
 

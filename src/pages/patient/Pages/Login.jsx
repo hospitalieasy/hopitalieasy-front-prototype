@@ -1,5 +1,6 @@
 import { IconWrapper, LoginBase, LoginSide, SignUpWrapper, SliderSide, Title } from "../Styles/Login.style";
 
+import { AuthContext } from "..//..//..//Utilities/Components/Auth/AuthContext"
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox";
 import DefaultLayout from "../../../Components/DefaultLayout/DefaultLayout";
 import { Link } from "react-router-dom";
@@ -7,12 +8,13 @@ import LoginForm from "../../../Components/LoginForm/LoginForm";
 import React from "react";
 import SignUpPop from "../../../Components/SignUpPop/SignUpPop";
 import SlideShow from "../../../Components/SlideShow/SlideShow";
-import { UserContext } from "../../../UserContext";
+import { UserContext } from "../../../Utilities/Components/UserContext/UserContext";
 import { useContext } from "react";
 
 const Login = () => {
 
-    const { setEmail, setPassword, email, password, log, setLog } = useContext(UserContext);
+    const { setEmail, setPassword, email, password } = useContext(UserContext);
+    const { setCurrentUser } = useContext(AuthContext);
 
     return (
         <DefaultLayout>
@@ -22,8 +24,7 @@ const Login = () => {
                         <Title>Welcome to Hospitalieasy!</Title>
 
                         <LoginForm
-                            log={log}
-                            setLog={setLog}
+                            setCurrentUser={setCurrentUser}
                             setEmail={setEmail}
                             setPassword={setPassword}
                             email={email}

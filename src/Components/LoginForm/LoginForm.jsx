@@ -8,11 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const LoginForm = (props) => {
-    const { setEmail, setPassword, email, password, log, setLog, title, width, height, padding, buttonLabel, text, fontSize } = props;
+    const { setCurrentUser, setEmail, setPassword, email, password, title, width, height, padding, buttonLabel, text, fontSize } = props;
 
     const [apiMail, setApiMail] = useState("");
     const [apiPassword, setApiPassword] = useState("");
-
 
     const navigate = useNavigate();
 
@@ -54,11 +53,10 @@ const LoginForm = (props) => {
         while (index < response.length) {
             if ((response[index].Email == email) && (response[index].Password == password)) {
                 alert("user exist login successful")
-                setLog(true);
-                console.log(log)
                 setApiMail(response[index].Email)
                 setApiPassword(response[index].Password)
-                navigate(`/app-screen`)
+                setCurrentUser(true)
+                navigate("/app-screen")
                 break;
             }
             if (index === (response.length - 1)) {

@@ -4,10 +4,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import useLocalStorage from '../../Hooks/LocalStorage/useLocalStorage';
 import { useNavigate } from 'react-router-dom';
 
 export default function ProfileMenu(props) {
-    const { log, setLog, setProfileIndex, setProfileIndexCloser } = props;
+    const { setCurrentUser, setProfileIndex, setProfileIndexCloser } = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -25,12 +26,9 @@ export default function ProfileMenu(props) {
         setProfileIndexCloser(false);
     };
 
-    const navigate = useNavigate();
     const logoutHandler = () => {
-
-        navigate("/");
+        setCurrentUser(false);
     };
-
 
     return (
         <>

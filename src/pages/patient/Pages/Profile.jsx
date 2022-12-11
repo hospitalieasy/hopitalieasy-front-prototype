@@ -7,8 +7,6 @@ import LoginForm from "../../../Components/LoginForm/LoginForm";
 
 const Profile = (props) => {
     const {
-        log,
-        setLog,
         name,
         surname,
         birthday,
@@ -25,7 +23,7 @@ const Profile = (props) => {
             <ContentWrapper>
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
-                        <AppBar log={log} setLog={setLog} name={name} setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
+                        <AppBar name={name} setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} setProfileIndex={setProfileIndex} />
                     </DefaultBox>
                 </Section1>
                 <Section2 width={"95%"} height={"100%"}>
