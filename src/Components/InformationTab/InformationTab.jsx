@@ -72,7 +72,15 @@ const InformationTab = (props) => {
                 </Section>
             </FormWrapper>
             <ButtonWrapper>
-                <Button variant="contained">SAVE</Button>
+                {visible ? (
+
+                    <Button variant="contained">SAVE</Button>
+
+                ) : (
+
+                    <Button disabled variant="contained">SAVE</Button>
+
+                )}
             </ButtonWrapper>
         </InformationTabBase>
     );

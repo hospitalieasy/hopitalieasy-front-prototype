@@ -23,12 +23,10 @@ const Profile = () => {
         <ProfileBase>
             <ContentWrapper>
                 <Section2 width={"95%"} height={"100%"}>
-                    <DefaultBox width={"65%"} height={"100%"} background="#fff">
-
+                    <DefaultBox width={"65%"} height={"95%"} background="#fff">
                         <InformationTab userIndex={userIndex} />
-
                     </DefaultBox >
-                    <DefaultBox width={"30%"} height={"65%"} background="#fff">
+                    <DefaultBox width={"30%"} height={"60%"} background="#fff">
                         <ChangePassword padding={"40px"} width={"100%"} height={"100%"} buttonLabel={"CHANGE PASSWORD"} title={"Change Your Password"} fontSize={"24px"} text={"New password"} />
                     </DefaultBox>
                 </Section2>

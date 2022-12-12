@@ -15,7 +15,7 @@ const HeroBanner = () => {
                         New Way of Treatment
                     </Title>
                     <Description>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure aliquid suscipit rerum neque aut consectetur?
+                        Make your life easier with the Hospitalieasy app starting today. Get started right now!
                     </Description>
                     <ButtonWrapper>
                         <Link

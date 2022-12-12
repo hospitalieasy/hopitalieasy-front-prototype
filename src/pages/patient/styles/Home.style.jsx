@@ -42,5 +42,14 @@ export const Section3 = styled.div`
 `;
 
 
-export const Title = styled.div`
+export const ImageWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`;
+
+export const Image = styled.img`
+    width: 50%;
+    height: 50%;
 `;

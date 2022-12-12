@@ -38,7 +38,7 @@ export default function NotificationPop() {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{"Appointment Notifications"}</DialogTitle>
+                <DialogTitle>{"Appointment Notifications (Future Content)"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
                         You have a new appointment at 10:30 on Tuesday

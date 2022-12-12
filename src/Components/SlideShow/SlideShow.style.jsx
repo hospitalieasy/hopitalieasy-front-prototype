@@ -22,6 +22,10 @@ export const Content = styled.div`
     padding: 8px 30px;
 `;
 
+export const ContentImage = styled.div`
+    padding: ${props => props.padding};
+`;
+
 export const Title = styled.div`
     font-size: 30px;
     color: ${props => props.color};
@@ -42,10 +46,8 @@ export const Description = styled.div`
     font-family: 'Barlow', sans-serif;
 `;
 
-/* export const ButtonContainer = styled.div`
-    height: 20%;
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-`; */
+export const Image = styled.img`
+   width: 100%;
+   height: 100%;
+`;
+

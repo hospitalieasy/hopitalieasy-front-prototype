@@ -1,7 +1,10 @@
-import { ContentWrapper, HomeBase, Section2 } from "../Styles/Home.style";
+import { ContentWrapper, HomeBase, Image, ImageWrapper, Section2 } from "../Styles/Home.style";
 
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
+import DoctorReview from "../../../Utilities/Components/DoctorReview/DoctorReview";
 import SlideShow from "../../../Components/SlideShow/SlideShow"
+import SlideShowImage from "../../../Components/SlideShow/SlideShowImage"
+import mapImage from "..//..//..//Utilities/Images/map-image.jpg"
 
 const Home = () => {
 
@@ -10,25 +13,31 @@ const Home = () => {
             <ContentWrapper>
                 <Section2 width={"95%"} height={"50%"}>
                     <DefaultBox width={"45%"} height={"100%"} background="#fff">
-                        <SlideShow padding={"30px 30px"} width={"85%"} height={"100%"} />
+                        <SlideShow padding={"30px 30px"} width={"100%"} height={"100%"} />
                     </DefaultBox>
                     <DefaultBox width={"30%"} height={"100%"} background="#fff">
-                        <h3 style={{ color: "#000" }}>beden görseli</h3>
+                        <SlideShowImage width={"100%"} height={"100%"} />
                     </DefaultBox>
                     <DefaultBox width={"20%"} height={"60%"} background="#fff">
                         <h3 style={{ color: "#000" }}>vücut kitle endex hesaplama</h3>
                     </DefaultBox>
                 </Section2>
 
-                <Section2 width={"95%"} height={"35%"}>
-                    <DefaultBox width={"45%"} height={"95%"} background="#fff">
-                        <h3 style={{ color: "#000" }}>uygulama bilgileri</h3>
+                <Section2 width={"95%"} height={"40%"}>
+                    <DefaultBox width={"45%"} height={"90%"} background="#fff">
+                        <DoctorReview />
                     </DefaultBox>
                     <DefaultBox width={"25%"} height={"85%"} background="#fff">
-                        <h3 style={{ color: "#000" }}> en yakın hastane map</h3>
+                        <ImageWrapper>
+                            <h3 style={{ color: "#000" }}>Future Content (Hospital Map)</h3>
+                            <Image src={mapImage} />
+                        </ImageWrapper>
                     </DefaultBox>
                     <DefaultBox width={"25%"} height={"85%"} background="#fff">
-                        <h3 style={{ color: "#000" }}> en yakın eczane map</h3>
+                        <ImageWrapper>
+                            <h3 style={{ color: "#000" }}>Future Content (Pharmacy Map)</h3>
+                            <Image src={mapImage} />
+                        </ImageWrapper>
                     </DefaultBox>
                 </Section2>
             </ContentWrapper>

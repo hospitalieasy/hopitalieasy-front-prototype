@@ -5,6 +5,7 @@ export const HeroBannerBase = styled.div`
     height: 100%;
     display: flex;
     padding: 50px 50px;
+    align-items: center;
     
     animation:  0.5s ease-out 0s 1 slideInFromBottom;
     @keyframes slideInFromBottom {

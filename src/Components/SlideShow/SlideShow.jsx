@@ -17,7 +17,7 @@ const SlideShow = (props) => {
         setTimeout(function () {
             reactSwipeEl?.next();
             start();
-        }, 5000);
+        }, 8000);
     }
     start();
 
@@ -30,21 +30,21 @@ const SlideShow = (props) => {
                     ref={el => (reactSwipeEl = el)}
                 >
                     <Content>
-                        <Title color={color}>Hospitalieasy Makes Your Life Easy!</Title>
-                        <Label color={color}>Lorem ipsum dolor sit.</Label>
-                        <Description color={color}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio consectetur, molestiae excepturi nobis architecto corporis!</Description>
+                        <Title color={color}>Join Hospitalieasy Today</Title>
+                        <Label color={color}>Patient or Doctor</Label>
+                        <Description color={color}>Doctor or patient register and log in to the application. Take different actions based on your role and sit back and enjoy being able to do it from home</Description>
                     </Content>
 
                     <Content>
                         <Title color={color}>Get Appointment</Title>
-                        <Label color={color}>Lorem ipsum dolor sit.</Label>
-                        <Description color={color}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste perferendis vitae ut quas numquam at tempora alias minima, doloremque sint. Autem, tempore! Dolores, delectus veniam? Iste accusamus consequuntur eligendi deserunt.</Description>
+                        <Label color={color}>Get Your First Appointment Online</Label>
+                        <Description color={color}>After logging into the system with your registered membership, make an appointment with the appropriate doctors at the appropriate time and save your time!</Description>
                     </Content>
 
                     <Content>
                         <Title color={color}>See Your Results</Title>
-                        <Label color={color}>Lorem ipsum dolor sit.</Label>
-                        <Description color={color}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste perferendis vitae ut quas numquam at tempora alias minima, doloremque sint. Autem, tempore! Dolores, delectus veniam? Iste accusamus consequuntur eligendi deserunt.</Description>
+                        <Label color={color}>Check Your Results After Appointment</Label>
+                        <Description color={color}>See the test results sent to you after your doctor's appointment on the system before you go to the hospital and review the results.</Description>
                     </Content>
 
                 </ReactSwipe>
