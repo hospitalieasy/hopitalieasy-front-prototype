@@ -5,6 +5,12 @@ export const HeroBannerBase = styled.div`
     height: 100%;
     display: flex;
     padding: 50px 50px;
+    
+    animation:  0.5s ease-out 0s 1 slideInFromBottom;
+    @keyframes slideInFromBottom {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+    }
 `;
 
 export const LeftSide = styled.div`

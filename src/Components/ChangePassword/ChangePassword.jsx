@@ -100,7 +100,8 @@ const ChangePassword = (props) => {
             <TextField id="outlined-password-input" label={text} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPassword(e.target.value)} />
 
             <Button onClick={getData} className="login" variant="contained">
-                <SnackBar loginNotification={loginNotification} />
+                {/* <SnackBar loginNotification={loginNotification} /> */}
+                CHANGE PASSWORD
             </Button>
         </ChangePasswordBase>
     );
