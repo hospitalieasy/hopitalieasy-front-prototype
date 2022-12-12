@@ -15,18 +15,19 @@ import useLocalStorage from "./Hooks/LocalStorage/useLocalStorage";
 import { useState } from "react";
 
 function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [menuIndex, setMenuIndex] = useLocalStorage("menu-index", null);
+  const [menuIndex, setMenuIndex] = useLocalStorage("menu-index-num", null);
   const [profileIndex, setProfileIndex] = useLocalStorage(
-    "profile-index",
+    "profile-index-is",
     false
   );
   const [profileIndexCloser, setProfileIndexCloser] = useLocalStorage(
-    "profile-index-closer",
+    "profile-index-closer-is",
     false
   );
-  const [currentUser, setCurrentUser] = useLocalStorage("current-user", false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useLocalStorage("is-user-exist", false);
 
   return (
     <BrowserRouter>
@@ -46,8 +47,8 @@ function App() {
             setEmail,
             password,
             setPassword,
-            currentUser,
-            setCurrentUser,
+            user,
+            setUser,
           }}
         >
           <Routes>

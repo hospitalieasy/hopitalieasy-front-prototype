@@ -13,11 +13,12 @@ const Profile = (props) => {
         emailArray,
         passwordArray,
         phone,
-        email,
+
+
         setEmail,
-        password,
         setPassword,
-        setCurrentUser,
+        setUser,
+
         setProfileIndexCloser,
         setMenuIndex,
         setProfileIndex,
@@ -30,12 +31,15 @@ const Profile = (props) => {
                     <DefaultBox width={"100%"} height={"100%"}>
                         <AppBar
                             name={name}
+
                             setEmail={setEmail}
                             setPassword={setPassword}
-                            setCurrentUser={setCurrentUser}
+                            setUser={setUser}
+
                             setProfileIndexCloser={setProfileIndexCloser}
                             setMenuIndex={setMenuIndex}
-                            setProfileIndex={setProfileIndex} />
+                            setProfileIndex={setProfileIndex}
+                        />
                     </DefaultBox>
                 </Section1>
                 <Section2 width={"95%"} height={"100%"}>

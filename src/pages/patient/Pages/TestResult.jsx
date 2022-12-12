@@ -12,9 +12,11 @@ const Appointment = (props) => {
         emailArray,
         passwordArray,
         phone,
+
         setEmail,
         setPassword,
-        setCurrentUser,
+        setUser,
+
         setProfileIndexCloser,
         setProfileIndex,
         setMenuIndex,
@@ -28,10 +30,12 @@ const Appointment = (props) => {
                         <AppBar
                             setEmail={setEmail}
                             setPassword={setPassword}
-                            setCurrentUser={setCurrentUser}
+                            setUser={setUser}
+
                             setProfileIndexCloser={setProfileIndexCloser}
                             setMenuIndex={setMenuIndex}
-                            setProfileIndex={setProfileIndex} />
+                            setProfileIndex={setProfileIndex}
+                        />
                     </DefaultBox>
                 </Section1>
 

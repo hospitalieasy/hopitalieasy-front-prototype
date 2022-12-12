@@ -7,7 +7,18 @@ import NotificationPop from "../NotificationPop/NotificationPop"
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 const AppBar = (props) => {
-    const { setEmail, setPassword, setCurrentUser, setProfileIndex, setMenuIndex, setProfileIndexCloser, name } = props;
+    const {
+        name,
+
+        setEmail,
+        setPassword,
+        setUser,
+
+        setProfileIndex,
+        setMenuIndex,
+        setProfileIndexCloser,
+
+    } = props;
 
     return (
         <AppBarBase>
@@ -26,7 +37,8 @@ const AppBar = (props) => {
                         <ProfileMenu
                             setEmail={setEmail}
                             setPassword={setPassword}
-                            setCurrentUser={setCurrentUser}
+                            setUser={setUser}
+
                             setMenuIndex={setMenuIndex}
                             setProfileIndexCloser={setProfileIndexCloser}
                             setProfileIndex={setProfileIndex} />

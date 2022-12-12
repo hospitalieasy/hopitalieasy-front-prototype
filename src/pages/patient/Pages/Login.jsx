@@ -12,7 +12,7 @@ import { useContext } from "react";
 
 const Login = () => {
 
-    const { setEmail, setPassword, email, password, currentUser, setCurrentUser } = useContext(AuthContext);
+    const { setEmail, setPassword, email, password, user, setUser } = useContext(AuthContext);
 
     return (
         <DefaultLayout>
@@ -22,12 +22,13 @@ const Login = () => {
                         <Title>Welcome to Hospitalieasy!</Title>
 
                         <LoginForm
-                            setEmail={setEmail}
-                            setPassword={setPassword}
                             email={email}
+                            setEmail={setEmail}
                             password={password}
-                            currentUser={currentUser}
-                            setCurrentUser={setCurrentUser}
+                            setPassword={setPassword}
+                            user={user}
+                            setUser={setUser}
+
                             padding={"25px"}
                             width={"65%"}
                             height={"60%"}

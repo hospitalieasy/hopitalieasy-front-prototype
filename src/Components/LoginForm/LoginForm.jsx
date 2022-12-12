@@ -3,19 +3,27 @@ import { LoginFormBase, Title } from "./LoginForm.style"
 import React, { useEffect } from "react";
 
 import SnackBar from "../SnackBar/SnackBar";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const LoginForm = (props) => {
-    const { currentUser, setCurrentUser, setEmail, setPassword, email, password, title, width, height, padding, text, fontSize } = props;
+    const {
+        user,
+        setUser,
+        setEmail,
+        setPassword,
+        email,
+        password,
 
-    const [apiMail, setApiMail] = useState("");
-    const [apiPassword, setApiPassword] = useState("");
+        title,
+        width,
+        height,
+        padding,
+        text,
+        fontSize
+    } = props;
+
     const [loginNotification, setLoginNotification] = useState();
-
-    const navigate = useNavigate();
-
 
     const response = [
         {
@@ -48,8 +56,8 @@ const LoginForm = (props) => {
         },
     ];
 
+    const navigate = useNavigate();
     let index = 0;
-
     const getData = async (e) => {
         e.preventDefault();
 
@@ -61,10 +69,8 @@ const LoginForm = (props) => {
             while (index < response.length) {
                 if ((response[index].Email == email) && (response[index].Password == password)) {
                     setLoginNotification(true);
-                    setApiMail(response[index].Email)
-                    setApiPassword(response[index].Password)
                     setTimeout(() => {
-                        setCurrentUser(true)
+                        setUser(true)
                         navigate("/app-screen")
                     }, 2000);
                     break;
@@ -82,7 +88,7 @@ const LoginForm = (props) => {
     }
 
     useEffect(() => {
-        if (!currentUser) {
+        if (!user) {
             setLoginNotification(false);
         }
     }, [])
@@ -111,7 +117,7 @@ const LoginForm = (props) => {
             setLoginNotification(false);
         }
 
-    }, [email, password, currentUser])
+    }, [email, password])
 
     return (
         <LoginFormBase padding={padding} width={width} height={height}>

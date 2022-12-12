@@ -4,10 +4,10 @@ import { AuthContext } from "../Auth/AuthContext";
 import { useContext } from "react";
 
 const Logged = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const useAuth = () => {
-    const user = { loggedIn: currentUser };
-    return user && user.loggedIn;
+    const checkUser = { loggedIn: user };
+    return checkUser && checkUser.loggedIn;
   };
   const isAuth = useAuth();
 

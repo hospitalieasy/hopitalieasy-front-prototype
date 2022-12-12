@@ -11,9 +11,16 @@ import { useContext } from "react";
 
 const AppScreen = () => {
 
-    const { setEmail, email, setPassword, password, setCurrentUser } = useContext(AuthContext);
+    const { setEmail, setPassword, setUser } = useContext(AuthContext);
 
-    const { menuIndex, setMenuIndex, profileIndex, setProfileIndex, profileIndexCloser, setProfileIndexCloser } = useContext(CurrentIndex);
+    const {
+        menuIndex,
+        setMenuIndex,
+        profileIndex,
+        setProfileIndex,
+        profileIndexCloser,
+        setProfileIndexCloser
+    } = useContext(CurrentIndex);
 
     const response = [
         {
@@ -66,9 +73,11 @@ const AppScreen = () => {
                                 emailArray={emailArray}
                                 passwordArray={passwordArray}
                                 phone={phone}
+
                                 setEmail={setEmail}
                                 setPassword={setPassword}
-                                setCurrentUser={setCurrentUser}
+                                setUser={setUser}
+
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
@@ -83,11 +92,12 @@ const AppScreen = () => {
                                 emailArray={emailArray}
                                 passwordArray={passwordArray}
                                 phone={phone}
-                                email={email}
+
+
                                 setEmail={setEmail}
-                                password={password}
                                 setPassword={setPassword}
-                                setCurrentUser={setCurrentUser}
+                                setUser={setUser}
+
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setMenuIndex={setMenuIndex}
                                 setProfileIndex={setProfileIndex}
@@ -102,9 +112,11 @@ const AppScreen = () => {
                                 emailArray={emailArray}
                                 passwordArray={passwordArray}
                                 phone={phone}
+
                                 setEmail={setEmail}
                                 setPassword={setPassword}
-                                setCurrentUser={setCurrentUser}
+                                setUser={setUser}
+
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
@@ -119,9 +131,11 @@ const AppScreen = () => {
                                 emailArray={emailArray}
                                 passwordArray={passwordArray}
                                 phone={phone}
+
                                 setEmail={setEmail}
                                 setPassword={setPassword}
-                                setCurrentUser={setCurrentUser}
+                                setUser={setUser}
+
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
@@ -136,9 +150,11 @@ const AppScreen = () => {
                                 emailArray={emailArray}
                                 passwordArray={passwordArray}
                                 phone={phone}
+
                                 setEmail={setEmail}
                                 setPassword={setPassword}
-                                setCurrentUser={setCurrentUser}
+                                setUser={setUser}
+
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
