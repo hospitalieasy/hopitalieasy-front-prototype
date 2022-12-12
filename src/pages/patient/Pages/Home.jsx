@@ -1,47 +1,13 @@
-import { ContentWrapper, HomeBase, Section1, Section2 } from "../Styles/Home.style";
+import { ContentWrapper, HomeBase, Section2 } from "../Styles/Home.style";
 
-import AppBar from "../../../Components/AppBar/AppBar";
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
 import SlideShow from "../../../Components/SlideShow/SlideShow"
 
-const Home = (props) => {
-
-    const {
-        name,
-        surname,
-        birthday,
-        emailArray,
-        passwordArray,
-        phone,
-
-        setEmail,
-        setPassword,
-        setUser,
-
-        setProfileIndexCloser,
-        setProfileIndex,
-        setMenuIndex,
-    } = props;
+const Home = () => {
 
     return (
         <HomeBase>
             <ContentWrapper>
-                <Section1 width={"95%"} height={"10%"}>
-                    <DefaultBox width={"100%"} height={"100%"}>
-                        <AppBar
-                            name={name}
-
-                            setEmail={setEmail}
-                            setPassword={setPassword}
-                            setUser={setUser}
-
-                            setProfileIndexCloser={setProfileIndexCloser}
-                            setMenuIndex={setMenuIndex}
-                            setProfileIndex={setProfileIndex}
-                        />
-                    </DefaultBox>
-                </Section1>
-
                 <Section2 width={"95%"} height={"50%"}>
                     <DefaultBox width={"45%"} height={"100%"} background="#fff">
                         <SlideShow padding={"30px 30px"} width={"85%"} height={"100%"} />
@@ -65,7 +31,6 @@ const Home = (props) => {
                         <h3 style={{ color: "#000" }}> en yakın eczane map</h3>
                     </DefaultBox>
                 </Section2>
-
             </ContentWrapper>
         </HomeBase >
     );

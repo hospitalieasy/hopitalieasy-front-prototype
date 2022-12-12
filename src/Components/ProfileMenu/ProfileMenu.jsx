@@ -4,9 +4,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfileMenu(props) {
-    const { setEmail, setPassword, setMenuIndex, setUser, setProfileIndex, setProfileIndexCloser } = props;
+    const { setEmail, setPassword, setUser } = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -19,18 +20,15 @@ export default function ProfileMenu(props) {
         setAnchorEl(null);
     };
 
-    const profileHandler = () => {
-        setProfileIndex(true);
-        setProfileIndexCloser(false);
-    };
+    const navigate = useNavigate();
+    const showProfile = () => {
+        navigate("/app-screen/profile")
+    }
 
     const logoutHandler = () => {
         setEmail("");
         setPassword("");
         setUser(false);
-        setMenuIndex(null);
-        setProfileIndex(false);
-        setProfileIndexCloser(false);
     };
 
     return (
@@ -53,7 +51,7 @@ export default function ProfileMenu(props) {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={profileHandler}>My Profile</MenuItem>
+                <MenuItem onClick={showProfile} >My Profile</MenuItem>
                 <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </Menu>
         </>

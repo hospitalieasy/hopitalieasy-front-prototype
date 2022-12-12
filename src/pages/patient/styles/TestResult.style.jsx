@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TestResultBase = styled.div`
-    height: 100%;
+    height: 88%;
     width: 100%;
     display: flex;
     align-items: center;

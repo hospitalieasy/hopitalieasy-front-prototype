@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AppBarBase = styled.div`
-    height: 100%;
+    height: 12%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -12,7 +12,7 @@ export const LeftSide = styled.div`
     width: 80%;
     display: flex;
     justify-content: space-between;
-    padding: 12px 0px;
+    padding: 20px 0px;
 `;
 
 
@@ -33,7 +33,7 @@ export const SpeedDialWrapper = styled.div`
 export const RightSide = styled.div`
     height: 100%;
     display: flex;
-    padding: 12px 0px;
+    padding: 20px 0px;
     margin-right: 15px;
 `;
 
@@ -48,6 +48,7 @@ export const NotificationWrapper = styled.div`
     align-items: center;
     height: 100%;
     margin-right: 15px;
+    margin-bottom: -50px;
 `;
 
 export const ProfileWrapper = styled.div`

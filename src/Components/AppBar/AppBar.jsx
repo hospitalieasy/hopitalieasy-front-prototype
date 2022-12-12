@@ -8,24 +8,17 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 const AppBar = (props) => {
     const {
-        name,
-
         setEmail,
         setPassword,
         setUser,
-
-        setProfileIndex,
-        setMenuIndex,
-        setProfileIndexCloser,
-
     } = props;
 
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi {name} Welcome!</Title>
+                <Title>Hi {"X"} Welcome!</Title>
                 <SpeedDialWrapper>
-                    <BasicSpeedDial setProfileIndexCloser={setProfileIndexCloser} setMenuIndex={setMenuIndex} />
+                    <BasicSpeedDial />
                 </SpeedDialWrapper>
             </LeftSide>
             <RightSide>
@@ -38,10 +31,7 @@ const AppBar = (props) => {
                             setEmail={setEmail}
                             setPassword={setPassword}
                             setUser={setUser}
-
-                            setMenuIndex={setMenuIndex}
-                            setProfileIndexCloser={setProfileIndexCloser}
-                            setProfileIndex={setProfileIndex} />
+                        />
                     </ProfileWrapper>
                 </ContentWrapper>
             </RightSide>
