@@ -32,10 +32,6 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider
         value={{
-          email,
-          setEmail,
-          password,
-          setPassword,
           menuIndex,
           setMenuIndex,
           profileIndex,
@@ -46,6 +42,10 @@ function App() {
       >
         <AuthContext.Provider
           value={{
+            email,
+            setEmail,
+            password,
+            setPassword,
             currentUser,
             setCurrentUser,
           }}

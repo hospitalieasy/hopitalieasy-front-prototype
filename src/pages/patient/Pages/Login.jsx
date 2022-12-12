@@ -8,13 +8,11 @@ import LoginForm from "../../../Components/LoginForm/LoginForm";
 import React from "react";
 import SignUpPop from "../../../Components/SignUpPop/SignUpPop";
 import SlideShow from "../../../Components/SlideShow/SlideShow";
-import { UserContext } from "../../../Utilities/Components/UserContext/UserContext";
 import { useContext } from "react";
 
 const Login = () => {
 
-    const { setEmail, setPassword, email, password } = useContext(UserContext);
-    const { setCurrentUser } = useContext(AuthContext);
+    const { setEmail, setPassword, email, password, currentUser, setCurrentUser } = useContext(AuthContext);
 
     return (
         <DefaultLayout>
@@ -24,19 +22,20 @@ const Login = () => {
                         <Title>Welcome to Hospitalieasy!</Title>
 
                         <LoginForm
-                            setCurrentUser={setCurrentUser}
                             setEmail={setEmail}
                             setPassword={setPassword}
                             email={email}
                             password={password}
+                            currentUser={currentUser}
+                            setCurrentUser={setCurrentUser}
                             padding={"25px"}
                             width={"65%"}
                             height={"60%"}
                             buttonLabel={"LOGIN"}
                             title={"Patient Login"}
                             fontSize={"28px"}
-                            text={"Password"}
-                            address={"/app-screen"} />
+                            text={"password"}
+                        />
 
                         <SignUpWrapper>
                             Don't you have an account? <SignUpPop />

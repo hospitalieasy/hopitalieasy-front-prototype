@@ -9,8 +9,8 @@ const InformationTab = (props) => {
         name,
         surname,
         birthday,
-        email,
-        password,
+        emailArray,
+        passwordArray,
         phone,
         title,
     } = props;
@@ -27,11 +27,11 @@ const InformationTab = (props) => {
 
                 <Section>
                     <TextField disabled id="filled-disabled" label="Birthday" defaultValue={birthday} variant="filled" />
-                    <TextField disabled id="filled-disabled" label="E-mail" defaultValue={email} variant="filled" />
+                    <TextField disabled id="filled-disabled" label="E-mail" defaultValue={emailArray} variant="filled" />
                 </Section>
 
                 <Section>
-                    <TextField disabled id="filled-disabled" label="Password" defaultValue={password} variant="filled" />
+                    <TextField disabled id="filled-disabled" label="Password" defaultValue={passwordArray} variant="filled" />
                     <TextField disabled id="filled-disabled" label="Phone" defaultValue={phone} variant="filled" />
                 </Section>
             </FormWrapper>

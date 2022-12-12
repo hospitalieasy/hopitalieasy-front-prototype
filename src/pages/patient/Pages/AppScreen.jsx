@@ -1,5 +1,4 @@
 import { AppScreenBase, ScreenWrapper } from "../Styles/AppScreen.style";
-import { useContext, useState } from "react";
 
 import Appointment from "../Pages/Appointment"
 import { AuthContext } from "../../../Utilities/Components/Auth/AuthContext";
@@ -8,10 +7,12 @@ import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.s
 import Profile from "./Profile";
 import TestResult from "../Pages/TestResult"
 import { UserContext } from "../../../Utilities/Components/UserContext/UserContext";
+import { useContext } from "react";
 
 const AppScreen = () => {
 
-    const { setCurrentUser } = useContext(AuthContext);
+    const { setEmail, email, setPassword, password, currentUser, setCurrentUser } = useContext(AuthContext);
+
     const { menuIndex, setMenuIndex, profileIndex, setProfileIndex, profileIndexCloser, setProfileIndexCloser } = useContext(UserContext);
 
     const response = [
@@ -22,12 +23,16 @@ const AppScreen = () => {
             Name: "Altar",
             Surname: "Ulaş",
             BirthDay: "04/07/2000",
-            Phone: "0505-505-505",
+            Phone: "0501-501-501",
         },
         {
             id: 2,
             Email: "beste@hotmail.com",
             Password: "1234",
+            Name: "Beste",
+            Surname: "Sakar",
+            BirthDay: "02/02/1999",
+            Phone: "0502-502-502",
         },
         {
             id: 3,
@@ -44,8 +49,8 @@ const AppScreen = () => {
     const name = response[0].Name;
     const surname = response[0].Surname;
     const birthday = response[0].BirthDay;
-    const email = response[0].Email;
-    const password = response[0].Password;
+    const emailArray = response[0].Email;
+    const passwordArray = response[0].Password;
     const phone = response[0].Phone;
 
     return (
@@ -55,13 +60,15 @@ const AppScreen = () => {
                     <>
                         {menuIndex === null && (!profileIndex) && (
                             <Home
-                                setCurrentUser={setCurrentUser}
                                 name={name}
                                 surname={surname}
                                 birthday={birthday}
-                                email={email}
-                                password={password}
+                                emailArray={emailArray}
+                                passwordArray={passwordArray}
                                 phone={phone}
+                                setEmail={setEmail}
+                                setPassword={setPassword}
+                                setCurrentUser={setCurrentUser}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
@@ -70,13 +77,17 @@ const AppScreen = () => {
 
                         {(profileIndex) && (!profileIndexCloser) && (
                             <Profile
-                                setCurrentUser={setCurrentUser}
                                 name={name}
                                 surname={surname}
                                 birthday={birthday}
-                                email={email}
-                                password={password}
+                                emailArray={emailArray}
+                                passwordArray={passwordArray}
                                 phone={phone}
+                                email={email}
+                                setEmail={setEmail}
+                                password={password}
+                                setPassword={setPassword}
+                                setCurrentUser={setCurrentUser}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setMenuIndex={setMenuIndex}
                                 setProfileIndex={setProfileIndex}
@@ -85,13 +96,15 @@ const AppScreen = () => {
 
                         {menuIndex === 0 && (profileIndexCloser) && (
                             <Home
-                                setCurrentUser={setCurrentUser}
                                 name={name}
                                 surname={surname}
                                 birthday={birthday}
-                                email={email}
-                                password={password}
+                                emailArray={emailArray}
+                                passwordArray={passwordArray}
                                 phone={phone}
+                                setEmail={setEmail}
+                                setPassword={setPassword}
+                                setCurrentUser={setCurrentUser}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
@@ -100,13 +113,15 @@ const AppScreen = () => {
 
                         {menuIndex === 1 && (profileIndexCloser) && (
                             <Appointment
-                                setCurrentUser={setCurrentUser}
                                 name={name}
                                 surname={surname}
                                 birthday={birthday}
-                                email={email}
-                                password={password}
+                                emailArray={emailArray}
+                                passwordArray={passwordArray}
                                 phone={phone}
+                                setEmail={setEmail}
+                                setPassword={setPassword}
+                                setCurrentUser={setCurrentUser}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}
@@ -115,13 +130,15 @@ const AppScreen = () => {
 
                         {menuIndex === 2 && (profileIndexCloser) && (
                             <TestResult
-                                setCurrentUser={setCurrentUser}
                                 name={name}
                                 surname={surname}
                                 birthday={birthday}
-                                email={email}
-                                password={password}
+                                emailArray={emailArray}
+                                passwordArray={passwordArray}
                                 phone={phone}
+                                setEmail={setEmail}
+                                setPassword={setPassword}
+                                setCurrentUser={setCurrentUser}
                                 setProfileIndexCloser={setProfileIndexCloser}
                                 setProfileIndex={setProfileIndex}
                                 setMenuIndex={setMenuIndex}

@@ -7,13 +7,15 @@ import SlideShow from "../../../Components/SlideShow/SlideShow"
 const Home = (props) => {
 
     const {
-        setCurrentUser,
         name,
         surname,
         birthday,
-        email,
-        password,
+        emailArray,
+        passwordArray,
         phone,
+        setEmail,
+        setPassword,
+        setCurrentUser,
         setProfileIndexCloser,
         setProfileIndex,
         setMenuIndex,
@@ -26,6 +28,8 @@ const Home = (props) => {
                     <DefaultBox width={"100%"} height={"100%"}>
                         <AppBar
                             name={name}
+                            setEmail={setEmail}
+                            setPassword={setPassword}
                             setCurrentUser={setCurrentUser}
                             setProfileIndexCloser={setProfileIndexCloser}
                             setMenuIndex={setMenuIndex}

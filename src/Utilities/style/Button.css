@@ -74,6 +74,16 @@ Navbar Items and Hero Banner Items
 Login screen
 */
 
+.success:hover {
+  background-color: #1e1436;
+  transition-delay: 1s;
+}
+
+.error:hover {
+  background-color: #1e1436;
+  transition-delay: 1s;
+}
+
 .MuiButton-root.login {
   background-color: #000;
 }

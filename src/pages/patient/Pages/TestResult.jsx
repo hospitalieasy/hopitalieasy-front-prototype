@@ -6,13 +6,15 @@ import Loading from "..//..//..//Utilities/Components/Loading/Loading"
 
 const Appointment = (props) => {
     const {
-        setCurrentUser,
         name,
         surname,
         birthday,
-        email,
-        password,
+        emailArray,
+        passwordArray,
         phone,
+        setEmail,
+        setPassword,
+        setCurrentUser,
         setProfileIndexCloser,
         setProfileIndex,
         setMenuIndex,
@@ -24,6 +26,8 @@ const Appointment = (props) => {
                 <Section1 width={"95%"} height={"10%"}>
                     <DefaultBox width={"100%"} height={"100%"}>
                         <AppBar
+                            setEmail={setEmail}
+                            setPassword={setPassword}
                             setCurrentUser={setCurrentUser}
                             setProfileIndexCloser={setProfileIndexCloser}
                             setMenuIndex={setMenuIndex}

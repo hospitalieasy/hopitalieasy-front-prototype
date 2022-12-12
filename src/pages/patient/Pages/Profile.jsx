@@ -7,16 +7,20 @@ import LoginForm from "../../../Components/LoginForm/LoginForm";
 
 const Profile = (props) => {
     const {
-        setCurrentUser,
         name,
         surname,
         birthday,
-        email,
-        password,
+        emailArray,
+        passwordArray,
         phone,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        setCurrentUser,
         setProfileIndexCloser,
-        setProfileIndex,
         setMenuIndex,
+        setProfileIndex,
     } = props;
 
     return (
@@ -26,6 +30,8 @@ const Profile = (props) => {
                     <DefaultBox width={"100%"} height={"100%"}>
                         <AppBar
                             name={name}
+                            setEmail={setEmail}
+                            setPassword={setPassword}
                             setCurrentUser={setCurrentUser}
                             setProfileIndexCloser={setProfileIndexCloser}
                             setMenuIndex={setMenuIndex}
@@ -38,10 +44,9 @@ const Profile = (props) => {
                             name={name}
                             surname={surname}
                             birthday={birthday}
-                            email={email}
-                            password={password}
+                            emailArray={emailArray}
+                            passwordArray={passwordArray}
                             phone={phone}
-                            buttonLabel={"SAVE"}
                         />
                     </DefaultBox >
                     <DefaultBox width={"30%"} height={"65%"} background="#fff">
