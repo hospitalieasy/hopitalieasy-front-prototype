@@ -22,42 +22,43 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useLocalStorage("current-user", false);
+  const [userIndex, setUserIndex] = useLocalStorage("user-index", null);
 
   return (
     <BrowserRouter>
-      <CurrentIndex.Provider value={{}}>
-        <AuthContext.Provider
-          value={{
-            email,
-            setEmail,
-            password,
-            setPassword,
-            user,
-            setUser,
-          }}
-        >
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
+      <AuthContext.Provider
+        value={{
+          email,
+          setEmail,
+          password,
+          setPassword,
+          user,
+          setUser,
+          userIndex,
+          setUserIndex,
+        }}
+      >
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
 
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/app-screen" element={<AppScreen />}>
-                <Route path="" element={<PatientHome />} />
-                <Route path="profile" element={<Profile />} />
-                <Route path="appointment" element={<Appointment />} />
-                <Route path="test-result" element={<TestResult />} />
-              </Route>
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/app-screen" element={<AppScreen />}>
+              <Route path="" element={<PatientHome />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="appointment" element={<Appointment />} />
+              <Route path="test-result" element={<TestResult />} />
             </Route>
+          </Route>
 
-            <Route element={<Logged />}>
-              <Route path="/patient-login" element={<Login />} />
-            </Route>
-            <Route path="/future-content" element={<Future />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </AuthContext.Provider>
-      </CurrentIndex.Provider>
+          <Route element={<Logged />}>
+            <Route path="/patient-login" element={<Login />} />
+          </Route>
+          <Route path="/future-content" element={<Future />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </AuthContext.Provider>
     </BrowserRouter>
   );
 }

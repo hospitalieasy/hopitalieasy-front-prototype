@@ -5,18 +5,21 @@ import { AppBarBase, ContentWrapper, LeftSide, NotificationWrapper, ProfileWrapp
 import BasicSpeedDial from "..//SpeedDial/SpeedDial"
 import NotificationPop from "../NotificationPop/NotificationPop"
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
+import { localResponse } from "../../Utilities/LocalData/LocalData.testprops";
 
 const AppBar = (props) => {
     const {
         setEmail,
         setPassword,
         setUser,
+        userIndex,
+        setUserIndex,
     } = props;
 
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi {"X"} Welcome!</Title>
+                <Title>Hi {localResponse[userIndex].name} Welcome!</Title>
                 <SpeedDialWrapper>
                     <BasicSpeedDial />
                 </SpeedDialWrapper>
@@ -28,6 +31,7 @@ const AppBar = (props) => {
                     </NotificationWrapper>
                     <ProfileWrapper>
                         <ProfileMenu
+                            setUserIndex={setUserIndex}
                             setEmail={setEmail}
                             setPassword={setPassword}
                             setUser={setUser}

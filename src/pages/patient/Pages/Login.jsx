@@ -12,7 +12,15 @@ import { useContext } from "react";
 
 const Login = () => {
 
-    const { setEmail, setPassword, email, password, user, setUser } = useContext(AuthContext);
+    const {
+        email,
+        setEmail,
+        password,
+        setPassword,
+        user,
+        setUser,
+        setUserIndex,
+    } = useContext(AuthContext);
 
     return (
         <DefaultLayout>
@@ -28,6 +36,7 @@ const Login = () => {
                             setPassword={setPassword}
                             user={user}
                             setUser={setUser}
+                            setUserIndex={setUserIndex}
 
                             padding={"25px"}
                             width={"65%"}

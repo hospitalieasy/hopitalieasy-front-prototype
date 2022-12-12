@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 
 export default function ProfileMenu(props) {
-    const { setEmail, setPassword, setUser } = props;
+    const { setEmail, setPassword, setUser, setUserIndex } = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -28,6 +28,7 @@ export default function ProfileMenu(props) {
     const logoutHandler = () => {
         setEmail("");
         setPassword("");
+        setUserIndex(null)
         setUser(false);
     };
 

@@ -1,5 +1,5 @@
 import { Button, TextField } from "@mui/material";
-import { LoginFormBase, Title } from "./LoginForm.style"
+import { ChangePasswordBase, Title } from "./ChangePassword.style"
 import React, { useEffect } from "react";
 
 import SnackBar from "../SnackBar/SnackBar";
@@ -7,7 +7,7 @@ import { localResponse } from "../../Utilities/LocalData/LocalData.testprops";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const LoginForm = (props) => {
+const ChangePassword = (props) => {
     const {
         password,
         setPassword,
@@ -92,19 +92,18 @@ const LoginForm = (props) => {
     }, [email, password])
 
     return (
-        <LoginFormBase padding={padding} width={width} height={height}>
+        <ChangePasswordBase padding={padding} width={width} height={height}>
             <Title fontSize={fontSize}>{title}</Title>
 
             <TextField id="outlined-basic" label="E-mail" variant="standard" onChange={(e) => setEmail(e.target.value)} />
 
             <TextField id="outlined-password-input" label={text} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPassword(e.target.value)} />
 
-            {/* <Button onClick={getData} className="login" variant="contained"> {buttonLabel}</Button> */}
             <Button onClick={getData} className="login" variant="contained">
                 <SnackBar loginNotification={loginNotification} />
             </Button>
-        </LoginFormBase>
+        </ChangePasswordBase>
     );
 }
 
-export default LoginForm;
+export default ChangePassword;

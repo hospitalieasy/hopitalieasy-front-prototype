@@ -1,6 +1,7 @@
 import { ContentWrapper, ProfileBase, Section2 } from "../Styles/Profile.style";
 
 import { AuthContext } from "../../../Utilities/Context/Auth/AuthContext";
+import ChangePassword from "../../../Components/ChangePassword/ChangePassword";
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
 import InformationTab from "../../../Components/InformationTab/InformationTab";
 import LoginForm from "../../../Components/LoginForm/LoginForm";
@@ -14,6 +15,8 @@ const Profile = () => {
         setPassword,
         user,
         setUser,
+        userIndex,
+        setUserIndex,
     } = useContext(AuthContext);
 
     return (
@@ -22,11 +25,11 @@ const Profile = () => {
                 <Section2 width={"95%"} height={"100%"}>
                     <DefaultBox width={"65%"} height={"100%"} background="#fff">
 
-                        <InformationTab />
+                        <InformationTab userIndex={userIndex} />
 
                     </DefaultBox >
                     <DefaultBox width={"30%"} height={"65%"} background="#fff">
-                        <LoginForm padding={"40px"} width={"100%"} height={"100%"} buttonLabel={"CHANGE PASSWORD"} title={"Change Your Password"} fontSize={"24px"} text={"New password"} />
+                        <ChangePassword padding={"40px"} width={"100%"} height={"100%"} buttonLabel={"CHANGE PASSWORD"} title={"Change Your Password"} fontSize={"24px"} text={"New password"} />
                     </DefaultBox>
                 </Section2>
             </ContentWrapper>

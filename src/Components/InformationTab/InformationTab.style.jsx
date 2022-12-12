@@ -5,17 +5,37 @@ export const InformationTabBase = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+`;
+
+export const TitleWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0px;
+`;
+
+export const DecisionMaker = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 25px 0px;
+`;
+
+export const Label = styled.div`
+    font-size: 20px;
+    margin-top: -5px;
+    padding-right: 5px;
+    margin-left: 145px;
 `;
 
 export const FormWrapper = styled.div`
     width: 80%;
-    height: 60%;
+    height: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
 `;
 
 export const Section = styled.div`
@@ -30,14 +50,10 @@ export const Title = styled.div`
     font-size: 30px;
 `;
 
-export const Label = styled.div`
-    
-`;
-
 export const ButtonWrapper = styled.div`
-    width: 18%;
-    height: 9%;
-    margin-left: -350px;
+    width: 15%;
+    display: flex;
+    justify-content: center;
 `;
 
 

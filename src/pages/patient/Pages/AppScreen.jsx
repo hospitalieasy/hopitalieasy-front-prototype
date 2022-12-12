@@ -14,7 +14,9 @@ const AppScreen = () => {
         password,
         setPassword,
         user,
-        setUser
+        setUser,
+        userIndex,
+        setUserIndex,
     } = useContext(AuthContext)
 
     return (
@@ -28,6 +30,8 @@ const AppScreen = () => {
                         setPassword={setPassword}
                         user={user}
                         setUser={setUser}
+                        userIndex={userIndex}
+                        setUserIndex={setUserIndex}
                     />
                     <Outlet />
                 </PatternLayout>
