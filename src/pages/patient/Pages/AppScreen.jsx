@@ -1,19 +1,19 @@
 import { AppScreenBase, ScreenWrapper } from "../Styles/AppScreen.style";
 
 import Appointment from "../Pages/Appointment"
-import { AuthContext } from "../../../Utilities/Components/Auth/AuthContext";
+import { AuthContext } from "..//..//..//Utilities/Context/Auth/AuthContext";
+import { CurrentIndex } from "../../../Utilities/Context/CurrentIndex/CurrentIndex";
 import Home from "./Home";
 import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.style";
 import Profile from "./Profile";
 import TestResult from "../Pages/TestResult"
-import { UserContext } from "../../../Utilities/Components/UserContext/UserContext";
 import { useContext } from "react";
 
 const AppScreen = () => {
 
-    const { setEmail, email, setPassword, password, currentUser, setCurrentUser } = useContext(AuthContext);
+    const { setEmail, email, setPassword, password, setCurrentUser } = useContext(AuthContext);
 
-    const { menuIndex, setMenuIndex, profileIndex, setProfileIndex, profileIndexCloser, setProfileIndexCloser } = useContext(UserContext);
+    const { menuIndex, setMenuIndex, profileIndex, setProfileIndex, profileIndexCloser, setProfileIndexCloser } = useContext(CurrentIndex);
 
     const response = [
         {

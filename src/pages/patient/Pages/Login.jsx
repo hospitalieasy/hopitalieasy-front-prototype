@@ -1,6 +1,6 @@
 import { IconWrapper, LoginBase, LoginSide, SignUpWrapper, SliderSide, Title } from "../Styles/Login.style";
 
-import { AuthContext } from "..//..//..//Utilities/Components/Auth/AuthContext"
+import { AuthContext } from "..//..//..//Utilities/Context/Auth/AuthContext"
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox";
 import DefaultLayout from "../../../Components/DefaultLayout/DefaultLayout";
 import { Link } from "react-router-dom";

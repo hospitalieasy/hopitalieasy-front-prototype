@@ -2,15 +2,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import About from "./Pages/Common/Pages/About";
 import AppScreen from "./Pages/Patient/Pages/AppScreen";
-import { AuthContext } from "./Utilities/Components/Auth/AuthContext";
+import { AuthContext } from "./Utilities/Context/Auth/AuthContext";
 import Contact from "./Pages/Common/Pages/Contact";
+import { CurrentIndex } from "./Utilities/Context/CurrentIndex/CurrentIndex";
 import Error from "./Utilities/Pages/Error";
 import Future from "./Utilities/Pages/Future";
 import Home from "./Pages/Common/Pages/Home";
-import Logged from "./Utilities/Components/Logged/Logged";
+import Logged from "./Utilities/Context/Logged/Logged";
 import Login from "./Pages/Patient/Pages/Login";
-import ProtectedRoutes from "./Utilities/Components/ProtectedRoutes/ProtectedRoutes";
-import { UserContext } from "./Utilities/Components/UserContext/UserContext";
+import ProtectedRoutes from "./Utilities/Context/ProtectedRoutes/ProtectedRoutes";
 import useLocalStorage from "./Hooks/LocalStorage/useLocalStorage";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserContext.Provider
+      <CurrentIndex.Provider
         value={{
           menuIndex,
           setMenuIndex,
@@ -64,7 +64,7 @@ function App() {
             <Route path="*" element={<Error />} />
           </Routes>
         </AuthContext.Provider>
-      </UserContext.Provider>
+      </CurrentIndex.Provider>
     </BrowserRouter>
   );
 }
