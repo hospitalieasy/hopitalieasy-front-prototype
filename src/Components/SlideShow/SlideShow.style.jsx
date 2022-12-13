@@ -40,10 +40,15 @@ export const Label = styled.div`
     font-family: 'Montserrat', sans-serif;
 `;
 
-export const Description = styled.div`
+export const DescriptionHero = styled.div`
     font-size: 18px;
     color: ${props => props.color};
     font-family: 'Barlow', sans-serif;
+`;
+
+export const DescriptionAppScreen = styled.div`
+    font-size: 18px;
+    color: ${props => props.color};
 `;
 
 export const Image = styled.img`

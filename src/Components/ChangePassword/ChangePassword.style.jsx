@@ -11,9 +11,10 @@ export const ChangePasswordBase = styled.div`
 `;
 
 export const Title = styled.div`
+    margin-left: 15px;
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
     font-size: ${props => props.fontSize};
+    font-family: 'Libre Franklin', sans-serif;
 `;
 
 export const Label = styled.div`

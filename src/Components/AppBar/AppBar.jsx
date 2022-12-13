@@ -19,7 +19,7 @@ const AppBar = (props) => {
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi {localResponse[userIndex].name} Welcome!</Title>
+                <Title>Hi {localResponse[userIndex].name} Welcome</Title>
                 <SpeedDialWrapper>
                     <BasicSpeedDial />
                 </SpeedDialWrapper>

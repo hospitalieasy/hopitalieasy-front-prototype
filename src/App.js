@@ -1,3 +1,5 @@
+import "./Utilities/Fonts/font.css";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import About from "./Pages/Common/Pages/About";
@@ -5,7 +7,6 @@ import AppScreen from "./Pages/Patient/Pages/AppScreen";
 import Appointment from "./Pages/Patient/Pages/Appointment";
 import { AuthContext } from "./Utilities/Context/Auth/AuthContext";
 import Contact from "./Pages/Common/Pages/Contact";
-import { CurrentIndex } from "./Utilities/Context/CurrentIndex/CurrentIndex";
 import Error from "./Utilities/Pages/Error";
 import Future from "./Utilities/Pages/Future";
 import Home from "./Pages/Common/Pages/Home";

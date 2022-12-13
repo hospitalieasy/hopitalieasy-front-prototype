@@ -41,7 +41,7 @@ Navbar Items
 Navbar Items and Hero Banner Items
 */
 
-.MuiButton-root.info {
+.MuiButton-root.get-started {
   letter-spacing: 2px;
   padding: 15px 35px;
   background: linear-gradient(to right, #ad06fa, #019ef3);
@@ -49,7 +49,7 @@ Navbar Items and Hero Banner Items
   animation: gradient 5s ease infinite;
 }
 
-.MuiButton-root.info:hover {
+.MuiButton-root.get-started:hover {
   background: linear-gradient(to right, #1c23a8, #1c23a8);
 }
 

@@ -23,15 +23,15 @@ const Footer = () => {
                     <MenuContainer>
                         <MenuItem>
                             <Title>Hospitalieasy</Title>
-                            <Description>Lorem ipsum dolor sit amet.</Description>
+                            <Description>Make your life easier with the Hospitalieasy app starting today. Get started right now!</Description>
                         </MenuItem>
                         <MenuItem>
                             <Title>About</Title>
-                            <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, alias.</Description>
+                            <Description>We are the team that developed the Hospitalieasy application as a graduation project at Yaşar University!</Description>
                         </MenuItem>
                         <MenuItem>
                             <Title>Contact</Title>
-                            <Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, itaque.</Description>
+                            <Description>For all your questions, you can contact us through our secretary.</Description>
                         </MenuItem>
                     </MenuContainer>
                 </TopMenu>

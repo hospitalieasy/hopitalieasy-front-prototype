@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import LoginForm from "../../../Components/LoginForm/LoginForm";
 import React from "react";
 import SignUpPop from "../../../Components/SignUpPop/SignUpPop";
-import SlideShow from "../../../Components/SlideShow/SlideShow";
+import SlideShowHero from "../../../Components/SlideShow/SlideShowHero";
 import { useContext } from "react";
 
 const Login = () => {
@@ -57,7 +57,7 @@ const Login = () => {
                         </IconWrapper>
                     </LoginSide>
                     <SliderSide>
-                        <SlideShow color={"#fff"} padding={"120px 30px"} />
+                        <SlideShowHero color={"#fff"} padding={"130px 0px 0px 55px"} />
                     </SliderSide>
                 </DefaultBox>
             </LoginBase>

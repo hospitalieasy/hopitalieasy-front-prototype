@@ -16,6 +16,11 @@ export const TitleWrapper = styled.div`
     padding: 25px 0px;
 `;
 
+export const Title = styled.div`
+    font-size: 30px;
+    font-family: 'Libre Franklin', sans-serif;
+`;
+
 export const DecisionMaker = styled.div`
     display: flex;
     width: 100%;
@@ -46,9 +51,6 @@ export const Section = styled.div`
     padding-bottom: 30px;
 `;
 
-export const Title = styled.div`
-    font-size: 30px;
-`;
 
 export const ButtonWrapper = styled.div`
     width: 15%;

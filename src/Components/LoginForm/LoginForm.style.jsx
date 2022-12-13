@@ -12,7 +12,8 @@ export const LoginFormBase = styled.div`
 
 export const Title = styled.div`
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.1px;
     font-size: ${props => props.fontSize};
 `;
 

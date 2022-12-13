@@ -23,6 +23,8 @@ export const Title = styled.div`
     margin-bottom: 35px;
     margin-left: 20px;
     margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
 `;
 
 export const SignUpWrapper = styled.div`
@@ -32,6 +34,7 @@ export const SignUpWrapper = styled.div`
     align-items: center;
     padding: 0px 25px;
     margin-top: 0px;
+    font-size: 17px;
 `;
 
 export const IconWrapper = styled.div`

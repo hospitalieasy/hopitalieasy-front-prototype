@@ -1,6 +1,6 @@
 import "..//..//Utilities/Style/Button.css"
 
-import { Content, Description, ImageContainer, Label, SlideShowBase, Title } from './SlideShow.style';
+import { Content, DescriptionAppScreen, ImageContainer, Label, SlideShowBase, Title } from './SlideShow.style';
 
 import React from 'react';
 import ReactSwipe from 'react-swipe';
@@ -9,7 +9,7 @@ import ReactSwipe from 'react-swipe';
 /* import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; */
 
-const SlideShow = (props) => {
+const SlideShowAppScreen = (props) => {
     const { padding, background, width, height, color } = props;
     let reactSwipeEl;
 
@@ -32,19 +32,19 @@ const SlideShow = (props) => {
                     <Content>
                         <Title color={color}>Join Hospitalieasy Today</Title>
                         <Label color={color}>Patient or Doctor</Label>
-                        <Description color={color}>Doctor or patient register and log in to the application. Take different actions based on your role and sit back and enjoy being able to do it from home</Description>
+                        <DescriptionAppScreen color={color}>Doctor or patient register and log in to the application. Take different actions based on your role and sit back and enjoy being able to do it from home</DescriptionAppScreen>
                     </Content>
 
                     <Content>
                         <Title color={color}>Get Appointment</Title>
                         <Label color={color}>Get Your First Appointment Online</Label>
-                        <Description color={color}>After logging into the system with your registered membership, make an appointment with the appropriate doctors at the appropriate time and save your time!</Description>
+                        <DescriptionAppScreen color={color}>After logging into the system with your registered membership, make an appointment with the appropriate doctors at the appropriate time and save your time!</DescriptionAppScreen>
                     </Content>
 
                     <Content>
                         <Title color={color}>See Your Results</Title>
                         <Label color={color}>Check Your Results After Appointment</Label>
-                        <Description color={color}>See the test results sent to you after your doctor's appointment on the system before you go to the hospital and review the results.</Description>
+                        <DescriptionAppScreen color={color}>See the test results sent to you after your doctor's appointment on the system before you go to the hospital and review the results.</DescriptionAppScreen>
                     </Content>
 
                 </ReactSwipe>
@@ -57,4 +57,4 @@ const SlideShow = (props) => {
     );
 };
 
-export default SlideShow;
+export default SlideShowAppScreen;

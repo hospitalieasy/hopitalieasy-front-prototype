@@ -4,7 +4,7 @@ import { ButtonWrapper, Content, Description, HeroBannerBase, LeftSide, RightSid
 
 import { Button } from "@mui/material";
 import { Link } from "react-scroll";
-import SlideShow from "../SlideShow/SlideShow";
+import SlideShowHero from "../SlideShow/SlideShowHero";
 
 const HeroBanner = () => {
     return (
@@ -25,13 +25,13 @@ const HeroBanner = () => {
                             smooth={true}
                             offset={-70}
                             duration={500}
-                        ><Button className="info" variant="contained" size="large">Get Started</Button>
+                        ><Button className="get-started" variant="contained" size="large">Get Started</Button>
                         </Link>
                     </ButtonWrapper>
                 </Content>
             </LeftSide>
             <RightSide>
-                <SlideShow color={"#fff"} />
+                <SlideShowHero color={"#fff"} />
             </RightSide>
         </HeroBannerBase >
     );
