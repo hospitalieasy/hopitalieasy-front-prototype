@@ -3,10 +3,11 @@ import { DoctorReviewBase, ReviewWrapper, Title } from "./DoctorReview.style";
 import BasicRating from "..//..//..//Components/Rating/Rating"
 import { Button } from "@mui/material";
 
-const DoctorReview = () => {
+const DoctorReview = (props) => {
+    const { title } = props;
     return (
         <DoctorReviewBase>
-            <h3 style={{ marginBottom: "25px" }} >Quick Appointments (Future Content)</h3>
+            <h3 style={{ marginBottom: "25px" }} >{title}</h3>
             <ReviewWrapper>
                 <BasicRating />
                 <Title>Dr. Gustavo Fring</Title>

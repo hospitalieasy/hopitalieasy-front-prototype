@@ -7,7 +7,6 @@ const Appointment = () => {
     return (
         <AppointmentBase>
             <ContentWrapper>
-                <h2 style={{ color: "#fff" }}>Appointment</h2>
                 <Loading />
             </ContentWrapper>
         </AppointmentBase>
