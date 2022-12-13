@@ -25,6 +25,8 @@ function App() {
   const [user, setUser] = useLocalStorage("current-user", false);
   const [userIndex, setUserIndex] = useLocalStorage("user-index", null);
 
+  /* BEFORE API TEST */
+
   return (
     <BrowserRouter>
       <AuthContext.Provider
