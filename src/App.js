@@ -20,8 +20,12 @@ import useLocalStorage from "./Hooks/LocalStorage/useLocalStorage";
 import { useState } from "react";
 
 function App() {
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [birthday, setBirthday] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [telno, setTelno] = useState("");
   const [user, setUser] = useLocalStorage("current-user", false);
   const [userIndex, setUserIndex] = useLocalStorage("user-index", null);
 
@@ -31,10 +35,6 @@ function App() {
     <BrowserRouter>
       <AuthContext.Provider
         value={{
-          email,
-          setEmail,
-          password,
-          setPassword,
           user,
           setUser,
           userIndex,

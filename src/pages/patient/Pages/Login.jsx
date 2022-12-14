@@ -13,10 +13,6 @@ import { useContext } from "react";
 const Login = () => {
 
     const {
-        email,
-        setEmail,
-        password,
-        setPassword,
         user,
         setUser,
         setUserIndex,
@@ -30,10 +26,6 @@ const Login = () => {
                         <Title>Welcome to Hospitalieasy!</Title>
 
                         <LoginForm
-                            email={email}
-                            setEmail={setEmail}
-                            password={password}
-                            setPassword={setPassword}
                             user={user}
                             setUser={setUser}
                             setUserIndex={setUserIndex}
@@ -48,7 +40,12 @@ const Login = () => {
                         />
 
                         <SignUpWrapper>
-                            Don't you have an account? <SignUpPop />
+                            Don't you have an account?
+                            <SignUpPop
+                                user={user}
+                                setUser={setUser}
+                                setUserIndex={setUserIndex}
+                            />
                         </SignUpWrapper>
                         <IconWrapper>
                             <Link component={Link} to={'/home'}>

@@ -6,8 +6,13 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 
+// TODO: if its possible add notification when log out clicked
+
 export default function ProfileMenu(props) {
-    const { setEmail, setPassword, setUser, setUserIndex } = props;
+    const {
+        setUser,
+        setUserIndex,
+    } = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -26,8 +31,6 @@ export default function ProfileMenu(props) {
     }
 
     const logoutHandler = () => {
-        setEmail("");
-        setPassword("");
         setUserIndex(null)
         setUser(false);
     };

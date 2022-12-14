@@ -7,7 +7,13 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import SignUpForm from "..//SingUpForm/SignUpForm";
 
-export default function SignUpPop() {
+export default function SignUpPop(props) {
+    const {
+        user,
+        setUser,
+        setUserIndex,
+    } = props;
+
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -29,7 +35,11 @@ export default function SignUpPop() {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <SignUpForm />
+                <SignUpForm
+                    user={user}
+                    setUser={setUser}
+                    setUserIndex={setUserIndex}
+                />
                 <DialogActions>
                     <Button className="sign-close" onClick={handleClose}>Close</Button>
                 </DialogActions>

@@ -4,19 +4,11 @@ import { AuthContext } from "../../../Utilities/Context/Auth/AuthContext";
 import ChangePassword from "../../../Components/ChangePassword/ChangePassword";
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
 import InformationTab from "../../../Components/InformationTab/InformationTab";
-import LoginForm from "../../../Components/LoginForm/LoginForm";
 import { useContext } from "react";
 
 const Profile = () => {
     const {
-        email,
-        setEmail,
-        password,
-        setPassword,
-        user,
-        setUser,
         userIndex,
-        setUserIndex,
     } = useContext(AuthContext);
 
     return (
@@ -24,10 +16,22 @@ const Profile = () => {
             <ContentWrapper>
                 <Section2 width={"95%"} height={"100%"}>
                     <DefaultBox width={"65%"} height={"95%"} background="#fff">
-                        <InformationTab userIndex={userIndex} />
+                        <InformationTab
+                            userIndex={userIndex}
+                        />
                     </DefaultBox >
                     <DefaultBox width={"30%"} height={"60%"} background="#fff">
-                        <ChangePassword padding={"40px"} width={"100%"} height={"100%"} buttonLabel={"CHANGE PASSWORD"} title={"Change Your Password"} fontSize={"24px"} text={"New password"} />
+                        <ChangePassword
+                            userIndex={userIndex}
+
+                            padding={"40px"}
+                            width={"100%"}
+                            height={"100%"}
+                            buttonLabel={"CHANGE PASSWORD"}
+                            title={"Change Your Password"}
+                            fontSize={"24px"}
+                            text={"New password"}
+                        />
                     </DefaultBox>
                 </Section2>
             </ContentWrapper>

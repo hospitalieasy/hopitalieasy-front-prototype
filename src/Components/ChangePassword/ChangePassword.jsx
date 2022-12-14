@@ -3,19 +3,16 @@ import { ChangePasswordBase, Title } from "./ChangePassword.style"
 import React, { useEffect } from "react";
 
 import SnackBar from "../SnackBar/SnackBar";
+import axios from "axios";
 import { localResponse } from "../../Utilities/LocalData/LocalData.testprops";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+// TODO: put method(to index) and clear the inputs, notification
+
 const ChangePassword = (props) => {
     const {
-        password,
-        setPassword,
-        email,
-        setEmail,
-        user,
-        setUser,
-        setUserIndex,
+        userIndex,
 
         title,
         width,
@@ -25,71 +22,24 @@ const ChangePassword = (props) => {
         fontSize
     } = props;
 
-    const [loginNotification, setLoginNotification] = useState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const navigate = useNavigate();
-    let index = 0;
-    const getData = async (e) => {
-        e.preventDefault();
 
-        /* const response = await axios.get(
-            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-        ); */
-
-        if (!((email == "") || (password == ""))) {
-            while (index < localResponse.length) {
-                if ((localResponse[index].email == email) && (localResponse[index].password == password)) {
-                    setUserIndex(index)
-                    setLoginNotification(true);
-                    setTimeout(() => {
-                        setUser(true)
-                        navigate("/app-screen")
-                    }, 2000);
-                    break;
-                }
-                if (index === (localResponse.length - 1)) {
-                    setLoginNotification(false);
-                    break;
-                }
-                index++;
-            }
-        } else {
-            setLoginNotification(false);
-        }
+    let data = {
 
     }
 
-    useEffect(() => {
-        if (!user) {
-            setLoginNotification(false);
-        }
-    }, [])
+    const putData = async (e) => {
+        e.preventDefault();
 
-    useEffect(() => {
-
-        if (!((email == "") || (password == ""))) {
-            while (index < localResponse.length) {
-                if ((localResponse[index].email == email)) {
-                    setLoginNotification(false)
-                    if ((localResponse[index].password == password)) {
-                        setLoginNotification(true);
-                    }
-                }
-
-                if ((localResponse[index].password == password)) {
-                    setLoginNotification(false)
-                    if ((localResponse[index].email == email)) {
-                        setLoginNotification(true);
-                    }
-                }
-                index++;
-            }
-
-        } else {
-            setLoginNotification(false);
+        try {
+            axios.put(`https://hospitaleasyapi.azurewebsites.net/api/Patient`, data);
+        } catch (error) {
+            console.log(error + "put has a error on change password tab")
         }
 
-    }, [email, password])
+    }
 
     return (
         <ChangePasswordBase padding={padding} width={width} height={height}>
@@ -99,7 +49,7 @@ const ChangePassword = (props) => {
 
             <TextField id="outlined-password-input" label={text} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPassword(e.target.value)} />
 
-            <Button onClick={getData} className="login" variant="contained">
+            <Button onClick={putData} className="login" variant="contained">
                 {/* <SnackBar loginNotification={loginNotification} /> */}
                 CHANGE PASSWORD
             </Button>

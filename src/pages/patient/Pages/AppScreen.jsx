@@ -9,11 +9,6 @@ import { useContext } from "react";
 const AppScreen = () => {
 
     const {
-        email,
-        setEmail,
-        password,
-        setPassword,
-        user,
         setUser,
         userIndex,
         setUserIndex,
@@ -24,11 +19,6 @@ const AppScreen = () => {
             <ScreenWrapper>
                 <PatternLayout>
                     <AppBar
-                        email={email}
-                        setEmail={setEmail}
-                        password={password}
-                        setPassword={setPassword}
-                        user={user}
                         setUser={setUser}
                         userIndex={userIndex}
                         setUserIndex={setUserIndex}

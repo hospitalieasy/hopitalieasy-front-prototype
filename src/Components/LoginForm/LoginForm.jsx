@@ -3,16 +3,13 @@ import { LoginFormBase, Title } from "./LoginForm.style"
 import React, { useEffect } from "react";
 
 import SnackBar from "../SnackBar/SnackBar";
+import axios from "axios";
 import { localResponse } from "../../Utilities/LocalData/LocalData.testprops";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const LoginForm = (props) => {
     const {
-        password,
-        setPassword,
-        email,
-        setEmail,
         user,
         setUser,
         setUserIndex,
@@ -25,20 +22,29 @@ const LoginForm = (props) => {
         fontSize
     } = props;
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     const [loginNotification, setLoginNotification] = useState();
 
+
     const navigate = useNavigate();
+    let response;
     let index = 0;
     const getData = async (e) => {
         e.preventDefault();
 
-        /* const response = await axios.get(
-            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-        ); */
+        try {
+            response = await axios.get(
+                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+            );
+        } catch (error) {
+            console.log(error.response + "get has a error on login page")
+        }
 
         if (!((email == "") || (password == ""))) {
-            while (index < localResponse.length) {
-                if ((localResponse[index].email == email) && (localResponse[index].password == password)) {
+            while (index < response.length) {
+                if ((response[index].Email == email) && (response[index].Password == password)) {
                     setUserIndex(index)
                     setLoginNotification(true);
                     setTimeout(() => {
@@ -47,7 +53,7 @@ const LoginForm = (props) => {
                     }, 2000);
                     break;
                 }
-                if (index === (localResponse.length - 1)) {
+                if (index === (response.length - 1)) {
                     setLoginNotification(false);
                     break;
                 }
@@ -68,17 +74,17 @@ const LoginForm = (props) => {
     useEffect(() => {
 
         if (!((email == "") || (password == ""))) {
-            while (index < localResponse.length) {
-                if ((localResponse[index].email == email)) {
+            while (index < response.length) {
+                if ((response[index].Email == email)) {
                     setLoginNotification(false)
-                    if ((localResponse[index].password == password)) {
+                    if ((response[index].Password == password)) {
                         setLoginNotification(true);
                     }
                 }
 
-                if ((localResponse[index].password == password)) {
+                if ((response[index].Password == password)) {
                     setLoginNotification(false)
-                    if ((localResponse[index].email == email)) {
+                    if ((response[index].email == email)) {
                         setLoginNotification(true);
                     }
                 }

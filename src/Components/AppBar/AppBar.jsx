@@ -5,21 +5,30 @@ import { AppBarBase, ContentWrapper, LeftSide, NotificationWrapper, ProfileWrapp
 import BasicSpeedDial from "..//SpeedDial/SpeedDial"
 import NotificationPop from "../NotificationPop/NotificationPop"
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
+import axios from "axios";
 import { localResponse } from "../../Utilities/LocalData/LocalData.testprops";
 
 const AppBar = (props) => {
     const {
-        setEmail,
-        setPassword,
         setUser,
         userIndex,
         setUserIndex,
     } = props;
 
+
+    let response;
+    try {
+        response = axios.get(
+            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+        );
+    } catch (error) {
+        console.log(error.response + "get has a error on app bar")
+    }
+
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi {localResponse[userIndex].name} Welcome</Title>
+                <Title>Hi {response[userIndex].Name} Welcome</Title>
                 <SpeedDialWrapper>
                     <BasicSpeedDial />
                 </SpeedDialWrapper>
@@ -31,10 +40,8 @@ const AppBar = (props) => {
                     </NotificationWrapper>
                     <ProfileWrapper>
                         <ProfileMenu
-                            setUserIndex={setUserIndex}
-                            setEmail={setEmail}
-                            setPassword={setPassword}
                             setUser={setUser}
+                            setUserIndex={setUserIndex}
                         />
                     </ProfileWrapper>
                 </ContentWrapper>
