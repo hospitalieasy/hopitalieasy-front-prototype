@@ -1,12 +1,12 @@
 import "..//..//Utilities/Style/Button.css"
 
 import { AppBarBase, ContentWrapper, LeftSide, NotificationWrapper, ProfileWrapper, RightSide, SpeedDialWrapper, Title } from "./AppBar.style"
+import { useEffect, useState } from "react";
 
 import BasicSpeedDial from "..//SpeedDial/SpeedDial"
 import NotificationPop from "../NotificationPop/NotificationPop"
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import axios from "axios";
-import { localResponse } from "../../Utilities/LocalData/LocalData.testprops";
 
 const AppBar = (props) => {
     const {
@@ -15,20 +15,22 @@ const AppBar = (props) => {
         setUserIndex,
     } = props;
 
+    const [name, setName] = useState("");
 
-    let response;
-    try {
-        response = axios.get(
-            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-        );
-    } catch (error) {
-        console.log(error.response + "get has a error on app bar")
-    }
+    useEffect(() => {
+        const getData = async () => {
+            const response = await axios.get(
+                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+            );
+            setName(response.data[userIndex].Name)
+        }
+        getData();
+    }, [])
 
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi {response[userIndex].Name} Welcome</Title>
+                <Title>Hi {name} Welcome</Title>
                 <SpeedDialWrapper>
                     <BasicSpeedDial />
                 </SpeedDialWrapper>

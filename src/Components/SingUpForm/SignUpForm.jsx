@@ -1,103 +1,80 @@
 import "..//..//Utilities/Style/Button.css"
 
+import * as yup from "yup";
+
 import { FormWrapper, Label, SingUpFormBase, Text, Title, UserAcceptContent } from "./SignUpForm.style"
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, TextField } from "@mui/material";
 
 import BasicDatePicker from "../BasicDatePicker/BasicDatePicker";
 import { Button } from "@mui/material";
 import Terms from "../Terms/Terms";
+import { async } from "q";
 import axios from "axios";
+import { userSchema } from "../../Utilities/Validations/UserValidation";
 
-// TODO: post the user, get the index of posted user and set it, notification after sign up reset texts (with set)
+// TODO: post the user with correct validation and get the index of user so that you can set it
+//TODO: make notification when inputs are invalid
 
 const SignUpForm = (props) => {
-
     const {
         user,
         setUser,
         setUserIndex,
     } = props;
 
-    const [name, setName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [birthday, setBirthday] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [telno, setTelno] = useState("");
+    const [name, setName] = useState();
+    const [surname, setSurname] = useState();
+    const [birthdate, setBirthdate] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [telno, setTelno] = useState();
+    const [validInput, setValidInput] = useState();
 
-    const [loginNotification, setLoginNotification] = useState();
+    let goingData = {
+        Name: name,
+        Surname: surname,
+        Birthdate: birthdate,
+        Email: email,
+        Password: password,
+        Telno: telno,
+    };
 
     const navigate = useNavigate();
-    let response;
-    let index = 0;
-    const getData = async (e) => {
-        e.preventDefault();
 
-        try {
-            response = await axios.get(
-                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            );
-        } catch (error) {
-            console.log(error.response + "get has a error on login page")
-        }
+    const postData = async (e) => {
 
-        if (!((email == "") || (password == ""))) {
-            while (index < response.length) {
-                if ((response[index].Email == email) && (response[index].Password == password)) {
-                    setUserIndex(index)
-                    setLoginNotification(true);
-                    setTimeout(() => {
-                        setUser(true)
-                        navigate("/app-screen")
-                    }, 2000);
-                    break;
-                }
-                if (index === (response.length - 1)) {
-                    setLoginNotification(false);
-                    break;
-                }
-                index++;
-            }
-        } else {
-            setLoginNotification(false);
-        }
+        const response = await axios.post(
+            `https://hospitaleasyapi.azurewebsites.net/api/Patient`, goingData
+        );
+        console.log("post is working")
+        setTimeout(() => {
+            navigate("/app-screen")
+        }, 2000);
+
 
     }
 
-    useEffect(() => {
-        if (!user) {
-            setLoginNotification(false);
+    const checkInputs = async () => {
+        let formData = {
+            name: name,
+            surname: surname,
+            birthdate: birthdate,
+            email: email,
+            password: password,
+            telno: telno,
         }
-    }, [])
 
-    useEffect(() => {
+        const isValid = await userSchema.isValid(formData);
+        setValidInput(isValid);
 
-        if (!((email == "") || (password == ""))) {
-            while (index < response.length) {
-                if ((response[index].Email == email)) {
-                    setLoginNotification(false)
-                    if ((response[index].Password == password)) {
-                        setLoginNotification(true);
-                    }
-                }
-
-                if ((response[index].Password == password)) {
-                    setLoginNotification(false)
-                    if ((response[index].email == email)) {
-                        setLoginNotification(true);
-                    }
-                }
-                index++;
-            }
-
+        if (isValid) {
+            setUser(true)
         } else {
-            setLoginNotification(false);
+            alert("inputs are not correct")
         }
-
-    }, [email, password])
-
+    }
 
     return (
         <SingUpFormBase>
@@ -108,15 +85,15 @@ const SignUpForm = (props) => {
 
                 <TextField id="outlined-basic-2" label="Surname" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setSurname(e.target.value)} />
 
-                <BasicDatePicker onChange={(e) => setBirthday(e.target.value)} />
+                <BasicDatePicker onChange={(e) => setBirthdate(e.target.value)} />
 
-                <TextField id="outlined-basic-3" label="E-mail" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setEmail(e.target.value)} />
+                <TextField id="outlined-basic-4" label="E-mail" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setEmail(e.target.value)} />
 
-                <TextField id="outlined-password-input-4" label="Password" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }}
+                <TextField id="outlined-password-input-5" label="Password" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }}
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <TextField id="outlined-basic-5" label="Tel-no" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setTelno(e.target.value)} />
+                <TextField id="outlined-basic-6" label="Tel-no" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setTelno(e.target.value)} />
 
                 <UserAcceptContent style={{ padding: "10px 0px" }}>
                     <Switch defaultChecked color="warning" />
@@ -126,10 +103,13 @@ const SignUpForm = (props) => {
                     </Label>
                 </UserAcceptContent>
 
-                <Button onClick={postData} className="sign" component={Link} to={'/app-screen'} variant="contained" color="success">Sign Up</Button>
+                <Button onClick={checkInputs} className="sign" variant="contained" color="success">
+                    {/* <span style={{ width: "100%", height: "100%" }} onClick={postData} >SIGN UP</span> */}
+                    SIGN UP
+                </Button>
 
             </FormWrapper>
-        </SingUpFormBase>
+        </SingUpFormBase >
     );
 }
 

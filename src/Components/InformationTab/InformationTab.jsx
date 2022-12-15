@@ -2,42 +2,38 @@ import "..//..//Utilities/Style/Button.css"
 
 import { Button, Switch, TextField } from "@mui/material";
 import { ButtonWrapper, DecisionMaker, FormWrapper, InformationTabBase, Label, Section, Title, TitleWrapper } from "./InformationTab.style"
+import { useEffect, useState } from "react";
 
 import axios from "axios";
-import { localResponse } from "../../Utilities/LocalData/LocalData.testprops";
-import { useState } from "react";
 
-// TODO: put method(to index), checks the inputs are valid and notification
+// TODO: put method(to index), checks the inputs are valid and after sends notification
 
 const InformationTab = (props) => {
     const {
         userIndex,
     } = props;
 
-    let response;
-    try {
-        response = axios.get(
-            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-        );
-    } catch (error) {
-        console.log(error.response + "get has a error on information tab")
-    }
+    const [name, setName] = useState();
+    const [surname, setSurname] = useState();
+    const [birthdate, setBirthdate] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [telno, setTelno] = useState();
 
-
-
-    let data = {
-
-    }
-    const putData = async (e) => {
-        e.preventDefault();
-
-        try {
-            axios.put(`https://hospitaleasyapi.azurewebsites.net/api/Patient`, data);
-        } catch (error) {
-            console.log(error + "put has a error on information tab")
+    useEffect(() => {
+        const getData = async () => {
+            const response = await axios.get(
+                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+            );
+            setName(response.data[userIndex].Name)
+            setSurname(response.data[userIndex].Surname)
+            setBirthdate(response.data[userIndex].Birthdate)
+            setEmail(response.data[userIndex].Email)
+            setPassword(response.data[userIndex].Password)
+            setTelno(response.data[userIndex].Telno)
         }
-
-    }
+        getData();
+    }, [])
 
     const [visible, setVisible] = useState(false);
 
@@ -52,7 +48,7 @@ const InformationTab = (props) => {
     return (
         <InformationTabBase>
             <TitleWrapper>
-                <Title>{response[userIndex].Name}'s Information</Title>
+                <Title>{name}'s Information</Title>
             </TitleWrapper>
             <DecisionMaker>
                 <Label>Edit Information</Label>
@@ -61,56 +57,31 @@ const InformationTab = (props) => {
             <FormWrapper>
                 <Section>
                     {visible ? (
-                        <>
-                            <TextField id="filled-disabled-1" label="Name" defaultValue={response[userIndex].Name} variant="filled" />
-                            <TextField id="filled-disabled-2" label="Surname" defaultValue={response[userIndex].Surname} variant="filled" />
-                        </>
+                        <><TextField id="filled-disabled-1" label={name} variant="filled" /><TextField id="filled-disabled-2" label={surname} variant="filled" /></>
                     ) : (
-                        <>
-                            <TextField disabled id="filled-disabled-1" label="Name" defaultValue={response[userIndex].Name} variant="filled" />
-                            <TextField disabled id="filled-disabled-2" label="Surname" defaultValue={response[userIndex].Surname} variant="filled" />
-                        </>
+                        <><TextField disabled id="filled-disabled-1" label={name} variant="filled" /><TextField disabled id="filled-disabled-2" label={surname} variant="filled" /></>
                     )}
                 </Section>
 
                 <Section>
                     {visible ? (
-                        <>
-                            <TextField id="filled-disabled-3" label="Birthday" defaultValue={response[userIndex].Birthday} variant="filled" />
-                            <TextField id="filled-disabled-4" label="E-mail" defaultValue={response[userIndex].Email} variant="filled" />
-                        </>
+                        <><TextField id="filled-disabled-3" label={telno} variant="filled" /><TextField id="filled-disabled-4" label={birthdate} variant="filled" /></>
                     ) : (
-                        <>
-                            <TextField disabled id="filled-disabled-3" label="Birthday" defaultValue={response[userIndex].Birthday} variant="filled" />
-                            <TextField disabled id="filled-disabled-4" label="E-mail" defaultValue={response[userIndex].Email} variant="filled" />
-                        </>
+                        <><TextField disabled id="filled-disabled-3" label={telno} variant="filled" /><TextField disabled id="filled-disabled-4" label={birthdate} variant="filled" /></>
                     )}
 
                 </Section>
 
                 <Section>
-                    {visible ? (
-                        <>
-                            <TextField id="filled-disabled-5" label="Password" defaultValue={response[userIndex].Password} variant="filled" />
-                            <TextField id="filled-disabled-6" label="Phone" defaultValue={response[userIndex].Telno} variant="filled" />
-                        </>
-                    ) : (
-                        <>
-                            <TextField disabled id="filled-disabled-5" label="Password" defaultValue={response[userIndex].Password} variant="filled" />
-                            <TextField disabled id="filled-disabled-6" label="Phone" defaultValue={response[userIndex].Telno} variant="filled" />
-                        </>
-                    )}
+                    <TextField disabled id="filled-disabled-5" label={email} variant="filled" />
+                    <TextField disabled id="filled-disabled-6" label={password} variant="filled" />
                 </Section>
             </FormWrapper>
             <ButtonWrapper>
                 {visible ? (
-
-                    <Button onClick={putData} variant="contained">SAVE</Button>
-
+                    <Button variant="contained">SAVE</Button>
                 ) : (
-
                     <Button disabled variant="contained">SAVE</Button>
-
                 )}
             </ButtonWrapper>
         </InformationTabBase>

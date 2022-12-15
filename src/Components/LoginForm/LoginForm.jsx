@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 
 import SnackBar from "../SnackBar/SnackBar";
 import axios from "axios";
-import { localResponse } from "../../Utilities/LocalData/LocalData.testprops";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -29,22 +28,17 @@ const LoginForm = (props) => {
 
 
     const navigate = useNavigate();
-    let response;
-    let index = 0;
+
     const getData = async (e) => {
         e.preventDefault();
 
-        try {
-            response = await axios.get(
-                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            );
-        } catch (error) {
-            console.log(error.response + "get has a error on login page")
-        }
-
+        const response = await axios.get(
+            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+        );
         if (!((email == "") || (password == ""))) {
-            while (index < response.length) {
-                if ((response[index].Email == email) && (response[index].Password == password)) {
+            let index = 0;
+            while (index < response.data.length) {
+                if ((response.data[index].Email === email) && (response.data[index].Password === password)) {
                     setUserIndex(index)
                     setLoginNotification(true);
                     setTimeout(() => {
@@ -53,7 +47,7 @@ const LoginForm = (props) => {
                     }, 2000);
                     break;
                 }
-                if (index === (response.length - 1)) {
+                if (index === (response.data.length - 1)) {
                     setLoginNotification(false);
                     break;
                 }
@@ -62,7 +56,6 @@ const LoginForm = (props) => {
         } else {
             setLoginNotification(false);
         }
-
     }
 
     useEffect(() => {
@@ -73,27 +66,38 @@ const LoginForm = (props) => {
 
     useEffect(() => {
 
-        if (!((email == "") || (password == ""))) {
-            while (index < response.length) {
-                if ((response[index].Email == email)) {
-                    setLoginNotification(false)
-                    if ((response[index].Password == password)) {
-                        setLoginNotification(true);
+        const getData = async (e) => {
+
+            const response = await axios.get(
+                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+            );
+
+            if (!((email == "") || (password == ""))) {
+                let index = 0;
+                while (index < response.data.length) {
+                    if ((response.data[index].Email == email)) {
+                        setLoginNotification(false)
+                        if ((response.data[index].Password == password)) {
+                            setLoginNotification(true);
+                        }
                     }
+
+                    if ((response.data[index].Password == password)) {
+                        setLoginNotification(false)
+                        if ((response.data[index].Email == email)) {
+                            setLoginNotification(true);
+                        }
+                    }
+                    index++;
                 }
 
-                if ((response[index].Password == password)) {
-                    setLoginNotification(false)
-                    if ((response[index].email == email)) {
-                        setLoginNotification(true);
-                    }
-                }
-                index++;
+            } else {
+                setLoginNotification(false);
             }
 
-        } else {
-            setLoginNotification(false);
         }
+
+        getData();
 
     }, [email, password])
 

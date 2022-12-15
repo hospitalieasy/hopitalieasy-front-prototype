@@ -17,15 +17,8 @@ import Profile from "./Pages/Patient/Pages/Profile";
 import ProtectedRoutes from "./Utilities/Context/ProtectedRoutes/ProtectedRoutes";
 import TestResult from "./Pages/Patient/Pages/TestResult";
 import useLocalStorage from "./Hooks/LocalStorage/useLocalStorage";
-import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [telno, setTelno] = useState("");
   const [user, setUser] = useLocalStorage("current-user", false);
   const [userIndex, setUserIndex] = useLocalStorage("user-index", null);
 
