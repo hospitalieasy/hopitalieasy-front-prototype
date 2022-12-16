@@ -32,7 +32,7 @@ export const Label = styled.div`
     font-size: 20px;
     margin-top: -5px;
     padding-right: 5px;
-    margin-left: 145px;
+    margin-left: 185px;
 `;
 
 export const FormWrapper = styled.div`

@@ -40,7 +40,6 @@ const LoginForm = (props) => {
             while (index < response.data.length) {
                 if ((response.data[index].Email === email) && (response.data[index].Password === password)) {
                     setUserIndex(index)
-                    setLoginNotification(true);
                     setTimeout(() => {
                         setUser(true)
                         navigate("/app-screen")
@@ -48,13 +47,10 @@ const LoginForm = (props) => {
                     break;
                 }
                 if (index === (response.data.length - 1)) {
-                    setLoginNotification(false);
                     break;
                 }
                 index++;
             }
-        } else {
-            setLoginNotification(false);
         }
     }
 
@@ -74,20 +70,21 @@ const LoginForm = (props) => {
 
             if (!((email == "") || (password == ""))) {
                 let index = 0;
+                let current = 0;
                 while (index < response.data.length) {
                     if ((response.data[index].Email == email)) {
-                        setLoginNotification(false)
+                        current = index;
                         if ((response.data[index].Password == password)) {
                             setLoginNotification(true);
+                        } else if ((response.data[index].Password !== password)) {
+                            setLoginNotification(false);
                         }
                     }
 
-                    if ((response.data[index].Password == password)) {
+                    if ((response.data[current].Email !== email)) {
                         setLoginNotification(false)
-                        if ((response.data[index].Email == email)) {
-                            setLoginNotification(true);
-                        }
                     }
+
                     index++;
                 }
 

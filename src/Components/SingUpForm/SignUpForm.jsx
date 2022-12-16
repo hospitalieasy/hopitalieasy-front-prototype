@@ -1,21 +1,13 @@
 import "..//..//Utilities/Style/Button.css"
 
-import * as yup from "yup";
-
 import { FormWrapper, Label, SingUpFormBase, Text, Title, UserAcceptContent } from "./SignUpForm.style"
-import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Switch, TextField } from "@mui/material";
 
-import BasicDatePicker from "../BasicDatePicker/BasicDatePicker";
 import { Button } from "@mui/material";
 import Terms from "../Terms/Terms";
-import { async } from "q";
 import axios from "axios";
-import { userSchema } from "../../Utilities/Validations/UserValidation";
-
-// TODO: post the user with correct validation and get the index of user so that you can set it
-//TODO: make notification when inputs are invalid
+import { userSchema } from "..//..//Utilities/Validations/UserValidation"
 
 const SignUpForm = (props) => {
     const {
@@ -24,14 +16,50 @@ const SignUpForm = (props) => {
         setUserIndex,
     } = props;
 
+    /* sets the user inputs from texts */
     const [name, setName] = useState();
     const [surname, setSurname] = useState();
     const [birthdate, setBirthdate] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [telno, setTelno] = useState();
-    const [validInput, setValidInput] = useState();
 
+    /* checks is there any current same email address if it is makes it true */
+    const [emailExist, setEmailExist] = useState();
+
+    /* checks the terms condition */
+    const [terms, setTerms] = useState();
+
+    /* checks is there are any exist email */
+    useEffect(() => {
+        const getData = async (e) => {
+            const response = await axios.get(
+                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+            );
+            if (!(email == "")) {
+                let index = 0;
+                while (index < response.data.length) {
+                    if ((response.data[index].Email == email)) {
+                        setEmailExist(true)
+                        break;
+                    }
+
+                    if ((response.data[index].Email !== email)) {
+                        setEmailExist(false)
+                    }
+
+                    if (index === (response.data.length - 1)) {
+                        break;
+                    }
+                    index++;
+                }
+            }
+        }
+        getData();
+    }, [email])
+
+
+    /* Posting the user and form validation */
     let goingData = {
         Name: name,
         Surname: surname,
@@ -40,21 +68,6 @@ const SignUpForm = (props) => {
         Password: password,
         Telno: telno,
     };
-
-    const navigate = useNavigate();
-
-    const postData = async (e) => {
-
-        const response = await axios.post(
-            `https://hospitaleasyapi.azurewebsites.net/api/Patient`, goingData
-        );
-        console.log("post is working")
-        setTimeout(() => {
-            navigate("/app-screen")
-        }, 2000);
-
-
-    }
 
     const checkInputs = async () => {
         let formData = {
@@ -67,12 +80,34 @@ const SignUpForm = (props) => {
         }
 
         const isValid = await userSchema.isValid(formData);
-        setValidInput(isValid);
 
-        if (isValid) {
-            setUser(true)
+        if (isValid && !emailExist && terms) {
+            const postData = async (e) => {
+                const response = await axios.post(
+                    `https://hospitaleasyapi.azurewebsites.net/api/Patient`, goingData
+                );
+            }
+            postData();
+            alert("Signed up successfully")
+            setEmail("")
+        } else if (!terms && !isValid) {
+            alert("Inputs are not valid")
+        } else if (!terms && isValid) {
+            alert("Please accept the terms")
+        } else if (emailExist) {
+            alert("This e-mail address is exist please enter another one")
         } else {
-            alert("inputs are not correct")
+            alert("Inputs are not valid")
+        }
+    }
+
+    /* terms validation */
+
+    const acceptHandler = () => {
+        if (terms) {
+            setTerms(false)
+        } else {
+            setTerms(true)
         }
     }
 
@@ -85,18 +120,18 @@ const SignUpForm = (props) => {
 
                 <TextField id="outlined-basic-2" label="Surname" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setSurname(e.target.value)} />
 
-                <BasicDatePicker onChange={(e) => setBirthdate(e.target.value)} />
+                <TextField id="outlined-basic-3" label="XX/XX/XXXX" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setBirthdate(e.target.value)} />
 
                 <TextField id="outlined-basic-4" label="E-mail" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setEmail(e.target.value)} />
 
-                <TextField id="outlined-password-input-5" label="Password" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }}
+                <TextField id="outlined-password-input-5" label="Password (at least 5 character)" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }}
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
                 <TextField id="outlined-basic-6" label="Tel-no" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setTelno(e.target.value)} />
 
                 <UserAcceptContent style={{ padding: "10px 0px" }}>
-                    <Switch defaultChecked color="warning" />
+                    <Switch onClick={acceptHandler} color="warning" />
                     <Label>
                         <Text>Accept Terms</Text>
                         <Terms />
@@ -104,7 +139,6 @@ const SignUpForm = (props) => {
                 </UserAcceptContent>
 
                 <Button onClick={checkInputs} className="sign" variant="contained" color="success">
-                    {/* <span style={{ width: "100%", height: "100%" }} onClick={postData} >SIGN UP</span> */}
                     SIGN UP
                 </Button>
 
