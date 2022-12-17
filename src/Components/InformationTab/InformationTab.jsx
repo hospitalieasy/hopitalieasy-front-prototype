@@ -140,7 +140,7 @@ const InformationTab = (props) => {
                 <Section>
                     {visible ? (
                         <>
-                            <TextField id="filled-disabled-5" label={apiEmail} onChange={(e) => { setTextEmail(e.target.value); }} variant="filled" />
+                            <TextField disabled id="filled-disabled-5" label={apiEmail} onChange={(e) => { setTextEmail(e.target.value); }} variant="filled" />
                             <TextField id="filled-disabled-6" label={apiPassword} onChange={(e) => { setTextPassword(e.target.value); }} variant="filled" /></>
 
                     ) : (
