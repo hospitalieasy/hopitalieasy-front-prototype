@@ -9,12 +9,7 @@ import Terms from "../Terms/Terms";
 import axios from "axios";
 import { userSchema } from "..//..//Utilities/Validations/UserValidation"
 
-const SignUpForm = (props) => {
-    const {
-        user,
-        setUser,
-        setUserIndex,
-    } = props;
+const SignUpForm = () => {
 
     /* sets the user inputs from texts */
     const [name, setName] = useState();
@@ -24,18 +19,17 @@ const SignUpForm = (props) => {
     const [password, setPassword] = useState();
     const [telno, setTelno] = useState();
 
-    /* checks is there any current same email address if it is makes it true */
+    /* sets the email true or false */
     const [emailExist, setEmailExist] = useState();
-
-    /* checks the terms condition */
-    const [terms, setTerms] = useState();
 
     /* checks is there are any exist email */
     useEffect(() => {
-        const getData = async (e) => {
+        const getData = async () => {
+
             const response = await axios.get(
                 `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            );
+            ).catch(error => (console.log(error)))
+
             if (!(email == "")) {
                 let index = 0;
                 while (index < response.data.length) {
@@ -56,20 +50,11 @@ const SignUpForm = (props) => {
             }
         }
         getData();
+
     }, [email])
 
-
-    /* Posting the user and form validation */
-    let goingData = {
-        Name: name,
-        Surname: surname,
-        Birthdate: birthdate,
-        Email: email,
-        Password: password,
-        Telno: telno,
-    };
-
     const checkInputs = async () => {
+        /* form validation */
         let formData = {
             name: name,
             surname: surname,
@@ -82,10 +67,19 @@ const SignUpForm = (props) => {
         const isValid = await userSchema.isValid(formData);
 
         if (isValid && !emailExist && terms) {
+            /* sets the data from user */
+            let goingData = {
+                Name: name,
+                Surname: surname,
+                Birthdate: birthdate,
+                Email: email,
+                Password: password,
+                Telno: telno,
+            };
             const postData = async (e) => {
                 const response = await axios.post(
                     `https://hospitaleasyapi.azurewebsites.net/api/Patient`, goingData
-                );
+                ).catch(error => (console.log(error)))
             }
             postData();
             alert("Signed up successfully")
@@ -101,8 +95,11 @@ const SignUpForm = (props) => {
         }
     }
 
-    /* terms validation */
 
+    /* checks the terms condition */
+    const [terms, setTerms] = useState();
+
+    /* terms validation */
     const acceptHandler = () => {
         if (terms) {
             setTerms(false)

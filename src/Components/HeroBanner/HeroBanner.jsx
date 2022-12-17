@@ -25,7 +25,8 @@ const HeroBanner = () => {
                             smooth={true}
                             offset={-70}
                             duration={500}
-                        ><Button className="get-started" variant="contained" size="large">Get Started</Button>
+                        >
+                            <Button className="get-started" variant="contained" size="large">Get Started</Button>
                         </Link>
                     </ButtonWrapper>
                 </Content>

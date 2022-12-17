@@ -21,20 +21,21 @@ const LoginForm = (props) => {
         fontSize
     } = props;
 
+    /* navigate hook */
+    const navigate = useNavigate();
+
+    /* sets the email and password */
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const [loginNotification, setLoginNotification] = useState();
-
-
-    const navigate = useNavigate();
-
+    /* gets the data from server and checks is there any match user */
     const getData = async (e) => {
         e.preventDefault();
 
         const response = await axios.get(
             `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-        );
+        ).catch(error => (console.log(error)))
+
         if (!((email == "") || (password == ""))) {
             let index = 0;
             while (index < response.data.length) {
@@ -54,19 +55,23 @@ const LoginForm = (props) => {
         }
     }
 
+    /* sets the notification */
+    const [loginNotification, setLoginNotification] = useState();
+
+    /* checks if there any current user if it is not makes the notification false and renders the page  */
     useEffect(() => {
         if (!user) {
             setLoginNotification(false);
         }
     }, [])
 
+    /* renders the page whenever email, password are changes and gets the notification */
     useEffect(() => {
-
-        const getData = async (e) => {
+        const getData = async () => {
 
             const response = await axios.get(
                 `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            );
+            ).catch(error => (console.log(error)))
 
             if (!((email == "") || (password == ""))) {
                 let index = 0;
@@ -80,7 +85,6 @@ const LoginForm = (props) => {
                             setLoginNotification(false);
                         }
                     }
-
                     if ((response.data[current].Email !== email)) {
                         setLoginNotification(false)
                     }
@@ -91,9 +95,7 @@ const LoginForm = (props) => {
             } else {
                 setLoginNotification(false);
             }
-
         }
-
         getData();
 
     }, [email, password])
@@ -106,7 +108,6 @@ const LoginForm = (props) => {
 
             <TextField id="outlined-password-input" label={text} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPassword(e.target.value)} />
 
-            {/* <Button onClick={getData} className="login" variant="contained"> {buttonLabel}</Button> */}
             <Button onClick={getData} className="login" variant="contained">
                 <SnackBar loginNotification={loginNotification} />
             </Button>

@@ -5,23 +5,16 @@ import Button from '@mui/material/Button';
 import CalculatorPop from "..//CalculatorPop/CalculatorPop"
 import TextField from '@mui/material/TextField';
 
-const Calculator = (props) => {
-    const { color } = props;
+const Calculator = () => {
 
-    const [shower, setShower] = useState()
+    /* sets the values */
+    const [shower, setShower] = useState(false)
     const [length, setLength] = useState(0);
     const [weight, setWeight] = useState(0);
     const [result, setResult] = useState("");
     const [resultColor, setResultColor] = useState("")
 
-    const resultShower = () => {
-        setShower(true)
-    }
-
-    useEffect(() => {
-
-    }, [weight, length])
-
+    /* calculates the mass ratios */
     const massCalculator = () => {
         const mass = ((weight / (length * length)) * 10000)
 
@@ -45,6 +38,16 @@ const Calculator = (props) => {
             setResult("Enter Input")
             setResultColor("black")
         }
+    }
+
+    /* renders page when weight and length is changed */
+    useEffect(() => {
+
+    }, [weight, length])
+
+    /* shows the result */
+    const resultShower = () => {
+        setShower(true)
     }
 
     return (

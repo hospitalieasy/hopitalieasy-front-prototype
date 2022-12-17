@@ -1,4 +1,4 @@
-import { BannerBase, Description, Label, Title } from "./Banner.style";
+import { BannerBase } from "./Banner.style";
 
 const Banner = () => {
     return (

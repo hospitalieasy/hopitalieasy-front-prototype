@@ -9,20 +9,19 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import axios from "axios";
 
 const AppBar = (props) => {
-    const {
-        setUser,
-        userIndex,
-        setUserIndex,
-    } = props;
+    const { setUser, userIndex, setUserIndex } = props;
 
-    const [name, setName] = useState("");
+    /* sets the name  */
+    const [apiName, apiSetName] = useState("");
 
+    /* gets the data from server */
     useEffect(() => {
         const getData = async () => {
             const response = await axios.get(
                 `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            );
-            setName(response.data[userIndex].Name)
+            ).catch(error => (console.log(error)))
+
+            apiSetName(response.data[userIndex].Name)
         }
         getData();
     }, [])
@@ -30,7 +29,7 @@ const AppBar = (props) => {
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi {name} Welcome</Title>
+                <Title>Hi {apiName} Welcome</Title>
                 <SpeedDialWrapper>
                     <BasicSpeedDial />
                 </SpeedDialWrapper>
