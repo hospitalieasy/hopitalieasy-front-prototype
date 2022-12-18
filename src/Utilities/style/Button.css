@@ -1,0 +1,181 @@
+/*
+Navbar Items
+*/
+
+.MuiButton-root.home {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  padding: 6px 30px;
+  text-transform: capitalize;
+  width: 50%;
+}
+
+.MuiButton-root.home:hover {
+  background-color: #3b3350;
+}
+
+.MuiButton-root.about {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  padding: 6px 30px;
+  width: 50%;
+  text-transform: capitalize;
+}
+
+.MuiButton-root.about:hover {
+  background-color: #3b3350;
+}
+
+.MuiButton-root.contact {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  padding: 6px 30px;
+  text-transform: capitalize;
+}
+
+.MuiButton-root.contact:hover {
+  background-color: #3b3350;
+}
+
+/*
+Navbar Items and Hero Banner Items
+*/
+
+.MuiButton-root.get-started {
+  letter-spacing: 2px;
+  padding: 15px 35px;
+  background: linear-gradient(to right, #ad06fa, #019ef3);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+}
+
+.MuiButton-root.get-started:hover {
+  background: linear-gradient(to right, #1c23a8, #1c23a8);
+}
+
+.MuiButton-root.doctor {
+  background-color: #7440e5;
+}
+
+.MuiButton-root.doctor:hover {
+  background-color: #1c23a8;
+}
+
+.MuiButton-root.patient {
+  color: #7440e5;
+  border-color: #7440e5;
+}
+
+.MuiButton-root.patient:hover {
+  border-color: #1e1436;
+}
+
+/*
+Login screen
+*/
+
+.success:hover {
+  background-color: #1e1436;
+  transition-delay: 1s;
+}
+
+.error:hover {
+  background-color: #1e1436;
+  transition-delay: 1s;
+}
+
+.MuiButton-root.login {
+  background-color: #000;
+}
+
+.MuiButton-root.login:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.sign-here {
+  padding: 5px 10px;
+  background-color: #000;
+}
+
+.MuiButton-root.sign-here:hover {
+  background-color: #1e1436;
+}
+
+/*
+Sign Up Screen
+*/
+
+.MuiButton-root.sign {
+  background-color: #000;
+  margin: 10px 0px;
+}
+
+.MuiButton-root.sign:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.sign-close {
+  color: #000;
+}
+
+.MuiButton-root.sign-close:hover {
+  background-color: #3f3b49;
+  color: #fff;
+}
+
+.MuiButton-root.terms {
+  background-color: #000;
+}
+
+.MuiButton-root.terms:hover {
+  background-color: #1e1436;
+}
+
+/*
+Slide Items
+*/
+
+.MuiButton-root.prev {
+  background-color: black;
+}
+
+.MuiButton-root.prev:hover {
+  background-color: #7440e5;
+}
+
+.MuiButton-root.next {
+  background-color: black;
+}
+
+.MuiButton-root.next:hover {
+  background-color: #7440e5;
+}
+
+/*
+Information Tab
+*/
+
+.MuiButton-root.save {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+AppBar
+*/
+
+.MuiButton-root.profile {
+  padding: 0px;
+  width: 10%;
+  min-width: 0px;
+}
+
+.MuiButton-root.notification {
+  padding: 6px;
+  background: #fff;
+  min-width: 0px;
+}
+
+.MuiButton-root.notification:hover {
+  border: none;
+}
