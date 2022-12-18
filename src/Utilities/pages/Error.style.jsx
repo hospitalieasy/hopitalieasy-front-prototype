@@ -9,25 +9,10 @@ export const ErrorBase = styled.div`
     flex-direction: column;
 `;
 
-export const Label = styled.div`
-    background: linear-gradient(to right, #ad06fa, #019ef3);
-    padding: 50px;
-    border-radius: 10px;
-    color: #ffa2cf;
-    font-size: 30px;
-    font-weight: 600;
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
-
-    @keyframes gradient {
-        0% {
-        background-position: 0% 50%;
-        }
-        50% {
-        background-position: 100% 50%;
-        }
-        100% {
-        background-position: 0% 50%;
-        }
-    }
+export const ContentWrapper = styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;

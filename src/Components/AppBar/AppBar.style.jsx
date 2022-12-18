@@ -44,7 +44,7 @@ export const RightSide = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-    height: 100%;
+    height: 42px;
     display: flex;
     justify-content: space-between;
 `;
@@ -52,9 +52,8 @@ export const ContentWrapper = styled.div`
 export const NotificationWrapper = styled.div`
     display: flex;
     align-items: center;
-    height: 100%;
+    max-height: 100%;
     margin-right: 15px;
-    margin-bottom: -50px;
 `;
 
 export const ProfileWrapper = styled.div`

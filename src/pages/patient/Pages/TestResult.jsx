@@ -1,5 +1,6 @@
 import { ContentWrapper, TestResultBase } from "../Styles/TestResult.style";
 
+import DefaultBox from "..//..//..//Components/DefaultBox/DefaultBox"
 import Loading from "..//..//..//Utilities/Components/Loading/Loading"
 
 const Appointment = () => {
@@ -7,7 +8,9 @@ const Appointment = () => {
     return (
         <TestResultBase>
             <ContentWrapper>
-                <Loading />
+                <DefaultBox width="50%" height="50%" border="3px #a768ff solid">
+                    <Loading />
+                </DefaultBox>
             </ContentWrapper>
         </TestResultBase>
     );

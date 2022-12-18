@@ -10,9 +10,9 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import { useNavigate } from 'react-router-dom';
 
 const actions = [
-    { icon: <HomeIcon />, name: 'Home' },
-    { icon: <CalendarMonthIcon />, name: 'Appointment' },
-    { icon: <DescriptionIcon />, name: 'Test Result' },
+    { icon: <HomeIcon color='primary' />, name: 'Home' },
+    { icon: <CalendarMonthIcon color='primary' />, name: 'Appointment' },
+    { icon: <DescriptionIcon color='primary' />, name: 'Test Result' },
 ];
 
 export default function BasicSpeedDial() {

@@ -42,6 +42,7 @@ const AppBar = (props) => {
                     <ProfileWrapper>
                         <ProfileMenu
                             setUser={setUser}
+                            userIndex={userIndex}
                             setUserIndex={setUserIndex}
                         />
                     </ProfileWrapper>

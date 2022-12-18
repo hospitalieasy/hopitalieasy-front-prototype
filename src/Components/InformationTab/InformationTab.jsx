@@ -1,7 +1,7 @@
 import "..//..//Utilities/Style/Button.css"
 
 import { Button, Switch, TextField } from "@mui/material";
-import { ButtonWrapper, DecisionMaker, FormWrapper, InformationTabBase, Label, Section, Title, TitleWrapper } from "./InformationTab.style"
+import { ButtonWrapper, ContentWrapper, DecisionMaker, FormLabel, FormWrapper, InformationTabBase, Label, Section, Title, TitleWrapper } from "./InformationTab.style"
 import { useEffect, useState } from "react";
 
 import axios from "axios";
@@ -109,15 +109,33 @@ const InformationTab = (props) => {
                 }
             </DecisionMaker>
             <FormWrapper>
+
                 <Section>
                     {visible ? (
                         <>
-                            <TextField id="filled-disabled-1" label={apiName} variant="filled" onChange={(e) => { setTextName(e.target.value) }} />
-                            <TextField id="filled-disabled-2" label={apiSurname} variant="filled" onChange={(e) => { setTextSurname(e.target.value) }} />
+
+                            <ContentWrapper>
+                                <FormLabel>Name</FormLabel>
+                                <TextField id="filled-disabled-1" label={apiName} variant="filled" onChange={(e) => { setTextName(e.target.value) }} />
+                            </ContentWrapper>
+                            <ContentWrapper>
+                                <FormLabel>Surname</FormLabel>
+                                <TextField id="filled-disabled-2" label={apiSurname} variant="filled" onChange={(e) => { setTextSurname(e.target.value) }} />
+                            </ContentWrapper>
+
                         </>
                     ) : (
                         <>
-                            <TextField disabled id="filled-disabled-1" label={apiName} variant="filled" /><TextField disabled id="filled-disabled-2" label={apiSurname} variant="filled" />
+
+                            <ContentWrapper>
+                                <FormLabel>Name</FormLabel>
+                                <TextField disabled id="filled-disabled-1" label={apiName} variant="filled" />
+                            </ContentWrapper>
+                            <ContentWrapper>
+                                <FormLabel>Surname</FormLabel>
+                                <TextField disabled id="filled-disabled-2" label={apiSurname} variant="filled" />
+                            </ContentWrapper>
+
                         </>
                     )}
                 </Section>
@@ -125,13 +143,25 @@ const InformationTab = (props) => {
                 <Section>
                     {visible ? (
                         <>
-                            <TextField id="filled-disabled-3" label={apiTelno} variant="filled" onChange={(e) => { setTextTelno(e.target.value) }} />
-                            <TextField id="filled-disabled-4" label={apiBirthdate} variant="filled" onChange={(e) => { setTextBirthdate(e.target.value) }} />
+                            <ContentWrapper>
+                                <FormLabel>Phone</FormLabel>
+                                <TextField id="filled-disabled-3" label={apiTelno} variant="filled" onChange={(e) => { setTextTelno(e.target.value) }} />
+                            </ContentWrapper>
+                            <ContentWrapper>
+                                <FormLabel>Birthday</FormLabel>
+                                <TextField id="filled-disabled-4" label={apiBirthdate} variant="filled" onChange={(e) => { setTextBirthdate(e.target.value) }} />
+                            </ContentWrapper>
                         </>
                     ) : (
                         <>
-                            <TextField disabled id="filled-disabled-3" label={apiTelno} variant="filled" />
-                            <TextField disabled id="filled-disabled-4" label={apiBirthdate} variant="filled" />
+                            <ContentWrapper>
+                                <FormLabel>Phone</FormLabel>
+                                <TextField disabled id="filled-disabled-3" label={apiTelno} variant="filled" />
+                            </ContentWrapper>
+                            <ContentWrapper>
+                                <FormLabel>Birthday</FormLabel>
+                                <TextField disabled id="filled-disabled-4" label={apiBirthdate} variant="filled" />
+                            </ContentWrapper>
                         </>
                     )}
 
@@ -140,22 +170,35 @@ const InformationTab = (props) => {
                 <Section>
                     {visible ? (
                         <>
-                            <TextField disabled id="filled-disabled-5" label={apiEmail} onChange={(e) => { setTextEmail(e.target.value); }} variant="filled" />
-                            <TextField id="filled-disabled-6" label={apiPassword} onChange={(e) => { setTextPassword(e.target.value); }} variant="filled" /></>
+                            <ContentWrapper>
+                                <FormLabel>Email</FormLabel>
+                                <TextField disabled id="filled-disabled-5" label={apiEmail} onChange={(e) => { setTextEmail(e.target.value); }} variant="filled" />
+                            </ContentWrapper>
+                            <ContentWrapper>
+                                <FormLabel>Password</FormLabel>
+                                <TextField id="filled-disabled-6" label={apiPassword} onChange={(e) => { setTextPassword(e.target.value); }} variant="filled" />
+                            </ContentWrapper>
+                        </>
 
                     ) : (
                         <>
-                            <TextField disabled id="filled-disabled-5" label={apiEmail} variant="filled" />
-                            <TextField disabled id="filled-disabled-6" label={apiPassword} variant="filled" />
+                            <ContentWrapper>
+                                <FormLabel>Email</FormLabel>
+                                <TextField disabled id="filled-disabled-5" label={apiEmail} variant="filled" />
+                            </ContentWrapper>
+                            <ContentWrapper>
+                                <FormLabel>Password</FormLabel>
+                                <TextField disabled id="filled-disabled-6" label={apiPassword} variant="filled" />
+                            </ContentWrapper>
                         </>
                     )}
                 </Section>
             </FormWrapper>
             <ButtonWrapper>
                 {visible ? (
-                    <Button onClick={checkInputs} variant="contained">SAVE</Button>
+                    <Button className="save" onClick={checkInputs} variant="contained">SAVE</Button>
                 ) : (
-                    <Button disabled variant="contained">SAVE</Button>
+                    <Button className="save" disabled variant="contained">SAVE</Button>
                 )}
             </ButtonWrapper>
         </InformationTabBase>

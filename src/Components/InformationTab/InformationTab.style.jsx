@@ -17,7 +17,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-    font-size: 30px;
+    font-size: 34px;
     font-family: 'Libre Franklin', sans-serif;
 `;
 
@@ -29,10 +29,11 @@ export const DecisionMaker = styled.div`
 `;
 
 export const Label = styled.div`
-    font-size: 20px;
+    font-size: 22px;
     margin-top: -5px;
     padding-right: 5px;
     margin-left: 185px;
+    font-weight: 500;
 `;
 
 export const FormWrapper = styled.div`
@@ -50,6 +51,20 @@ export const Section = styled.div`
     justify-content: space-between;
     padding-bottom: 30px;
 `;
+
+export const FormLabel = styled.div`
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 5px;
+`;
+
+export const ContentWrapper = styled.div`
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+`;
+
 
 
 export const ButtonWrapper = styled.div`

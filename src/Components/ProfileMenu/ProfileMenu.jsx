@@ -4,13 +4,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import axios from 'axios';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 // TODO: if its possible add notification when log out clicked
 
 export default function ProfileMenu(props) {
     const {
         setUser,
+        userIndex,
         setUserIndex,
     } = props;
 
@@ -35,6 +39,21 @@ export default function ProfileMenu(props) {
         setUser(false);
     };
 
+    /* sets the name  */
+    const [apiName, apiSetName] = useState("");
+
+    /* gets the data from server */
+    useEffect(() => {
+        const getData = async () => {
+            const response = await axios.get(
+                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+            ).catch(error => (console.log(error)))
+
+            apiSetName(response.data[userIndex].Name)
+        }
+        getData();
+    }, [])
+
     return (
         <>
             <Button
@@ -45,8 +64,9 @@ export default function ProfileMenu(props) {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             >
-                <Avatar sx={{ bgcolor: "#fff", color: "#000" }}>A</Avatar>
-            </Button><Menu
+                <Avatar sx={{ bgcolor: "#fff", color: "#000" }}>{apiName.charAt(0)}</Avatar>
+            </Button>
+            <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}

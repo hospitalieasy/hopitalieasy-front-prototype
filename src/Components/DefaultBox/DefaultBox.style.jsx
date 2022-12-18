@@ -6,6 +6,7 @@ export const DefaultBoxBase = styled.div`
     margin: ${props => props.margin};
     background: ${props => props.background};
     display: ${props => props.display};
+    border: ${props => props.border};;
     border-radius: 10px;
     
     animation:  0.5s ease-out 0s 1 slideInFromBottom;
