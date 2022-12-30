@@ -1,7 +1,7 @@
 import { AppScreenBase, ScreenWrapper } from "../Styles/AppScreen.style";
 
 import AppBar from "../../../Components/AppBar/AppBar";
-import { AuthContext } from "../../../Utilities/Context/Auth/AuthContext";
+import { AuthContext } from "../../../Context/Auth/AuthContext";
 import { Outlet } from "react-router-dom";
 import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.style";
 import { useContext } from "react";
