@@ -26,6 +26,7 @@ export const LeftSide = styled.div`
 export const RightSide = styled.div`
     height: 60vh;
     width: 50%;
+    padding-top: 25px;
 `;
 
 
@@ -35,6 +36,7 @@ export const Content = styled.div`
     margin: auto;
     flex-direction: column;
     padding-left: 100px;
+    padding-top: 25px;
 `;
 
 export const Title = styled.div`

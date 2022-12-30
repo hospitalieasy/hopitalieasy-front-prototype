@@ -59,6 +59,7 @@ export const NotificationWrapper = styled.div`
 export const ProfileWrapper = styled.div`
     width: 0%;
     height: 100%;
+    padding-right: 10px;
 `;
 
 

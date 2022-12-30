@@ -7,6 +7,8 @@ import TextField from '@mui/material/TextField';
 
 const Calculator = () => {
 
+    // TODO: change states with reducers
+
     /* sets the values */
     const [shower, setShower] = useState(false)
     const [length, setLength] = useState(0);

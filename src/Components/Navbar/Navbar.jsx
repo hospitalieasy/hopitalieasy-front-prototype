@@ -1,6 +1,6 @@
 import "..//..//Utilities/Style/Button.css"
 
-import { ButtonContainer, ButtonItem, LeftSide, MidSide, NavItemContainer, NavbarBase, RightSide } from "./Navbar.style"
+import { ButtonContainer, LeftSide, MidSide, NavItemContainer, NavbarBase, RightSide } from "./Navbar.style"
 
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -22,12 +22,8 @@ const Navbar = () => {
             </MidSide>
             <RightSide>
                 <ButtonContainer>
-                    <ButtonItem>
-                        <Button className="patient" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="medium">Patient</Button>
-                    </ButtonItem>
-                    <ButtonItem>
-                        <Button className="doctor" component={Link} to={'/future-content'} variant="contained" size="medium">Doctor</Button>
-                    </ButtonItem>
+                    <Button className="patient" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="medium">Patient</Button>
+                    <Button className="doctor" component={Link} to={'/future-content'} variant="contained" size="medium">Doctor</Button>
                 </ButtonContainer>
             </RightSide>
         </NavbarBase >

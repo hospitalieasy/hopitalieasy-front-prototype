@@ -7,9 +7,12 @@ import { Switch, TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import Terms from "../Terms/Terms";
 import axios from "axios";
-import { userSchema } from "..//..//Utilities/Validations/UserValidation"
+import { userSchema } from "../../FormValidation/UserValidation";
 
 const SignUpForm = () => {
+
+    //TODO: change states with reducers
+    //TODO: replace the alert bar with notification bar
 
     /* sets the user inputs from texts */
     const [name, setName] = useState();

@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-// TODO: if its possible add notification when log out clicked
+// TODO: add notification when log out clicked
 
 export default function ProfileMenu(props) {
     const {

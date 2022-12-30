@@ -5,10 +5,13 @@ import { ButtonWrapper, ContentWrapper, DecisionMaker, FormLabel, FormWrapper, I
 import { useEffect, useState } from "react";
 
 import axios from "axios";
-import { userSchema } from "../../Utilities/Validations/UserValidation";
+import { userSchema } from "../../FormValidation/UserValidation";
 
 const InformationTab = (props) => {
     const { userIndex } = props;
+
+    //TODO: change states with reducers
+    //TODO: replace the alert bars with notification bars
 
     /* sets values from API to text labels */
     const [apiId, setApiId] = useState();

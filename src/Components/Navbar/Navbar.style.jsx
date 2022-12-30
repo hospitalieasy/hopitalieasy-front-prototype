@@ -5,7 +5,7 @@ export const NavbarBase = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 10px 50px;
+    padding: 20px 50px;
 `;
 
 export const LeftSide = styled.div`
@@ -36,15 +36,13 @@ export const NavItemContainer = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-    width: 55%;
+    width: 48%;
     display: flex;
     margin-left: auto;
     justify-content: space-between;
 `;
 
-export const ButtonItem = styled.div`
-    
-`;
+
 
 
 

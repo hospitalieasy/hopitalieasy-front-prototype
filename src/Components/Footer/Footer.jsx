@@ -1,6 +1,6 @@
-import { BottomMenu, CreditWrapper, Description, FooterBase, MenuContainer, MenuItem, PatternLayout, Title, TopMenu } from "./Footer.style";
+import { BottomMenu, CreditWrapper, Description, FooterBase, IconBase, Label, MenuContainer, MenuItem, NameLabel, PatternLayout, Title, TopMenu } from "./Footer.style";
 
-import Credit from "../FooterCredit/Credit";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Footer = () => {
 
@@ -36,10 +36,19 @@ const Footer = () => {
                     </MenuContainer>
                 </TopMenu>
                 <BottomMenu>
-                    <CreditWrapper>Created By</CreditWrapper>
-                    <Credit title={"İsmail Altar Ulaş"} link={linkAltar} />
-                    <Credit title={"Beste Sakar"} link={linkBeste} />
-                    <Credit title={"Şinasi Ege Karataş"} link={linkEge} />
+                    <Label>Created By</Label>
+                    <CreditWrapper>
+                        <NameLabel>{"İsmail Altar Ulaş"}</NameLabel>
+                        <IconBase><LinkedInIcon fontSize="large" onClick={linkAltar} /></IconBase>
+                    </CreditWrapper>
+                    <CreditWrapper>
+                        <NameLabel>{"Beste Sakar"}</NameLabel>
+                        <IconBase><LinkedInIcon fontSize="large" onClick={linkBeste} /></IconBase>
+                    </CreditWrapper>
+                    <CreditWrapper>
+                        <NameLabel>{"Şinasi Ege Karataş"}</NameLabel>
+                        <IconBase><LinkedInIcon fontSize="large" onClick={linkEge} /></IconBase>
+                    </CreditWrapper>
                 </BottomMenu>
             </PatternLayout>
         </FooterBase>

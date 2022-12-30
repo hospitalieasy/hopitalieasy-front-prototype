@@ -9,10 +9,11 @@ import { useState } from "react";
 
 const LoginForm = (props) => {
     const {
+        //context props
         user,
         setUser,
         setUserIndex,
-
+        // style props
         title,
         width,
         height,
