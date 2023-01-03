@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { INITIAL_STATE, apiPostReducer } from '../../Hooks/Reducer/postReducer';
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -42,14 +44,20 @@ export default function ProfileMenu(props) {
     /* sets the name  */
     const [apiName, apiSetName] = useState("");
 
+    /* useReducer hook fetching the data states */
+    const [state, dispatch] = React.useReducer(apiPostReducer, INITIAL_STATE);
+
     /* gets the data from server */
     useEffect(() => {
         const getData = async () => {
             const response = await axios.get(
                 `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            ).catch(error => (console.log(error)))
-
-            apiSetName(response.data[userIndex].Name)
+            ).then(response => {
+                dispatch({ type: "FETCH_SUCCESS", payload: response.data[userIndex] })
+                apiSetName(state.apiPost.Name)
+            }).catch(error => {
+                dispatch({ type: "FETCH_ERROR" })
+            })
         }
         getData();
     }, [])

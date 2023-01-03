@@ -1,7 +1,8 @@
 import "..//..//Utilities/Style/Button.css"
 
 import { FormWrapper, Label, SingUpFormBase, Text, Title, UserAcceptContent } from "./SignUpForm.style"
-import React, { useEffect, useState } from "react";
+import { INITIAL_STATE, apiPostReducer } from "../../Hooks/Reducer/postReducer";
+import React, { useEffect, useReducer, useState } from "react";
 import { Switch, TextField } from "@mui/material";
 
 import { Button } from "@mui/material";
@@ -9,21 +10,25 @@ import Terms from "../Terms/Terms";
 import axios from "axios";
 import { userSchema } from "../../FormValidation/UserValidation";
 
+//TODO: replace the alert bar with notification bar
+
 const SignUpForm = () => {
 
-    //TODO: change states with reducers
-    //TODO: replace the alert bar with notification bar
-
     /* sets the user inputs from texts */
-    const [name, setName] = useState();
-    const [surname, setSurname] = useState();
-    const [birthdate, setBirthdate] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [telno, setTelno] = useState();
+    const [inputData, setInputData] = useState({
+        name: "",
+        surname: "",
+        birthdate: "",
+        email: "",
+        password: "",
+        telno: "",
+    })
 
     /* sets the email true or false */
     const [emailExist, setEmailExist] = useState();
+
+    /* useReducer hook fetching the data states */
+    const [state, dispatch] = useReducer(apiPostReducer, INITIAL_STATE);
 
     /* checks is there are any exist email */
     useEffect(() => {
@@ -31,17 +36,21 @@ const SignUpForm = () => {
 
             const response = await axios.get(
                 `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            ).catch(error => (console.log(error)))
+            ).then(response => {
+                dispatch({ type: "FETCH_SUCCESS", payload: response.data })
+            }).catch(error => {
+                dispatch({ type: "FETCH_ERROR" })
+            })
 
-            if (!(email == "")) {
+            if (!(inputData.email == "")) {
                 let index = 0;
                 while (index < response.data.length) {
-                    if ((response.data[index].Email == email)) {
+                    if ((response.data[index].Email == inputData.email)) {
                         setEmailExist(true)
                         break;
                     }
 
-                    if ((response.data[index].Email !== email)) {
+                    if ((response.data[index].Email !== inputData.email)) {
                         setEmailExist(false)
                     }
 
@@ -52,19 +61,24 @@ const SignUpForm = () => {
                 }
             }
         }
+
+        if (state.error) {
+            console.log("Data fetch went wrong in AppBar");
+        }
+
         getData();
 
-    }, [email])
+    }, [inputData.email])
 
     const checkInputs = async () => {
         /* form validation */
         let formData = {
-            name: name,
-            surname: surname,
-            birthdate: birthdate,
-            email: email,
-            password: password,
-            telno: telno,
+            name: inputData.name,
+            surname: inputData.surname,
+            birthdate: inputData.birthdate,
+            email: inputData.email,
+            password: inputData.password,
+            telno: inputData.telno,
         }
 
         const isValid = await userSchema.isValid(formData);
@@ -72,21 +86,24 @@ const SignUpForm = () => {
         if (isValid && !emailExist && terms) {
             /* sets the data from user */
             let goingData = {
-                Name: name,
-                Surname: surname,
-                Birthdate: birthdate,
-                Email: email,
-                Password: password,
-                Telno: telno,
+                Name: inputData.name,
+                Surname: inputData.surname,
+                Birthdate: inputData.birthdate,
+                Email: inputData.email,
+                Password: inputData.password,
+                Telno: inputData.telno,
             };
             const postData = async (e) => {
                 const response = await axios.post(
                     `https://hospitaleasyapi.azurewebsites.net/api/Patient`, goingData
-                ).catch(error => (console.log(error)))
+                ).catch(error => (console.log("Post method went wrong in SignUpForm" + error)))
             }
             postData();
             alert("Signed up successfully")
-            setEmail("")
+            setInputData({
+                ...inputData,
+                email: "",
+            })
         } else if (!terms && !isValid) {
             alert("Inputs are not valid")
         } else if (!terms && isValid) {
@@ -97,7 +114,6 @@ const SignUpForm = () => {
             alert("Inputs are not valid")
         }
     }
-
 
     /* checks the terms condition */
     const [terms, setTerms] = useState();
@@ -116,19 +132,47 @@ const SignUpForm = () => {
             <FormWrapper>
                 <Title>Sign Up</Title>
 
-                <TextField id="outlined-basic-1" label="Name" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setName(e.target.value)} />
+                <TextField id="outlined-basic-1" label="Name" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) =>
+                    setInputData({
+                        ...inputData,
+                        name: e.target.value,
+                    })
+                } />
 
-                <TextField id="outlined-basic-2" label="Surname" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setSurname(e.target.value)} />
+                <TextField id="outlined-basic-2" label="Surname" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) =>
+                    setInputData({
+                        ...inputData,
+                        surname: e.target.value,
+                    })
+                } />
 
-                <TextField id="outlined-basic-3" label="XX/XX/XXXX" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setBirthdate(e.target.value)} />
+                <TextField id="outlined-basic-3" label="XX/XX/XXXX" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) =>
+                    setInputData({
+                        ...inputData,
+                        birthdate: e.target.value,
+                    })
+                } />
 
-                <TextField id="outlined-basic-4" label="E-mail" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setEmail(e.target.value)} />
+                <TextField id="outlined-basic-4" label="E-mail" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) =>
+                    setInputData({
+                        ...inputData,
+                        email: e.target.value,
+                    })
+                } />
 
-                <TextField id="outlined-password-input-5" label="Password (at least 5 character)" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+                <TextField id="outlined-password-input-5" label="Password (at least 5 character)" type={"password"} autoComplete={"current-password"} variant="standard" style={{ padding: "10px 0px" }} onChange={(e) =>
+                    setInputData({
+                        ...inputData,
+                        password: e.target.value,
+                    })
+                } />
 
-                <TextField id="outlined-basic-6" label="Tel-no" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) => setTelno(e.target.value)} />
+                <TextField id="outlined-basic-6" label="Tel-no" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) =>
+                    setInputData({
+                        ...inputData,
+                        telno: e.target.value,
+                    })
+                } />
 
                 <UserAcceptContent style={{ padding: "10px 0px" }}>
                     <Switch onClick={acceptHandler} color="warning" />

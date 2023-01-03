@@ -1,6 +1,7 @@
 import { Button, TextField } from "@mui/material";
+import { INITIAL_STATE, apiPostReducer } from "../../Hooks/Reducer/postReducer";
 import { LoginFormBase, Title } from "./LoginForm.style"
-import React, { useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 
 import SnackBar from "../SnackBar/SnackBar";
 import axios from "axios";
@@ -29,13 +30,24 @@ const LoginForm = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    /* useReducer hook fetching the data states */
+    const [state, dispatch] = useReducer(apiPostReducer, INITIAL_STATE);
+
     /* gets the data from server and checks is there any match user */
     const getData = async (e) => {
         e.preventDefault();
 
         const response = await axios.get(
             `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-        ).catch(error => (console.log(error)))
+        ).then(response => {
+            dispatch({ type: "FETCH_SUCCESS", payload: response.data })
+        }).catch(error => {
+            dispatch({ type: "FETCH_ERROR" })
+        })
+
+        if (state.error) {
+            console.log("Data fetch went wrong in LoginForm");
+        }
 
         if (!((email == "") || (password == ""))) {
             let index = 0;
@@ -72,7 +84,11 @@ const LoginForm = (props) => {
 
             const response = await axios.get(
                 `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            ).catch(error => (console.log(error)))
+            ).then(response => {
+                dispatch({ type: "FETCH_SUCCESS", payload: response.data })
+            }).catch(error => {
+                dispatch({ type: "FETCH_ERROR" })
+            })
 
             if (!((email == "") || (password == ""))) {
                 let index = 0;
@@ -97,6 +113,11 @@ const LoginForm = (props) => {
                 setLoginNotification(false);
             }
         }
+
+        if (state.error) {
+            alert("Data fetch went wrong in LoginForm");
+        }
+
         getData();
 
     }, [email, password])
