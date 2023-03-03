@@ -5,41 +5,47 @@ export const NavbarBase = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 20px 50px;
+    padding: 24px 40px;
+
+    @media screen and (max-width: 768px) {
+        padding: 20px;
+    }
 `;
 
 export const LeftSide = styled.div`
-    font-size: 30px;
     height: 100%;
-    width: 32%;
+    width: 50%;
     color: #fff;
-    padding-left: 15px;
-`;
 
-export const MidSide = styled.div`
-    height: 100%;
-    width: 32%;
+    @media screen and (max-width: 386px) {
+        display: none;
+    }
 `;
 
 export const RightSide = styled.div`
     height: 100%;
-    width: 32%;
+    width: 50%;
     display: flex;
-`;
-
-export const NavItemContainer = styled.div`
-    width: 100%;
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: space-between;
+    
+    @media screen and (max-width: 386px) {
+        width: 100%;
+    }
 `;
 
 export const ButtonContainer = styled.div`
-    width: 48%;
     display: flex;
     margin-left: auto;
-    justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+        width: 80%;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 386px) {
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px 24px;
+    }
 `;
 
 

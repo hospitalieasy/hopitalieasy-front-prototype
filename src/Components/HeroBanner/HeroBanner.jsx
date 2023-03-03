@@ -1,10 +1,8 @@
-import "..//..//Utilities/Style/Button.css"
-
-import { ButtonWrapper, Content, Description, HeroBannerBase, LeftSide, RightSide, Title } from "./HeroBanner.style";
+import { ButtonWrapper, Content, Description, HeroBannerBase, Image, LeftSide, RightSide, Title } from "./HeroBanner.style";
 
 import { Button } from "@mui/material";
 import { Link } from "react-scroll";
-import SlideShowHero from "../SlideShow/SlideShowHero";
+import bannerImage from "..//..//Utilities/Images/banner-image.png"
 
 const HeroBanner = () => {
     return (
@@ -12,10 +10,10 @@ const HeroBanner = () => {
             <LeftSide>
                 <Content>
                     <Title>
-                        New Way of Treatment
+                        Future Treatment
                     </Title>
                     <Description>
-                        Make your life easier with the Hospitalieasy app starting today. Get started right now!
+                        Make your life easier with the Hospitalieasy app starting today. Get started right now! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, quibusdam?
                     </Description>
                     <ButtonWrapper>
                         <Link
@@ -32,7 +30,7 @@ const HeroBanner = () => {
                 </Content>
             </LeftSide>
             <RightSide>
-                <SlideShowHero color={"#fff"} />
+                <Image src={bannerImage} />
             </RightSide>
         </HeroBannerBase >
     );

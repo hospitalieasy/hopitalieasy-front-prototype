@@ -27,6 +27,10 @@ export const MenuContainer = styled.div`
     height: 100%;
     display: flex;
     margin: auto;
+
+    @media screen and (max-width: 585px) {
+        flex-direction: column;
+    }
 `;
 
 
@@ -37,6 +41,14 @@ export const MenuItem = styled.div`
     flex-direction: column;
     padding: 20px;
     font-family: 'Montserrat', sans-serif;
+
+    @media screen and (max-width: 585px) {
+        border-bottom: 1px solid;
+        :nth-child(3) {
+            border-bottom: none;
+        }
+    }
+
 `;
 
 export const Title = styled.div`
@@ -82,6 +94,10 @@ export const BottomMenu = styled.div`
       background-position: 0% 50%;
     }
   }
+
+  @media screen and (max-width: 585px) {
+        flex-direction: column;
+    }
 `;
 
 export const Label = styled.div`
@@ -92,6 +108,10 @@ export const Label = styled.div`
     border-right: 1px solid;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 
@@ -104,6 +124,14 @@ export const CreditWrapper = styled.div`
     align-items: center;
     :nth-child(4) {
         border-right: none;
+    }
+
+    @media screen and (max-width: 585px) {
+        margin-bottom: 12px;
+        border-right: none;
+        :nth-child(4) {
+        border-bottom: none;
+        }
     }
 `;
 

@@ -1,6 +1,4 @@
-import "..//..//Utilities/Style/Button.css"
-
-import { ButtonContainer, LeftSide, MidSide, NavItemContainer, NavbarBase, RightSide } from "./Navbar.style"
+import { ButtonContainer, LeftSide, NavbarBase, RightSide } from "./Navbar.style"
 
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -13,17 +11,26 @@ const Navbar = () => {
                     <img src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/null/external-hospital-hospital-and-healthcare-xnimrodx-lineal-gradient-xnimrodx.png" alt="" />
                 </Link>
             </LeftSide>
-            <MidSide>
-                <NavItemContainer>
-                    <Button className="home" component={Link} to={'/home'} size="medium">Home</Button>
-                    <Button className="about" component={Link} to={'/about'} size="medium">About</Button>
-                    <Button className="about" component={Link} to={'/contact'} size="medium">Contact</Button>
-                </NavItemContainer>
-            </MidSide>
             <RightSide>
                 <ButtonContainer>
-                    <Button className="patient" component={Link} to={'/patient-login'} variant="outlined" color="secondary" size="medium">Patient</Button>
-                    <Button className="doctor" component={Link} to={'/future-content'} variant="contained" size="medium">Doctor</Button>
+                    <Button
+                        sx={{
+                            marginRight: "30px"
+                        }}
+                        component={Link}
+                        to={'/patient-login'}
+                        variant="outlined"
+                        color="secondary"
+                        size="medium">
+                        Patient
+                    </Button>
+                    <Button
+                        component={Link}
+                        to={'/future-content'}
+                        variant="contained"
+                        size="medium">
+                        Doctor
+                    </Button>
                 </ButtonContainer>
             </RightSide>
         </NavbarBase >

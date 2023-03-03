@@ -1,19 +1,13 @@
-import "..//..//Utilities/Style/Button.css"
-
 import { Content, DescriptionHero, ImageContainer, Label, SlideShowBase, Title } from './SlideShow.style';
 
 import React from 'react';
 import ReactSwipe from 'react-swipe';
 
-/* import { Button } from '@mui/material'; */
-/* import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; */
-
 const SlideShowHero = (props) => {
     const { padding, background, width, height, color } = props;
     let reactSwipeEl;
 
-    function start() {
+    const start = () => {
         setTimeout(function () {
             reactSwipeEl?.next();
             start();
@@ -49,10 +43,6 @@ const SlideShowHero = (props) => {
 
                 </ReactSwipe>
             </ImageContainer>
-            {/* <ButtonContainer>
-                <Button className='prev' onClick={() => reactSwipeEl.prev()} variant="contained" size="small"><ArrowBackIosIcon /></Button>
-                <Button className='next' onClick={() => reactSwipeEl.next()} variant="contained" size="small"><ArrowForwardIosIcon /></Button>
-            </ButtonContainer> */}
         </SlideShowBase>
     );
 };

@@ -7,6 +7,7 @@ export const SlideShowBase = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    
     padding: ${props => props.padding};
     background: ${props => props.background};
     width: ${props => props.width};
@@ -19,7 +20,26 @@ export const ImageContainer = styled.div`
 `;
 
 export const Content = styled.div`
-    padding: 8px 30px;
+    height: 100%;
+    padding: 24px;
+    
+    @media screen and (min-width: 881px) and (max-width: 1500px) {
+        margin-bottom: 30px;
+    }
+
+    @media screen and (min-width: 856px) and (max-width: 1028px) {
+        margin-top: 30px;
+    }
+
+    
+    @media screen and (min-width: 701px) and (max-width: 880px) {
+        margin-bottom: 10px;
+    }
+
+    @media screen and (min-width: 586px) and (max-width: 700px) {
+        margin-bottom: 0px;
+        margin-top: 20px;
+    }
 `;
 
 export const ContentImage = styled.div`
@@ -30,20 +50,33 @@ export const Title = styled.div`
     font-size: 30px;
     color: ${props => props.color};
     margin-bottom: 30px;
-    font-family: 'Montserrat', sans-serif;
+
+    @media screen and (max-width: 635px) {
+        font-size: 24px;
+    }
+
+    @media screen and (min-width: 636px) and (max-width: 768px) {
+        font-size: 28px;
+    }
 `;
 
 export const Label = styled.div`
     font-size: 22px;
     color: ${props => props.color};
     margin-bottom: 30px;
-    font-family: 'Montserrat', sans-serif;
+
+    @media screen and (max-width: 768px) {
+        font-size: 20px;
+    }
 `;
 
 export const DescriptionHero = styled.div`
     font-size: 18px;
     color: ${props => props.color};
-    font-family: 'Barlow', sans-serif;
+
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
+    }
 `;
 
 export const DescriptionAppScreen = styled.div`
