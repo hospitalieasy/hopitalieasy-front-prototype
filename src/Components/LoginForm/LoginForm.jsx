@@ -16,15 +16,10 @@ const LoginForm = (props) => {
         setUserIndex,
         // style props
         title,
-        width,
-        height,
-        padding,
-        text,
-        fontSize
     } = props;
 
     /* end point url */
-    const API_ENDPOINT = 'https://hospitaleasyapi.azurewebsites.net/api/Patient';
+    /* const API_ENDPOINT = 'https://hospitaleasyapi.azurewebsites.net/api/Patient'; */
 
     /* navigate hook */
     const navigate = useNavigate();
@@ -40,7 +35,7 @@ const LoginForm = (props) => {
     const getDataAfterClick = async (e) => {
         e.preventDefault();
 
-        const response = await axios.get(API_ENDPOINT)
+        const response = await axios.get("")
             .then(response => {
                 dispatch({ type: "FETCH_SUCCESS", payload: response.data })
             }).catch(error => {
@@ -84,7 +79,7 @@ const LoginForm = (props) => {
     useEffect(() => {
         const getDataAfterRender = async () => {
 
-            const response = await axios.get(API_ENDPOINT)
+            const response = await axios.get("")
                 .then(response => {
                     dispatch({ type: "FETCH_SUCCESS", payload: response.data })
                 }).catch(error => {
@@ -124,12 +119,12 @@ const LoginForm = (props) => {
     }, [email, password])
 
     return (
-        <LoginFormBase padding={padding} width={width} height={height}>
-            <Title fontSize={fontSize}>{title}</Title>
+        <LoginFormBase>
+            <Title>{title}</Title>
 
             <TextField id="outlined-basic" label="E-mail" variant="standard" onChange={(e) => setEmail(e.target.value)} />
 
-            <TextField id="outlined-password-input" label={text} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPassword(e.target.value)} />
+            <TextField id="outlined-password-input" label="Password" type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPassword(e.target.value)} />
 
             <Button onClick={getDataAfterClick} className="login" variant="contained">
                 <SnackBar loginNotification={loginNotification} />

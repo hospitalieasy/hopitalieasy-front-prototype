@@ -25,7 +25,7 @@ const SignUpForm = () => {
     })
 
     /* end point url */
-    const API_ENDPOINT = 'https://hospitaleasyapi.azurewebsites.net/api/Patient';
+    /* const API_ENDPOINT = 'https://hospitaleasyapi.azurewebsites.net/api/Patient'; */
 
     /* sets the email true or false */
     const [emailExist, setEmailExist] = useState();
@@ -38,7 +38,7 @@ const SignUpForm = () => {
         const getData = async () => {
 
             const response = await axios.get(
-                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+                ``
             ).then(response => {
                 dispatch({ type: "FETCH_SUCCESS", payload: response.data })
             }).catch(error => {
@@ -98,7 +98,7 @@ const SignUpForm = () => {
             };
             const postData = async (e) => {
                 const response = await axios.post(
-                    `https://hospitaleasyapi.azurewebsites.net/api/Patient`, goingData
+                    ``, goingData
                 ).catch(error => (console.log("Post method went wrong in SignUpForm" + error)))
             }
             postData();
@@ -178,11 +178,11 @@ const SignUpForm = () => {
                 } />
 
                 <UserAcceptContent style={{ padding: "10px 0px" }}>
-                    <Switch onClick={acceptHandler} color="warning" />
                     <Label>
+                        <Switch onClick={acceptHandler} color="warning" />
                         <Text>Accept Terms</Text>
-                        <Terms />
                     </Label>
+                    <Terms />
                 </UserAcceptContent>
 
                 <Button onClick={checkInputs} className="sign" variant="contained" color="success">

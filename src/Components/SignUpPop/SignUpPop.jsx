@@ -30,6 +30,10 @@ export default function SignUpPop(props) {
                 Sign Here
             </Button>
             <Dialog
+                sx={{
+                    height: "90%",
+                    marginTop: "36px",
+                }}
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"

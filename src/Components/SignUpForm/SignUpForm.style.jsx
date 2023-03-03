@@ -12,13 +12,20 @@ export const FormWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 25px;
-    margin: 0px 35px;
+    padding: 32px;
+
+    @media screen and (max-width: 585px) {
+        padding: 40px;
+    }
 `;
 
 export const UserAcceptContent = styled.div`
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 585px) {
+        flex-direction: column;
+    }
 `;
 
 export const Label = styled.div`
@@ -26,10 +33,15 @@ export const Label = styled.div`
     margin-left: 10px;
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 585px) {
+        margin-bottom: 20px;
+    }
 `;
 
 export const Text = styled.div`
     padding-right: 30px;
+    
 `;
 
 export const Title = styled.div`
