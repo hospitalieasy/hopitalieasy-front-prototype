@@ -26,7 +26,7 @@ export default function SignUpPop(props) {
 
     return (
         <>
-            <Button className='sign' variant="contained" onClick={handleClickOpen}>
+            <Button className='sign-login' variant="contained" onClick={handleClickOpen}>
                 Sign Here
             </Button>
             <Dialog

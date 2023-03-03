@@ -30,7 +30,7 @@ function App() {
         }}
       >
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
 
           <Route element={<ProtectedRoutes />}>
             <Route path="/app-screen" element={<AppScreen />}>

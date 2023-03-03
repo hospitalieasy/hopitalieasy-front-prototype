@@ -185,7 +185,7 @@ const SignUpForm = () => {
                     <Terms />
                 </UserAcceptContent>
 
-                <Button onClick={checkInputs} className="sign" variant="contained" color="success">
+                <Button onClick={checkInputs} className="sign-pop" variant="contained" color="success">
                     SIGN UP
                 </Button>
 

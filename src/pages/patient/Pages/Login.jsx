@@ -44,7 +44,7 @@ const Login = () => {
                             />
                         </SignUpWrapper>
                         <IconWrapper>
-                            <Link component={Link} to={'/home'}>
+                            <Link component={Link} to={'/'}>
                                 <img src="https://img.icons8.com/ios-filled/42/null/logout-rounded-left.png" alt="" />
                             </Link>
                         </IconWrapper>
