@@ -13,44 +13,35 @@ const Calculator = () => {
     const [shower, setShower] = useState(false)
     const [length, setLength] = useState(0);
     const [weight, setWeight] = useState(0);
-    const [result, setResult] = useState("");
-    const [resultColor, setResultColor] = useState("")
+    const [resultInfo, setResultInfo] = useState({ text: "", color: "" });
 
     /* calculates the mass ratios */
-    const massCalculator = () => {
-        const mass = ((weight / (length * length)) * 10000)
+    const calculateMass = () => {
+        const mass = (weight / (length * length)) * 10000;
 
         if (mass <= 26 && mass > 20) {
-            setResult("Normal")
-            setResultColor("#113f67")
+            setResultInfo({ text: "Normal", color: "#113f67" });
         } else if (mass <= 20 && mass >= 15) {
-            setResult("Underweight")
-            setResultColor("#ffc400")
+            setResultInfo({ text: "Underweight", color: "#ffc400" });
         } else if (mass >= 25 && mass <= 45) {
-            setResult("Overweight")
-            setResultColor("#f95959")
-        } else if (mass >= 46) {
-            setResult("Improbable")
-            setResultColor("#7300ff")
-        } else if (mass < 15) {
-            setResult("Improbable")
-            setResultColor("#7300ff")
+            setResultInfo({ text: "Overweight", color: "#f95959" });
+        } else if (mass >= 46 || mass < 15) {
+            setResultInfo({ text: "Improbable", color: "#7300ff" });
+        } else {
+            setResultInfo({ text: "Enter Input", color: "black" });
         }
-        else {
-            setResult("Enter Input")
-            setResultColor("black")
-        }
-    }
+    };
+
 
     /* renders page when weight and length is changed */
     useEffect(() => {
-
-    }, [weight, length])
+        calculateMass();
+    }, [weight, length]);
 
     /* shows the result */
-    const resultShower = () => {
-        setShower(true)
-    }
+    const showResult = () => {
+        setShower(true);
+    };
 
     return (
         <CalculatorBase>
@@ -74,23 +65,23 @@ const Calculator = () => {
                 </Kilogram>
                 <ResultWrapper>
                     <CalculateButton>
-                        <Button onClick={massCalculator} variant="contained">
+                        <Button onClick={calculateMass} variant="contained">
                             <span
-                                onClick={resultShower}
+                                onClick={showResult}
                                 style={{ width: "100%", height: "100%" }}>
                                 CALCULATE
                             </span>
                         </Button>
-                        {shower && result == "Overweight" && (
+                        {shower && resultInfo.text == "Overweight" && (
                             <CalculatorPop />
                         )}
-                        {shower && result == "Underweight" && (
+                        {shower && resultInfo.text == "Underweight" && (
                             <CalculatorPop />
                         )}
                     </CalculateButton>
                     {shower && (
-                        <Result color={resultColor} >
-                            {result}
+                        <Result color={resultInfo.color} >
+                            {resultInfo.text}
                         </Result>)
                     }
                 </ResultWrapper>

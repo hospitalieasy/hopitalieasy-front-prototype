@@ -23,6 +23,9 @@ const LoginForm = (props) => {
         fontSize
     } = props;
 
+    /* end point url */
+    const API_ENDPOINT = 'https://hospitaleasyapi.azurewebsites.net/api/Patient';
+
     /* navigate hook */
     const navigate = useNavigate();
 
@@ -34,16 +37,15 @@ const LoginForm = (props) => {
     const [state, dispatch] = useReducer(apiPostReducer, INITIAL_STATE);
 
     /* gets the data from server and checks is there any match user */
-    const getData = async (e) => {
+    const getDataAfterClick = async (e) => {
         e.preventDefault();
 
-        const response = await axios.get(
-            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-        ).then(response => {
-            dispatch({ type: "FETCH_SUCCESS", payload: response.data })
-        }).catch(error => {
-            dispatch({ type: "FETCH_ERROR" })
-        })
+        const response = await axios.get(API_ENDPOINT)
+            .then(response => {
+                dispatch({ type: "FETCH_SUCCESS", payload: response.data })
+            }).catch(error => {
+                dispatch({ type: "FETCH_ERROR" })
+            })
 
         if (state.error) {
             console.log("Data fetch went wrong in LoginForm");
@@ -80,15 +82,14 @@ const LoginForm = (props) => {
 
     /* renders the page whenever email, password are changes and gets the notification */
     useEffect(() => {
-        const getData = async () => {
+        const getDataAfterRender = async () => {
 
-            const response = await axios.get(
-                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            ).then(response => {
-                dispatch({ type: "FETCH_SUCCESS", payload: response.data })
-            }).catch(error => {
-                dispatch({ type: "FETCH_ERROR" })
-            })
+            const response = await axios.get(API_ENDPOINT)
+                .then(response => {
+                    dispatch({ type: "FETCH_SUCCESS", payload: response.data })
+                }).catch(error => {
+                    dispatch({ type: "FETCH_ERROR" })
+                })
 
             if (!((email == "") || (password == ""))) {
                 let index = 0;
@@ -118,7 +119,7 @@ const LoginForm = (props) => {
             alert("Data fetch went wrong in LoginForm");
         }
 
-        getData();
+        getDataAfterRender();
 
     }, [email, password])
 
@@ -130,7 +131,7 @@ const LoginForm = (props) => {
 
             <TextField id="outlined-password-input" label={text} type={"password"} autoComplete={"current-password"} variant="standard" onChange={(e) => setPassword(e.target.value)} />
 
-            <Button onClick={getData} className="login" variant="contained">
+            <Button onClick={getDataAfterClick} className="login" variant="contained">
                 <SnackBar loginNotification={loginNotification} />
             </Button>
         </LoginFormBase>

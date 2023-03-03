@@ -24,6 +24,9 @@ const SignUpForm = () => {
         telno: "",
     })
 
+    /* end point url */
+    const API_ENDPOINT = 'https://hospitaleasyapi.azurewebsites.net/api/Patient';
+
     /* sets the email true or false */
     const [emailExist, setEmailExist] = useState();
 
