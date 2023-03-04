@@ -1,6 +1,6 @@
 import { ProfileBase, Section2 } from "../Styles/Profile.style";
 
-import { AuthContext } from "../../../Context/Auth/AuthContext";
+import { AuthContext } from "..//..//..//Context/AuthContext";
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
 import InformationTab from "../../../Components/InformationTab/InformationTab";
 import { useContext } from "react";

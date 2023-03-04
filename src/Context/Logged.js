@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-import { AuthContext } from "../Auth/AuthContext";
+import { AuthContext } from "./AuthContext";
 import { useContext } from "react";
 
 const Logged = () => {

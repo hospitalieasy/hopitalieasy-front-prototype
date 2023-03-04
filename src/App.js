@@ -2,15 +2,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import AppScreen from "./Pages/Patient/Pages/AppScreen";
 import Appointment from "./Pages/Patient/Pages/Appointment";
-import { AuthContext } from "./Context/Auth/AuthContext";
+import { AuthContext } from "./Context/AuthContext";
 import Error from "./Utilities/Pages/Error";
 import Future from "./Utilities/Pages/Future";
 import Home from "./Pages/Common/Home";
-import Logged from "./Context/Logged/Logged";
+import Logged from "./Context/Logged";
 import Login from "./Pages/Patient/Pages/Login";
 import PatientHome from "./Pages/Patient/Pages/Home";
 import Profile from "./Pages/Patient/Pages/Profile";
-import ProtectedRoutes from "./Context/ProtectedRoutes/ProtectedRoutes";
+import ProtectedRoutes from "./Context/ProtectedRoutes";
 import TestResult from "./Pages/Patient/Pages/TestResult";
 import useLocalStorage from "./Hooks/LocalStorage/useLocalStorage";
 

@@ -1,5 +1,3 @@
-import "..//..//Utilities/Style/Button.css"
-
 import * as React from 'react';
 
 import Button from '@mui/material/Button';
@@ -8,7 +6,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Notification from "..//Notification/Notification"
 import Slide from '@mui/material/Slide';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -29,7 +26,6 @@ export default function NotificationPop() {
     return (
         <div>
             <Button className='notification' variant="contained" onClick={handleClickOpen}>
-                <Notification />
             </Button>
             <Dialog
                 open={open}
