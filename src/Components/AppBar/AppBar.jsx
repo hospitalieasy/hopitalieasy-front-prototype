@@ -1,8 +1,5 @@
-import "..//..//Utilities/Style/Button.css"
-
 import { AppBarBase, ContentWrapper, LeftSide, NotificationWrapper, ProfileWrapper, RightSide, SpeedDialWrapper, Title } from "./AppBar.style"
-import { INITIAL_STATE, apiPostReducer } from "../../Hooks/Reducer/postReducer";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 
 import BasicSpeedDial from "..//SpeedDial/SpeedDial"
 import NotificationPop from "../NotificationPop/NotificationPop"
@@ -11,37 +8,23 @@ import axios from "axios";
 
 const AppBar = (props) => {
     const { setUser, userIndex, setUserIndex } = props;
+    const [name, setName] = useState("");
 
-    /* sets the name  */
-    const [apiName, apiSetName] = useState("");
-
-    /* useReducer hook fetching the data states */
-    const [state, dispatch] = useReducer(apiPostReducer, INITIAL_STATE);
-
-    /* gets the data from server */
+    /* fetch data with API */
     useEffect(() => {
-        const getData = async () => {
-            const response = await axios.get(
-                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            ).then(response => {
-                dispatch({ type: "FETCH_SUCCESS", payload: response.data[userIndex] })
-                apiSetName(state.apiPost.Name)
-            }).catch(error => {
-                dispatch({ type: "FETCH_ERROR" })
-            })
-        }
-
-        if (state.error) {
-            console.log("Data fetch went wrong in AppBar");
-        }
-
-        getData();
-    }, [])
+        axios.get(
+            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+        ).then((response) => {
+            setName(response.data.Name);
+        }).catch((error) => {
+            console.log(error);
+        })
+    }, []);
 
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi {apiName} Welcome</Title>
+                <Title>Hi {name} Welcome</Title>
                 <SpeedDialWrapper>
                     <BasicSpeedDial />
                 </SpeedDialWrapper>

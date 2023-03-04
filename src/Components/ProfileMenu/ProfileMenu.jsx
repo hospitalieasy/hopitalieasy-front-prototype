@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { INITIAL_STATE, apiPostReducer } from '../../Hooks/Reducer/postReducer';
-
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -19,6 +17,8 @@ export default function ProfileMenu(props) {
         userIndex,
         setUserIndex,
     } = props;
+
+    const [name, setName] = useState("");
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -41,25 +41,15 @@ export default function ProfileMenu(props) {
         setUser(false);
     };
 
-    /* sets the name  */
-    const [apiName, apiSetName] = useState("");
-
-    /* useReducer hook fetching the data states */
-    const [state, dispatch] = React.useReducer(apiPostReducer, INITIAL_STATE);
-
-    /* gets the data from server */
+    /* fetch data from API */
     useEffect(() => {
-        const getData = async () => {
-            const response = await axios.get(
-                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            ).then(response => {
-                dispatch({ type: "FETCH_SUCCESS", payload: response.data[userIndex] })
-                apiSetName(state.apiPost.Name)
-            }).catch(error => {
-                dispatch({ type: "FETCH_ERROR" })
-            })
-        }
-        getData();
+        axios.get(
+            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+        ).then((response) => {
+            setName(response.data);
+        }).catch((error) => {
+            console.log(error);
+        })
     }, [])
 
     return (
@@ -72,7 +62,7 @@ export default function ProfileMenu(props) {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             >
-                <Avatar sx={{ bgcolor: "#fff", color: "#000" }}>{apiName.charAt(0)}</Avatar>
+                <Avatar sx={{ bgcolor: "#fff", color: "#000" }}>{name.charAt(0)}</Avatar>
             </Button>
             <Menu
                 id="basic-menu"

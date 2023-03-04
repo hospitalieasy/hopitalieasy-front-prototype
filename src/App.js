@@ -14,7 +14,7 @@ import ProtectedRoutes from "./Context/ProtectedRoutes/ProtectedRoutes";
 import TestResult from "./Pages/Patient/Pages/TestResult";
 import useLocalStorage from "./Hooks/LocalStorage/useLocalStorage";
 
-function App() {
+const App = () => {
   /* sets the current user and index of that user and keeps it in local storage */
   const [user, setUser] = useLocalStorage("current-user", false);
   const [userIndex, setUserIndex] = useLocalStorage("user-index", null);
@@ -50,6 +50,6 @@ function App() {
       </AuthContext.Provider>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <NavbarBase>
             <LeftSide>
-                <Link to={"/home"}>
+                <Link to={"/"}>
                     <img src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/null/external-hospital-hospital-and-healthcare-xnimrodx-lineal-gradient-xnimrodx.png" alt="" />
                 </Link>
             </LeftSide>

@@ -1,107 +1,85 @@
-import "..//..//Utilities/Style/Button.css"
-
 import { Button, Switch, TextField } from "@mui/material";
 import { ButtonWrapper, ContentWrapper, DecisionMaker, FormLabel, FormWrapper, InformationTabBase, Label, Section, Title, TitleWrapper } from "./InformationTab.style"
-import { INITIAL_STATE, apiPostReducer } from "../../Hooks/Reducer/postReducer";
-import { useEffect, useReducer, useState } from "react";
+import { INITIAL_STATE, SET_DATA_TO_USER, SET_USER, SET_VISIBLE, VALIDATION_ERROR, VALIDATION_PROCESS, VALIDATION_SUCCESS, informationTabReducer } from "../../Hooks/Reducer/informationTabReducer";
+import { useEffect, useReducer } from "react";
 
+import Loading from "../Loading/Loading";
+import SnackBar from "../SnackBar/SnackBar";
 import axios from "axios";
 import { userSchema } from "../../FormValidation/UserValidation";
-
-//TODO: replace the alert bars with notification bars
 
 const InformationTab = (props) => {
     const { userIndex } = props;
 
-    /* useReducer hook fetching the data states */
-    const [state, dispatch] = useReducer(apiPostReducer, INITIAL_STATE);
+    const [state, dispatch] = useReducer(informationTabReducer, INITIAL_STATE);
 
-    /* gets the new information from server */
+    /* fetching API */
     useEffect(() => {
-        const getData = async () => {
-            const response = await axios.get(
-                `https://hospitaleasyapi.azurewebsites.net/api/Patient`
-            ).then(response => {
-                dispatch({ type: "FETCH_SUCCESS", payload: response.data[userIndex] })
-            }).catch(error => {
-                dispatch({ type: "FETCH_ERROR" })
+        axios.get(
+            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+        ).then((response) => {
+            dispatch({
+                type: SET_DATA_TO_USER, payload: {
+                    user: {
+                        id: response.data[userIndex].PatientId,
+                        name: response.data[userIndex].Name,
+                        surname: response.data[userIndex].Surname,
+                        birthdate: response.data[userIndex].Birthdate,
+                        email: response.data[userIndex].Email,
+                        password: response.data[userIndex].Password,
+                        telno: response.data[userIndex].Telno,
+                    }
+                }
             })
-        }
-
-        if (state.error) {
-            console.log("Data fetch went wrong in InformationTab");
-        }
-
-        getData();
-    }, [])
-
-    /* switch switcher's the state */
-    const [switcher, setSwitcher] = useState(true);
-
-    /* sets values from texts inputs to put method*/
-    const [inputData, setInputData] = useState({
-        textName: state.apiPost.Name,
-        textSurname: state.apiPost.Surname,
-        textBirthdate: state.apiPost.Birthdate,
-        textEmail: state.apiPost.Email,
-        textPassword: state.apiPost.Password,
-        textTelno: state.apiPost.Telno,
-    });
+        }).catch((error) => {
+            console.log(error);
+        })
+    }, [userIndex])
 
     /* checks the inputs are valid */
-    const checkInputs = async () => {
-        /* checks the inputs are valid or not */
-        let formData = {
-            name: inputData.textName,
-            surname: inputData.textSurname,
-            birthdate: inputData.textBirthdate,
-            email: inputData.textEmail,
-            password: inputData.textPassword,
-            telno: inputData.textTelno,
+    const inputValidator = async () => {
+        dispatch({ type: VALIDATION_PROCESS })
+        const { name, surname, birthdate, email, password, telno } = state.user;
+
+        let newData = {
+            Name: name,
+            Surname: surname,
+            Birthdate: birthdate,
+            Email: email,
+            Password: password,
+            Telno: telno,
         }
 
-        const isValid = await userSchema.isValid(formData);
-        if (isValid) {
-            /* sets the given data from user and sends to server */
-            let newData = {
-                Name: inputData.textName,
-                Surname: inputData.textSurname,
-                Birthdate: inputData.textBirthdate,
-                Email: inputData.textEmail,
-                Password: inputData.textPassword,
-                Telno: inputData.textTelno,
+        await userSchema.isValid(newData).then(() => {
+            try {
+                axios.put(`https://hospitaleasyapi.azurewebsites.net/api/Patient/${state.user.id}`, newData)
+                dispatch({ type: VALIDATION_SUCCESS })
+            } catch (error) {
+                console.log(error)
             }
-            const putData = async () => {
-                const response = await axios.put(`https://hospitaleasyapi.azurewebsites.net/api/Patient/${state.apiPost.Id}`, newData).catch(error => (console.log("Put method went wrong in InformationTab: " + error)))
+        }).catch(() => {
+            dispatch({ type: VALIDATION_ERROR })
+        })
 
-                setVisible(false)
-                setSwitcher(false)
-            }
-            putData();
-            alert("Information changed successfully")
-        } else {
-            alert("Inputs are not valid")
-        }
+        // clean state (?)
     }
 
-    /* makes the texts are visible and not visible */
-    const [visible, setVisible] = useState(false);
     const visibleHandler = () => {
-        if (visible) {
-            setVisible(false)
+        if (state.visible) {
+            dispatch({ type: SET_VISIBLE, payload: false })
         } else {
-            setVisible(true);
+            dispatch({ type: SET_VISIBLE, payload: true })
         }
     }
 
     return (
         <InformationTabBase>
             <TitleWrapper>
-                <Title>{state.apiPost.Name}'s Information</Title>
+                <Title>{state.user.name}'s Information</Title>
             </TitleWrapper>
             <DecisionMaker>
                 <Label>Edit Information</Label>
-                {switcher ? (
+                {state.switcher ? (
                     <Switch onClick={visibleHandler} color="warning" />) :
                     (<Switch disabled onClick={visibleHandler} color="warning" />)
                 }
@@ -109,127 +87,106 @@ const InformationTab = (props) => {
             <FormWrapper>
 
                 <Section>
-                    {visible ? (
-                        <>
-
-                            <ContentWrapper>
-                                <FormLabel>Name</FormLabel>
-                                <TextField id="filled-disabled-1" label={state.apiPost.Name} variant="filled" onChange={(e) => {
-                                    setInputData({
-                                        ...inputData,
-                                        textName: e.target.value,
-                                    })
-                                }} />
-                            </ContentWrapper>
-                            <ContentWrapper>
-                                <FormLabel>Surname</FormLabel>
-                                <TextField id="filled-disabled-2" label={state.apiPost.Surname} variant="filled" onChange={(e) => {
-                                    setInputData({
-                                        ...inputData,
-                                        textSurname: e.target.value,
-                                    })
-                                }} />
-                            </ContentWrapper>
-
-                        </>
-                    ) : (
-                        <>
-
-                            <ContentWrapper>
-                                <FormLabel>Name</FormLabel>
-                                <TextField disabled id="filled-disabled-1" label={state.apiPost.Name} variant="filled" />
-                            </ContentWrapper>
-                            <ContentWrapper>
-                                <FormLabel>Surname</FormLabel>
-                                <TextField disabled id="filled-disabled-2" label={state.apiPost.Surname} variant="filled" />
-                            </ContentWrapper>
-
-                        </>
-                    )}
+                    <ContentWrapper>
+                        <FormLabel>Name</FormLabel>
+                        <TextField name="name" disabled={!state.visible} label={state.user.name} variant="filled"
+                            onChange={(e) => {
+                                dispatch({
+                                    type: SET_USER,
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    }
+                                })
+                            }} />
+                    </ContentWrapper>
+                    <ContentWrapper>
+                        <FormLabel>Surname</FormLabel>
+                        <TextField name="surname" disabled={!state.visible} label={state.user.surname} variant="filled"
+                            onChange={(e) => {
+                                dispatch({
+                                    type: SET_USER,
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    }
+                                })
+                            }} />
+                    </ContentWrapper>
                 </Section>
 
                 <Section>
-                    {visible ? (
-                        <>
-                            <ContentWrapper>
-                                <FormLabel>Phone</FormLabel>
-                                <TextField id="filled-disabled-3" label={state.apiPost.Telno} variant="filled" onChange={(e) => {
-                                    setInputData({
-                                        ...inputData,
-                                        textTelno: e.target.value,
-                                    })
-                                }} />
-                            </ContentWrapper>
-                            <ContentWrapper>
-                                <FormLabel>Birthday</FormLabel>
-                                <TextField id="filled-disabled-4" label={state.apiPost.Birthdate} variant="filled" onChange={(e) => {
-                                    setInputData({
-                                        ...inputData,
-                                        textBirthdate: e.target.value,
-                                    })
-                                }} />
-                            </ContentWrapper>
-                        </>
-                    ) : (
-                        <>
-                            <ContentWrapper>
-                                <FormLabel>Phone</FormLabel>
-                                <TextField disabled id="filled-disabled-3" label={state.apiPost.Telno} variant="filled" />
-                            </ContentWrapper>
-                            <ContentWrapper>
-                                <FormLabel>Birthday</FormLabel>
-                                <TextField disabled id="filled-disabled-4" label={state.apiPost.Birthdate} variant="filled" />
-                            </ContentWrapper>
-                        </>
-                    )}
-
+                    <ContentWrapper>
+                        <FormLabel>Phone</FormLabel>
+                        <TextField name="telno" disabled={!state.visible} label={state.user.telno} variant="filled"
+                            onChange={(e) => {
+                                dispatch({
+                                    type: SET_USER,
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    }
+                                })
+                            }} />
+                    </ContentWrapper>
+                    <ContentWrapper>
+                        <FormLabel>Birthday</FormLabel>
+                        <TextField name="birthdate" disabled={!state.visible} label={state.user.birthdate} variant="filled"
+                            onChange={(e) => {
+                                dispatch({
+                                    type: SET_USER,
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    }
+                                })
+                            }} />
+                    </ContentWrapper>
                 </Section>
 
                 <Section>
-                    {visible ? (
-                        <>
-                            <ContentWrapper>
-                                <FormLabel>Email</FormLabel>
-                                <TextField disabled id="filled-disabled-5" label={state.apiPost.Email} onChange={(e) => {
-                                    setInputData({
-                                        ...inputData,
-                                        textEmail: e.target.value,
-                                    })
-                                }} variant="filled" />
-                            </ContentWrapper>
-                            <ContentWrapper>
-                                <FormLabel>Password</FormLabel>
-                                <TextField id="filled-disabled-6" label={state.apiPost.Password} onChange={(e) => {
-                                    setInputData({
-                                        ...inputData,
-                                        textPassword: e.target.value,
-                                    })
-                                }} variant="filled" />
-                            </ContentWrapper>
-                        </>
-
-                    ) : (
-                        <>
-                            <ContentWrapper>
-                                <FormLabel>Email</FormLabel>
-                                <TextField disabled id="filled-disabled-5" label={state.apiPost.Email} variant="filled" />
-                            </ContentWrapper>
-                            <ContentWrapper>
-                                <FormLabel>Password</FormLabel>
-                                <TextField disabled id="filled-disabled-6" label={state.apiPost.Password} variant="filled" />
-                            </ContentWrapper>
-                        </>
-                    )}
+                    <ContentWrapper>
+                        <FormLabel>Email</FormLabel>
+                        <TextField name="email" disabled={!state.visible} label={state.user.email}
+                            onChange={(e) => {
+                                dispatch({
+                                    type: SET_USER,
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    }
+                                })
+                            }} variant="filled" />
+                    </ContentWrapper>
+                    <ContentWrapper>
+                        <FormLabel>Password</FormLabel>
+                        <TextField name="password" disabled={!state.visible} label={state.user.password}
+                            onChange={(e) => {
+                                dispatch({
+                                    type: SET_USER,
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    }
+                                })
+                            }} variant="filled" />
+                    </ContentWrapper>
                 </Section>
+
             </FormWrapper>
             <ButtonWrapper>
-                {visible ? (
-                    <Button className="save" onClick={checkInputs} variant="contained">SAVE</Button>
-                ) : (
-                    <Button className="save" disabled variant="contained">SAVE</Button>
-                )}
+                <Button
+                    className="save"
+                    disabled={!state.visible}
+                    onClick={inputValidator}
+                    variant="contained"
+                >
+                    SAVE
+                </Button>
             </ButtonWrapper>
-        </InformationTabBase>
+            {state.message && <SnackBar message={state.message} />}
+            <Loading loading={state.loading} />
+        </InformationTabBase >
     );
 }
 

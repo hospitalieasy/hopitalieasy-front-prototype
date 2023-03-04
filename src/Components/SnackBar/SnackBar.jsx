@@ -1,56 +1,33 @@
-import "..//..//Utilities/Style/Button.css"
+import React, { useEffect, useState } from 'react';
 
-import * as React from 'react';
+import CheckIcon from '@mui/icons-material/Check';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-import { SnackbarProvider, useSnackbar } from 'notistack';
+const SnackBar = (props) => {
+    const { message } = props;
+    const [showSnackbar, setShowSnackbar] = useState();
 
-import styled from 'styled-components';
 
-export const SuccessButton = styled.span`
-    width: 100%;
-    height: 100%;
-`;
+    useEffect(() => {
+        setShowSnackbar(true);
+    }, [message]);
 
-export const ErrorButton = styled.span`
-    width: 100%;
-    height: 100%;
-`;
-
-function Success() {
-    const { enqueueSnackbar } = useSnackbar();
-
-    const handleClickVariant = (variant) => () => {
-        // variant could be success, error, warning, info, or default
-        enqueueSnackbar('Account is Correct', { variant });
-    };
+    const color = message.color;
+    const text = message.text;
+    const icon = message.icon;
 
     return (
-        <React.Fragment>
-            <SuccessButton className='success' onClick={handleClickVariant('success')}>LOGIN</SuccessButton>
-        </React.Fragment>
+        showSnackbar && (
+            <div id='snack-bar'
+                className={`fixed bottom-4 left-4 text-white p-4 rounded-md ${(color === "green") && "bg-green-700"} ${(color === "red") && "bg-red-700"}`}>
+                <span id='message'>
+                    {icon === "success" && <CheckIcon />}
+                    {icon === "error" && <HighlightOffIcon />}
+                    <span className='ml-4'>{text}</span>
+                </span>
+            </div >
+        )
     );
-}
+};
 
-function Error() {
-    const { enqueueSnackbar } = useSnackbar();
-
-    const handleClickVariant = (variant) => () => {
-        // variant could be success, error, warning, info, or default
-        enqueueSnackbar('Account is Incorrect', { variant });
-    };
-
-    return (
-        <React.Fragment>
-            <ErrorButton className='error' onClick={handleClickVariant('error')}>LOGIN</ErrorButton>
-        </React.Fragment>
-    );
-}
-
-export default function SnackBar(props) {
-    const { loginNotification } = props;
-    return (
-        <SnackbarProvider maxSnack={3}>
-            {loginNotification ? (<Success />) : (<Error />)}
-        </SnackbarProvider>
-    );
-}
+export default SnackBar;
