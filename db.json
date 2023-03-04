@@ -1,94 +1,49 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John",
-      "surname": "Doe",
-      "birthdate": "1990-01-01",
-      "email": "johndoe@example.com",
-      "password": "password1",
-      "telno": "+1-123-456-7890"
+      "Id": 1,
+      "Name": "John",
+      "Surname": "Doe",
+      "Birthdate": "1990-01-01",
+      "Email": "john@example.com",
+      "Password": "123asd123",
+      "Telno": "5053321199"
     },
     {
-      "id": 2,
-      "name": "Jane",
-      "surname": "Doe",
-      "birthdate": "1992-05-15",
-      "email": "janedoe@example.com",
-      "password": "password2",
-      "telno": "+1-123-456-7891"
+      "Id": 2,
+      "Name": "Jane",
+      "Surname": "Doe",
+      "Birthdate": "1992-05-15",
+      "Email": "jane@example.com",
+      "Password": "123asd123",
+      "Telno": "5053321199"
     },
     {
-      "id": 3,
-      "name": "Bob",
-      "surname": "Smith",
-      "birthdate": "1985-07-20",
-      "email": "bobsmith@example.com",
-      "password": "password3",
-      "telno": "+1-123-456-7892"
+      "Id": 3,
+      "Name": "Bob",
+      "Surname": "Smith",
+      "Birthdate": "1985-07-20",
+      "Email": "bob@example.com",
+      "Password": "123asd123",
+      "Telno": "5053321199"
     },
     {
-      "id": 4,
-      "name": "Alice",
-      "surname": "Jones",
-      "birthdate": "1991-03-05",
-      "email": "alicejones@example.com",
-      "password": "password4",
-      "telno": "+1-123-456-7893"
+      "Id": 4,
+      "Name": "Alice",
+      "Surname": "Jones",
+      "Birthdate": "1991-03-05",
+      "Email": "alice@example.com",
+      "Password": "123asd123",
+      "Telno": "5053321199"
     },
     {
-      "id": 5,
-      "name": "David",
-      "surname": "Lee",
-      "birthdate": "1988-12-30",
-      "email": "davidlee@example.com",
-      "password": "password5",
-      "telno": "+1-123-456-7894"
-    },
-    {
-      "id": 6,
-      "name": "Emily",
-      "surname": "Wilson",
-      "birthdate": "1993-08-10",
-      "email": "emilywilson@example.com",
-      "password": "password6",
-      "telno": "+1-123-456-7895"
-    },
-    {
-      "id": 7,
-      "name": "Michael",
-      "surname": "Brown",
-      "birthdate": "1987-06-12",
-      "email": "michaelbrown@example.com",
-      "password": "password7",
-      "telno": "+1-123-456-7896"
-    },
-    {
-      "id": 8,
-      "name": "Sarah",
-      "surname": "Taylor",
-      "birthdate": "1995-02-18",
-      "email": "sarahtaylor@example.com",
-      "password": "password8",
-      "telno": "+1-123-456-7897"
-    },
-    {
-      "id": 9,
-      "name": "Alex",
-      "surname": "Nguyen",
-      "birthdate": "1990-11-22",
-      "email": "alexnguyen@example.com",
-      "password": "password9",
-      "telno": "+1-123-456-7898"
-    },
-    {
-      "id": 10,
-      "name": "Megan",
-      "surname": "Davis",
-      "birthdate": "1986-04-08",
-      "email": "megandavis@example.com",
-      "password": "password10",
-      "telno": "+1-123-456-7899"
+      "Id": 5,
+      "Name": "David",
+      "Surname": "Lee",
+      "Birthdate": "1988-12-30",
+      "Email": "david@example.com",
+      "Password": "123asd123",
+      "Telno": "5053321199"
     }
   ]
 }

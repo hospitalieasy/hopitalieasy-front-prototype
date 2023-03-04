@@ -17,7 +17,7 @@ const Loading = (props) => {
                 sx={{ opacity: "0.8" }}
                 open={open}
             >
-                <div className='p-2 px-4 bg'>
+                <div style={{ padding: "8px 12px" }}>
                     <CircularProgress />
                 </div>
             </Dialog>

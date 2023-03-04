@@ -1,14 +1,15 @@
-import { AUTH_FAIL, AUTH_PROCESS, AUTH_SUCCESS, INITIAL_STATE, SET_DATA, SET_USER, loginReducer } from "../../Hooks/Reducer/loginReducer";
+import { AUTH_FAIL, AUTH_PROCESS, AUTH_SUCCESS, CLEAN_STATES, INITIAL_STATE, SET_DATA, SET_USER, loginReducer } from "../../Hooks/Reducer/loginReducer";
 import { Button, TextField } from "@mui/material";
 import { LoginFormBase, Title } from "./LoginForm.style"
 import React, { useEffect, useReducer } from "react";
 
+import Loading from "../Loading/Loading";
+import SnackBar from "..//SnackBar/SnackBar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = (props) => {
     const {
-        user,
         setUser,
         setUserIndex,
         title,
@@ -18,7 +19,7 @@ const LoginForm = (props) => {
 
     /* fetching API */
     useEffect(() => {
-        axios.get('https://hospitaleasyapi.azurewebsites.net/api/Patient')
+        axios.get('http://localhost:3002/users')
             .then((response) => { dispatch({ type: SET_DATA, payload: response.data }) })
             .catch((error) => console.log(error));
     }, [])
@@ -29,54 +30,34 @@ const LoginForm = (props) => {
     const authHandler = async (e) => {
         e.preventDefault();
 
-        dispatch({ type: AUTH_PROCESS, payload: true });
-
         const user = {
             email: state.user.email,
             password: state.user.password,
         };
-
         const data = state.data;
 
-        await dispatch({ type: SET_USER, payload: user });
-        await dispatch({ type: SET_DATA, payload: data });
+        dispatch({ type: SET_USER, payload: user });
+        dispatch({ type: SET_DATA, payload: data });
 
-        if (user.email !== "" && user.password !== "") {
+        if ((user.email !== "") || (user.password !== "")) {
+            dispatch({ type: AUTH_PROCESS });
             let index = 0;
             while (index < data.length) {
-                if (
-                    data[index].Email === user.email &&
-                    data[index].Password === user.password
-                ) {
-                    dispatch({
-                        type: AUTH_SUCCESS,
-                        payload: {
-                            loading: false,
-                            message: {
-                                color: "green",
-                                text: "Logged Successfully",
-                                icon: "success",
-                            },
-                        },
-                    });
+                if ((user.email === data[index].Email) && (user.password === data[index].Password)) {
+                    dispatch({ type: AUTH_SUCCESS });
                     setUserIndex(index);
+
                     setTimeout(() => {
                         setUser(true);
                         navigate("/app-screen");
+                        dispatch({ type: CLEAN_STATES })
                     }, 2000);
                     break;
                 } else {
-                    dispatch({
-                        type: AUTH_FAIL,
-                        payload: {
-                            loading: false,
-                            message: {
-                                color: "red",
-                                text: "Information's are not correct",
-                                icon: "error",
-                            },
-                        },
-                    });
+                    dispatch({ type: AUTH_FAIL });
+                    setTimeout(() => {
+                        dispatch({ type: CLEAN_STATES })
+                    }, 2000);
                 }
                 index++;
             }
@@ -107,6 +88,8 @@ const LoginForm = (props) => {
             }
             />
             <Button onClick={authHandler} className="login" variant="contained">LOGIN</Button>
+            {state.loading && <Loading loading={state.loading} />}
+            {state.message && <SnackBar message={state.message} />}
         </LoginFormBase>
     );
 }

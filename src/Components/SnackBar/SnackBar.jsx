@@ -1,33 +1,50 @@
 import React, { useEffect, useState } from 'react';
+import styled, { css } from 'styled-components';
 
 import CheckIcon from '@mui/icons-material/Check';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import WarningIcon from '@mui/icons-material/Warning';
+
+const StyledSnackBar = styled.div`
+  position: fixed;
+  bottom: 8px;
+  left: 8px;
+  padding: 16px;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  align-items: center;
+  ${({ color }) => color === 'green' && css`
+    background-color: #388e3c;
+  `}
+  ${({ color }) => color === 'red' && css`
+    background-color: #d32f2f;
+  `}
+`;
 
 const SnackBar = (props) => {
-    const { message } = props;
-    const [showSnackbar, setShowSnackbar] = useState();
+  const { message } = props;
+  const { color, text, icon } = message;
+
+  const [showSnackbar, setShowSnackbar] = useState();
+
+  useEffect(() => {
+    setShowSnackbar(true);
+  }, [message]);
 
 
-    useEffect(() => {
-        setShowSnackbar(true);
-    }, [message]);
-
-    const color = message.color;
-    const text = message.text;
-    const icon = message.icon;
-
-    return (
-        showSnackbar && (
-            <div id='snack-bar'
-                className={`fixed bottom-4 left-4 text-white p-4 rounded-md ${(color === "green") && "bg-green-700"} ${(color === "red") && "bg-red-700"}`}>
-                <span id='message'>
-                    {icon === "success" && <CheckIcon />}
-                    {icon === "error" && <HighlightOffIcon />}
-                    <span className='ml-4'>{text}</span>
-                </span>
-            </div >
-        )
-    );
+  return (
+    showSnackbar && (
+      <StyledSnackBar color={color}>
+        <span>
+          {icon === 'success' && <CheckIcon />}
+          {icon === 'error' && <HighlightOffIcon />}
+          {icon === "warning" && <WarningIcon />}
+        </span>
+        <span style={{ marginBottom: "6px", marginLeft: "12px" }}>{text}</span>
+      </StyledSnackBar>
+    )
+  );
 };
 
 export default SnackBar;

@@ -1,10 +1,10 @@
 export const INITIAL_STATE = {
-    loading: true,
     data: [],
     user: {
         email: "",
         password: "",
     },
+    loading: false,
     message: {
         color: "",
         text: "",
@@ -24,18 +24,26 @@ export const loginReducer = (state, action) => {
         case AUTH_PROCESS:
             return {
                 ...state,
-                loading: action.payload,
+                loading: true,
             }
         case AUTH_SUCCESS:
             return {
-                loading: action.payload.loading,
-                message: action.payload.message,
+                loading: false,
+                message: {
+                    color: "green",
+                    text: "Logged Successfully",
+                    icon: "success",
+                },
             }
         case AUTH_FAIL:
             return {
                 ...state,
-                loading: action.payload.loading,
-                message: action.payload.message,
+                loading: false,
+                message: {
+                    color: "red",
+                    text: "Information's are not correct",
+                    icon: "error",
+                },
             }
         case SET_USER:
             return {
@@ -53,8 +61,12 @@ export const loginReducer = (state, action) => {
         case CLEAN_STATES:
             return {
                 ...state,
-                loading: action.payload.loading,
-                message: action.payload.message,
+                loading: false,
+                message: {
+                    color: "",
+                    text: "",
+                    icon: "",
+                },
             }
 
         default: return state;
