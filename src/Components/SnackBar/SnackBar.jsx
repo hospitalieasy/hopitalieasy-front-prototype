@@ -20,6 +20,9 @@ const StyledSnackBar = styled.div`
   ${({ color }) => color === 'red' && css`
     background-color: #d32f2f;
   `}
+  ${({ color }) => color === 'orange' && css`
+    background-color: #ff8c00;
+  `}
 `;
 
 const SnackBar = (props) => {

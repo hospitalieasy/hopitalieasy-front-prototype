@@ -1,6 +1,6 @@
 import { Button, Switch, TextField } from "@mui/material";
 import { ButtonWrapper, ContentWrapper, DecisionMaker, FormLabel, FormWrapper, InformationTabBase, Label, Section, Title, TitleWrapper } from "./InformationTab.style"
-import { INITIAL_STATE, SET_DATA_TO_USER, SET_USER, SET_VISIBLE, VALIDATION_ERROR, VALIDATION_PROCESS, VALIDATION_SUCCESS, informationTabReducer } from "../../Hooks/Reducer/informationTabReducer";
+import { CLEAN_STATES, INITIAL_STATE, SET_DATA_TO_USER, SET_USER, SET_VISIBLE, VALIDATION_ERROR, VALIDATION_PROCESS, VALIDATION_SUCCESS, informationTabReducer } from "../../Hooks/Reducer/informationTabReducer";
 import { useEffect, useReducer } from "react";
 
 import Loading from "../Loading/Loading";
@@ -16,12 +16,12 @@ const InformationTab = (props) => {
     /* fetching API */
     useEffect(() => {
         axios.get(
-            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+            `http://localhost:3002/users`
         ).then((response) => {
             dispatch({
                 type: SET_DATA_TO_USER, payload: {
                     user: {
-                        id: response.data[userIndex].PatientId,
+                        id: response.data[userIndex].Id,
                         name: response.data[userIndex].Name,
                         surname: response.data[userIndex].Surname,
                         birthdate: response.data[userIndex].Birthdate,
@@ -34,7 +34,7 @@ const InformationTab = (props) => {
         }).catch((error) => {
             console.log(error);
         })
-    }, [userIndex])
+    }, [])
 
     /* checks the inputs are valid */
     const inputValidator = async () => {
@@ -50,18 +50,20 @@ const InformationTab = (props) => {
             Telno: telno,
         }
 
-        await userSchema.isValid(newData).then(() => {
+        const isValid = await userSchema.isValid(newData)
+
+        if (isValid) {
             try {
-                axios.put(`https://hospitaleasyapi.azurewebsites.net/api/Patient/${state.user.id}`, newData)
+                axios.put(`http://localhost:3002/users/${state.user.id}`, newData)
                 dispatch({ type: VALIDATION_SUCCESS })
             } catch (error) {
                 console.log(error)
             }
-        }).catch(() => {
-            dispatch({ type: VALIDATION_ERROR })
-        })
+        } else { dispatch({ type: VALIDATION_ERROR }) }
 
-        // clean state (?)
+        setTimeout(() => {
+            dispatch({ type: CLEAN_STATES })
+        }, 2000)
     }
 
     const visibleHandler = () => {
@@ -185,7 +187,7 @@ const InformationTab = (props) => {
                 </Button>
             </ButtonWrapper>
             {state.message && <SnackBar message={state.message} />}
-            <Loading loading={state.loading} />
+            {state.loading && <Loading loading={state.loading} />}
         </InformationTabBase >
     );
 }

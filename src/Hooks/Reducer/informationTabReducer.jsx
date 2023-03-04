@@ -25,6 +25,7 @@ export const SET_VISIBLE = "SET_VISIBLE";
 export const VALIDATION_PROCESS = "VALIDATION_PROCESS";
 export const VALIDATION_SUCCESS = "VALIDATION_SUCCESS";
 export const VALIDATION_ERROR = "VALIDATION_ERROR";
+export const CLEAN_STATES = "CLEAN_STATES";
 
 export const informationTabReducer = (state, action) => {
     switch (action.type) {
@@ -57,17 +58,35 @@ export const informationTabReducer = (state, action) => {
                 loading: false,
                 visible: false,
                 switcher: false,
+                message: {
+                    color: "green",
+                    text: "Information's changed successfully",
+                    icon: "success",
+                }
             }
         case VALIDATION_ERROR:
             return {
                 ...state,
                 loading: false,
                 message: {
-                    color: "red",
+                    color: "orange",
                     text: "Information's are not valid",
                     icon: "warning",
                 }
             }
+        case CLEAN_STATES:
+            return {
+                ...state,
+                switcher: false,
+                visible: false,
+                loading: false,
+                message: {
+                    color: "",
+                    text: "",
+                    icon: "",
+                }
+            }
+
         default: return state;
     }
 }

@@ -44,9 +44,9 @@ export default function ProfileMenu(props) {
     /* fetch data from API */
     useEffect(() => {
         axios.get(
-            `https://hospitaleasyapi.azurewebsites.net/api/Patient`
+            `http://localhost:3002/users`
         ).then((response) => {
-            setName(response.data);
+            setName(response.data[userIndex].Name);
         }).catch((error) => {
             console.log(error);
         })
