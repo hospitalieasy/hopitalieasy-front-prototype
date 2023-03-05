@@ -119,13 +119,7 @@ Sign Up Screen
   background-color: #000;
   padding: 8px;
   width: 150px;
-}
-
-@media screen and (max-width: 585px) {
-  .MuiButton-root.sign-pop {
-    margin-top: 24px;
-    margin-left: 20px;
-  }
+  margin-top: 24px;
 }
 
 .MuiButton-root.sign-pop:hover {
