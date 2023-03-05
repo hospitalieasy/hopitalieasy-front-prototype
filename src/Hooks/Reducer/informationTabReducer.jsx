@@ -22,9 +22,11 @@ export const INITIAL_STATE = {
 export const SET_DATA_TO_USER = "SET_DATA_TO_USER";
 export const SET_USER = "SET_USER";
 export const SET_VISIBLE = "SET_VISIBLE";
+
 export const VALIDATION_PROCESS = "VALIDATION_PROCESS";
 export const VALIDATION_SUCCESS = "VALIDATION_SUCCESS";
-export const VALIDATION_ERROR = "VALIDATION_ERROR";
+export const VALIDATION_FAIL = "VALIDATION_FAIL";
+
 export const CLEAN_STATES = "CLEAN_STATES";
 
 export const informationTabReducer = (state, action) => {
@@ -64,7 +66,7 @@ export const informationTabReducer = (state, action) => {
                     icon: "success",
                 }
             }
-        case VALIDATION_ERROR:
+        case VALIDATION_FAIL:
             return {
                 ...state,
                 loading: false,
@@ -72,18 +74,6 @@ export const informationTabReducer = (state, action) => {
                     color: "orange",
                     text: "Information's are not valid",
                     icon: "warning",
-                }
-            }
-        case CLEAN_STATES:
-            return {
-                ...state,
-                switcher: false,
-                visible: false,
-                loading: false,
-                message: {
-                    color: "",
-                    text: "",
-                    icon: "",
                 }
             }
 

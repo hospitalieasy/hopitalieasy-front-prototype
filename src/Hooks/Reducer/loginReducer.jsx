@@ -21,6 +21,19 @@ export const CLEAN_STATES = "CLEAN_STATES"
 
 export const loginReducer = (state, action) => {
     switch (action.type) {
+        case SET_USER:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    [action.payload.name]: action.payload.value,
+                },
+            }
+        case SET_DATA:
+            return {
+                ...state,
+                data: action.payload,
+            }
         case AUTH_PROCESS:
             return {
                 ...state,
@@ -28,6 +41,7 @@ export const loginReducer = (state, action) => {
             }
         case AUTH_SUCCESS:
             return {
+                ...state,
                 loading: false,
                 message: {
                     color: "green",
@@ -43,29 +57,6 @@ export const loginReducer = (state, action) => {
                     color: "red",
                     text: "Information's are not correct",
                     icon: "error",
-                },
-            }
-        case SET_USER:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    [action.payload.name]: action.payload.value,
-                },
-            }
-        case SET_DATA:
-            return {
-                ...state,
-                data: action.payload,
-            }
-        case CLEAN_STATES:
-            return {
-                ...state,
-                loading: false,
-                message: {
-                    color: "",
-                    text: "",
-                    icon: "",
                 },
             }
 

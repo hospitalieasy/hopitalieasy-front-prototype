@@ -1,17 +1,48 @@
-import { FormWrapper, Label, SingUpFormBase, Text, Title, UserAcceptContent } from "./SignUpForm.style"
-import { INITIAL_STATE, IS_EMAIL_UNIQUE, SET_DATA, SET_TERM, SET_USER, VALIDATION_PROCESS, signReducer } from "../../Hooks/Reducer/signReducer";
+import { EMAIL_EXIST, EMAIL_IS_NOT_UNIQUE, INITIAL_STATE, MISSING_INPUTS, SET_DATA, SET_USER, VALIDATION_FAIL, VALIDATION_PROCESS, VALIDATION_SUCCESS, signReducer } from "../../Hooks/Reducer/signReducer";
+import { FormWrapper, SingUpFormBase, Title } from "./SignUpForm.style"
 import React, { useEffect, useReducer } from "react";
-import { Switch, TextField } from "@mui/material";
 
 import { Button } from "@mui/material";
-import Terms from "../Terms/Terms";
+import Loading from "../Loading/Loading";
+import SnackBar from "../SnackBar/SnackBar";
+import { TextField } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { userSchema } from "../../FormValidation/UserValidation";
 
-const SignUpForm = () => {
+const SignUpForm = (props) => {
+    const { setUser, setUserIndex } = props;
     const [state, dispatch] = useReducer(signReducer, INITIAL_STATE);
 
+    // fetching API
+    useEffect(() => {
+        axios.get(
+            `http://localhost:3002/users`
+        ).then((response) => {
+            dispatch({ type: SET_DATA, payload: response.data })
+        }).catch((error) => {
+            console.log(error);
+        })
+    }, []);
+
     /* checks is there are any exist email */
+    useEffect(() => {
+        if (!(state.user.email === "")) {
+            let index = 0;
+            while (index < state.data.length) {
+                if ((state.data[index].Email === state.user.email)) {
+                    dispatch({ type: EMAIL_IS_NOT_UNIQUE, payload: false })
+                    console.log("0", state.emailUnique)
+                } else {
+                    dispatch({ type: EMAIL_IS_NOT_UNIQUE, payload: true })
+                    console.log("1", state.emailUnique)
+                }
+                index++;
+            }
+        }
+    }, [state.user.email, state.emailUnique])
+
+    // finds new users information after signed up
     useEffect(() => {
         axios.get(
             `http://localhost:3002/users`
@@ -21,56 +52,59 @@ const SignUpForm = () => {
             console.log(error);
         })
 
-        if (!(state.user.email === "")) {
-            let index = 0;
-            while (index < state.data.length) {
-                if ((state.data[index].Email === state.user.email)) {
-                    dispatch({ type: IS_EMAIL_UNIQUE, payload: false })
-                    break;
-                }
-
-                if ((state.data[index].Email !== state.user.email)) {
-                    dispatch({ type: IS_EMAIL_UNIQUE, payload: true })
-                }
-
-                if (index === (state.data.length - 1)) {
-                    break;
-                }
-                index++;
+        let index = 0;
+        while (index < state.data.length) {
+            if ((state.user.email === state.data[index].Email) && (state.user.password === state.data[index].Password)) {
+                setUserIndex(index);
             }
+            index++;
         }
+    }, [state.data]);
 
-    }, [state.data, state.user.email])
+    const navigate = useNavigate();
 
     const inputValidator = async () => {
-        dispatch({ type: VALIDATION_PROCESS })
         const { name, surname, birthdate, email, password, telno } = state.user;
 
-        let goingData = {
-            Name: name,
-            Surname: surname,
-            Birthdate: birthdate,
-            Email: email,
-            Password: password,
-            Telno: telno,
-        };
+        if (name && surname && birthdate && email && password && telno) {
+            dispatch({ type: VALIDATION_PROCESS })
 
-        if (state.emailUnique && state.term) {
-            await userSchema.isValid(goingData).then(() => {
-                try {
-                    axios.post(`http://localhost:3002/users`, goingData)
-                } catch {
+            if (state.emailUnique) {
 
+                let goingData = {
+                    Name: name,
+                    Surname: surname,
+                    Birthdate: birthdate,
+                    Email: email,
+                    Password: password,
+                    Telno: telno,
+                };
+
+                const isValid = await userSchema.isValid(goingData)
+
+                if (isValid) {
+                    try {
+                        axios.post(`http://localhost:3002/users`, goingData)
+                        dispatch({ type: VALIDATION_SUCCESS })
+
+                        setTimeout(() => {
+                            setUser(true);
+                            navigate("/app-screen");
+                        }, 2000)
+
+                    } catch (error) {
+                        console.log(error)
+                    }
+                } else {
+                    dispatch({ type: VALIDATION_FAIL })
                 }
-            })
-        }
-    }
 
-    const acceptTerm = () => {
-        if (state.term) {
-            dispatch({ type: SET_TERM, payload: false });
+            } else {
+                dispatch({ type: EMAIL_EXIST })
+            }
+
         } else {
-            dispatch({ type: SET_TERM, payload: true });
+            dispatch({ type: MISSING_INPUTS })
         }
     }
 
@@ -139,18 +173,12 @@ const SignUpForm = () => {
                     })
                 } />
 
-                <UserAcceptContent style={{ padding: "10px 0px" }}>
-                    <Label>
-                        <Switch onClick={acceptTerm} color="warning" />
-                        <Text>Accept Terms</Text>
-                    </Label>
-                    <Terms />
-                </UserAcceptContent>
-
                 <Button onClick={inputValidator} className="sign-pop" variant="contained" color="success">
                     SIGN UP
                 </Button>
 
+                {state.message && <SnackBar message={state.message} />}
+                {state.loading && <Loading loading={state.loading} />}
             </FormWrapper>
         </SingUpFormBase >
     );

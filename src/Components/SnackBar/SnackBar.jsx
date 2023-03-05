@@ -33,6 +33,10 @@ const SnackBar = (props) => {
 
   useEffect(() => {
     setShowSnackbar(true);
+    const timeoutId = setTimeout(() => {
+      setShowSnackbar(false);
+    }, 2000);
+    return () => clearTimeout(timeoutId);
   }, [message]);
 
 

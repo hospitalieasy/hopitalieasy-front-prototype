@@ -1,6 +1,6 @@
 import { Button, Switch, TextField } from "@mui/material";
 import { ButtonWrapper, ContentWrapper, DecisionMaker, FormLabel, FormWrapper, InformationTabBase, Label, Section, Title, TitleWrapper } from "./InformationTab.style"
-import { CLEAN_STATES, INITIAL_STATE, SET_DATA_TO_USER, SET_USER, SET_VISIBLE, VALIDATION_ERROR, VALIDATION_PROCESS, VALIDATION_SUCCESS, informationTabReducer } from "../../Hooks/Reducer/informationTabReducer";
+import { INITIAL_STATE, SET_DATA_TO_USER, SET_USER, SET_VISIBLE, VALIDATION_FAIL, VALIDATION_PROCESS, VALIDATION_SUCCESS, informationTabReducer } from "../../Hooks/Reducer/informationTabReducer";
 import { useEffect, useReducer } from "react";
 
 import Loading from "../Loading/Loading";
@@ -51,7 +51,6 @@ const InformationTab = (props) => {
         }
 
         const isValid = await userSchema.isValid(newData)
-
         if (isValid) {
             try {
                 axios.put(`http://localhost:3002/users/${state.user.id}`, newData)
@@ -59,11 +58,7 @@ const InformationTab = (props) => {
             } catch (error) {
                 console.log(error)
             }
-        } else { dispatch({ type: VALIDATION_ERROR }) }
-
-        setTimeout(() => {
-            dispatch({ type: CLEAN_STATES })
-        }, 2000)
+        } else { dispatch({ type: VALIDATION_FAIL }) }
     }
 
     const visibleHandler = () => {

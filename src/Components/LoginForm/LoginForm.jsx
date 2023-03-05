@@ -42,27 +42,25 @@ const LoginForm = (props) => {
         if ((user.email !== "") || (user.password !== "")) {
             dispatch({ type: AUTH_PROCESS });
             let index = 0;
-            while (index < data.length) {
+            let isMatchFound = false;
+            while (index < data.length && !isMatchFound) {
                 if ((user.email === data[index].Email) && (user.password === data[index].Password)) {
                     dispatch({ type: AUTH_SUCCESS });
                     setUserIndex(index);
-
                     setTimeout(() => {
                         setUser(true);
                         navigate("/app-screen");
-                        dispatch({ type: CLEAN_STATES })
                     }, 2000);
-                    break;
-                } else {
-                    dispatch({ type: AUTH_FAIL });
-                    setTimeout(() => {
-                        dispatch({ type: CLEAN_STATES })
-                    }, 2000);
+                    isMatchFound = true;
                 }
                 index++;
             }
+            if (!isMatchFound) {
+                dispatch({ type: AUTH_FAIL });
+            }
         }
     };
+
 
     return (
         <LoginFormBase>
