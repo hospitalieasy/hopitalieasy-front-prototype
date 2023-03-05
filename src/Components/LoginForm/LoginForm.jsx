@@ -1,4 +1,4 @@
-import { AUTH_FAIL, AUTH_PROCESS, AUTH_SUCCESS, INITIAL_STATE, SET_DATA, SET_USER, loginReducer } from "../../Hooks/Reducer/loginReducer";
+import { AUTH_FAIL, AUTH_PROCESS, AUTH_SUCCESS, INITIAL_STATE, MISSING_INPUTS, SET_DATA, SET_USER, loginReducer } from "../../Hooks/Reducer/loginReducer";
 import { Button, TextField } from "@mui/material";
 import { LoginFormBase, Title } from "./LoginForm.style"
 import React, { useEffect, useReducer } from "react";
@@ -58,6 +58,8 @@ const LoginForm = (props) => {
             if (!isMatchFound) {
                 dispatch({ type: AUTH_FAIL });
             }
+        } else {
+            dispatch({ type: MISSING_INPUTS });
         }
     };
 

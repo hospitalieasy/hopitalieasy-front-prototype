@@ -12,12 +12,14 @@ export const INITIAL_STATE = {
     },
 }
 
+export const SET_DATA = "SET_DATA"
+export const SET_USER = "SET_USER"
+
 export const AUTH_PROCESS = "AUTH_PROCESS"
 export const AUTH_SUCCESS = "AUTH_SUCCESS"
 export const AUTH_FAIL = "AUTH_FAIL"
-export const SET_DATA = "SET_DATA"
-export const SET_USER = "SET_USER"
-export const CLEAN_STATES = "CLEAN_STATES"
+
+export const MISSING_INPUTS = "MISSING_INPUTS";
 
 export const loginReducer = (state, action) => {
     switch (action.type) {
@@ -57,6 +59,16 @@ export const loginReducer = (state, action) => {
                     color: "red",
                     text: "Information's are not correct",
                     icon: "error",
+                },
+            }
+        case MISSING_INPUTS:
+            return {
+                ...state,
+                loading: false,
+                message: {
+                    color: "orange",
+                    text: "Please fill the inputs",
+                    icon: "warning",
                 },
             }
 
