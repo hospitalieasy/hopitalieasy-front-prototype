@@ -29,15 +29,16 @@ const SignUpForm = (props) => {
     useEffect(() => {
         if (!(state.user.email === "")) {
             let index = 0;
+            let flag = true;
             while (index < state.data.length) {
                 if ((state.data[index].Email === state.user.email)) {
                     dispatch({ type: EMAIL_IS_NOT_UNIQUE, payload: false })
-                    console.log("0", state.emailUnique)
-                } else {
-                    dispatch({ type: EMAIL_IS_NOT_UNIQUE, payload: true })
-                    console.log("1", state.emailUnique)
+                    flag = false;
                 }
                 index++;
+            }
+            if (flag) {
+                dispatch({ type: EMAIL_IS_NOT_UNIQUE, payload: true })
             }
         }
     }, [state.user.email, state.emailUnique])
