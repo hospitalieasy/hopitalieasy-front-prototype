@@ -1,5 +1,5 @@
 import { Button, Switch, TextField } from "@mui/material";
-import { ButtonWrapper, ContentWrapper, DecisionMaker, FormLabel, FormWrapper, InformationTabBase, Label, Section, Title, TitleWrapper } from "./InformationTab.style"
+import { ButtonWrapper, ContentWrapper, CurrentInformation, FormLabel, FormWrapper, InformationTabBase, SwitchWrapper, Title } from "./InformationTab.style"
 import { INITIAL_STATE, SET_DATA_TO_USER, SET_USER, SET_VISIBLE, VALIDATION_FAIL, VALIDATION_PROCESS, VALIDATION_SUCCESS, informationTabReducer } from "../../Hooks/Reducer/informationTabReducer";
 import { useEffect, useReducer } from "react";
 
@@ -71,116 +71,105 @@ const InformationTab = (props) => {
 
     return (
         <InformationTabBase>
-            <TitleWrapper>
-                <Title>{state.user.name}'s Information</Title>
-            </TitleWrapper>
-            <DecisionMaker>
-                <Label>Edit Information</Label>
-                {state.switcher ? (
-                    <Switch onClick={visibleHandler} color="warning" />) :
-                    (<Switch disabled onClick={visibleHandler} color="warning" />)
-                }
-            </DecisionMaker>
             <FormWrapper>
-
-                <Section>
-                    <ContentWrapper>
-                        <FormLabel>Name</FormLabel>
-                        <TextField name="name" disabled={!state.visible} label={state.user.name} variant="filled"
-                            onChange={(e) => {
-                                dispatch({
-                                    type: SET_USER,
-                                    payload: {
-                                        name: e.target.name,
-                                        value: e.target.value,
-                                    }
-                                })
-                            }} />
-                    </ContentWrapper>
-                    <ContentWrapper>
-                        <FormLabel>Surname</FormLabel>
-                        <TextField name="surname" disabled={!state.visible} label={state.user.surname} variant="filled"
-                            onChange={(e) => {
-                                dispatch({
-                                    type: SET_USER,
-                                    payload: {
-                                        name: e.target.name,
-                                        value: e.target.value,
-                                    }
-                                })
-                            }} />
-                    </ContentWrapper>
-                </Section>
-
-                <Section>
-                    <ContentWrapper>
-                        <FormLabel>Phone</FormLabel>
-                        <TextField name="telno" disabled={!state.visible} label={state.user.telno} variant="filled"
-                            onChange={(e) => {
-                                dispatch({
-                                    type: SET_USER,
-                                    payload: {
-                                        name: e.target.name,
-                                        value: e.target.value,
-                                    }
-                                })
-                            }} />
-                    </ContentWrapper>
-                    <ContentWrapper>
-                        <FormLabel>Birthday</FormLabel>
-                        <TextField name="birthdate" disabled={!state.visible} label={state.user.birthdate} variant="filled"
-                            onChange={(e) => {
-                                dispatch({
-                                    type: SET_USER,
-                                    payload: {
-                                        name: e.target.name,
-                                        value: e.target.value,
-                                    }
-                                })
-                            }} />
-                    </ContentWrapper>
-                </Section>
-
-                <Section>
-                    <ContentWrapper>
-                        <FormLabel>Email</FormLabel>
-                        <TextField name="email" disabled={!state.visible} label={state.user.email}
-                            onChange={(e) => {
-                                dispatch({
-                                    type: SET_USER,
-                                    payload: {
-                                        name: e.target.name,
-                                        value: e.target.value,
-                                    }
-                                })
-                            }} variant="filled" />
-                    </ContentWrapper>
-                    <ContentWrapper>
-                        <FormLabel>Password</FormLabel>
-                        <TextField name="password" disabled={!state.visible} label={state.user.password}
-                            onChange={(e) => {
-                                dispatch({
-                                    type: SET_USER,
-                                    payload: {
-                                        name: e.target.name,
-                                        value: e.target.value,
-                                    }
-                                })
-                            }} variant="filled" />
-                    </ContentWrapper>
-                </Section>
-
+                <CurrentInformation>
+                    <Title>{state.user.name}'s Information</Title>
+                    <SwitchWrapper>
+                        {state.switcher ? (
+                            <Switch onClick={visibleHandler} color="warning" />) :
+                            (<Switch disabled onClick={visibleHandler} color="warning" />)
+                        }
+                    </SwitchWrapper>
+                </CurrentInformation>
+                <ContentWrapper>
+                    <FormLabel>Name</FormLabel>
+                    <TextField name="name" disabled={!state.visible} label={state.user.name} variant="filled"
+                        onChange={(e) => {
+                            dispatch({
+                                type: SET_USER,
+                                payload: {
+                                    name: e.target.name,
+                                    value: e.target.value,
+                                }
+                            })
+                        }} />
+                </ContentWrapper>
+                <ContentWrapper>
+                    <FormLabel>Surname</FormLabel>
+                    <TextField name="surname" disabled={!state.visible} label={state.user.surname} variant="filled"
+                        onChange={(e) => {
+                            dispatch({
+                                type: SET_USER,
+                                payload: {
+                                    name: e.target.name,
+                                    value: e.target.value,
+                                }
+                            })
+                        }} />
+                </ContentWrapper>
+                <ContentWrapper>
+                    <FormLabel>Phone</FormLabel>
+                    <TextField name="telno" disabled={!state.visible} label={state.user.telno} variant="filled"
+                        onChange={(e) => {
+                            dispatch({
+                                type: SET_USER,
+                                payload: {
+                                    name: e.target.name,
+                                    value: e.target.value,
+                                }
+                            })
+                        }} />
+                </ContentWrapper>
+                <ContentWrapper>
+                    <FormLabel>Birthday</FormLabel>
+                    <TextField name="birthdate" disabled={!state.visible} label={state.user.birthdate} variant="filled"
+                        onChange={(e) => {
+                            dispatch({
+                                type: SET_USER,
+                                payload: {
+                                    name: e.target.name,
+                                    value: e.target.value,
+                                }
+                            })
+                        }} />
+                </ContentWrapper>
+                <ContentWrapper>
+                    <FormLabel>Email</FormLabel>
+                    <TextField name="email" disabled={!state.visible} label={state.user.email}
+                        onChange={(e) => {
+                            dispatch({
+                                type: SET_USER,
+                                payload: {
+                                    name: e.target.name,
+                                    value: e.target.value,
+                                }
+                            })
+                        }} variant="filled" />
+                </ContentWrapper>
+                <ContentWrapper>
+                    <FormLabel>Password</FormLabel>
+                    <TextField name="password" disabled={!state.visible} label={state.user.password}
+                        onChange={(e) => {
+                            dispatch({
+                                type: SET_USER,
+                                payload: {
+                                    name: e.target.name,
+                                    value: e.target.value,
+                                }
+                            })
+                        }} variant="filled" />
+                </ContentWrapper>
+                <ButtonWrapper>
+                    <Button
+                        className="save"
+                        disabled={!state.visible}
+                        onClick={inputValidator}
+                        variant="contained"
+                    >
+                        SAVE
+                    </Button>
+                </ButtonWrapper>
             </FormWrapper>
-            <ButtonWrapper>
-                <Button
-                    className="save"
-                    disabled={!state.visible}
-                    onClick={inputValidator}
-                    variant="contained"
-                >
-                    SAVE
-                </Button>
-            </ButtonWrapper>
             {state.message && <SnackBar message={state.message} />}
             {state.loading && <Loading loading={state.loading} />}
         </InformationTabBase >

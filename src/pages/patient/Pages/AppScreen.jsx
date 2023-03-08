@@ -12,6 +12,7 @@ const AppScreen = () => {
         setUser,
         userIndex,
         setUserIndex,
+        role,
     } = useContext(AuthContext)
 
     return (
@@ -19,6 +20,7 @@ const AppScreen = () => {
             <ScreenWrapper>
                 <PatternLayout>
                     <AppBar
+                        role={role}
                         setUser={setUser}
                         userIndex={userIndex}
                         setUserIndex={setUserIndex}

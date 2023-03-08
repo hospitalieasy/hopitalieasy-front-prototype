@@ -4,8 +4,8 @@ export const InformationTabBase = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 `;
 
 export const TitleWrapper = styled.div`
@@ -17,15 +17,27 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.div`
+    width: 100%;
     font-size: 34px;
-    font-family: 'Libre Franklin', sans-serif;
+    margin-right: 24px;
+
+    @media screen and (max-width: 585px) {
+        display: none;
+    }
 `;
 
-export const DecisionMaker = styled.div`
-    display: flex;
+export const CurrentInformation = styled.div`
     width: 100%;
+    height: 100%;
+    display: flex;
     align-items: center;
-    padding: 25px 0px;
+    margin-bottom: 24px;
+`;
+
+export const SwitchWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    margin-left: 48px;
 `;
 
 export const Label = styled.div`
@@ -37,40 +49,38 @@ export const Label = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-    width: 80%;
-    height: 55%;
+    width: 300px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 `;
 
-export const Section = styled.div`
-    height: 100%;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 30px;
-`;
 
 export const FormLabel = styled.div`
     font-size: 17px;
     font-weight: 500;
-    margin-bottom: 5px;
+    margin-right: 20px;
+    width: 70px;
+    @media screen and (max-width: 585px) {
+        display: none;
+    }
 `;
 
 export const ContentWrapper = styled.div`
     height: 100%;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    align-items: center;
+    margin: 10px 0px;
 `;
 
 
 
 export const ButtonWrapper = styled.div`
-    width: 15%;
     display: flex;
-    justify-content: center;
+    padding: 20px 0px;
 `;
 
 
