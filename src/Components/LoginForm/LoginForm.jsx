@@ -18,6 +18,7 @@ const LoginForm = (props) => {
 
     const [state, dispatch] = useReducer(loginReducer, INITIAL_STATE);
 
+    /* choosing role */
     useEffect(() => {
         if (title === "Doctor Login") {
             setRole("doctor");

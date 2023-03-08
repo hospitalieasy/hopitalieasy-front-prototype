@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Calculator from "../Calculator/Calculator"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
@@ -17,7 +16,6 @@ export default function ProfileMenu(props) {
         setUser,
         userIndex,
         setUserIndex,
-        role,
     } = props;
 
     const [name, setName] = useState("");
@@ -55,10 +53,6 @@ export default function ProfileMenu(props) {
         setUser(false);
     };
 
-    const showCalculator = () => {
-
-    }
-
     return (
         <>
             <Button
@@ -81,9 +75,6 @@ export default function ProfileMenu(props) {
                 }}
             >
                 <MenuItem onClick={showProfile} >My Profile</MenuItem>
-                {role === "patient" && (
-                    <MenuItem onClick={showCalculator}>Calculator</MenuItem>
-                )}
                 <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </Menu>
         </>

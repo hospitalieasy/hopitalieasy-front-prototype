@@ -1,4 +1,5 @@
 import { AuthContext } from "../../Context/AuthContext";
+import Contact from "../../Components/Contact/Contact";
 import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout";
 import Footer from "../../Components/Footer/Footer";
 import HeroBanner from "../../Components/HeroBanner/HeroBanner";
@@ -24,9 +25,8 @@ const Home = () => {
             <SvgContainer>
                 <Loading />
             </SvgContainer>
-            <SvgContainer>
-                <Loading />
-            </SvgContainer>
+
+            <Contact />
 
             <Footer />
         </DefaultLayout>

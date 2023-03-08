@@ -224,3 +224,20 @@ Animation
     opacity: 1;
   }
 }
+
+/* Contact Form */
+
+.MuiTextField-root.contact-input {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.MuiButton-root.contact-button {
+  background-color: #1e1436;
+  width: 250px;
+  height: 50px;
+}
+
+.MuiButton-root.contact-button:hover {
+  background-color: #1c23a8;
+}

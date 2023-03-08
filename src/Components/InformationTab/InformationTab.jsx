@@ -1,5 +1,5 @@
 import { Button, Switch, TextField } from "@mui/material";
-import { ButtonWrapper, ContentWrapper, CurrentInformation, FormLabel, FormWrapper, InformationTabBase, SwitchWrapper, Title } from "./InformationTab.style"
+import { ButtonWrapper, ContentWrapper, DecisionMaker, FormLabel, FormWrapper, InformationTabBase, SwitchWrapper, Title } from "./InformationTab.style"
 import { INITIAL_STATE, SET_DATA_TO_USER, SET_USER, SET_VISIBLE, VALIDATION_FAIL, VALIDATION_PROCESS, VALIDATION_SUCCESS, informationTabReducer } from "../../Hooks/Reducer/informationTabReducer";
 import { useEffect, useReducer } from "react";
 
@@ -72,7 +72,7 @@ const InformationTab = (props) => {
     return (
         <InformationTabBase>
             <FormWrapper>
-                <CurrentInformation>
+                <DecisionMaker>
                     <Title>{state.user.name}'s Information</Title>
                     <SwitchWrapper>
                         {state.switcher ? (
@@ -80,7 +80,7 @@ const InformationTab = (props) => {
                             (<Switch disabled onClick={visibleHandler} color="warning" />)
                         }
                     </SwitchWrapper>
-                </CurrentInformation>
+                </DecisionMaker>
                 <ContentWrapper>
                     <FormLabel>Name</FormLabel>
                     <TextField name="name" disabled={!state.visible} label={state.user.name} variant="filled"
