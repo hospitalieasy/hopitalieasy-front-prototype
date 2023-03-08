@@ -14,7 +14,7 @@ export const ReviewWrapper = styled.div`
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    padding: 25px 30px;
+    padding: 0px 32px;
 `;
 
 export const Title = styled.div`

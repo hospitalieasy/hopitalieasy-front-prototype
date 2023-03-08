@@ -15,7 +15,7 @@ export const AppBarBase = styled.div`
 
 export const LeftSide = styled.div`
     height: 100%;
-    width: 80%;
+    width: 62%;
     display: flex;
     justify-content: space-between;
     padding: 20px 0px;
@@ -28,12 +28,19 @@ export const Title = styled.div`
     width: 52%;
     letter-spacing: 4px;
     font-weight: 600;
-    font-family: 'Barlow', sans-serif;
+
+    @media screen and (max-width: 656px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 1026px) {
+        font-size: 24px;
+    }
 `;
 
 export const SpeedDialWrapper = styled.div`
     margin-top: -10px;
-    width: 48%;
+    width: 240px;
 `;
 
 export const RightSide = styled.div`
@@ -53,13 +60,13 @@ export const NotificationWrapper = styled.div`
     display: flex;
     align-items: center;
     max-height: 100%;
-    margin-right: 15px;
+    margin-right: 12px;
 `;
 
 export const ProfileWrapper = styled.div`
     width: 0%;
     height: 100%;
-    padding-right: 10px;
+    padding-right: 12px;
 `;
 
 

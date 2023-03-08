@@ -1,14 +1,16 @@
 import { AppBarBase, ContentWrapper, LeftSide, NotificationWrapper, ProfileWrapper, RightSide, SpeedDialWrapper, Title } from "./AppBar.style"
 import { useEffect, useState } from "react";
 
-import BasicSpeedDial from "..//SpeedDial/SpeedDial"
-import NotificationPop from "../NotificationPop/NotificationPop"
+import MailBadge from "../MailBadge/MailBadge"
+import Menu from "../Menu/Menu"
+import MenuMobile from "../MenuMobile/MenuMobile";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import axios from "axios";
 
 const AppBar = (props) => {
     const { setUser, userIndex, setUserIndex } = props;
     const [name, setName] = useState("");
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     /* fetch data with API */
     useEffect(() => {
@@ -21,18 +23,28 @@ const AppBar = (props) => {
         })
     }, []);
 
+    /* update state when screen width changes */
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 456);
+        };
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <AppBarBase>
             <LeftSide>
                 <Title>Hi {name} Welcome</Title>
                 <SpeedDialWrapper>
-                    <BasicSpeedDial />
+                    {isSmallScreen ? (<MenuMobile />) : (<Menu />)}
                 </SpeedDialWrapper>
             </LeftSide>
             <RightSide>
                 <ContentWrapper>
                     <NotificationWrapper>
-                        <NotificationPop />
+                        <MailBadge />
                     </NotificationWrapper>
                     <ProfileWrapper>
                         <ProfileMenu

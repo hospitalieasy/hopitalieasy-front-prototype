@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import Box from '@mui/material/Box';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DescriptionIcon from '@mui/icons-material/Description';
 import HomeIcon from '@mui/icons-material/Home';
@@ -15,7 +14,7 @@ const actions = [
     { icon: <DescriptionIcon color='primary' />, name: 'Test Result' },
 ];
 
-export default function BasicSpeedDial() {
+export default function Menu() {
     const navigate = useNavigate();
 
     const menuIndexHandler = (index) => {
@@ -28,23 +27,21 @@ export default function BasicSpeedDial() {
         }
     }
     return (
-        <Box sx={{ height: 70, transform: 'translateZ(0px)' }}>
-            <SpeedDial
-                ariaLabel="SpeedDial basic example"
-                md={{ position: 'relative', bottom: 16, right: 16 }}
-                icon={<SpeedDialIcon />}
-                direction={"right"}
-            >
-                {actions.map((item, index) => (
-                    <SpeedDialAction
-                        key={item.name}
-                        icon={item.icon}
-                        tooltipTitle={item.name}
-                        onClick={() => menuIndexHandler(index)}
-                    >
-                    </SpeedDialAction>
-                ))}
-            </SpeedDial>
-        </Box>
+        <SpeedDial
+            ariaLabel="SpeedDial basic example"
+            md={{ position: 'relative', bottom: 16, right: 16 }}
+            icon={<SpeedDialIcon />}
+            direction={"right"}
+        >
+            {actions.map((item, index) => (
+                <SpeedDialAction
+                    key={item.name}
+                    icon={item.icon}
+                    tooltipTitle={item.name}
+                    onClick={() => menuIndexHandler(index)}
+                >
+                </SpeedDialAction>
+            ))}
+        </SpeedDial>
     );
 }

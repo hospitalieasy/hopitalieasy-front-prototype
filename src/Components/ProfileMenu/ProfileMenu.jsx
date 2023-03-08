@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+import Calculator from "../Calculator/Calculator"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import axios from 'axios';
@@ -31,15 +32,6 @@ export default function ProfileMenu(props) {
         setAnchorEl(null);
     };
 
-    const navigate = useNavigate();
-    const showProfile = () => {
-        navigate("/app-screen/profile")
-    }
-
-    const logoutHandler = () => {
-        setUserIndex(null)
-        setUser(false);
-    };
 
     /* fetch data from API */
     useEffect(() => {
@@ -51,6 +43,20 @@ export default function ProfileMenu(props) {
             console.log(error);
         })
     }, [])
+
+    const navigate = useNavigate();
+    const showProfile = () => {
+        navigate("/app-screen/profile")
+    }
+
+    const logoutHandler = () => {
+        setUserIndex(null)
+        setUser(false);
+    };
+
+    const showCalculator = () => {
+
+    }
 
     return (
         <>
@@ -74,6 +80,7 @@ export default function ProfileMenu(props) {
                 }}
             >
                 <MenuItem onClick={showProfile} >My Profile</MenuItem>
+                <MenuItem onClick={showCalculator}>Calculator</MenuItem>
                 <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </Menu>
         </>

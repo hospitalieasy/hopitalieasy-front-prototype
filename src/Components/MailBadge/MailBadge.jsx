@@ -1,18 +1,20 @@
 import * as React from 'react';
 
+import Badge from '@mui/material/Badge';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import MailIcon from '@mui/icons-material/Mail';
 import Slide from '@mui/material/Slide';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function NotificationPop() {
+export default function MailBadge() {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -26,6 +28,9 @@ export default function NotificationPop() {
     return (
         <div>
             <Button className='notification' variant="contained" onClick={handleClickOpen}>
+                <Badge badgeContent={2} color="warning">
+                    <MailIcon color="action" fontSize='small' />
+                </Badge>
             </Button>
             <Dialog
                 open={open}
