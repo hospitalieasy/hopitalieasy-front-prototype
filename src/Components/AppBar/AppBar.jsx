@@ -8,7 +8,7 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import axios from "axios";
 
 const AppBar = (props) => {
-    const { setUser, userIndex, setUserIndex } = props;
+    const { setUser, userIndex, setUserIndex, role } = props;
     const [name, setName] = useState("");
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -38,7 +38,7 @@ const AppBar = (props) => {
             <LeftSide>
                 <Title>Hi {name} Welcome</Title>
                 <SpeedDialWrapper>
-                    {isSmallScreen ? (<MenuMobile />) : (<Menu />)}
+                    {isSmallScreen ? (<MenuMobile role={role} />) : (<Menu role={role} />)}
                 </SpeedDialWrapper>
             </LeftSide>
             <RightSide>
@@ -48,6 +48,7 @@ const AppBar = (props) => {
                     </NotificationWrapper>
                     <ProfileWrapper>
                         <ProfileMenu
+                            role={role}
                             setUser={setUser}
                             userIndex={userIndex}
                             setUserIndex={setUserIndex}

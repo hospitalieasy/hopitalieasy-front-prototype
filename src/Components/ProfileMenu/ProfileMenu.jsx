@@ -17,6 +17,7 @@ export default function ProfileMenu(props) {
         setUser,
         userIndex,
         setUserIndex,
+        role,
     } = props;
 
     const [name, setName] = useState("");
@@ -80,7 +81,9 @@ export default function ProfileMenu(props) {
                 }}
             >
                 <MenuItem onClick={showProfile} >My Profile</MenuItem>
-                <MenuItem onClick={showCalculator}>Calculator</MenuItem>
+                {role === "patient" && (
+                    <MenuItem onClick={showCalculator}>Calculator</MenuItem>
+                )}
                 <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </Menu>
         </>

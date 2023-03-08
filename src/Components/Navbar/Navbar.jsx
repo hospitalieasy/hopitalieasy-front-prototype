@@ -3,7 +3,20 @@ import { ButtonContainer, LeftSide, NavbarBase, RightSide } from "./Navbar.style
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const { setRole, role } = props;
+
+    const patientRoler = () => {
+        if (role !== "doctor") {
+            setRole("patient")
+        }
+    }
+
+    const doctorRoler = () => {
+        if (role !== "patient") {
+            setRole("doctor")
+        }
+    }
     return (
         <NavbarBase>
             <LeftSide>
@@ -14,6 +27,7 @@ const Navbar = () => {
             <RightSide>
                 <ButtonContainer>
                     <Button
+                        onClick={patientRoler}
                         sx={{
                             marginRight: "30px"
                         }}
@@ -25,8 +39,9 @@ const Navbar = () => {
                         Patient
                     </Button>
                     <Button
+                        onClick={doctorRoler}
                         component={Link}
-                        to={'/future-content'}
+                        to={'/doctor-login'}
                         variant="contained"
                         size="medium">
                         Doctor

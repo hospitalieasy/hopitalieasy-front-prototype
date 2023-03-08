@@ -8,13 +8,8 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import { useNavigate } from 'react-router-dom';
 
-const actions = [
-    { icon: <HomeIcon color='primary' />, name: 'Home' },
-    { icon: <CalendarMonthIcon color='primary' />, name: 'Appointment' },
-    { icon: <DescriptionIcon color='primary' />, name: 'Test Result' },
-];
-
-export default function Menu() {
+export default function Menu(props) {
+    const { role } = props;
     const navigate = useNavigate();
 
     const menuIndexHandler = (index) => {
@@ -26,6 +21,17 @@ export default function Menu() {
             navigate("/app-screen/test-result");
         }
     }
+
+    const doctorActions = [
+        { icon: <HomeIcon color='primary' />, name: 'Home' },
+    ]
+
+    const patientActions = [
+        { icon: <HomeIcon color='primary' />, name: 'Home' },
+        { icon: <CalendarMonthIcon color='primary' />, name: 'Appointment' },
+        { icon: <DescriptionIcon color='primary' />, name: 'Test Result' },
+    ];
+
     return (
         <SpeedDial
             ariaLabel="SpeedDial basic example"
@@ -33,15 +39,29 @@ export default function Menu() {
             icon={<SpeedDialIcon />}
             direction={"right"}
         >
-            {actions.map((item, index) => (
-                <SpeedDialAction
-                    key={item.name}
-                    icon={item.icon}
-                    tooltipTitle={item.name}
-                    onClick={() => menuIndexHandler(index)}
-                >
-                </SpeedDialAction>
-            ))}
+            {role === "patient" && (
+                patientActions.map((item, index) => (
+                    <SpeedDialAction
+                        key={item.name}
+                        icon={item.icon}
+                        tooltipTitle={item.name}
+                        onClick={() => menuIndexHandler(index)}
+                    >
+                    </SpeedDialAction>
+                ))
+            )}
+
+            {role === "doctor" && (
+                doctorActions.map((item, index) => (
+                    <SpeedDialAction
+                        key={item.name}
+                        icon={item.icon}
+                        tooltipTitle={item.name}
+                        onClick={() => menuIndexHandler(index)}
+                    >
+                    </SpeedDialAction>
+                ))
+            )}
         </SpeedDial>
     );
 }

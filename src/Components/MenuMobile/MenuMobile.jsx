@@ -10,7 +10,8 @@ import MenuItem from '@mui/material/MenuItem';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-export default function BasicMenu() {
+export default function BasicMenu(props) {
+    const { role } = props;
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -32,7 +33,10 @@ export default function BasicMenu() {
         }
     }
 
-    const actions = [
+    const doctorActions = [
+        { icon: <HomeIcon color='primary' />, name: 'Home' },
+    ]
+    const patientActions = [
         { icon: <HomeIcon color='primary' />, name: 'Home' },
         { icon: <CalendarMonthIcon color='primary' />, name: 'Appointment' },
         { icon: <DescriptionIcon color='primary' />, name: 'Test Result' },
@@ -65,16 +69,30 @@ export default function BasicMenu() {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                {actions.map((item, index) => (
-                    <MenuItem
-                        key={item.name}
-                        icon={item.icon}
-                        onClick={() => menuIndexHandler(index)}
-                    >
-                        {item.icon}
-                        <Title>{item.name}</Title>
-                    </MenuItem>
-                ))}
+                {role === "patient" && (
+                    patientActions.map((item, index) => (
+                        <MenuItem
+                            key={item.name}
+                            icon={item.icon}
+                            onClick={() => menuIndexHandler(index)}
+                        >
+                            {item.icon}
+                            <Title>{item.name}</Title>
+                        </MenuItem>
+                    ))
+                )}
+                {role === "doctor" && (
+                    doctorActions.map((item, index) => (
+                        <MenuItem
+                            key={item.name}
+                            icon={item.icon}
+                            onClick={() => menuIndexHandler(index)}
+                        >
+                            {item.icon}
+                            <Title>{item.name}</Title>
+                        </MenuItem>
+                    ))
+                )}
             </Menu>
         </div>
     );

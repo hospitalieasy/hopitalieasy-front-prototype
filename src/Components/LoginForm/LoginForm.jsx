@@ -12,10 +12,19 @@ const LoginForm = (props) => {
     const {
         setUser,
         setUserIndex,
+        setRole,
         title,
     } = props;
 
     const [state, dispatch] = useReducer(loginReducer, INITIAL_STATE);
+
+    useEffect(() => {
+        if (title === "Doctor Login") {
+            setRole("doctor");
+        } else {
+            setRole("patient");
+        }
+    }, [])
 
     /* fetching API */
     useEffect(() => {
