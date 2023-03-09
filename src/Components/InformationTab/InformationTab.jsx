@@ -71,16 +71,14 @@ const InformationTab = (props) => {
 
     return (
         <InformationTabBase>
+            <SwitchWrapper>
+                <Title>{state.user.name}'s Information</Title>
+                {state.switcher ? (
+                    <Switch onClick={visibleHandler} color="warning" />) :
+                    (<Switch disabled onClick={visibleHandler} color="warning" />)
+                }
+            </SwitchWrapper>
             <FormWrapper>
-                <DecisionMaker>
-                    <Title>{state.user.name}'s Information</Title>
-                    <SwitchWrapper>
-                        {state.switcher ? (
-                            <Switch onClick={visibleHandler} color="warning" />) :
-                            (<Switch disabled onClick={visibleHandler} color="warning" />)
-                        }
-                    </SwitchWrapper>
-                </DecisionMaker>
                 <ContentWrapper>
                     <FormLabel>Name</FormLabel>
                     <TextField name="name" disabled={!state.visible} label={state.user.name} variant="filled"

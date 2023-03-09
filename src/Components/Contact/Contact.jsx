@@ -41,7 +41,6 @@ const Contact = () => {
                         id="outlined-multiline-flexible"
                         label="Content"
                         multiline
-                        maxRows={4}
                         rows={5}
                         value={content}
                         onChange={(e) => { setContent(e.target.value) }}
