@@ -15,7 +15,7 @@ const AppBar = (props) => {
     /* fetch data with API */
     useEffect(() => {
         axios.get(
-            `http://localhost:3002/users`
+            `http://localhost:3002/patients`
         ).then((response) => {
             setName(response.data[userIndex].Name);
         }).catch((error) => {

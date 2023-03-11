@@ -1,16 +1,19 @@
 import styled from "styled-components";
 
 export const InformationTabBase = styled.div`
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 70%;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    overflow-y: auto;
 `;
 
 export const Title = styled.div`
     text-align: center;
     font-size: 34px;
-    padding: 24px;
+    padding: 20px 24px;
 
     @media screen and (max-width: 585px) {
         display: none;
@@ -18,11 +21,11 @@ export const Title = styled.div`
 `;
 
 export const FormWrapper = styled.div`
+    height: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: 30px;
 `;
 
 export const SwitchWrapper = styled.div`
@@ -51,10 +54,15 @@ export const ContentWrapper = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-    justify-content: center;
-    display: flex;
-    margin: 20px 0px;
     width: 350px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+    padding-bottom: 0px;
+
+    @media screen and (max-width: 1024px) {
+        padding-bottom: 20px;
+    }
 `;
 
 

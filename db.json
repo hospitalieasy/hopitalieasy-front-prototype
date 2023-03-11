@@ -1,6 +1,7 @@
 {
-  "users": [
+  "patients": [
     {
+      "Id": 1,
       "Name": "Adam",
       "Surname": "Doa",
       "Birthdate": "1990-01-01",
@@ -8,223 +9,231 @@
       "Password": "123asd123",
       "Telno": "5053321199",
       "updatedAt": 1677959656338,
-      "Id": 1
+      "appointmentId": 101
     },
     {
       "Id": 2,
       "Name": "Jane",
       "Surname": "Doe",
       "Birthdate": "1992-05-15",
-      "Email": "jane@example.com",
+      "Email": "jane@gmail.com",
       "Password": "123asd123",
-      "Telno": "5053321199"
+      "Telno": "5053321199",
+      "appointmentId": null
     },
     {
       "Id": 3,
       "Name": "Bob",
       "Surname": "Smith",
       "Birthdate": "1985-07-20",
-      "Email": "bob@example.com",
+      "Email": "bob@gmail.com",
       "Password": "123asd123",
-      "Telno": "5053321199"
+      "Telno": "5053321199",
+      "appointmentId": null
     },
     {
       "Id": 4,
       "Name": "Alice",
       "Surname": "Jones",
       "Birthdate": "1991-03-05",
-      "Email": "alice@example.com",
+      "Email": "alice@gmail.com",
       "Password": "123asd123",
-      "Telno": "5053321199"
+      "Telno": "5053321199",
+      "appointmentId": null
     },
     {
       "Id": 5,
       "Name": "David",
       "Surname": "Lee",
       "Birthdate": "1988-12-30",
-      "Email": "david@example.com",
+      "Email": "david@gmail.com",
       "Password": "123asd123",
-      "Telno": "5053321199"
+      "Telno": "5053321199",
+      "appointmentId": null
+    }
+  ],
+
+  "doctors": [
+    {
+      "Id": 1,
+      "Name": "Dr.Bruno",
+      "Surname": "Doa",
+      "Birthdate": "1990-01-01",
+      "Email": "bruno@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "updatedAt": 1677959656338,
+      "appointmentId": 101,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
     },
     {
-      "Name": "Sami",
-      "Surname": "Soyer",
-      "Birthdate": "01/01/2000",
-      "Email": "ahmet@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678042016338,
-      "Id": 6
-    },
-    {
-      "Name": "Mehmet",
-      "Surname": "Doyer",
-      "Birthdate": "01/02/2000",
-      "Email": "mehmet@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678013625520,
-      "Id": 7
-    },
-    {
-      "Name": "Ceylan",
-      "Surname": "Doyer",
-      "Birthdate": "01/02/2000",
-      "Email": "ceylan@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678015308249,
-      "Id": 8
-    },
-    {
-      "Name": "Emma",
-      "Surname": "Doyer",
-      "Birthdate": "01/01/2000",
-      "Email": "emma@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678015548627,
-      "Id": 9
-    },
-    {
-      "Name": "Lisa",
-      "Surname": "Doyer",
-      "Birthdate": "01/01/2000",
-      "Email": "lisa@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678015660331,
-      "Id": 10
-    },
-    {
-      "Name": "Ceylin",
+      "Id": 2,
+      "Name": "Dr.Jane",
       "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylin@gmail.com",
+      "Birthdate": "1992-05-15",
+      "Email": "jane@gmail.com",
       "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678034151438,
-      "Id": 11
+      "Telno": "5053321199",
+      "appointmentId": 102,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
     },
     {
-      "Name": "Ceylin",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylin@gmail.com",
+      "Id": 3,
+      "Name": "Dr.John",
+      "Surname": "Smith",
+      "Birthdate": "1985-07-20",
+      "Email": "john@gmail.com",
       "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678034210846,
-      "Id": 12
+      "Telno": "5053321199",
+      "appointmentId": 103,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
     },
     {
-      "Name": "Ceylin",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylin@gmail.com",
+      "Id": 4,
+      "Name": "Dr.David",
+      "Surname": "Jones",
+      "Birthdate": "1991-03-05",
+      "Email": "david@gmail.com",
       "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678034528150,
-      "Id": 13
+      "Telno": "5053321199",
+      "appointmentId": 104,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
     },
     {
-      "Name": "Ceylin",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylin@gmail.com",
+      "Id": 5,
+      "Name": "Dr.Smith",
+      "Surname": "Lee",
+      "Birthdate": "1988-12-30",
+      "Email": "smith@gmail.com",
       "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678034663100,
-      "Id": 14
-    },
-    {
-      "Name": "Ceylin",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylin@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678034757073,
-      "Id": 15
-    },
-    {
-      "Name": "Ceylin",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylin1@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678040707804,
-      "Id": 16
-    },
-    {
-      "Name": "Ceylin",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylin@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678040738840,
-      "Id": 17
-    },
-    {
-      "Name": "Ceylan",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylan@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678041281767,
-      "Id": 18
-    },
-    {
-      "Name": "Ceylin",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "ceylin@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5051112233",
-      "updatedAt": 1678041306731,
-      "Id": 19
-    },
-    {
-      "Name": "John",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "test@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5053332211",
-      "updatedAt": 1678275355214,
-      "Id": 20
-    },
-    {
-      "Name": "John",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "david@example.com",
-      "Password": "123asd123",
-      "Telno": "5053332211",
-      "updatedAt": 1678275610160,
-      "Id": 21
-    },
-    {
-      "Name": "Mehmet",
-      "Surname": "Doyer",
-      "Birthdate": "01/01/2000",
-      "Email": "mehmet@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5053332211",
-      "updatedAt": 1678275730745,
-      "Id": 22
-    },
-    {
-      "Name": "John",
-      "Surname": "Doe",
-      "Birthdate": "01/01/2000",
-      "Email": "john01@gmail.com",
-      "Password": "123asd123",
-      "Telno": "5553332211",
-      "updatedAt": 1678276536722,
-      "Id": 23
+      "Telno": "5053321199",
+      "appointmentId": 105,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
     }
   ]
 }

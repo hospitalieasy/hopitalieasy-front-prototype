@@ -5,6 +5,7 @@ export const AppBarBase = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding-top: 4px;
     
     animation:  0.5s ease-out 0s 1 slideInFromBottom;
     @keyframes slideInFromBottom {

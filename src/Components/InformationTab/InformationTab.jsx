@@ -1,5 +1,5 @@
 import { Button, Switch, TextField } from "@mui/material";
-import { ButtonWrapper, ContentWrapper, DecisionMaker, FormLabel, FormWrapper, InformationTabBase, SwitchWrapper, Title } from "./InformationTab.style"
+import { ButtonWrapper, ContentWrapper, FormLabel, FormWrapper, InformationTabBase, SwitchWrapper, Title } from "./InformationTab.style"
 import { INITIAL_STATE, SET_DATA_TO_USER, SET_USER, SET_VISIBLE, VALIDATION_FAIL, VALIDATION_PROCESS, VALIDATION_SUCCESS, informationTabReducer } from "../../Hooks/Reducer/informationTabReducer";
 import { useEffect, useReducer } from "react";
 
@@ -16,7 +16,7 @@ const InformationTab = (props) => {
     /* fetching API */
     useEffect(() => {
         axios.get(
-            `http://localhost:3002/users`
+            `http://localhost:3002/patients`
         ).then((response) => {
             dispatch({
                 type: SET_DATA_TO_USER, payload: {

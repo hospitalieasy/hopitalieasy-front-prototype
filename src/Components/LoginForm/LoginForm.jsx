@@ -29,7 +29,7 @@ const LoginForm = (props) => {
 
     /* fetching API */
     useEffect(() => {
-        axios.get('http://localhost:3002/users')
+        axios.get('http://localhost:3002/patients')
             .then((response) => { dispatch({ type: SET_DATA, payload: response.data }) })
             .catch((error) => console.log(error));
     }, [])

@@ -251,6 +251,25 @@ Animation
 
 @media screen and (max-width: 500px) {
   .MuiButton-root.appointment {
-    font-size: 14px;
+    font-size: 11px;
+    width: 55px;
+    min-width: auto;
+    height: 30px;
+  }
+}
+
+/* Appointment */
+
+.MuiButton-root.appointment-delete {
+  width: 100px;
+  height: 40px;
+}
+
+@media screen and (max-width: 454px) {
+  .MuiButton-root.appointment-delete {
+    font-size: 11px;
+    width: 50px;
+    min-width: auto;
+    height: 30px;
   }
 }

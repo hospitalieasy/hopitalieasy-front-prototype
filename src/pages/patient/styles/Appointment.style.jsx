@@ -5,8 +5,8 @@ export const AppointmentBase = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+    padding-bottom: 100px;
 `;
 
 export const MajorSection = styled.div`
@@ -36,7 +36,7 @@ export const Box = styled.div`
     margin: 20px 12px;
 `;
 
-export const BoxAvailable = styled.div`
+export const AvailableAppointmentsBox = styled.div`
     width: ${props => props.width};
     height: ${props => props.height};
     background-color: white;
@@ -49,7 +49,7 @@ export const BoxAvailable = styled.div`
     }
 `;
 
-export const TitleWrapper = styled.div`
+export const TitleWrapperOne = styled.div`
     width: 300px;
     display: flex;
     align-items: center;
@@ -68,7 +68,7 @@ export const Title = styled.div`
     }
 `;
 
-export const DoctorWrapper = styled.div`
+export const AppointmentWrapper = styled.div`
     width: 100%;
     height: 300px;
     display: flex;
@@ -93,10 +93,11 @@ export const ContentWrapper = styled.div`
     margin: 8px 0px;
 `;
 
-export const DoctorInfoWrapper = styled.div`
+export const DoctorInfoWrapperAvailable = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     @media screen and (max-width: 585px) {
         flex-direction: column;
         align-items: center;
@@ -111,19 +112,66 @@ export const DoctorName = styled.div`
     color: white;
 
     @media screen and (max-width: 585px) {
-        font-size: 15px;
+        font-size: 13px;
     }
 `;
 
-export const BoxCurrent = styled.div`
+export const CurrentAppointmentsBox = styled.div`
     width: ${props => props.width};
     height: ${props => props.height};
     background-color: white;
     border-radius: 10px;
     margin: 20px 12px;
+    padding: 32px;
 
     @media screen and (max-width: 862px) {
         width: 95%;
     }
 `;
+
+export const TitleWrapperSecond = styled.div`
+    width: 285px;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 585px) {
+        width: 240px;
+    }
+`;
+
+export const DoctorInfoWrapperCurrent = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 585px) {
+        margin-right: 20px;
+    }
+`;
+
+export const DateWrapper = styled.div`
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0px;
+    color: white;
+    margin-right: 6px;
+
+    @media screen and (max-width: 585px) {
+        font-size: 10px;
+    }
+`;
+
+export const Time = styled.div`
+    width: 100%;
+    height: 100%;
+    margin-left: 16px;
+`;
+
+export const Date = styled.div`
+    width: 100%;
+    height: 100%;
+`;
+
 
