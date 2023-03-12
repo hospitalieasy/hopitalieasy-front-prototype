@@ -5,8 +5,8 @@ import DefaultBox from "../../../Components/DefaultBox/DefaultBox";
 import DefaultLayout from "../../../Components/DefaultLayout/DefaultLayout";
 import { Link } from "react-router-dom";
 import LoginForm from "../../../Components/LoginForm/LoginForm";
+import Popper from "../../../Components/SignUpForm/Popper";
 import React from "react";
-import SignUpPop from "../../../Components/SignUpPop/SignUpPop";
 import { useContext } from "react";
 
 const Login = () => {
@@ -39,7 +39,7 @@ const Login = () => {
 
                         <SignUpWrapper>
                             <Label>Don't you have an account?</Label>
-                            <SignUpPop
+                            <Popper
                                 user={user}
                                 setUser={setUser}
                                 setUserIndex={setUserIndex}

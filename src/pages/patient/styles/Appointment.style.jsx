@@ -9,43 +9,36 @@ export const AppointmentBase = styled.div`
     padding-bottom: 100px;
 `;
 
-export const MajorSection = styled.div`
+export const Section = styled.div`
     height: ${props => props.height};
     width: ${props => props.width};
+    margin: ${props => props.margin};
     display: flex;
     align-items: center;
-    flex-direction: column;
-`;
 
-export const AppointmentSection = styled.div`
-    height: ${props => props.height};
-    width: ${props => props.width};
-    display: flex;
-    align-items: center;
-    
     @media screen and (max-width: 862px) {
-        flex-wrap: wrap;
+        flex-wrap: ${props => props.wrap};
     }
 `;
 
-export const Box = styled.div`
-    width: ${props => props.width};
-    height: ${props => props.height};
+export const BoxAvailable = styled.div`
+    width: 50%;
+    height: 100%;
+    margin-right: 12px;
+    padding: 24px 32px;
     background-color: white;
     border-radius: 10px;
-    margin: 20px 12px;
-`;
-
-export const AvailableAppointmentsBox = styled.div`
-    width: ${props => props.width};
-    height: ${props => props.height};
-    background-color: white;
-    border-radius: 10px;
-    margin: 20px 12px;
-    padding: 32px;
+    
+    animation:  0.5s ease-out 0s 1 slideInFromBottom;
+    @keyframes slideInFromBottom {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+    }
 
     @media screen and (max-width: 862px) {
-        width: 95%;
+        width: 100%;
+        margin: 0px;
+        height: 80%;
     }
 `;
 
@@ -73,12 +66,18 @@ export const AppointmentWrapper = styled.div`
     height: 300px;
     display: flex;
     margin-top: 32px;
-    padding: 20px 0px;
     flex-direction: column;
 
     @media screen and (max-width: 585px) {
         padding: 0px;
     }
+`;
+
+export const AppointmentItem = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
 `;
 
 export const ContentWrapper = styled.div`
@@ -116,18 +115,28 @@ export const DoctorName = styled.div`
     }
 `;
 
-export const CurrentAppointmentsBox = styled.div`
-    width: ${props => props.width};
-    height: ${props => props.height};
+export const BoxCurrent = styled.div`
+    width: 50%;
+    height: 100%;
+    margin-left: 12px;
+    padding: 24px;
     background-color: white;
     border-radius: 10px;
-    margin: 20px 12px;
-    padding: 32px;
+    overflow-y: auto;
+    
+    animation:  0.5s ease-out 0s 1 slideInFromBottom;
+    @keyframes slideInFromBottom {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+    }
 
     @media screen and (max-width: 862px) {
-        width: 95%;
+        width: 100%;
+        margin: 24px 0px;
+        height: 80%;
     }
 `;
+
 
 export const TitleWrapperSecond = styled.div`
     width: 285px;

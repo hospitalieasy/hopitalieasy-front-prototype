@@ -273,3 +273,15 @@ Animation
     height: 30px;
   }
 }
+
+.MuiButton-root.appointment-detail {
+  height: 30px;
+  margin-top: -4px;
+}
+
+@media screen and (max-width: 454px) {
+  .MuiButton-root.appointment-detail {
+    font-size: 11px;
+    height: 25px;
+  }
+}
