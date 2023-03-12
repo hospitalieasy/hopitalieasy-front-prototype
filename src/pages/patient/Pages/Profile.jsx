@@ -1,6 +1,8 @@
+import { ProfileBase, Section } from "../Styles/Profile.style";
+
 import { AuthContext } from "..//..//..//Context/AuthContext";
+import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
 import InformationTab from "../../../Components/InformationTab/InformationTab";
-import { ProfileBase } from "../Styles/Profile.style";
 import { useContext } from "react";
 
 const Profile = () => {
@@ -10,9 +12,13 @@ const Profile = () => {
 
     return (
         <ProfileBase>
-            <InformationTab
-                userIndex={userIndex}
-            />
+            <Section width={"95%"} height={"100%"}>
+                <DefaultBox width={"75%"} height={"90%"} background="#fff">
+                    <InformationTab
+                        userIndex={userIndex}
+                    />
+                </DefaultBox >
+            </Section>
         </ProfileBase>
     );
 }

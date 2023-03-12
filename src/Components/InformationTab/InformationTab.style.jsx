@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const InformationTabBase = styled.div`
-    height: 90%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: white;

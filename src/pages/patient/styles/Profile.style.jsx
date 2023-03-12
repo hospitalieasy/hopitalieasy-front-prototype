@@ -8,7 +8,7 @@ export const ProfileBase = styled.div`
     align-items: center;
 `;
 
-export const Section2 = styled.div`
+export const Section = styled.div`
     height: ${props => props.height};
     width: ${props => props.width};
     display: flex;
@@ -17,6 +17,3 @@ export const Section2 = styled.div`
     justify-content: center;
 `;
 
-
-export const Title = styled.div`
-`;

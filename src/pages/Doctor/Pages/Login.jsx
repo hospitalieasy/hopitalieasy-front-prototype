@@ -27,7 +27,6 @@ const Login = () => {
                 >
                     <LoginSide>
                         <Title>Welcome to Hospitaleasy!</Title>
-
                         <LoginForm
                             user={user}
                             setUser={setUser}
@@ -35,7 +34,6 @@ const Login = () => {
                             setRole={setRole}
                             title={"Doctor Login"}
                         />
-
                         <IconWrapper>
                             <Link component={Link} to={'/'}>
                                 <img src="https://img.icons8.com/ios-filled/42/null/logout-rounded-left.png" alt="" />

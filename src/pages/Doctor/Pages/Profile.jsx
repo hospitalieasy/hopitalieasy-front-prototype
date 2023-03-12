@@ -1,4 +1,4 @@
-import { ProfileBase, Section2 } from "../Styles/Profile.style";
+import { ProfileBase, Section } from "../Styles/Profile.style";
 
 import { AuthContext } from "..//..//..//Context/AuthContext";
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
@@ -12,13 +12,13 @@ const Profile = () => {
 
     return (
         <ProfileBase>
-            <Section2 width={"95%"} height={"100%"}>
+            <Section width={"95%"} height={"100%"}>
                 <DefaultBox width={"75%"} height={"90%"} background="#fff">
                     <InformationTab
                         userIndex={userIndex}
                     />
                 </DefaultBox >
-            </Section2>
+            </Section>
         </ProfileBase>
     );
 }
