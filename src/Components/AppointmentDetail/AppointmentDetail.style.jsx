@@ -4,26 +4,57 @@ export const AppointmentDetailBase = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+`;
 
+export const Title = styled.div`
+    height: 100%;
+    width: 100%;
+    font-size: 22px;
+    margin-bottom: 32px;
+    text-align: center;
+
+    @media screen and (max-width: 585px) {
+        font-size: 20px;
+    }
+`;
+
+export const ContentWrapper = styled.div`
+    height: 100%;
+    width: 100%;
+    display: flex;
     @media screen and (max-width: 585px) {
         flex-direction: column;
     }
 `;
 
-export const PatientWrapper = styled.div`
+export const LeftSide = styled.div`
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-right: 32px;
-    margin-top: 28px;
+    padding-right: 32px;
+    border-right: 1px solid #c2c1c1;
     
     @media screen and (max-width: 585px) {
-        margin-right: 0;
-        margin-bottom: 16px;
+        border-right: none;
+        padding: 0px;
+    }
+`;
+
+export const TitleDoctor = styled.div`
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 24px;
+    text-align: center;
+
+    @media screen and (max-width: 585px) {
+        font-size: 16px;
     }
 `;
 
@@ -39,19 +70,29 @@ export const UserImage = styled.div`
     margin-bottom: 8px;
 `;
 
-export const DoctorWrapper = styled.div`
+export const RightSide = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 12px;
+    margin-left: 32px;
     margin-top: 16px;
+    padding: 32px 0px;
 
     @media screen and (max-width: 585px) {
         margin-left: 0px;
+        padding: 16px 0px;
     }
+`;
+
+export const DoctorRating = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-bottom: 12px;
+    align-items: center;
 `;
 
 export const DoctorName = styled.div`
@@ -87,5 +128,5 @@ export const Time = styled.div`
 `;
 
 export const Date = styled.div`
-    margin-left: 8px;
+    margin-left: 4px;
 `;

@@ -1,19 +1,25 @@
 import { AppointmentBase, AppointmentItem, AppointmentWrapper, BoxAvailable, BoxCurrent, ContentWrapper, Date, DateWrapper, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorName, Section, Time, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
 
+import AppointmentPopper from "../../../Components/DoctorSchedule/Popper";
 import BasicRating from "../../../Components/Rating/Rating";
 import { Button } from "@mui/material";
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
+import DoctorPopper from "../../../Components/AppointmentDetail/Popper";
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import MajorSelector from "../../../Components/MajorSelector/MajorSelector";
-import Popper from "../../../Components/AppointmentDetail/Popper";
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import { useState } from "react";
 
 const Appointment = () => {
     const [detail, setDetail] = useState(false);
+    const [schedule, setSchedule] = useState(false);
 
     const showDetail = () => {
         setDetail(true);
+    }
+
+    const showSchedule = () => {
+        setSchedule(true);
     }
 
     return (
@@ -41,7 +47,7 @@ const Appointment = () => {
                                 <BasicRating />
                                 <DoctorName>Dr.Gustavo</DoctorName>
                             </DoctorInfoWrapperAvailable>
-                            <Button className="appointment" variant="contained">
+                            <Button onClick={showSchedule} className="appointment" variant="contained">
                                 Get
                             </Button>
                         </ContentWrapper>
@@ -139,7 +145,8 @@ const Appointment = () => {
 
             </Section>
 
-            {detail && (<Popper detail={detail} setDetail={setDetail} />)}
+            {detail && (<DoctorPopper detail={detail} setDetail={setDetail} />)}
+            {schedule && (<AppointmentPopper schedule={schedule} setSchedule={setSchedule} />)}
         </AppointmentBase>
     );
 }
