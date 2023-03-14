@@ -285,3 +285,38 @@ Animation
     height: 25px;
   }
 }
+
+/* Doctor home page */
+
+.MuiButton-root.home-detail {
+  height: 50%;
+  width: 15%;
+  margin-right: 12px;
+}
+
+@media screen and (max-width: 585px) {
+  .MuiButton-root.home-detail {
+    height: 40%;
+    font-size: 9px;
+  }
+}
+
+.MuiButton-root.send-result {
+  height: 75%;
+  width: 20%;
+  margin-left: 12px;
+  padding: 16px 8px;
+}
+
+@media screen and (max-width: 585px) {
+  .MuiButton-root.send-result {
+    height: 65%;
+    font-size: 9px;
+  }
+}
+
+@media screen and (min-width: 585px) and (max-width: 966px) {
+  .MuiButton-root.send-result {
+    font-size: 12px;
+  }
+}
