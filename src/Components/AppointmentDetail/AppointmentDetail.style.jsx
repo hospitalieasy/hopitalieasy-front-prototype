@@ -25,6 +25,7 @@ export const ContentWrapper = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
+    align-items: center;
     @media screen and (max-width: 585px) {
         flex-direction: column;
     }
@@ -46,7 +47,7 @@ export const LeftSide = styled.div`
     }
 `;
 
-export const TitleDoctor = styled.div`
+export const RoleTitle = styled.div`
     height: 100%;
     width: 100%;
     font-size: 18px;
@@ -58,7 +59,7 @@ export const TitleDoctor = styled.div`
     }
 `;
 
-export const PatientName = styled.div`
+export const RoleName = styled.div`
     text-align: center;
     margin-bottom: 12px;
 `;
@@ -79,7 +80,6 @@ export const RightSide = styled.div`
     justify-content: center;
     margin-left: 32px;
     margin-top: 16px;
-    padding: 32px 0px;
 
     @media screen and (max-width: 585px) {
         margin-left: 0px;
@@ -87,36 +87,12 @@ export const RightSide = styled.div`
     }
 `;
 
-export const DoctorRating = styled.div`
+export const Content = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
     margin-bottom: 12px;
     align-items: center;
-`;
-
-export const DoctorName = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin-bottom: 12px;
-    align-items: center;
-`;
-
-export const Major = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-`;
-
-export const DateWrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
 `;
 
 export const Label = styled.div`

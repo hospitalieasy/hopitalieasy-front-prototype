@@ -1,9 +1,19 @@
 import { AppointmentWrapper, ContentWrapper, HomeBase, InfoWrapper, PatientName, Title } from "../Styles/Home.style";
 
+import { AuthContext } from "..//..//..//Context/AuthContext";
 import { Button } from "@mui/material";
 import DefaultBox from "..//..//..//Components/DefaultBox/DefaultBox"
+import Popper from "..//..//..//Components/AppointmentDetail/Popper";
+import { useContext } from "react";
+import { useState } from "react";
 
 const Home = () => {
+    const { role } = useContext(AuthContext)
+    const [detail, setDetail] = useState(false);
+
+    const showDetail = () => {
+        setDetail(true);
+    }
 
     return (
         <HomeBase>
@@ -14,7 +24,7 @@ const Home = () => {
                         <InfoWrapper>
                             <PatientName>Gustavo Fringe</PatientName>
                         </InfoWrapper>
-                        <Button className="home-detail" color="primary" variant="contained">
+                        <Button onClick={showDetail} className="home-detail" color="primary" variant="contained">
                             DETAIL
                         </Button>
                         <Button className="send-result" color="success" variant="contained">
@@ -84,6 +94,7 @@ const Home = () => {
                 </AppointmentWrapper>
 
             </DefaultBox>
+            {detail && (<Popper role={role} detail={detail} setDetail={setDetail} />)}
         </HomeBase >
     );
 }

@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function AlertDialogSlide(props) {
-    const { schedule, setSchedule } = props;
+    const { role, schedule, setSchedule } = props;
 
     const handleClose = () => {
         setSchedule(false);

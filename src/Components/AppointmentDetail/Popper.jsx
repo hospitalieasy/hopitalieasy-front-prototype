@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function AlertDialogSlide(props) {
-    const { detail, setDetail } = props;
+    const { role, detail, setDetail } = props;
 
     const handleClose = () => {
         setDetail(false);
@@ -28,7 +28,7 @@ export default function AlertDialogSlide(props) {
                 aria-describedby="alert-dialog-slide-description"
             >
                 <DialogContent>
-                    <AppointmentDetail />
+                    <AppointmentDetail role={role} />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>CLOSE</Button>
