@@ -11,6 +11,7 @@ const AppScreen = () => {
         userIndex,
         setUserIndex,
         role,
+        setRole,
     } = useContext(AuthContext)
 
     const AppScreenBase = styled.div`
@@ -34,6 +35,7 @@ const AppScreen = () => {
                 <PatternLayout>
                     <AppBar
                         role={role}
+                        setRole={setRole}
                         setUser={setUser}
                         userIndex={userIndex}
                         setUserIndex={setUserIndex}

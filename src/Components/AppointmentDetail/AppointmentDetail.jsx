@@ -6,8 +6,6 @@ import React from 'react'
 const AppointmentDetail = (props) => {
     const { role } = props;
 
-    //console.log(role)
-
     return (
         <AppointmentDetailBase>
             <Title>Appointment Detail</Title>

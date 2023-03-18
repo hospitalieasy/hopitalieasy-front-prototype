@@ -1,4 +1,4 @@
-import { AppointmentBase, AppointmentItem, AppointmentWrapper, BoxAvailable, BoxCurrent, ContentWrapper, Date, DateWrapper, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorName, Section, Time, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
+import { AppointmentBase, AppointmentItem, AppointmentWrapper, AvailableAppointment, ContentWrapper, CurrentAppointments, Date, DateWrapper, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorName, Section, Time, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
 
 import AppointmentPopper from "../../../Components/DoctorSchedule/Popper";
 import { AuthContext } from "../../../Context/AuthContext";
@@ -14,6 +14,7 @@ import { useState } from "react";
 
 const Appointment = () => {
     const { role } = useContext(AuthContext)
+
     const [detail, setDetail] = useState(false);
     const [schedule, setSchedule] = useState(false);
 
@@ -36,7 +37,7 @@ const Appointment = () => {
 
             <Section width={"95%"} height={"88%"} margin={"20px 0px"} wrap={"wrap"}>
 
-                <BoxAvailable>
+                <AvailableAppointment>
 
                     <TitleWrapperOne>
                         <Title>Available Appointments</Title>
@@ -77,9 +78,9 @@ const Appointment = () => {
 
                     </AppointmentWrapper>
 
-                </BoxAvailable>
+                </AvailableAppointment>
 
-                <BoxCurrent>
+                <CurrentAppointments>
 
                     <TitleWrapperSecond>
                         <Title>Current Appointments</Title>
@@ -144,7 +145,7 @@ const Appointment = () => {
 
                     </AppointmentWrapper>
 
-                </BoxCurrent>
+                </CurrentAppointments>
 
             </Section>
 

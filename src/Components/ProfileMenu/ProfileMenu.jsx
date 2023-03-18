@@ -9,13 +9,14 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-// TODO: add notification when log out clicked
+// TODO: add notification when logout clicked
 
 export default function ProfileMenu(props) {
     const {
         setUser,
         userIndex,
         setUserIndex,
+        setRole,
     } = props;
 
     const [name, setName] = useState("");
@@ -51,6 +52,9 @@ export default function ProfileMenu(props) {
     const logoutHandler = () => {
         setUserIndex(null)
         setUser(false);
+        setRole("");
+
+        navigate("/");
     };
 
     return (

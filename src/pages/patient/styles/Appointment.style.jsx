@@ -21,7 +21,7 @@ export const Section = styled.div`
     }
 `;
 
-export const BoxAvailable = styled.div`
+export const AvailableAppointment = styled.div`
     width: 50%;
     height: 100%;
     margin-right: 12px;
@@ -115,7 +115,7 @@ export const DoctorName = styled.div`
     }
 `;
 
-export const BoxCurrent = styled.div`
+export const CurrentAppointments = styled.div`
     width: 50%;
     height: 100%;
     margin-left: 12px;

@@ -8,11 +8,12 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import axios from "axios";
 
 const AppBar = (props) => {
-    const { setUser, userIndex, setUserIndex, role } = props;
+    const { setUser, userIndex, setUserIndex, role, setRole } = props;
+
     const [name, setName] = useState("");
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-    /* fetch data with API */
+    /* fetching data and update state when screen width changes */
     useEffect(() => {
         axios.get(
             `http://localhost:3002/patients`
@@ -21,15 +22,13 @@ const AppBar = (props) => {
         }).catch((error) => {
             console.log(error);
         })
-    }, []);
 
-    /* update state when screen width changes */
-    useEffect(() => {
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth < 456);
         };
         window.addEventListener("resize", handleResize);
         handleResize();
+
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
@@ -49,6 +48,7 @@ const AppBar = (props) => {
                     <ProfileWrapper>
                         <ProfileMenu
                             role={role}
+                            setRole={setRole}
                             setUser={setUser}
                             userIndex={userIndex}
                             setUserIndex={setUserIndex}
