@@ -1,58 +1,68 @@
-import "..//..//Utilities/Style/Button.css"
-
-import { Content, DescriptionAppScreen, ImageContainer, Label, SlideShowBase, Title } from './SlideShow.style';
+import { Card, ContentWrapper, SlideShowBase, Text, TextWrapper, Title } from './SlideShowAppScreen.style';
 
 import React from 'react';
 import ReactSwipe from 'react-swipe';
 
-/* import { Button } from '@mui/material'; */
-/* import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'; */
+const SlideShowAppScreen = () => {
 
-const SlideShowAppScreen = (props) => {
-    const { padding, background, width, height, color } = props;
     let reactSwipeEl;
-
     function start() {
         setTimeout(function () {
             reactSwipeEl?.next();
             start();
-        }, 8000);
+        }, 9500);
     }
     start();
 
     return (
-        <SlideShowBase padding={padding} background={background} width={width} height={height}>
-            <ImageContainer>
-                <ReactSwipe
-                    className="carousel"
-                    swipeOptions={{ continuous: true }}
-                    ref={el => (reactSwipeEl = el)}
-                >
-                    <Content>
-                        <Title color={color}>Join Hospitalieasy Today</Title>
-                        <Label color={color}>Patient or Doctor</Label>
-                        <DescriptionAppScreen color={color}>Doctor or patient register and log in to the application. Take different actions based on your role and sit back and enjoy being able to do it from home</DescriptionAppScreen>
-                    </Content>
+        <SlideShowBase>
+            <ReactSwipe
+                className="carousel"
+                swipeOptions={{ continuous: true }}
+                ref={el => (reactSwipeEl = el)}
+            >
+                <Card>
+                    <ContentWrapper>
 
-                    <Content>
-                        <Title color={color}>Get Appointment</Title>
-                        <Label color={color}>Get Your First Appointment Online</Label>
-                        <DescriptionAppScreen color={color}>After logging into the system with your registered membership, make an appointment with the appropriate doctors at the appropriate time and save your time!</DescriptionAppScreen>
-                    </Content>
+                        <Title>Register free</Title>
+                        <Text>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis aliquid placeat hic illo distinctio, dolore pariatur molestiae quo cum. Nam corrupti sunt nostrum exercitationem eveniet dignissimos ex earum, tempore at.
+                        </Text>
 
-                    <Content>
-                        <Title color={color}>See Your Results</Title>
-                        <Label color={color}>Check Your Results After Appointment</Label>
-                        <DescriptionAppScreen color={color}>See the test results sent to you after your doctor's appointment on the system before you go to the hospital and review the results.</DescriptionAppScreen>
-                    </Content>
+                    </ContentWrapper>
+                </Card>
 
-                </ReactSwipe>
-            </ImageContainer>
-            {/* <ButtonContainer>
-                <Button className='prev' onClick={() => reactSwipeEl.prev()} variant="contained" size="small"><ArrowBackIosIcon /></Button>
-                <Button className='next' onClick={() => reactSwipeEl.next()} variant="contained" size="small"><ArrowForwardIosIcon /></Button>
-            </ButtonContainer> */}
+                <Card>
+                    <ContentWrapper>
+                        <Title>Get Appointment</Title>
+                        <Text>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis aliquid placeat hic illo distinctio, dolore pariatur molestiae quo cum. Nam corrupti sunt nostrum exercitationem eveniet dignissimos ex earum, tempore at.
+                        </Text>
+                    </ContentWrapper>
+                </Card>
+
+                <Card>
+                    <ContentWrapper>
+
+                        <Title>See your test result</Title>
+                        <Text>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis aliquid placeat hic illo distinctio, dolore pariatur molestiae quo cum. Nam corrupti sunt nostrum exercitationem eveniet dignissimos ex earum, tempore at.
+                        </Text>
+
+                    </ContentWrapper>
+                </Card>
+
+                <Card>
+                    <ContentWrapper>
+
+                        <Title>See the nearest hospitals && pharmacy</Title>
+                        <Text>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis aliquid placeat hic illo distinctio, dolore pariatur molestiae quo cum. Nam corrupti sunt nostrum exercitationem eveniet dignissimos ex earum, tempore at.
+                        </Text>
+
+                    </ContentWrapper>
+                </Card>
+            </ReactSwipe>
         </SlideShowBase>
     );
 };

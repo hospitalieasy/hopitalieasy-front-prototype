@@ -16,7 +16,7 @@ const Home = () => {
                     background={"white"}
                     margin={"20px 12px"}
                 >
-                    <SlideShowAppScreen padding={"30px"} width={"90%"} height={"90%"} />
+                    <SlideShowAppScreen />
                 </DefaultBox>
 
                 <DefaultBox width={"100%"} height={"45%"} background={"white"} margin={"20px 12px"}>

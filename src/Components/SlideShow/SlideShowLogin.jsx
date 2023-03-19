@@ -1,28 +1,34 @@
-import { Card, ContentWrapper, Logo, Section, Text, TextWrapper, Title } from "./Home.style";
+import { Card, ContentWrapper, Image, Logo, SlideShowBase, Text, TextWrapper, Title } from './SlideShowLogin.style';
 
-import { AuthContext } from "../../Context/AuthContext";
-import Contact from "../../Components/Contact/Contact";
-import DefaultLayout from "../../Components/DefaultLayout/DefaultLayout";
-import Footer from "../../Components/Footer/Footer";
-import HeroBanner from "../../Components/HeroBanner/HeroBanner";
-import Navbar from "../../Components/Navbar/Navbar";
-import { useContext } from "react";
+import React from 'react';
+import ReactSwipe from 'react-swipe';
+import appointment from "..//..//Utilities/Images/appointment.png"
+import map from "..//..//Utilities/Images/map.png"
+import register from "..//..//Utilities/Images/register.png"
+import result from "..//..//Utilities/Images/result.png"
 
-const Home = () => {
-    const {
-        role,
-        setRole,
-    } = useContext(AuthContext);
+const SlideShowLogin = () => {
+
+    let reactSwipeEl;
+    function start() {
+        setTimeout(function () {
+            reactSwipeEl?.next();
+            start();
+        }, 9500);
+    }
+    start();
 
     return (
-        <DefaultLayout>
-            <Navbar role={role} setRole={setRole} />
-            <HeroBanner />
-            <Section>
+        <SlideShowBase>
+            <ReactSwipe
+                className="carousel"
+                swipeOptions={{ continuous: true }}
+                ref={el => (reactSwipeEl = el)}
+            >
                 <Card>
                     <ContentWrapper>
                         <Logo>
-                            <img src="https://img.icons8.com/nolan/100/add-user-male.png" alt="" />
+                            <Image src={register} />
                         </Logo>
                         <TextWrapper>
                             <Title>Register free</Title>
@@ -32,10 +38,11 @@ const Home = () => {
                         </TextWrapper>
                     </ContentWrapper>
                 </Card>
+
                 <Card>
                     <ContentWrapper>
                         <Logo>
-                            <img src="https://img.icons8.com/nolan/64/tear-off-calendar.png" alt="" />
+                            <Image src={appointment} />
                         </Logo>
                         <TextWrapper>
                             <Title>Get Appointment</Title>
@@ -45,10 +52,11 @@ const Home = () => {
                         </TextWrapper>
                     </ContentWrapper>
                 </Card>
+
                 <Card>
                     <ContentWrapper>
                         <Logo>
-                            <img src="https://img.icons8.com/nolan/64/report-card.png" alt="" />
+                            <Image src={result} />
                         </Logo>
                         <TextWrapper>
                             <Title>See your test result</Title>
@@ -58,10 +66,11 @@ const Home = () => {
                         </TextWrapper>
                     </ContentWrapper>
                 </Card>
+
                 <Card>
                     <ContentWrapper>
                         <Logo>
-                            <img src="https://img.icons8.com/nolan/64/hospital-2.png" alt="" />
+                            <Image src={map} />
                         </Logo>
                         <TextWrapper>
                             <Title>See the nearest hospitals && pharmacy</Title>
@@ -71,11 +80,9 @@ const Home = () => {
                         </TextWrapper>
                     </ContentWrapper>
                 </Card>
-            </Section>
-            <Contact />
-            <Footer />
-        </DefaultLayout>
+            </ReactSwipe>
+        </SlideShowBase>
     );
-}
+};
 
-export default Home;
+export default SlideShowLogin;

@@ -20,15 +20,6 @@ export const Card = styled.div`
     padding: 36px 0px;
 `;
 
-
-export const Label = styled.div`
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    font-size: 28px;
-    color: white;
-`;
-
 export const ContentWrapper = styled.div`
     width: 100%;
     height: 100%;

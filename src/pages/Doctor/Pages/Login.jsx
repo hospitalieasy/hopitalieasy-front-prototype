@@ -6,6 +6,7 @@ import DefaultLayout from "../../../Components/DefaultLayout/DefaultLayout";
 import { Link } from "react-router-dom";
 import LoginForm from "../../../Components/LoginForm/LoginForm";
 import React from "react";
+import SlideShowLogin from "../../../Components/SlideShow/SlideShowLogin";
 import { useContext } from "react";
 
 const Login = () => {
@@ -41,7 +42,7 @@ const Login = () => {
                         </IconWrapper>
                     </LoginSide>
                     <SliderSide>
-
+                        <SlideShowLogin />
                     </SliderSide>
                 </DefaultBox>
             </LoginBase>
