@@ -1,43 +1,4 @@
 /*
-Navbar Items
-*/
-
-.MuiButton-root.home {
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  padding: 6px 30px;
-  text-transform: capitalize;
-  width: 50%;
-}
-
-.MuiButton-root.home:hover {
-  background-color: #3b3350;
-}
-
-.MuiButton-root.about {
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  padding: 6px 30px;
-  width: 50%;
-  text-transform: capitalize;
-}
-
-.MuiButton-root.about:hover {
-  background-color: #3b3350;
-}
-
-.MuiButton-root.contact {
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  padding: 6px 30px;
-  text-transform: capitalize;
-}
-
-.MuiButton-root.contact:hover {
-  background-color: #3b3350;
-}
-
-/*
 Navbar Items and Hero Banner Items
 */
 
@@ -54,20 +15,19 @@ Navbar Items and Hero Banner Items
 }
 
 .MuiButton-root.doctor {
-  background-color: #7440e5;
+  background-color: #0048ff;
 }
 
 .MuiButton-root.doctor:hover {
-  background-color: #1c23a8;
+  background-color: #002fa4;
 }
 
 .MuiButton-root.patient {
-  color: #7440e5;
-  border-color: #7440e5;
+  background-color: #7440e5;
 }
 
 .MuiButton-root.patient:hover {
-  border-color: #1e1436;
+  background-color: #1c23a8;
 }
 
 /*

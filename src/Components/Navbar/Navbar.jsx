@@ -15,17 +15,19 @@ const Navbar = () => {
             <RightSide>
                 <ButtonContainer>
                     <Button
+                        className="patient"
                         sx={{
                             marginRight: "30px"
                         }}
                         component={Link}
                         to={'/patient-login'}
-                        variant="outlined"
+                        variant="contained"
                         color="secondary"
                         size="medium">
                         Patient
                     </Button>
                     <Button
+                        className="doctor"
                         component={Link}
                         to={'/doctor-login'}
                         variant="contained"

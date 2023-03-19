@@ -5,7 +5,6 @@ export const ContactBase = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
-
 `;
 
 export const Title = styled.div`
@@ -23,10 +22,10 @@ export const Title = styled.div`
 `;
 
 export const FromWrapper = styled.div`
-    width: 95%;
+    width: 90%;
     height: 100%;
-    padding: 24px;
-    background: linear-gradient(to right, #27296d, #161122);
+    padding: 20px;
+    background: linear-gradient(#2f2548, #27296d, #35376e);
     border-radius: 10px;
     margin-bottom: 60px;
 `;
