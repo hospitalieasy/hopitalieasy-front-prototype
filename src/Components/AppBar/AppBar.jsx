@@ -14,14 +14,19 @@ const AppBar = (props) => {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     /* fetching data and update state when screen width changes */
+    let END_POINT;
     useEffect(() => {
-        axios.get(
-            `http://localhost:3002/patients`
-        ).then((response) => {
-            setName(response.data[userIndex].Name);
-        }).catch((error) => {
-            console.log(error);
-        })
+        if (role === "doctor") {
+            END_POINT = `http://localhost:3002/doctors`;
+        } else {
+            END_POINT = `http://localhost:3002/patients`;
+        }
+        axios.get(END_POINT)
+            .then((response) => {
+                setName(response.data[userIndex].Name);
+            }).catch((error) => {
+                console.log(error);
+            })
 
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth < 456);
@@ -30,7 +35,7 @@ const AppBar = (props) => {
         handleResize();
 
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [END_POINT]);
 
     return (
         <AppBarBase>

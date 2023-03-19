@@ -3,7 +3,7 @@ import { AppointmentWrapper, ContentWrapper, HomeBase, InfoWrapper, PatientName,
 import { AuthContext } from "..//..//..//Context/AuthContext";
 import { Button } from "@mui/material";
 import DefaultBox from "..//..//..//Components/DefaultBox/DefaultBox"
-import Popper from "..//..//..//Components/AppointmentDetail/Popper";
+import Popper from "..//..//..//Components/Popper/Popper";
 import { useContext } from "react";
 import { useState } from "react";
 

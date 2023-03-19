@@ -1,13 +1,12 @@
 import { AppointmentBase, AppointmentItem, AppointmentWrapper, AvailableAppointment, ContentWrapper, CurrentAppointments, Date, DateWrapper, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorName, Section, Time, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
 
-import AppointmentPopper from "../../../Components/DoctorSchedule/Popper";
 import { AuthContext } from "../../../Context/AuthContext";
 import BasicRating from "../../../Components/Rating/Rating";
 import { Button } from "@mui/material";
 import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
-import DoctorPopper from "../../../Components/AppointmentDetail/Popper";
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import MajorSelector from "../../../Components/MajorSelector/MajorSelector";
+import Popper from "../../../Components/Popper/Popper";
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import { useContext } from "react";
 import { useState } from "react";
@@ -149,8 +148,8 @@ const Appointment = () => {
 
             </Section>
 
-            {detail && (<DoctorPopper role={role} detail={detail} setDetail={setDetail} />)}
-            {schedule && (<AppointmentPopper schedule={schedule} setSchedule={setSchedule} />)}
+            {detail && (<Popper role={role} detail={detail} setDetail={setDetail} />)}
+            {schedule && (<Popper schedule={schedule} setSchedule={setSchedule} />)}
         </AppointmentBase>
     );
 }

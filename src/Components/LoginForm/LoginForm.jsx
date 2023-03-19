@@ -17,9 +17,10 @@ const LoginForm = (props) => {
     } = props;
 
     const [state, dispatch] = useReducer(loginReducer, INITIAL_STATE);
-    let END_POINT;
+    const navigate = useNavigate();
 
-    /* choosing role */
+    /* choosing role and fetching API */
+    let END_POINT;
     useEffect(() => {
         if (title === "Doctor Login") {
             setRole("doctor");
@@ -28,16 +29,12 @@ const LoginForm = (props) => {
             setRole("patient");
             END_POINT = `http://localhost:3002/patients`;
         }
-    }, [])
 
-    /* fetching API */
-    useEffect(() => {
         axios.get(END_POINT)
             .then((response) => { dispatch({ type: SET_DATA, payload: response.data }) })
             .catch((error) => console.log(error));
     }, [END_POINT])
 
-    const navigate = useNavigate();
 
     /* gets the data from server and checks is there any match user */
     const authHandler = async (e) => {

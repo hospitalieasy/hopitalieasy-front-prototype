@@ -1,7 +1,7 @@
-import AppBar from "../../../Components/AppBar/AppBar";
-import { AuthContext } from "..//..//..//Context/AuthContext"
+import AppBar from "../../Components/AppBar/AppBar";
+import { AuthContext } from "../../Context/AuthContext"
 import { Outlet } from "react-router-dom";
-import { PatternLayout } from "../../../Components/DefaultLayout/DefaultLayout.style";
+import { PatternLayout } from "../../Components/DefaultLayout/DefaultLayout.style";
 import styled from "styled-components";
 import { useContext } from "react";
 

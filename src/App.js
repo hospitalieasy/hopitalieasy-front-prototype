@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import AppScreen from "./Pages/Common/AppScreen";
 import { AuthContext } from "./Context/AuthContext";
-import DoctorAppScreen from "./Pages/Doctor/Pages/AppScreen";
 import DoctorHome from "./Pages/Doctor/Pages/Home";
 import DoctorLogin from "./Pages/Doctor/Pages/Login";
 import DoctorProfile from "./Pages/Doctor/Pages/Profile";
@@ -9,7 +9,6 @@ import Error from "./Utilities/Pages/Error";
 import Future from "./Utilities/Pages/Future";
 import Home from "./Pages/Common/Home";
 import Logged from "./Context/Logged";
-import PatientAppScreen from "./Pages/Patient/Pages/AppScreen";
 import PatientAppointment from "./Pages/Patient/Pages/Appointment";
 import PatientHome from "./Pages/Patient/Pages/Home";
 import PatientLogin from "./Pages/Patient/Pages/Login";
@@ -42,7 +41,7 @@ const App = () => {
           <Route element={<ProtectedRoutes />}>
             {/* if it is patient */}
             {role === "patient" && (
-              <Route path="/app-screen" element={<PatientAppScreen />}>
+              <Route path="/app-screen" element={<AppScreen />}>
                 <Route path="" element={<PatientHome />} />
                 <Route path="profile" element={<PatientProfile />} />
                 <Route path="appointment" element={<PatientAppointment />} />
@@ -52,7 +51,7 @@ const App = () => {
 
             {/* if it is doctor */}
             {role === "doctor" && (
-              <Route path="/app-screen" element={<DoctorAppScreen />}>
+              <Route path="/app-screen" element={<AppScreen />}>
                 <Route path="" element={<DoctorHome />} />
                 <Route path="profile" element={<DoctorProfile />} />
               </Route>

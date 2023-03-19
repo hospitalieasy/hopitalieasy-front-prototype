@@ -23,6 +23,7 @@ export default function ProfileMenu(props) {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const navigate = useNavigate();
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -32,8 +33,7 @@ export default function ProfileMenu(props) {
         setAnchorEl(null);
     };
 
-
-    /* fetch data from API */
+    /* fetching data */
     useEffect(() => {
         axios.get(
             `http://localhost:3002/patients`
@@ -44,7 +44,6 @@ export default function ProfileMenu(props) {
         })
     }, [])
 
-    const navigate = useNavigate();
     const showProfile = () => {
         navigate("/app-screen/profile")
     }

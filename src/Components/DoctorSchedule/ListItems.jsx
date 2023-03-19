@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
