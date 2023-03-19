@@ -9,31 +9,36 @@ import axios from "axios";
 import { userSchema } from "../../FormValidation/UserValidation";
 
 const InformationTab = (props) => {
-    const { userIndex } = props;
+    const { userIndex, role } = props;
 
     const [state, dispatch] = useReducer(informationTabReducer, INITIAL_STATE);
 
+    let END_POINT;
     /* fetching API */
     useEffect(() => {
-        axios.get(
-            `http://localhost:3002/patients`
-        ).then((response) => {
-            dispatch({
-                type: SET_DATA_TO_USER, payload: {
-                    user: {
-                        id: response.data[userIndex].Id,
-                        name: response.data[userIndex].Name,
-                        surname: response.data[userIndex].Surname,
-                        birthdate: response.data[userIndex].Birthdate,
-                        email: response.data[userIndex].Email,
-                        password: response.data[userIndex].Password,
-                        telno: response.data[userIndex].Telno,
+        if (role === "doctor") {
+            END_POINT = `http://localhost:3002/doctors`;
+        } else {
+            END_POINT = `http://localhost:3002/patients`;
+        }
+        axios.get(END_POINT)
+            .then((response) => {
+                dispatch({
+                    type: SET_DATA_TO_USER, payload: {
+                        user: {
+                            id: response.data[userIndex].Id,
+                            name: response.data[userIndex].Name,
+                            surname: response.data[userIndex].Surname,
+                            birthdate: response.data[userIndex].Birthdate,
+                            email: response.data[userIndex].Email,
+                            password: response.data[userIndex].Password,
+                            telno: response.data[userIndex].Telno,
+                        }
                     }
-                }
+                })
+            }).catch((error) => {
+                console.log(error);
             })
-        }).catch((error) => {
-            console.log(error);
-        })
     }, [])
 
     /* checks the inputs are valid */

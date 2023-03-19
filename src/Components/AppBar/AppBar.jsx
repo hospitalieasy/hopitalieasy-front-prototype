@@ -52,7 +52,6 @@ const AppBar = (props) => {
                     </NotificationWrapper>
                     <ProfileWrapper>
                         <ProfileMenu
-                            role={role}
                             setRole={setRole}
                             setUser={setUser}
                             userIndex={userIndex}

@@ -8,6 +8,7 @@ import { useContext } from "react";
 const Profile = () => {
     const {
         userIndex,
+        role,
     } = useContext(AuthContext);
 
     return (
@@ -15,6 +16,7 @@ const Profile = () => {
             <Section width={"95%"} height={"100%"}>
                 <DefaultBox width={"75%"} height={"90%"} background="#fff">
                     <InformationTab
+                        role={role}
                         userIndex={userIndex}
                     />
                 </DefaultBox >
