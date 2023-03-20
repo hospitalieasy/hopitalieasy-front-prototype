@@ -43,7 +43,11 @@ export const Text = styled.div`
     font-size: 18px;
     color: black;
 
-    @media screen and (max-width: 585px) {
-        font-size: 12px;
+    @media screen and (max-width: 500px) {
+        font-size: 13px;
+    }
+
+    @media screen and (max-width: 585px) and (min-width: 500px){
+        font-size: 16px;
     }
 `;

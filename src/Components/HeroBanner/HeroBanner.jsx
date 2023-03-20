@@ -1,10 +1,21 @@
 import { ButtonWrapper, Content, Description, HeroBannerBase, Image, LeftSide, RightSide, Title } from "./HeroBanner.style";
 
 import { Button } from "@mui/material";
-import { Link } from "react-scroll";
 import bannerImage from "..//..//Utilities/Images/banner-image.png"
+import { useNavigate } from "react-router-dom";
 
-const HeroBanner = () => {
+const HeroBanner = (props) => {
+    const { user } = props;
+
+    const navigate = useNavigate();
+    const registerNavigator = () => {
+        if (user) {
+            navigate("/app-screen");
+        } else {
+            navigate("/patient-login");
+        }
+    }
+
     return (
         <HeroBannerBase>
             <LeftSide>
@@ -16,16 +27,7 @@ const HeroBanner = () => {
                         Make your life easier with the Hospitalieasy app starting today. Get started right now! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, quibusdam?
                     </Description>
                     <ButtonWrapper>
-                        <Link
-                            activeClass="active"
-                            to="footer"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
-                        >
-                            <Button className="get-started" variant="contained" size="large">Get Started</Button>
-                        </Link>
+                        <Button onClick={registerNavigator} className="get-started" variant="contained" size="large">Get Started</Button>
                     </ButtonWrapper>
                 </Content>
             </LeftSide>

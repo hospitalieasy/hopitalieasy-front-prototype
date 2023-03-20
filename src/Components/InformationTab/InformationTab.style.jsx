@@ -18,6 +18,10 @@ export const Title = styled.div`
     @media screen and (max-width: 585px) {
         display: none;
     }
+
+    @media screen and (max-width: 768px) {
+        font-size: 26px;
+    }
 `;
 
 export const FormWrapper = styled.div`

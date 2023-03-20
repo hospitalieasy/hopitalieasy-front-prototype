@@ -5,7 +5,7 @@ export const AppBarBase = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-top: 4px;
+    margin: 12px 0px;
     
     animation:  0.5s ease-out 0s 1 slideInFromBottom;
     @keyframes slideInFromBottom {
@@ -34,7 +34,11 @@ export const Title = styled.div`
         display: none;
     }
 
-    @media screen and (max-width: 1026px) {
+    @media screen and (max-width: 768px) {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 1026px) and (min-width: 768px) {
         font-size: 24px;
     }
 `;

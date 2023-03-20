@@ -19,9 +19,9 @@ const Home = () => {
                     <SlideShowAppScreen />
                 </DefaultBox>
 
-                <DefaultBox width={"100%"} height={"45%"} background={"white"} margin={"20px 12px"}>
+                {/* <DefaultBox width={"100%"} height={"45%"} background={"white"} margin={"20px 12px"}>
                     <DoctorReview title={"Quick Appointments (Future Content)"} />
-                </DefaultBox>
+                </DefaultBox> */}
 
                 <DefaultBox width={"100%"} height={"220px"} background={"white"} margin={"20px"}>
                     <h1>Map 1</h1>

@@ -12,12 +12,13 @@ const Home = () => {
     const {
         role,
         setRole,
+        user,
     } = useContext(AuthContext);
 
     return (
         <DefaultLayout>
             <Navbar role={role} setRole={setRole} />
-            <HeroBanner />
+            <HeroBanner user={user} />
             <Section>
                 <Card>
                     <ContentWrapper>
