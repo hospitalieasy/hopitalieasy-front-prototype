@@ -88,7 +88,7 @@ export const ContentWrapper = styled.div`
     justify-content: space-between;
     background-color: #737baf;
     border-radius: 10px;
-    padding: 0px 12px;
+    padding: 32px 12px;
     margin: 8px 0px;
 `;
 

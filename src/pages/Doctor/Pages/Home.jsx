@@ -2,6 +2,7 @@ import { AppointmentWrapper, ContentWrapper, HomeBase, InfoWrapper, PatientName,
 
 import { AuthContext } from "..//..//..//Context/AuthContext";
 import { Button } from "@mui/material";
+import CheckPopper from "..//..//..//Components/Checker/CheckPopper"
 import DefaultBox from "..//..//..//Components/DefaultBox/DefaultBox"
 import Popper from "..//..//..//Components/Popper/Popper";
 import { useContext } from "react";
@@ -9,7 +10,10 @@ import { useState } from "react";
 
 const Home = () => {
     const { role } = useContext(AuthContext)
+
     const [detail, setDetail] = useState(false);
+    const [schedule, setSchedule] = useState(false);
+    const [checkDecider, setCheckDecider] = useState(false);
 
     const showDetail = () => {
         setDetail(true);
@@ -94,7 +98,25 @@ const Home = () => {
                 </AppointmentWrapper>
 
             </DefaultBox>
-            {detail && (<Popper role={role} detail={detail} setDetail={setDetail} />)}
+            {detail &&
+                (<Popper
+                    role={role}
+                    detail={detail}
+                    setDetail={setDetail}
+                    schedule={schedule}
+                    setSchedule={setSchedule}
+                    checkDecider={checkDecider}
+                    setCheckDecider={setCheckDecider}
+                />)}
+            {checkDecider &&
+                (<CheckPopper
+                    detail={detail}
+                    setDetail={setDetail}
+                    schedule={schedule}
+                    setSchedule={setSchedule}
+                    checkDecider={checkDecider}
+                    setCheckDecider={setCheckDecider}
+                />)}
         </HomeBase >
     );
 }

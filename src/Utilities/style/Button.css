@@ -204,13 +204,13 @@ Animation
 
 /* Appointment */
 
-.MuiButton-root.appointment {
+.MuiButton-root.appointment-get {
   width: 100px;
-  height: 40px;
+  height: 35px;
 }
 
 @media screen and (max-width: 500px) {
-  .MuiButton-root.appointment {
+  .MuiButton-root.appointment-get {
     font-size: 11px;
     width: 55px;
     min-width: auto;
@@ -218,9 +218,7 @@ Animation
   }
 }
 
-/* Appointment */
-
-.MuiButton-root.appointment-delete {
+/* .MuiButton-root.appointment-delete {
   width: 100px;
   height: 40px;
 }
@@ -233,16 +231,17 @@ Animation
     height: 30px;
   }
 }
-
+ */
 .MuiButton-root.appointment-detail {
-  height: 30px;
+  height: 35px;
+  width: 100px;
   margin-top: -4px;
 }
 
 @media screen and (max-width: 454px) {
   .MuiButton-root.appointment-detail {
     font-size: 11px;
-    height: 25px;
+    height: 30px;
   }
 }
 

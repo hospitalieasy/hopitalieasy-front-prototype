@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import AppointmentDetail from "..//AppointmentDetail/AppointmentDetail"
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DoctorSchedule from '../DoctorSchedule/DoctorSchedule';
 import Slide from '@mui/material/Slide';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -14,44 +12,50 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function AlertDialogSlide(props) {
     const {
-        role,
-        detail,
-        setDetail,
-
-        schedule,
-        setSchedule,
-
         checkDecider,
         setCheckDecider,
-    } = props;
+        detail,
+        setDetail,
+        schedule,
+        setSchedule,
+    } =
+        props;
 
     const handleClose = () => {
-        if (detail) {
-            setDetail(false);
-        } else {
-            setSchedule(false);
-        }
-    };
+        setCheckDecider(false);
+    }
 
-    const CheckPopper = () => {
-        setCheckDecider(true);
+    const cancelAppointment = () => {
+        //cancel appointment with api
+        //loading
+        setCheckDecider(false);
+        setDetail(false);
+    }
+
+    const chooseHour = () => {
+        //choose hour with api
+        //loading
+        setCheckDecider(false);
+        setSchedule(false);
     }
 
     return (
         <Dialog
-            open={detail || schedule}
+            open={checkDecider}
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
         >
             <DialogContent>
-                {detail && (<AppointmentDetail role={role} />)}
-                {schedule && (<DoctorSchedule />)}
+                <div>
+                    {detail && (<span>Are you sure to cancel the appointment?</span>)}
+                    {schedule && (<span>Are you sure to choose this hour?</span>)}
+                </div>
             </DialogContent>
             <DialogActions>
-                {detail && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
-                {schedule && (<Button onClick={CheckPopper}>Choose</Button>)}
+                {detail && (<Button onClick={cancelAppointment}>CANCEL APPOINTMENT</Button>)}
+                {schedule && (<Button onClick={chooseHour}>Choose</Button>)}
                 <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>
         </Dialog>
