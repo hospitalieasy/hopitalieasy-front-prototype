@@ -17,7 +17,11 @@ const Appointment = () => {
 
     const [checkDecider, setCheckDecider] = useState(false);
 
-    const [detail, setDetail] = useState(false);
+    const [detail, setDetail] = useState({
+        show: false,
+        index: "",
+    }
+    );
     const [schedule, setSchedule] = useState({
         show: false,
         doctorId: "",
@@ -25,6 +29,8 @@ const Appointment = () => {
 
     const [doctors, setDoctors] = useState([]);
     const [disabledAppointments, setDisabledAppointments] = useState([]);
+    const [currentAppointments, setCurrentAppointments] = useState([]);
+    const [filteredAppointments, setFilteredAppointments] = useState([]);
     const [newAppointment, setNewAppointment] = useState({
         doctorId: schedule.doctorId,
         patientId: userId,
@@ -32,19 +38,30 @@ const Appointment = () => {
         hour: "",
     });
 
-
     useEffect(() => {
         axios.get(process.env.REACT_APP_DOCTOR_URL)
             .then((response) => setDoctors(response.data))
             .catch((error) => console.log(error))
 
         axios.get(process.env.REACT_APP_APPOINTMENT_URL)
-            .then((response) => setDisabledAppointments(response.data))
+            .then((response) => {
+                setDisabledAppointments(response.data)
+                setCurrentAppointments(response.data)
+            })
             .catch((error) => console.log(error))
     }, [])
 
-    const showDetail = () => {
-        setDetail(true);
+    useEffect(() => {
+        if (currentAppointments.length > 0) {
+            const filteredAppointments = currentAppointments.filter(
+                (appointment) => appointment.patientId === userId
+            );
+            setFilteredAppointments(filteredAppointments);
+        }
+    }, [currentAppointments, userId]);
+
+    const showDetail = (index) => {
+        setDetail({ show: true, index: index });
     }
 
     const showSchedule = (doctorId) => {
@@ -88,25 +105,32 @@ const Appointment = () => {
                     </TitleWrapperSecond>
                     <AppointmentWrapper>
                         <AppointmentItem>
-                            <ContentWrapper>
-                                <DoctorInfoWrapperCurrent>
-                                    <DateWrapper>
-                                        <Time>10:00</Time>
-                                        <Date>22/03/2023</Date>
-                                    </DateWrapper>
-                                    <DoctorName>Dr.Gustavo</DoctorName>
-                                </DoctorInfoWrapperCurrent>
-                                <Button onClick={showDetail} color="success" className="appointment-detail" variant="contained">
-                                    DETAIL
-                                </Button>
-                            </ContentWrapper>
+
+                            {filteredAppointments.map((appointment, index) => (
+                                <ContentWrapper key={index}>
+                                    <DoctorInfoWrapperCurrent>
+                                        <DateWrapper>
+                                            <Time>{appointment.appHour}</Time>
+                                        </DateWrapper>
+                                        <DoctorName>
+                                            Dr.{
+                                                doctors.find(doctor => doctor.id === appointment.doctorId)?.name
+                                            }
+                                        </DoctorName>
+                                    </DoctorInfoWrapperCurrent>
+                                    <Button onClick={() => { showDetail(index) }} color="success" className="appointment-detail" variant="contained">
+                                        DETAIL
+                                    </Button>
+                                </ContentWrapper>
+                            ))}
+
                         </AppointmentItem>
                     </AppointmentWrapper>
                 </CurrentAppointments>
 
             </Section>
 
-            {(detail || schedule.show) &&
+            {(detail.show || schedule.show) &&
                 (<Popper
                     role={role}
                     detail={detail}
@@ -117,6 +141,9 @@ const Appointment = () => {
 
                     disabledAppointments={disabledAppointments}
                     setNewAppointment={setNewAppointment}
+
+                    doctors={doctors}
+                    filteredAppointments={filteredAppointments}
                 />)
             }
             {checkDecider &&

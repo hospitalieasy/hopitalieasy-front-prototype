@@ -5,6 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
+import axios from 'axios';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -20,8 +21,15 @@ export default function AlertDialogSlide(props) {
         setSchedule,
 
         newAppointment,
-    } =
-        props;
+    } = props;
+
+    const [appointments, setAppointments] = React.useState([]);
+
+    React.useEffect(() => {
+        axios.get(process.env.REACT_APP_APPOINTMENT_URL)
+            .then((response) => setAppointments(response.data))
+            .catch((error) => console.log(error))
+    }, [])
 
     const handleClose = () => {
         setCheckDecider(false);
@@ -34,9 +42,30 @@ export default function AlertDialogSlide(props) {
         setDetail(false);
     }
 
-    const chooseApponitment = () => {
+    const chooseAppointment = async () => {
+        const filteredAppointment = appointments.filter(appointment =>
+            appointment.doctorId === newAppointment.doctorId &&
+            appointment.patientId === newAppointment.patientId &&
+            appointment.appDay === newAppointment.day &&
+            appointment.appHour === newAppointment.hour
+        );
 
-    }
+        const appId = filteredAppointment.appId;
+
+        const goingData = {
+            appStatus: true,
+            patientId: newAppointment.patientId
+        }
+
+        await axios.put(`${process.env.REACT_APP_APPOINTMENT_URL}/${appId}`, goingData)
+            .then(() => {
+                // snackbar
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    };
+
 
     return (
         <Dialog
@@ -55,7 +84,7 @@ export default function AlertDialogSlide(props) {
             <DialogActions>
                 {detail && (<Button onClick={cancelAppointment}>CANCEL APPOINTMENT</Button>)}
 
-                {schedule && (<Button onClick={chooseApponitment}>CHOOSE</Button>)}
+                {schedule && (<Button onClick={chooseAppointment}>CHOOSE</Button>)}
 
                 <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>

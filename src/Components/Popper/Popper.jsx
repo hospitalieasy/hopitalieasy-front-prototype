@@ -23,6 +23,9 @@ export default function AlertDialogSlide(props) {
 
         disabledAppointments,
         setNewAppointment,
+
+        doctors,
+        filteredAppointments,
     } = props;
 
     const handleClose = () => {
@@ -39,14 +42,21 @@ export default function AlertDialogSlide(props) {
 
     return (
         <Dialog
-            open={detail || schedule.show}
+            open={detail.show || schedule.show}
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
         >
             <DialogContent>
-                {detail && (<AppointmentDetail role={role} />)}
+                {detail.show && (
+                    <AppointmentDetail
+                        role={role}
+                        detail={detail}
+                        doctors={doctors}
+                        filteredAppointments={filteredAppointments}
+                    />
+                )}
 
                 {schedule.show && (
                     <DoctorSchedule
@@ -58,7 +68,7 @@ export default function AlertDialogSlide(props) {
             </DialogContent>
 
             <DialogActions>
-                {detail && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
+                {detail.show && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
 
                 {schedule.show && (<Button onClick={CheckPopper}>Choose</Button>)}
 

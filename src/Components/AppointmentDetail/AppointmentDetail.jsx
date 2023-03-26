@@ -2,9 +2,34 @@ import { AppointmentDetailBase, Content, ContentWrapper, Date, Label, LeftSide, 
 
 import BasicRating from '../Rating/Rating'
 import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const AppointmentDetail = (props) => {
-    const { role } = props;
+    const { role, doctors, filteredAppointments, detail } = props;
+
+    const [appointmentDetail, setAppointmentDetail] = useState({
+        name: "",
+        rating: "",
+        hour: "",
+        day: "",
+    })
+
+    const doctor = doctors.find((doctor) => doctor.id === filteredAppointments[detail.index].doctorId);
+
+    useEffect(() => {
+        const filteredDetails = filteredAppointments.find(
+            (appointment) => appointment.doctorId === doctor.id
+        );
+        if (doctor && filteredDetails) {
+            setAppointmentDetail({
+                name: doctor.name,
+                rating: doctor.rate,
+                hour: filteredDetails.appHour,
+                day: filteredDetails.appDay,
+            });
+        }
+    }, [])
 
     return (
         <AppointmentDetailBase>
@@ -14,24 +39,22 @@ const AppointmentDetail = (props) => {
                     <LeftSide>
                         <RoleTitle>Doctor</RoleTitle>
                         <UserImage>
-                            <img src="https://img.icons8.com/plumpy/100/null/user.png" alt='' />
+                            <img src="https://img.icons8.com/plumpy/100/null/user.png" alt="" />
                         </UserImage>
-                        <RoleName>Dr.Jane</RoleName>
+                        <RoleName>{`Dr. ${appointmentDetail.name}`}</RoleName>
                     </LeftSide>
                     <RightSide>
                         <Content>
                             <span>Rating: </span>
-                            <Label><BasicRating /></Label>
-                        </Content>
-                        <Content>
-                            <span>Major: </span>
-                            <Label>Hearth Disease</Label>
+                            <Label>
+                                <BasicRating rating={appointmentDetail.rating} />
+                            </Label>
                         </Content>
                         <Content>
                             <span>Appointment: </span>
-                            <Time>10:00</Time>
+                            <Time>{appointmentDetail.hour}</Time>
                             <span style={{ margin: "0px 12px" }}>|</span>
-                            <Date>23/03/2023</Date>
+                            <Date>{appointmentDetail.day}</Date>
                         </Content>
                     </RightSide>
                 </ContentWrapper>
