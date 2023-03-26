@@ -17,9 +17,9 @@ const InformationTab = (props) => {
     /* fetching API */
     useEffect(() => {
         if (role === "doctor") {
-            END_POINT = `http://localhost:3002/doctors`;
+            END_POINT = process.env.REACT_APP_DOCTOR_URL;
         } else {
-            END_POINT = `http://localhost:3002/patients`;
+            END_POINT = process.env.REACT_APP_PATIENT_URL;
         }
         axios.get(END_POINT)
             .then((response) => {
@@ -58,7 +58,7 @@ const InformationTab = (props) => {
         const isValid = await userSchema.isValid(newData)
         if (isValid) {
             try {
-                axios.put(`http://localhost:3002/users/${state.user.id}`, newData)
+                axios.put(`${END_POINT}/${state.user.id}`, newData)
                 dispatch({ type: VALIDATION_SUCCESS })
             } catch (error) {
                 console.log(error)

@@ -17,9 +17,9 @@ const AppBar = (props) => {
     let END_POINT;
     useEffect(() => {
         if (role === "doctor") {
-            END_POINT = `http://localhost:3002/doctors`;
+            END_POINT = process.env.REACT_APP_DOCTOR_URL;
         } else {
-            END_POINT = `http://localhost:3002/patients`;
+            END_POINT = process.env.REACT_APP_PATIENT_URL;
         }
         axios.get(END_POINT)
             .then((response) => {

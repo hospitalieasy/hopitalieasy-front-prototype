@@ -16,9 +16,7 @@ const SignUpForm = (props) => {
 
     // fetching API
     useEffect(() => {
-        axios.get(
-            `http://localhost:3002/users`
-        ).then((response) => {
+        axios.get(process.env.REACT_APP_PATIENT_URL).then((response) => {
             dispatch({ type: SET_DATA, payload: response.data })
         }).catch((error) => {
             console.log(error);
@@ -45,9 +43,7 @@ const SignUpForm = (props) => {
 
     // finds new users information after signed up
     useEffect(() => {
-        axios.get(
-            `http://localhost:3002/users`
-        ).then((response) => {
+        axios.get(process.env.REACT_APP_PATIENT_URL).then((response) => {
             dispatch({ type: SET_DATA, payload: response.data })
         }).catch((error) => {
             console.log(error);
@@ -85,7 +81,7 @@ const SignUpForm = (props) => {
 
                 if (isValid) {
                     try {
-                        axios.post(`http://localhost:3002/users`, goingData)
+                        axios.post(process.env.REACT_APP_PATIENT_URL, goingData)
                         dispatch({ type: VALIDATION_SUCCESS })
 
                         setTimeout(() => {
