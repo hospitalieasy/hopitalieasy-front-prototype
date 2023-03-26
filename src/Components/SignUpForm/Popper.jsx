@@ -12,6 +12,7 @@ export default function SignUpPop(props) {
         user,
         setUser,
         setUserIndex,
+        setUserId,
     } = props;
 
     const [open, setOpen] = React.useState(false);
@@ -43,6 +44,7 @@ export default function SignUpPop(props) {
                     user={user}
                     setUser={setUser}
                     setUserIndex={setUserIndex}
+                    setUserId={setUserId}
                 />
                 <DialogActions>
                     <Button className="sign-close" onClick={handleClose}>Close</Button>

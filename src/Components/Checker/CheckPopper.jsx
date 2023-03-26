@@ -18,6 +18,8 @@ export default function AlertDialogSlide(props) {
         setDetail,
         schedule,
         setSchedule,
+
+        newAppointment,
     } =
         props;
 
@@ -32,11 +34,8 @@ export default function AlertDialogSlide(props) {
         setDetail(false);
     }
 
-    const chooseHour = () => {
-        //choose hour with api
-        //loading
-        setCheckDecider(false);
-        setSchedule(false);
+    const chooseApponitment = () => {
+
     }
 
     return (
@@ -55,7 +54,9 @@ export default function AlertDialogSlide(props) {
             </DialogContent>
             <DialogActions>
                 {detail && (<Button onClick={cancelAppointment}>CANCEL APPOINTMENT</Button>)}
-                {schedule && (<Button onClick={chooseHour}>Choose</Button>)}
+
+                {schedule && (<Button onClick={chooseApponitment}>CHOOSE</Button>)}
+
                 <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>
         </Dialog>

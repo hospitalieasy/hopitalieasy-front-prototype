@@ -11,7 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { userSchema } from "../../FormValidation/UserValidation";
 
 const SignUpForm = (props) => {
-    const { setUser, setUserIndex } = props;
+    const { setUser, setUserIndex, setUserId } = props;
+
     const [state, dispatch] = useReducer(signReducer, INITIAL_STATE);
     const [isFetch, setIsFetch] = useState(false);
 
@@ -57,6 +58,7 @@ const SignUpForm = (props) => {
         while (index < state.data.length) {
             if ((state.user.email === state.data[index].email) && (state.user.password === state.data[index].password)) {
                 setUserIndex(index);
+                setUserId(state.data[index].id)
             }
             index++;
         }

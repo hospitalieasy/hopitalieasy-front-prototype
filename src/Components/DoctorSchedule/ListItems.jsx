@@ -12,13 +12,20 @@ const ListItemBase = styled.div`
     `;
 
 export default function ListItem(props) {
-    const { day, filteredByIdAndStatus, setAppointments } = props;
+    const { day, filteredByIdAndStatus, setNewAppointment } = props;
 
     const [selectedIndex, setSelectedIndex] = React.useState();
     const [filteredDisabled, setFilteredDisabled] = React.useState([]);
 
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
+        const hours = ["10:00", "11:00", "13:00", "14:00", "15:00"];
+
+        setNewAppointment(prevState => ({
+            ...prevState,
+            day: day,
+            hour: hours[selectedIndex.index]
+        }));
     };
 
     React.useEffect(() => {

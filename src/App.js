@@ -22,6 +22,7 @@ const App = () => {
   const [role, setRole] = useLocalStorage("current-role", "");
   const [user, setUser] = useLocalStorage("current-user", false);
   const [userIndex, setUserIndex] = useLocalStorage("user-index", null);
+  const [userId, setUserId] = useLocalStorage("user-id", null);
 
   return (
     <BrowserRouter>
@@ -31,6 +32,8 @@ const App = () => {
           setUser,
           userIndex,
           setUserIndex,
+          userId,
+          setUserId,
           role,
           setRole,
         }}

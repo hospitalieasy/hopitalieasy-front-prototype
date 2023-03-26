@@ -21,8 +21,8 @@ export default function AlertDialogSlide(props) {
         setSchedule,
         setCheckDecider,
 
-        appointments,
-        setAppointments,
+        disabledAppointments,
+        setNewAppointment,
     } = props;
 
     const handleClose = () => {
@@ -51,8 +51,8 @@ export default function AlertDialogSlide(props) {
                 {schedule.show && (
                     <DoctorSchedule
                         schedule={schedule}
-                        appointments={appointments}
-                        setAppointments={setAppointments}
+                        disabledAppointments={disabledAppointments}
+                        setNewAppointment={setNewAppointment}
                     />
                 )}
             </DialogContent>

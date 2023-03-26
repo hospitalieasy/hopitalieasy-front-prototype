@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const Appointment = () => {
-    const { role } = useContext(AuthContext)
+    const { role, userId } = useContext(AuthContext)
 
     const [checkDecider, setCheckDecider] = useState(false);
 
@@ -24,7 +24,13 @@ const Appointment = () => {
     });
 
     const [doctors, setDoctors] = useState([]);
-    const [appointments, setAppointments] = useState([]);
+    const [disabledAppointments, setDisabledAppointments] = useState([]);
+    const [newAppointment, setNewAppointment] = useState({
+        doctorId: schedule.doctorId,
+        patientId: userId,
+        day: "",
+        hour: "",
+    });
 
 
     useEffect(() => {
@@ -33,7 +39,7 @@ const Appointment = () => {
             .catch((error) => console.log(error))
 
         axios.get(process.env.REACT_APP_APPOINTMENT_URL)
-            .then((response) => setAppointments(response.data))
+            .then((response) => setDisabledAppointments(response.data))
             .catch((error) => console.log(error))
     }, [])
 
@@ -109,8 +115,8 @@ const Appointment = () => {
                     setSchedule={setSchedule}
                     setCheckDecider={setCheckDecider}
 
-                    appointments={appointments}
-                    setAppointments={setAppointments}
+                    disabledAppointments={disabledAppointments}
+                    setNewAppointment={setNewAppointment}
                 />)
             }
             {checkDecider &&
@@ -121,6 +127,8 @@ const Appointment = () => {
                     setSchedule={setSchedule}
                     checkDecider={checkDecider}
                     setCheckDecider={setCheckDecider}
+
+                    newAppointment={newAppointment}
                 />)}
         </AppointmentBase>
     );

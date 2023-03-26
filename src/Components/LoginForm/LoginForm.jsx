@@ -12,6 +12,7 @@ const LoginForm = (props) => {
     const {
         setUser,
         setUserIndex,
+        setUserId,
         setRole,
         title,
     } = props;
@@ -57,6 +58,7 @@ const LoginForm = (props) => {
                 if ((user.email === data[index].email) && (user.password === data[index].password)) {
                     dispatch({ type: AUTH_SUCCESS });
                     setUserIndex(index);
+                    setUserId(data[index].id)
                     setTimeout(() => {
                         setUser(true);
                         navigate("/app-screen");

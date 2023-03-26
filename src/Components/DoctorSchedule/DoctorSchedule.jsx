@@ -3,7 +3,7 @@ import Tabs from "./Tabs";
 import styled from "styled-components";
 
 const DoctorSchedule = (props) => {
-    const { appointments, setAppointments, schedule } = props;
+    const { setNewAppointment, disabledAppointments, schedule } = props;
 
     const DoctorScheduleBase = styled.div`
         height: 100%;
@@ -13,8 +13,8 @@ const DoctorSchedule = (props) => {
         <DoctorScheduleBase>
             <Tabs
                 schedule={schedule}
-                appointments={appointments}
-                setAppointments={setAppointments}
+                disabledAppointments={disabledAppointments}
+                setNewAppointment={setNewAppointment}
             />
         </DoctorScheduleBase>
     )

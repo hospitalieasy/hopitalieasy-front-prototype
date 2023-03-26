@@ -54,7 +54,7 @@ const TabPanelWrapper = styled.div`
 
 
 export default function VerticalTabs(props) {
-    const { appointments, setAppointments, schedule } = props;
+    const { setNewAppointment, disabledAppointments, schedule } = props;
 
     const [value, setValue] = React.useState(0);
     const [filteredByIdAndStatus, setFilteredByIdAndStatus] = React.useState([]);
@@ -64,7 +64,7 @@ export default function VerticalTabs(props) {
     };
 
     React.useEffect(() => {
-        const filterIdAndStatus = appointments.filter(appointment => appointment.doctorId === schedule.doctorId && appointment.appStatus);
+        const filterIdAndStatus = disabledAppointments.filter(appointment => appointment.doctorId === schedule.doctorId && appointment.appStatus);
 
         setFilteredByIdAndStatus(filterIdAndStatus)
     }, [])
@@ -90,36 +90,36 @@ export default function VerticalTabs(props) {
                 <TabPanel value={value} index={0}>
                     <ListItem
                         day={"Monday"}
+                        setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
-                        setAppointments={setAppointments}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <ListItem
                         day={"Tuesday"}
+                        setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
-                        setAppointments={setAppointments}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     <ListItem
                         day={"Wednesday"}
+                        setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
-                        setAppointments={setAppointments}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={3}>
                     <ListItem
                         day={"Thursday"}
+                        setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
-                        setAppointments={setAppointments}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={4}>
                     <ListItem
                         day={"Friday"}
+                        setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
-                        setAppointments={setAppointments}
                     />
                 </TabPanel>
             </TabPanelWrapper>

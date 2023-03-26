@@ -15,6 +15,7 @@ const Login = () => {
         user,
         setUser,
         setUserIndex,
+        setUserId,
         setRole,
     } = useContext(AuthContext);
 
@@ -34,6 +35,7 @@ const Login = () => {
                             user={user}
                             setUser={setUser}
                             setUserIndex={setUserIndex}
+                            setUserId={setUserId}
                             setRole={setRole}
                             title={"Patient Login"}
                         />
@@ -44,6 +46,7 @@ const Login = () => {
                                 user={user}
                                 setUser={setUser}
                                 setUserIndex={setUserIndex}
+                                setUserId={setUserId}
                             />
                         </SignUpWrapper>
                         <IconWrapper>
