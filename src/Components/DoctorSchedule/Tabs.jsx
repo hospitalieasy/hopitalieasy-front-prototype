@@ -5,7 +5,7 @@ import ListItem from './ListItems';
 import PropTypes from 'prop-types';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import Typography from '@mui/material/Typography';
+import axios from 'axios';
 import styled from 'styled-components';
 
 function TabPanel(props) {
@@ -41,30 +41,33 @@ function a11yProps(index) {
     };
 }
 
-export default function VerticalTabs() {
+const TabBase = styled.div`
+        width: 100%;
+        display: flex;
+        align-items: center;
+    `;
+
+const TabPanelWrapper = styled.div`
+        height: 250px;
+        overflow-y: auto;
+    `;
+
+
+export default function VerticalTabs(props) {
+    const { appointments, setAppointments, schedule } = props;
+
     const [value, setValue] = React.useState(0);
+    const [filteredByIdAndStatus, setFilteredByIdAndStatus] = React.useState([]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const TabBase = styled.div`
-        width: 100%;
-        display: flex;
-        align-items: center;
-       /*  @media screen and (max-width: 585px) {
-            width: 250px;
-        } */
-    `;
+    React.useEffect(() => {
+        const filterIdAndStatus = appointments.filter(appointment => appointment.doctorId === schedule.doctorId && appointment.appStatus);
 
-    const TabPanelWrapper = styled.div`
-        height: 250px;
-        overflow-y: auto;
-
-        /*  @media screen and (max-width: 585px) {
-            width: 250px;
-        } */
-    `;
+        setFilteredByIdAndStatus(filterIdAndStatus)
+    }, [])
 
     return (
         <TabBase>
@@ -85,19 +88,39 @@ export default function VerticalTabs() {
 
             <TabPanelWrapper>
                 <TabPanel value={value} index={0}>
-                    <ListItem />
+                    <ListItem
+                        day={"Monday"}
+                        filteredByIdAndStatus={filteredByIdAndStatus}
+                        setAppointments={setAppointments}
+                    />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <ListItem />
+                    <ListItem
+                        day={"Tuesday"}
+                        filteredByIdAndStatus={filteredByIdAndStatus}
+                        setAppointments={setAppointments}
+                    />
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    <ListItem />
+                    <ListItem
+                        day={"Wednesday"}
+                        filteredByIdAndStatus={filteredByIdAndStatus}
+                        setAppointments={setAppointments}
+                    />
                 </TabPanel>
                 <TabPanel value={value} index={3}>
-                    <ListItem />
+                    <ListItem
+                        day={"Thursday"}
+                        filteredByIdAndStatus={filteredByIdAndStatus}
+                        setAppointments={setAppointments}
+                    />
                 </TabPanel>
                 <TabPanel value={value} index={4}>
-                    <ListItem />
+                    <ListItem
+                        day={"Friday"}
+                        filteredByIdAndStatus={filteredByIdAndStatus}
+                        setAppointments={setAppointments}
+                    />
                 </TabPanel>
             </TabPanelWrapper>
 

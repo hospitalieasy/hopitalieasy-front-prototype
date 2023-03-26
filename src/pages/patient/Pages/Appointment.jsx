@@ -4,37 +4,49 @@ import { AuthContext } from "../../../Context/AuthContext";
 import BasicRating from "../../../Components/Rating/Rating";
 import { Button } from "@mui/material";
 import CheckPopper from "..//..//..//Components/Checker/CheckPopper"
-import DefaultBox from "../../../Components/DefaultBox/DefaultBox"
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
-import MajorSelector from "../../../Components/MajorSelector/MajorSelector";
 import Popper from "../../../Components/Popper/Popper";
 import ScheduleIcon from '@mui/icons-material/Schedule';
+import axios from "axios";
 import { useContext } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const Appointment = () => {
     const { role } = useContext(AuthContext)
 
-    const [detail, setDetail] = useState(false);
-    const [schedule, setSchedule] = useState(false);
     const [checkDecider, setCheckDecider] = useState(false);
+
+    const [detail, setDetail] = useState(false);
+    const [schedule, setSchedule] = useState({
+        show: false,
+        doctorId: "",
+    });
+
+    const [doctors, setDoctors] = useState([]);
+    const [appointments, setAppointments] = useState([]);
+
+
+    useEffect(() => {
+        axios.get(process.env.REACT_APP_DOCTOR_URL)
+            .then((response) => setDoctors(response.data))
+            .catch((error) => console.log(error))
+
+        axios.get(process.env.REACT_APP_APPOINTMENT_URL)
+            .then((response) => setAppointments(response.data))
+            .catch((error) => console.log(error))
+    }, [])
 
     const showDetail = () => {
         setDetail(true);
     }
 
-    const showSchedule = () => {
-        setSchedule(true);
+    const showSchedule = (doctorId) => {
+        setSchedule({ show: true, doctorId: doctorId });
     }
 
     return (
         <AppointmentBase>
-
-            <Section width={"95%"} height={"12%"} margin={"20px 0px"}>
-                <DefaultBox width={"100%"} height={"100%"} background={"white"}>
-                    <MajorSelector />
-                </DefaultBox>
-            </Section>
 
             <Section width={"95%"} height={"88%"} margin={"20px 0px"} wrap={"wrap"}>
 
@@ -44,15 +56,22 @@ const Appointment = () => {
                         <EventAvailableIcon color="success" />
                     </TitleWrapperOne>
                     <AppointmentWrapper>
-                        <ContentWrapper>
-                            <DoctorInfoWrapperAvailable>
-                                <BasicRating />
-                                <DoctorName>Dr.Gustavo</DoctorName>
-                            </DoctorInfoWrapperAvailable>
-                            <Button onClick={showSchedule} className="appointment-get" variant="contained">
-                                Get
-                            </Button>
-                        </ContentWrapper>
+
+                        {doctors.map((doctor, index) => (
+                            <ContentWrapper key={index}>
+                                <DoctorInfoWrapperAvailable>
+                                    <BasicRating rating={doctor.rate} />
+                                    <DoctorName>{doctor.name}</DoctorName>
+                                </DoctorInfoWrapperAvailable>
+                                <Button
+                                    onClick={() => { showSchedule(doctor.id) }}
+                                    className="appointment-get"
+                                    variant="contained">
+                                    Get
+                                </Button>
+                            </ContentWrapper>
+                        ))}
+
                     </AppointmentWrapper>
                 </AvailableAppointment>
 
@@ -81,15 +100,17 @@ const Appointment = () => {
 
             </Section>
 
-            {(detail || schedule) &&
+            {(detail || schedule.show) &&
                 (<Popper
                     role={role}
                     detail={detail}
                     setDetail={setDetail}
                     schedule={schedule}
                     setSchedule={setSchedule}
-                    checkDecider={checkDecider}
                     setCheckDecider={setCheckDecider}
+
+                    appointments={appointments}
+                    setAppointments={setAppointments}
                 />)
             }
             {checkDecider &&

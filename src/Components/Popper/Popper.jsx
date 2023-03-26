@@ -17,12 +17,12 @@ export default function AlertDialogSlide(props) {
         role,
         detail,
         setDetail,
-
         schedule,
         setSchedule,
-
-        checkDecider,
         setCheckDecider,
+
+        appointments,
+        setAppointments,
     } = props;
 
     const handleClose = () => {
@@ -39,7 +39,7 @@ export default function AlertDialogSlide(props) {
 
     return (
         <Dialog
-            open={detail || schedule}
+            open={detail || schedule.show}
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
@@ -47,11 +47,21 @@ export default function AlertDialogSlide(props) {
         >
             <DialogContent>
                 {detail && (<AppointmentDetail role={role} />)}
-                {schedule && (<DoctorSchedule />)}
+
+                {schedule.show && (
+                    <DoctorSchedule
+                        schedule={schedule}
+                        appointments={appointments}
+                        setAppointments={setAppointments}
+                    />
+                )}
             </DialogContent>
+
             <DialogActions>
                 {detail && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
-                {schedule && (<Button onClick={CheckPopper}>Choose</Button>)}
+
+                {schedule.show && (<Button onClick={CheckPopper}>Choose</Button>)}
+
                 <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>
         </Dialog>
