@@ -26,13 +26,13 @@ const InformationTab = (props) => {
                 dispatch({
                     type: SET_DATA_TO_USER, payload: {
                         user: {
-                            id: response.data[userIndex].Id,
-                            name: response.data[userIndex].Name,
-                            surname: response.data[userIndex].Surname,
-                            birthdate: response.data[userIndex].Birthdate,
-                            email: response.data[userIndex].Email,
-                            password: response.data[userIndex].Password,
-                            telno: response.data[userIndex].Telno,
+                            id: response.data[userIndex].id,
+                            name: response.data[userIndex].name,
+                            surname: response.data[userIndex].surname,
+                            birthDate: response.data[userIndex].birthDate,
+                            email: response.data[userIndex].email,
+                            password: response.data[userIndex].password,
+                            telno: response.data[userIndex].telno,
                         }
                     }
                 })
@@ -44,19 +44,25 @@ const InformationTab = (props) => {
     /* checks the inputs are valid */
     const inputValidator = async () => {
         dispatch({ type: VALIDATION_PROCESS })
-        const { name, surname, birthdate, email, password, telno } = state.user;
+        const { name, surname, birthDate, email, password, telno } = state.user;
 
         let newData = {
-            Name: name,
-            Surname: surname,
-            Birthdate: birthdate,
-            Email: email,
-            Password: password,
-            Telno: telno,
+            name: name,
+            surname: surname,
+            birthDate: birthDate,
+            email: email,
+            password: password,
+            telno: telno,
         }
 
         const isValid = await userSchema.isValid(newData)
         if (isValid) {
+            let END_POINT;
+            if (role === "doctor") {
+                END_POINT = process.env.REACT_APP_DOCTOR_URL;
+            } else {
+                END_POINT = process.env.REACT_APP_PATIENT_URL;
+            }
             try {
                 axios.put(`${END_POINT}/${state.user.id}`, newData)
                 dispatch({ type: VALIDATION_SUCCESS })
@@ -125,7 +131,7 @@ const InformationTab = (props) => {
                 </ContentWrapper>
                 <ContentWrapper>
                     <FormLabel>Birthday</FormLabel>
-                    <TextField name="birthdate" disabled={!state.visible} label={state.user.birthdate} variant="filled"
+                    <TextField name="birthdate" disabled={!state.visible} label={state.user.birthDate} variant="filled"
                         onChange={(e) => {
                             dispatch({
                                 type: SET_USER,

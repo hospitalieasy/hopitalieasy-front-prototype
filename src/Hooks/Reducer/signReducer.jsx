@@ -3,7 +3,7 @@ export const INITIAL_STATE = {
     user: {
         name: "",
         surname: "",
-        birthdate: "",
+        birthDate: "",
         email: "",
         password: "",
         telno: "",

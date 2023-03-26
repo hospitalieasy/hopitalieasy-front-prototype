@@ -1,6 +1,6 @@
 import { EMAIL_EXIST, EMAIL_IS_NOT_UNIQUE, INITIAL_STATE, MISSING_INPUTS, SET_DATA, SET_USER, VALIDATION_FAIL, VALIDATION_PROCESS, VALIDATION_SUCCESS, signReducer } from "../../Hooks/Reducer/signReducer";
 import { FormWrapper, SingUpFormBase, Title } from "./SignUpForm.style"
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 
 import { Button } from "@mui/material";
 import Loading from "../Loading/Loading";
@@ -13,6 +13,7 @@ import { userSchema } from "../../FormValidation/UserValidation";
 const SignUpForm = (props) => {
     const { setUser, setUserIndex } = props;
     const [state, dispatch] = useReducer(signReducer, INITIAL_STATE);
+    const [isFetch, setIsFetch] = useState(false);
 
     // fetching API
     useEffect(() => {
@@ -29,7 +30,7 @@ const SignUpForm = (props) => {
             let index = 0;
             let flag = true;
             while (index < state.data.length) {
-                if ((state.data[index].Email === state.user.email)) {
+                if ((state.data[index].email === state.user.email)) {
                     dispatch({ type: EMAIL_IS_NOT_UNIQUE, payload: false })
                     flag = false;
                 }
@@ -41,40 +42,44 @@ const SignUpForm = (props) => {
         }
     }, [state.user.email, state.emailUnique])
 
+
     // finds new users information after signed up
     useEffect(() => {
-        axios.get(process.env.REACT_APP_PATIENT_URL).then((response) => {
-            dispatch({ type: SET_DATA, payload: response.data })
-        }).catch((error) => {
-            console.log(error);
-        })
+        if (isFetch) {
+            axios.get(process.env.REACT_APP_PATIENT_URL).then((response) => {
+                dispatch({ type: SET_DATA, payload: response.data })
+            }).catch((error) => {
+                console.log(error);
+            })
 
+        }
         let index = 0;
         while (index < state.data.length) {
-            if ((state.user.email === state.data[index].Email) && (state.user.password === state.data[index].Password)) {
+            if ((state.user.email === state.data[index].email) && (state.user.password === state.data[index].password)) {
                 setUserIndex(index);
             }
             index++;
         }
-    }, [state.data]);
+
+    }, [state.data, isFetch]);
 
     const navigate = useNavigate();
 
     const inputValidator = async () => {
-        const { name, surname, birthdate, email, password, telno } = state.user;
+        const { name, surname, birthDate, email, password, telno } = state.user;
 
-        if (name && surname && birthdate && email && password && telno) {
+        if (name && surname && birthDate && email && password && telno) {
             dispatch({ type: VALIDATION_PROCESS })
 
             if (state.emailUnique) {
 
                 let goingData = {
-                    Name: name,
-                    Surname: surname,
-                    Birthdate: birthdate,
-                    Email: email,
-                    Password: password,
-                    Telno: telno,
+                    name: name,
+                    surname: surname,
+                    birthDate: birthDate,
+                    email: email,
+                    password: password,
+                    telno: telno,
                 };
 
                 const isValid = await userSchema.isValid(goingData)
@@ -83,6 +88,7 @@ const SignUpForm = (props) => {
                     try {
                         axios.post(process.env.REACT_APP_PATIENT_URL, goingData)
                         dispatch({ type: VALIDATION_SUCCESS })
+                        setIsFetch(true);
 
                         setTimeout(() => {
                             setUser(true);
@@ -130,7 +136,7 @@ const SignUpForm = (props) => {
                     })
                 } />
 
-                <TextField name="birthdate" id="outlined-basic-3" label="XX/XX/XXXX" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) =>
+                <TextField name="birthDate" id="outlined-basic-3" label="XX/XX/XXXX" variant="standard" style={{ padding: "10px 0px" }} onChange={(e) =>
                     dispatch({
                         type: SET_USER,
                         payload: {

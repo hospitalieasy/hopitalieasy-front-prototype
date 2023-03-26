@@ -36,7 +36,7 @@ export default function ProfileMenu(props) {
     /* fetching data */
     useEffect(() => {
         axios.get(process.env.REACT_APP_PATIENT_URL).then((response) => {
-            setName(response.data[userIndex].Name);
+            setName(response.data[userIndex].name);
         }).catch((error) => {
             console.log(error);
         })

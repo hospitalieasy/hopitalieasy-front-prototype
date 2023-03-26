@@ -23,7 +23,7 @@ const AppBar = (props) => {
         }
         axios.get(END_POINT)
             .then((response) => {
-                setName(response.data[userIndex].Name);
+                setName(response.data[userIndex].name);
             }).catch((error) => {
                 console.log(error);
             })

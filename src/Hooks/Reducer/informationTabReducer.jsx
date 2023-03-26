@@ -4,7 +4,7 @@ export const INITIAL_STATE = {
         id: "",
         name: "",
         surname: "",
-        birthdate: "",
+        birthDate: "",
         email: "",
         password: "",
         telno: "",

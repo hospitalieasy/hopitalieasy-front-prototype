@@ -54,7 +54,7 @@ const LoginForm = (props) => {
             let index = 0;
             let isMatchFound = false;
             while (index < data.length && !isMatchFound) {
-                if ((user.email === data[index].Email) && (user.password === data[index].Password)) {
+                if ((user.email === data[index].email) && (user.password === data[index].password)) {
                     dispatch({ type: AUTH_SUCCESS });
                     setUserIndex(index);
                     setTimeout(() => {
