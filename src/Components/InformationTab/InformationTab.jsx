@@ -131,7 +131,7 @@ const InformationTab = (props) => {
                 </ContentWrapper>
                 <ContentWrapper>
                     <FormLabel>Birthday</FormLabel>
-                    <TextField name="birthdate" disabled={!state.visible} label={state.user.birthDate} variant="filled"
+                    <TextField name="birthDate" disabled={!state.visible} label={state.user.birthDate} variant="filled"
                         onChange={(e) => {
                             dispatch({
                                 type: SET_USER,

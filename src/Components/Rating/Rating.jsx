@@ -3,9 +3,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 
-export default function BasicRating() {
-    const [value, setValue] = React.useState(2);
+export default function BasicRating(props) {
+    const { rating } = props;
 
+    const rate = parseInt(rating);
     return (
         <Box
             sx={{
@@ -15,10 +16,7 @@ export default function BasicRating() {
             <Rating
                 size='small'
                 name="simple-controlled"
-                value={value}
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
+                value={rate}
             />
         </Box>
     );
