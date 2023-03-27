@@ -24,7 +24,7 @@ export default function ListItem(props) {
         setNewAppointment(prevState => ({
             ...prevState,
             day: day,
-            hour: hours[selectedIndex.index]
+            hour: hours[index]
         }));
     };
 

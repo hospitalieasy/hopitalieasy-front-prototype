@@ -43,27 +43,27 @@ export default function AlertDialogSlide(props) {
     }
 
     const chooseAppointment = async () => {
-        const filteredAppointment = appointments.filter(appointment =>
-            appointment.doctorId === newAppointment.doctorId &&
-            appointment.patientId === newAppointment.patientId &&
-            appointment.appDay === newAppointment.day &&
-            appointment.appHour === newAppointment.hour
-        );
-
-        const appId = filteredAppointment.appId;
-
-        const goingData = {
-            appStatus: true,
-            patientId: newAppointment.patientId
-        }
-
-        await axios.put(`${process.env.REACT_APP_APPOINTMENT_URL}/${appId}`, goingData)
-            .then(() => {
-                // snackbar
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+        /*  const filteredAppointment = appointments.filter(appointment =>
+             appointment.doctorId === newAppointment.doctorId &&
+             appointment.patientId === newAppointment.patientId &&
+             appointment.appDay === newAppointment.day &&
+             appointment.appHour === newAppointment.hour
+         );
+ 
+         const appId = filteredAppointment[0].appId;
+ 
+         const goingData = {
+             appStatus: true,
+             patientId: newAppointment.patientId
+         }
+ 
+         await axios.put(`${process.env.REACT_APP_APPOINTMENT_URL}/${appId}`, goingData)
+             .then(() => {
+                 // snackbar
+             })
+             .catch((error) => {
+                 console.log(error)
+             }) */
     };
 
 
@@ -77,14 +77,14 @@ export default function AlertDialogSlide(props) {
         >
             <DialogContent>
                 <div>
-                    {detail && (<span>Are you sure to cancel the appointment?</span>)}
-                    {schedule && (<span>Are you sure to choose this hour?</span>)}
+                    {detail.show && (<span>Are you sure to cancel the appointment?</span>)}
+                    {schedule.show && (<span>Are you sure to choose this hour?</span>)}
                 </div>
             </DialogContent>
             <DialogActions>
-                {detail && (<Button onClick={cancelAppointment}>CANCEL APPOINTMENT</Button>)}
+                {detail.show && (<Button onClick={cancelAppointment}>CANCEL APPOINTMENT</Button>)}
 
-                {schedule && (<Button onClick={chooseAppointment}>CHOOSE</Button>)}
+                {schedule.show && (<Button onClick={chooseAppointment}>CHOOSE</Button>)}
 
                 <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>

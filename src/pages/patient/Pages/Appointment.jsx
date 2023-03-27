@@ -28,15 +28,24 @@ const Appointment = () => {
     });
 
     const [doctors, setDoctors] = useState([]);
+
     const [disabledAppointments, setDisabledAppointments] = useState([]);
     const [currentAppointments, setCurrentAppointments] = useState([]);
     const [filteredAppointments, setFilteredAppointments] = useState([]);
+
     const [newAppointment, setNewAppointment] = useState({
         doctorId: schedule.doctorId,
         patientId: userId,
         day: "",
         hour: "",
     });
+
+    useEffect(() => {
+        setNewAppointment(prevState => ({
+            ...prevState,
+            doctorId: schedule.doctorId
+        }));
+    }, [schedule.doctorId]);
 
     useEffect(() => {
         axios.get(process.env.REACT_APP_DOCTOR_URL)
