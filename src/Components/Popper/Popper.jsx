@@ -25,6 +25,7 @@ export default function AlertDialogSlide(props) {
         setNewAppointment,
 
         doctors,
+        patients,
         filteredAppointments,
 
         userId,
@@ -53,6 +54,7 @@ export default function AlertDialogSlide(props) {
                         role={role}
                         detail={detail}
                         doctors={doctors}
+                        patients={patients}
                         filteredAppointments={filteredAppointments}
                     />
                 )}

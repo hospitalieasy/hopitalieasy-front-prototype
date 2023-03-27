@@ -189,6 +189,7 @@ const Appointment = () => {
                     setSchedule={setSchedule}
                     checkDecider={checkDecider}
                     setCheckDecider={setCheckDecider}
+
                     setShowBar={setShowBar}
                     setMessage={setMessage}
                     setLoading={setLoading}

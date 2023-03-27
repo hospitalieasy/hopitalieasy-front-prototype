@@ -6,26 +6,55 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 const AppointmentDetail = (props) => {
-    const { role, doctors, filteredAppointments, detail } = props;
+    const { role, doctors, patients, filteredAppointments, detail } = props;
 
-    const [appointmentDetail, setAppointmentDetail] = useState({
+    const [detailForPatient, setDetailForPatient] = useState({
         name: "",
         rating: "",
         hour: "",
         day: "",
     })
 
-    useEffect(() => {
-        const doctor = doctors.find((doctor) => doctor.id === filteredAppointments[detail.index].doctorId);
-        const filteredDetails = filteredAppointments[detail.index]
+    const [detailForDoctor, setDetailForDoctor] = useState({
+        name: "",
+        surname: "",
+        birthDate: "",
+        telno: "",
+        day: "",
+        hour: "",
+    })
 
-        if (doctor && filteredDetails) {
-            setAppointmentDetail({
-                name: doctor.name,
-                rating: doctor.rate,
-                hour: filteredDetails.appHour,
-                day: filteredDetails.appDay,
-            });
+    useEffect(() => {
+        if (doctors) {
+            const doctor = doctors.find((doctor) => doctor.id === filteredAppointments[detail.index].doctorId);
+            const filteredDetails = filteredAppointments[detail.index]
+
+            if (doctor && filteredDetails) {
+                setDetailForPatient({
+                    name: doctor.name,
+                    rating: doctor.rate,
+                    hour: filteredDetails.appHour,
+                    day: filteredDetails.appDay,
+                });
+            }
+        }
+    }, [])
+
+    useEffect(() => {
+        if (patients) {
+            const patient = patients.find((patient) => patient.id === filteredAppointments[detail.index].patientId);
+            const filteredDetails = filteredAppointments[detail.index]
+
+            if (patient && filteredDetails) {
+                setDetailForDoctor({
+                    name: patient.name,
+                    surname: patient.surname,
+                    birthDate: patient.birthDate,
+                    telno: patient.telno,
+                    day: filteredDetails.appDay,
+                    hour: filteredDetails.appHour,
+                });
+            }
         }
     }, [])
 
@@ -39,20 +68,20 @@ const AppointmentDetail = (props) => {
                         <UserImage>
                             <img src="https://img.icons8.com/plumpy/100/null/user.png" alt="" />
                         </UserImage>
-                        <RoleName>{`Dr. ${appointmentDetail.name}`}</RoleName>
+                        <RoleName>{`Dr. ${detailForPatient.name}`}</RoleName>
                     </LeftSide>
                     <RightSide>
                         <Content>
                             <span>Rating: </span>
                             <Label>
-                                <BasicRating rating={appointmentDetail.rating} />
+                                <BasicRating rating={detailForPatient.rating} />
                             </Label>
                         </Content>
                         <Content>
                             <span>Appointment: </span>
-                            <Time>{appointmentDetail.hour}</Time>
+                            <Time>{detailForPatient.hour}</Time>
                             <span style={{ margin: "0px 12px" }}>|</span>
-                            <Date>{appointmentDetail.day}</Date>
+                            <Date>{detailForPatient.day}</Date>
                         </Content>
                     </RightSide>
                 </ContentWrapper>
@@ -67,25 +96,25 @@ const AppointmentDetail = (props) => {
                     <RightSide>
                         <Content>
                             <span>Name: </span>
-                            <Label>Jane</Label>
+                            <Label>{detailForDoctor.name}</Label>
                         </Content>
                         <Content>
                             <span>Surname: </span>
-                            <Label>Doe</Label>
+                            <Label>{detailForDoctor.surname}</Label>
                         </Content>
                         <Content>
                             <span>Birth Date: </span>
-                            <Label>01/01/2000</Label>
+                            <Label>{detailForDoctor.birthDate}</Label>
                         </Content>
                         <Content>
                             <span>Phone Number: </span>
-                            <Label>5553332211</Label>
+                            <Label>{detailForDoctor.telno}</Label>
                         </Content>
                         <Content>
                             <span>Appointment: </span>
-                            <Time>10:00</Time>
+                            <Time>{detailForDoctor.hour}</Time>
                             <span style={{ margin: "0px 12px" }}>|</span>
-                            <Date>23/03/2023</Date>
+                            <Date>{detailForDoctor.day}</Date>
                         </Content>
                     </RightSide>
                 </ContentWrapper>

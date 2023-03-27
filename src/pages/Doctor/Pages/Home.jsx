@@ -4,19 +4,64 @@ import { AuthContext } from "..//..//..//Context/AuthContext";
 import { Button } from "@mui/material";
 import CheckPopper from "..//..//..//Components/Checker/CheckPopper"
 import DefaultBox from "..//..//..//Components/DefaultBox/DefaultBox"
+import Loading from "../../../Components/Loading/Loading";
 import Popper from "..//..//..//Components/Popper/Popper";
+import SnackBar from "../../../Components/SnackBar/SnackBar";
+import axios from "axios";
 import { useContext } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const Home = () => {
-    const { role } = useContext(AuthContext)
+    const { role, userId } = useContext(AuthContext)
 
-    const [detail, setDetail] = useState(false);
-    const [schedule, setSchedule] = useState(false);
     const [checkDecider, setCheckDecider] = useState(false);
+    const [showBar, setShowBar] = useState(false);
+    const [message, setMessage] = useState({
+        color: "",
+        text: "",
+        icon: "",
+    });
+    const [loading, setLoading] = useState(false);
 
-    const showDetail = () => {
-        setDetail(true);
+    const [detail, setDetail] = useState({
+        show: false,
+        index: "",
+    }
+    );
+    const [schedule, setSchedule] = useState({
+        show: false,
+        doctorId: "",
+    });
+
+    const [patients, setPatients] = useState([]);
+
+    const [currentAppointments, setCurrentAppointments] = useState([]);
+    const [filteredAppointments, setFilteredAppointments] = useState([]);
+
+    useEffect(() => {
+        axios.get(process.env.REACT_APP_PATIENT_URL)
+            .then((response) => setPatients(response.data))
+            .catch((error) => console.log(error))
+
+        axios.get(process.env.REACT_APP_APPOINTMENT_URL)
+            .then((response) => {
+                setCurrentAppointments(response.data)
+            })
+            .catch((error) => console.log(error))
+    }, [])
+
+    useEffect(() => {
+        if (currentAppointments.length > 0) {
+            const filteredAppointments = currentAppointments.filter(
+                (appointment) => appointment.doctorId === userId && appointment.appStatus
+            );
+            setFilteredAppointments(filteredAppointments);
+        }
+    }, [currentAppointments, userId]);
+
+    const showDetail = (patientIndex) => {
+        setDetail({ show: true, index: patientIndex })
     }
 
     return (
@@ -24,89 +69,43 @@ const Home = () => {
             <DefaultBox width={"95%"} height={"90%"} background={"white"} >
                 <Title>My Appointments</Title>
                 <AppointmentWrapper>
-                    <ContentWrapper>
-                        <InfoWrapper>
-                            <PatientName>Gustavo Fringe</PatientName>
-                        </InfoWrapper>
-                        <Button onClick={showDetail} className="home-detail" color="primary" variant="contained">
-                            DETAIL
-                        </Button>
-                        <Button className="send-result" color="success" variant="contained">
-                            SEND TEST RESULT
-                        </Button>
-                    </ContentWrapper>
 
-                    <ContentWrapper>
-                        <InfoWrapper>
-                            <PatientName>Gustavo</PatientName>
-                        </InfoWrapper>
-                        <Button className="home-detail" color="primary" variant="contained">
-                            DETAIL
-                        </Button>
-                        <Button className="send-result" color="success" variant="contained">
-                            SEND TEST RESULT
-                        </Button>
-                    </ContentWrapper>
+                    {filteredAppointments.map((appointment, index) => (
+                        <ContentWrapper key={index}>
+                            <InfoWrapper>
+                                <PatientName>
+                                    {
+                                        patients.find(patient => patient.id === appointment.patientId)?.name
+                                        + " " +
+                                        patients.find(patient => patient.id === appointment.patientId)?.surname
+                                    }
+                                </PatientName>
+                            </InfoWrapper>
+                            <Button onClick={() => { showDetail(index) }} className="home-detail" color="primary" variant="contained">
+                                DETAIL
+                            </Button>
+                            <Button className="send-result" color="success" variant="contained">
+                                SEND TEST RESULT
+                            </Button>
+                        </ContentWrapper>
+                    ))}
 
-                    <ContentWrapper>
-                        <InfoWrapper>
-                            <PatientName>Gustavo</PatientName>
-                        </InfoWrapper>
-                        <Button className="home-detail" color="primary" variant="contained">
-                            DETAIL
-                        </Button>
-                        <Button className="send-result" color="success" variant="contained">
-                            SEND TEST RESULT
-                        </Button>
-                    </ContentWrapper>
-
-                    <ContentWrapper>
-                        <InfoWrapper>
-                            <PatientName>Gustavo</PatientName>
-                        </InfoWrapper>
-                        <Button className="home-detail" color="primary" variant="contained">
-                            DETAIL
-                        </Button>
-                        <Button className="send-result" color="success" variant="contained">
-                            SEND TEST RESULT
-                        </Button>
-                    </ContentWrapper>
-
-                    <ContentWrapper>
-                        <InfoWrapper>
-                            <PatientName>Gustavo</PatientName>
-                        </InfoWrapper>
-                        <Button className="home-detail" color="primary" variant="contained">
-                            DETAIL
-                        </Button>
-                        <Button className="send-result" color="success" variant="contained">
-                            SEND TEST RESULT
-                        </Button>
-                    </ContentWrapper>
-
-                    <ContentWrapper>
-                        <InfoWrapper>
-                            <PatientName>Gustavo</PatientName>
-                        </InfoWrapper>
-                        <Button className="home-detail" color="primary" variant="contained">
-                            DETAIL
-                        </Button>
-                        <Button className="send-result" color="success" variant="contained">
-                            SEND TEST RESULT
-                        </Button>
-                    </ContentWrapper>
                 </AppointmentWrapper>
 
             </DefaultBox>
-            {detail &&
+            {detail.show &&
                 (<Popper
                     role={role}
                     detail={detail}
                     setDetail={setDetail}
                     schedule={schedule}
                     setSchedule={setSchedule}
-                    checkDecider={checkDecider}
                     setCheckDecider={setCheckDecider}
+
+                    patients={patients}
+                    filteredAppointments={filteredAppointments}
+
+                    userId={userId}
                 />)}
             {checkDecider &&
                 (<CheckPopper
@@ -116,7 +115,15 @@ const Home = () => {
                     setSchedule={setSchedule}
                     checkDecider={checkDecider}
                     setCheckDecider={setCheckDecider}
+
+                    setShowBar={setShowBar}
+                    setMessage={setMessage}
+                    setLoading={setLoading}
+
+                    filteredAppointments={filteredAppointments}
                 />)}
+            {showBar && (<SnackBar message={message} />)}
+            {loading && (<Loading loading={loading} />)}
         </HomeBase >
     );
 }
