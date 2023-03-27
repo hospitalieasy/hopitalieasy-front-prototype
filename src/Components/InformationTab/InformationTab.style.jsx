@@ -15,6 +15,9 @@ export const Title = styled.div`
     font-size: 34px;
     padding: 20px 24px;
 
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+
     @media screen and (max-width: 585px) {
         display: none;
     }
@@ -41,9 +44,12 @@ export const SwitchWrapper = styled.div`
 
 export const FormLabel = styled.div`
     font-size: 17px;
-    font-weight: 500;
     margin-right: 20px;
     width: 70px;
+
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    
     @media screen and (max-width: 500px) {
         display: none;
     }

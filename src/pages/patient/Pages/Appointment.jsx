@@ -1,4 +1,4 @@
-import { AppointmentBase, AppointmentItem, AppointmentWrapper, AvailableAppointment, ContentWrapper, CurrentAppointments, DateWrapper, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorName, Section, Time, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
+import { AppointmentBase, AppointmentItem, AppointmentWrapper, AvailableAppointment, ContentWrapper, CurrentAppointments, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorNameAvailable, DoctorNameCurrent, Section, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
 
 import { AuthContext } from "../../../Context/AuthContext";
 import BasicRating from "../../../Components/Rating/Rating";
@@ -117,7 +117,7 @@ const Appointment = () => {
                             <ContentWrapper key={index}>
                                 <DoctorInfoWrapperAvailable>
                                     <BasicRating rating={doctor.rate} />
-                                    <DoctorName>Dr.{doctor.name}</DoctorName>
+                                    <DoctorNameAvailable>Dr.{doctor.name + " " + doctor.surname}</DoctorNameAvailable>
                                 </DoctorInfoWrapperAvailable>
                                 <Button
                                     onClick={() => { showSchedule(doctor.id) }}
@@ -142,14 +142,13 @@ const Appointment = () => {
                             {filteredAppointments.map((appointment, index) => (
                                 <ContentWrapper key={index}>
                                     <DoctorInfoWrapperCurrent>
-                                        <DateWrapper>
-                                            <Time>{appointment.appHour}</Time>
-                                        </DateWrapper>
-                                        <DoctorName>
+                                        <DoctorNameCurrent>
                                             Dr.{
                                                 doctors.find(doctor => doctor.id === appointment.doctorId)?.name
+                                                + " " +
+                                                doctors.find(doctor => doctor.id === appointment.doctorId)?.surname
                                             }
-                                        </DoctorName>
+                                        </DoctorNameCurrent>
                                     </DoctorInfoWrapperCurrent>
                                     <Button onClick={() => { showDetail(index) }} color="success" className="appointment-detail" variant="contained">
                                         DETAIL

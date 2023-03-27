@@ -16,6 +16,7 @@ export default function ProfileMenu(props) {
         setUser,
         userIndex,
         setUserIndex,
+        role,
         setRole,
     } = props;
 
@@ -33,13 +34,22 @@ export default function ProfileMenu(props) {
         setAnchorEl(null);
     };
 
+    let END_POINT;
     /* fetching data */
     useEffect(() => {
-        axios.get(process.env.REACT_APP_PATIENT_URL).then((response) => {
-            setName(response.data[userIndex].name);
-        }).catch((error) => {
-            console.log(error);
-        })
+        if (role === "patient") {
+            axios.get(process.env.REACT_APP_PATIENT_URL).then((response) => {
+                setName(response.data[userIndex].name);
+            }).catch((error) => {
+                console.log(error);
+            })
+        } else {
+            axios.get(process.env.REACT_APP_DOCTOR_URL).then((response) => {
+                setName(response.data[userIndex].name);
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
     }, [])
 
     const showProfile = () => {

@@ -40,7 +40,7 @@ const AppBar = (props) => {
     return (
         <AppBarBase>
             <LeftSide>
-                <Title>Hi {name} Welcome</Title>
+                <Title>Hi {role === "doctor" && "Dr."}{name} Welcome</Title>
                 <SpeedDialWrapper>
                     {isSmallScreen ? (<MenuMobile role={role} />) : (<Menu role={role} />)}
                 </SpeedDialWrapper>
@@ -48,10 +48,11 @@ const AppBar = (props) => {
             <RightSide>
                 <ContentWrapper>
                     <NotificationWrapper>
-                        <MailBadge userId={userId} />
+                        {/* <MailBadge userId={userId} /> */}
                     </NotificationWrapper>
                     <ProfileWrapper>
                         <ProfileMenu
+                            role={role}
                             setRole={setRole}
                             setUser={setUser}
                             userIndex={userIndex}

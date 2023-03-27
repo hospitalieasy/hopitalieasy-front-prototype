@@ -83,7 +83,7 @@ const InformationTab = (props) => {
     return (
         <InformationTabBase>
             <SwitchWrapper>
-                <Title>{state.user.name}'s Information</Title>
+                <Title>{role === "doctor" && "Dr."}{state.user.name}'s Information</Title>
                 {state.switcher ? (
                     <Switch onClick={visibleHandler} color="warning" />) :
                     (<Switch disabled onClick={visibleHandler} color="warning" />)

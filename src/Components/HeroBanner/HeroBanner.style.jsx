@@ -61,6 +61,9 @@ export const Title = styled.div`
     font-size: 36px;
     color: #fff;
 
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+
     @media screen and (max-width: 768px) {
         font-size: 32px;
     }
@@ -73,7 +76,8 @@ export const Description = styled.div`
     font-size: 18px;
     color: #fff;
     margin-top: 50px;
-    letter-spacing: 0.1px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
 
     @media screen and (max-width: 768px) {
         font-size: 16px;

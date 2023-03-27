@@ -33,6 +33,7 @@ export const Title = styled.div`
     margin-bottom: 35px;
     padding-left: 12px;
     margin-top: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 1px;
 
     @media screen and (max-width: 585px) {

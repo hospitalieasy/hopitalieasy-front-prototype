@@ -56,7 +56,8 @@ export const Title = styled.div`
     height: 100%;
     padding: 10px;
     font-size: 21px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
 `;
 
 export const Link = styled.div`
@@ -71,6 +72,8 @@ export const Description = styled.div`
     height: 100%;
     padding: 10px;
     font-size: 13px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
 `;
 
 export const BottomMenu = styled.div`
@@ -104,10 +107,13 @@ export const Label = styled.div`
     display: flex;
     margin: auto;
     width: 100%;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 200;
     border-right: 1px solid;
     align-items: center;
     justify-content: center;
+    font-size: 15px;
 
     @media screen and (max-width: 768px) {
         display: none;
@@ -137,8 +143,10 @@ export const CreditWrapper = styled.div`
 
 export const NameLabel = styled.div`
     width: 100%;
-    font-size: 16px;
-    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 200;
 `;
 
 export const IconBase = styled.div`

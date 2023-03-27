@@ -56,6 +56,8 @@ export const TitleWrapperOne = styled.div`
 export const Title = styled.div`
     width: 100%;
     font-size: 24px;
+    letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
     
     @media screen and (max-width: 585px) {
         font-size: 20px;
@@ -106,11 +108,25 @@ export const DoctorInfoWrapperAvailable = styled.div`
     }
 `;
 
-export const DoctorName = styled.div`
+export const DoctorNameAvailable = styled.div`
     text-align: center;
     width: 100%;
     margin: 0px 12px;
     color: white;
+    letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    @media screen and (max-width: 585px) {
+        font-size: 13px;
+    }
+`;
+
+export const DoctorNameCurrent = styled.div`
+    width: 100%;
+    margin: 0px 12px;
+    color: white;
+    letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
 
     @media screen and (max-width: 585px) {
         font-size: 13px;
@@ -172,12 +188,6 @@ export const DateWrapper = styled.div`
     @media screen and (max-width: 585px) {
         font-size: 10px;
     }
-`;
-
-export const Time = styled.div`
-    width: 100%;
-    height: 100%;
-    margin-left: 16px;
 `;
 
 export const Date = styled.div`

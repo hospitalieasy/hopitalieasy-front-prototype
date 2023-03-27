@@ -27,8 +27,8 @@ export const Title = styled.div`
     color: #fff;
     font-size: 30px;
     width: 52%;
+    font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 4px;
-    font-weight: 600;
 
     @media screen and (max-width: 656px) {
         display: none;

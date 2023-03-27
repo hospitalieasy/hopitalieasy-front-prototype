@@ -15,6 +15,8 @@ export const Title = styled.div`
     font-size: 22px;
     margin-bottom: 32px;
     text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
 
     @media screen and (max-width: 585px) {
         font-size: 20px;
@@ -53,6 +55,8 @@ export const RoleTitle = styled.div`
     font-size: 18px;
     margin-bottom: 24px;
     text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
 
     @media screen and (max-width: 585px) {
         font-size: 16px;
@@ -62,6 +66,8 @@ export const RoleTitle = styled.div`
 export const RoleName = styled.div`
     text-align: center;
     margin-bottom: 12px;
+    letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
 `;
 
 export const UserImage = styled.div`
@@ -97,12 +103,18 @@ export const Content = styled.div`
 
 export const Label = styled.div`
     margin-left: 12px;
+    font-family: 'Roboto Condensed', sans-serif;
+   letter-spacing: 1px;
 `;
 
 export const Time = styled.div`
    margin-left: 12px;
+   font-family: 'Roboto Condensed', sans-serif;
+   letter-spacing: 1px;
 `;
 
 export const Date = styled.div`
     margin-left: 4px;
+    font-family: 'Roboto Condensed', sans-serif;
+   letter-spacing: 1px;
 `;

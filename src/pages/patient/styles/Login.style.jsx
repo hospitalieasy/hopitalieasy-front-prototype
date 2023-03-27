@@ -34,6 +34,7 @@ export const Title = styled.div`
     padding-left: 12px;
     margin-top: 50px;
     letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
 
     @media screen and (max-width: 585px) {
         font-size: 28px;
@@ -52,6 +53,8 @@ export const Label = styled.span`
     width: 100%;
     font-size: 18px;
     font-weight: 500;
+    letter-spacing: 1px;
+    font-family: 'Roboto Condensed', sans-serif;
 
     @media screen and (max-width: 585px) {
         font-size: 16px;

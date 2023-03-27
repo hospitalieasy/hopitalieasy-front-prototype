@@ -32,6 +32,7 @@ const AppointmentDetail = (props) => {
             if (doctor && filteredDetails) {
                 setDetailForPatient({
                     name: doctor.name,
+                    surname: doctor.surname,
                     rating: doctor.rate,
                     hour: filteredDetails.appHour,
                     day: filteredDetails.appDay,
@@ -68,19 +69,19 @@ const AppointmentDetail = (props) => {
                         <UserImage>
                             <img src="https://img.icons8.com/plumpy/100/null/user.png" alt="" />
                         </UserImage>
-                        <RoleName>{`Dr. ${detailForPatient.name}`}</RoleName>
+                        <RoleName>{`Dr.${detailForPatient.name} ${detailForPatient.surname}`}</RoleName>
                     </LeftSide>
                     <RightSide>
                         <Content>
-                            <span>Rating: </span>
+                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Rating: </span>
                             <Label>
                                 <BasicRating rating={detailForPatient.rating} />
                             </Label>
                         </Content>
                         <Content>
-                            <span>Appointment: </span>
+                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Appointment: </span>
                             <Time>{detailForPatient.hour}</Time>
-                            <span style={{ margin: "0px 12px" }}>|</span>
+                            <span style={{ margin: "0px 12px", fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>|</span>
                             <Date>{detailForPatient.day}</Date>
                         </Content>
                     </RightSide>
@@ -95,25 +96,25 @@ const AppointmentDetail = (props) => {
                     </LeftSide>
                     <RightSide>
                         <Content>
-                            <span>Name: </span>
+                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Name: </span>
                             <Label>{detailForDoctor.name}</Label>
                         </Content>
                         <Content>
-                            <span>Surname: </span>
+                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Surname: </span>
                             <Label>{detailForDoctor.surname}</Label>
                         </Content>
                         <Content>
-                            <span>Birth Date: </span>
+                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Birth Date: </span>
                             <Label>{detailForDoctor.birthDate}</Label>
                         </Content>
                         <Content>
-                            <span>Phone Number: </span>
+                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Phone Number: </span>
                             <Label>{detailForDoctor.telno}</Label>
                         </Content>
                         <Content>
-                            <span>Appointment: </span>
+                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Appointment: </span>
                             <Time>{detailForDoctor.hour}</Time>
-                            <span style={{ margin: "0px 12px" }}>|</span>
+                            <span style={{ margin: "0px 12px", fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>|</span>
                             <Date>{detailForDoctor.day}</Date>
                         </Content>
                     </RightSide>

@@ -156,8 +156,8 @@ export default function AlertDialogSlide(props) {
         >
             <DialogContent>
                 <div>
-                    {detail.show && (<span>Are you sure to cancel the appointment?</span>)}
-                    {schedule.show && (<span>Are you sure to choose this hour?</span>)}
+                    {detail.show && (<span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Are you sure to cancel the appointment?</span>)}
+                    {schedule.show && (<span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Are you sure to choose this hour?</span>)}
                 </div>
             </DialogContent>
             <DialogActions>

@@ -60,6 +60,9 @@ export const Title = styled.div`
     margin-bottom: 40px;
     font-size: 24px;
     color: white;
+
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
 `;
 
 
@@ -68,4 +71,7 @@ export const Text = styled.div`
     height: 100%;
     font-size: 16px;
     color: white;
+
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
 `;

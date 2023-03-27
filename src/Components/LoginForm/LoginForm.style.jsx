@@ -13,8 +13,8 @@ export const LoginFormBase = styled.div`
 export const Title = styled.div`
     font-size: 28px;
     width: 100%;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 1.1px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1.5px;
     
     @media screen and (max-width: 585px) {
         font-size: 24px;

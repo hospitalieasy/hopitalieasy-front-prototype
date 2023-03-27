@@ -15,6 +15,8 @@ export const Title = styled.div`
     font-size: 32px;
     margin-bottom: 60px;
     color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
 
     @media screen and (max-width: 585px) {
         font-size: 24px;

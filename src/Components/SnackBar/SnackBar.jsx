@@ -48,7 +48,7 @@ const SnackBar = (props) => {
           {icon === 'error' && <HighlightOffIcon />}
           {icon === "warning" && <WarningIcon />}
         </span>
-        <span style={{ marginBottom: "6px", marginLeft: "12px" }}>{text}</span>
+        <span style={{ marginBottom: "6px", marginLeft: "12px", fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>{text}</span>
       </StyledSnackBar>
     )
   );
