@@ -12,10 +12,11 @@ const ListItemBase = styled.div`
     `;
 
 export default function ListItem(props) {
-    const { day, filteredByIdAndStatus, setNewAppointment } = props;
+    const { day, filteredByIdAndStatus, setNewAppointment, filteredAppointments, userId } = props;
 
     const [selectedIndex, setSelectedIndex] = React.useState();
     const [filteredDisabled, setFilteredDisabled] = React.useState([]);
+    const [disabledByDay, setDisabledByDay] = React.useState([]);
 
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
@@ -32,12 +33,21 @@ export default function ListItem(props) {
         const filterDisableDays = filteredByIdAndStatus.filter(
             (appointment) => appointment.appDay === day
         );
-
         setFilteredDisabled(filterDisableDays);
     }, [day, filteredByIdAndStatus]);
 
-    const isDisabled = (hour) =>
-        filteredDisabled.findIndex((item) => item.appHour === hour) !== -1;
+    const isDisabled = (hour) => {
+        const isThatDayGotAppointment = filteredAppointments.filter((appointment) => (
+            appointment.patientId === userId &&
+            appointment.appDay === day
+        ));
+
+        if (isThatDayGotAppointment.length > 0) {
+            return true
+        } else {
+            return filteredDisabled.findIndex((item) => item.appHour === hour) !== -1;
+        }
+    }
 
     return (
         <ListItemBase>

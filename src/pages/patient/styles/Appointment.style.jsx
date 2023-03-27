@@ -64,10 +64,11 @@ export const Title = styled.div`
 
 export const AppointmentWrapper = styled.div`
     width: 100%;
-    height: 300px;
+    height: 275px;
     display: flex;
     margin-top: 32px;
     flex-direction: column;
+    overflow-y: scroll;
 
     @media screen and (max-width: 585px) {
         padding: 0px;
@@ -87,7 +88,7 @@ export const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #737baf;
+    background-color: #5672fe;
     border-radius: 10px;
     padding: 32px 12px;
     margin: 8px 0px;

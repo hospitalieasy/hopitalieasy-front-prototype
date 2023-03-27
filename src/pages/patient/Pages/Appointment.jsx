@@ -1,12 +1,14 @@
-import { AppointmentBase, AppointmentItem, AppointmentWrapper, AvailableAppointment, ContentWrapper, CurrentAppointments, Date, DateWrapper, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorName, Section, Time, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
+import { AppointmentBase, AppointmentItem, AppointmentWrapper, AvailableAppointment, ContentWrapper, CurrentAppointments, DateWrapper, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorName, Section, Time, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
 
 import { AuthContext } from "../../../Context/AuthContext";
 import BasicRating from "../../../Components/Rating/Rating";
 import { Button } from "@mui/material";
 import CheckPopper from "..//..//..//Components/Checker/CheckPopper"
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import Loading from "..//..//..//Components/Loading/Loading"
 import Popper from "../../../Components/Popper/Popper";
 import ScheduleIcon from '@mui/icons-material/Schedule';
+import SnackBar from "../../../Components/SnackBar/SnackBar";
 import axios from "axios";
 import { useContext } from "react";
 import { useEffect } from "react";
@@ -16,6 +18,13 @@ const Appointment = () => {
     const { role, userId } = useContext(AuthContext)
 
     const [checkDecider, setCheckDecider] = useState(false);
+    const [showBar, setShowBar] = useState(false);
+    const [message, setMessage] = useState({
+        color: "",
+        text: "",
+        icon: "",
+    });
+    const [loading, setLoading] = useState(false);
 
     const [detail, setDetail] = useState({
         show: false,
@@ -28,6 +37,7 @@ const Appointment = () => {
     });
 
     const [doctors, setDoctors] = useState([]);
+    const [filteredDoctors, setFilteredDoctors] = useState([]);
 
     const [disabledAppointments, setDisabledAppointments] = useState([]);
     const [currentAppointments, setCurrentAppointments] = useState([]);
@@ -63,14 +73,28 @@ const Appointment = () => {
     useEffect(() => {
         if (currentAppointments.length > 0) {
             const filteredAppointments = currentAppointments.filter(
-                (appointment) => appointment.patientId === userId
+                (appointment) => appointment.patientId === userId && appointment.appStatus
             );
             setFilteredAppointments(filteredAppointments);
         }
     }, [currentAppointments, userId]);
 
-    const showDetail = (index) => {
-        setDetail({ show: true, index: index });
+    useEffect(() => {
+        if (doctors.length > 0) {
+            const filteredDoctors = doctors.filter((doctor) => doctor.id > 1);
+            setFilteredDoctors(filteredDoctors);
+        }
+    }, [doctors]);
+
+
+    useEffect(() => {
+        if (newAppointment.day && newAppointment.hour) {
+            setCheckDecider(true);
+        }
+    }, [newAppointment.day, newAppointment.hour]);
+
+    const showDetail = (doctorIndex) => {
+        setDetail({ show: true, index: doctorIndex });
     }
 
     const showSchedule = (doctorId) => {
@@ -89,11 +113,11 @@ const Appointment = () => {
                     </TitleWrapperOne>
                     <AppointmentWrapper>
 
-                        {doctors.map((doctor, index) => (
+                        {filteredDoctors.map((doctor, index) => (
                             <ContentWrapper key={index}>
                                 <DoctorInfoWrapperAvailable>
                                     <BasicRating rating={doctor.rate} />
-                                    <DoctorName>{doctor.name}</DoctorName>
+                                    <DoctorName>Dr.{doctor.name}</DoctorName>
                                 </DoctorInfoWrapperAvailable>
                                 <Button
                                     onClick={() => { showSchedule(doctor.id) }}
@@ -153,6 +177,8 @@ const Appointment = () => {
 
                     doctors={doctors}
                     filteredAppointments={filteredAppointments}
+
+                    userId={userId}
                 />)
             }
             {checkDecider &&
@@ -163,9 +189,17 @@ const Appointment = () => {
                     setSchedule={setSchedule}
                     checkDecider={checkDecider}
                     setCheckDecider={setCheckDecider}
+                    setShowBar={setShowBar}
+                    setMessage={setMessage}
+                    setLoading={setLoading}
 
+                    setNewAppointment={setNewAppointment}
                     newAppointment={newAppointment}
+
+                    filteredAppointments={filteredAppointments}
                 />)}
+            {showBar && (<SnackBar message={message} />)}
+            {loading && (<Loading loading={loading} />)}
         </AppointmentBase>
     );
 }

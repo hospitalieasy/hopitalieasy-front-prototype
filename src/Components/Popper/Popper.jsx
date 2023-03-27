@@ -26,14 +26,13 @@ export default function AlertDialogSlide(props) {
 
         doctors,
         filteredAppointments,
+
+        userId,
     } = props;
 
     const handleClose = () => {
-        if (detail) {
-            setDetail(false);
-        } else {
-            setSchedule(false);
-        }
+        setSchedule(false)
+        setDetail(false);
     };
 
     const CheckPopper = () => {
@@ -60,8 +59,10 @@ export default function AlertDialogSlide(props) {
 
                 {schedule.show && (
                     <DoctorSchedule
+                        userId={userId}
                         schedule={schedule}
                         disabledAppointments={disabledAppointments}
+                        filteredAppointments={filteredAppointments}
                         setNewAppointment={setNewAppointment}
                     />
                 )}
@@ -69,9 +70,6 @@ export default function AlertDialogSlide(props) {
 
             <DialogActions>
                 {detail.show && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
-
-                {schedule.show && (<Button onClick={CheckPopper}>Choose</Button>)}
-
                 <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>
         </Dialog>

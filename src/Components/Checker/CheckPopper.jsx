@@ -19,8 +19,14 @@ export default function AlertDialogSlide(props) {
         setDetail,
         schedule,
         setSchedule,
+        setShowBar,
+        setMessage,
+        setLoading,
 
+        setNewAppointment,
         newAppointment,
+
+        filteredAppointments,
     } = props;
 
     const [appointments, setAppointments] = React.useState([]);
@@ -31,48 +37,121 @@ export default function AlertDialogSlide(props) {
             .catch((error) => console.log(error))
     }, [])
 
-    const handleClose = () => {
-        setCheckDecider(false);
-    }
-
-    const cancelAppointment = () => {
-        //cancel appointment with api
-        //loading
-        setCheckDecider(false);
-        setDetail(false);
-    }
-
     const chooseAppointment = async () => {
-        /*  const filteredAppointment = appointments.filter(appointment =>
-             appointment.doctorId === newAppointment.doctorId &&
-             appointment.patientId === newAppointment.patientId &&
-             appointment.appDay === newAppointment.day &&
-             appointment.appHour === newAppointment.hour
-         );
- 
-         const appId = filteredAppointment[0].appId;
- 
-         const goingData = {
-             appStatus: true,
-             patientId: newAppointment.patientId
-         }
- 
-         await axios.put(`${process.env.REACT_APP_APPOINTMENT_URL}/${appId}`, goingData)
-             .then(() => {
-                 // snackbar
-             })
-             .catch((error) => {
-                 console.log(error)
-             }) */
+        setLoading(true);
+        try {
+            const filteredAppointment = appointments.filter(appointment =>
+                appointment.doctorId === newAppointment.doctorId &&
+                appointment.appDay === newAppointment.day &&
+                appointment.appHour === newAppointment.hour
+            );
+
+            const goingData = {
+                appId: filteredAppointment[0].appId,
+                appDay: filteredAppointment[0].appDay,
+                appHour: filteredAppointment[0].appHour,
+                appStatus: true,
+                doctorId: filteredAppointment[0].doctorId,
+                doctors: null,
+                patientId: newAppointment.patientId,
+                patients: null
+            }
+
+            const appId = parseInt(filteredAppointment[0].appId);
+
+            await axios.put(`${process.env.REACT_APP_APPOINTMENT_URL}/${appId}`, goingData)
+                .then(() => {
+                    setMessage({
+                        color: "green",
+                        text: "Appointment got successfully",
+                        icon: "success",
+                    })
+                    setShowBar(true);
+                    setSchedule({ ...schedule, show: false });
+                    setCheckDecider(false);
+
+                    setLoading(false);
+                })
+                .catch(() => {
+                    setMessage({
+                        color: "red",
+                        text: "Appointment is failed",
+                        icon: "error",
+                    })
+                    setShowBar(true);
+                    setSchedule({ ...schedule, show: false });
+                    setCheckDecider(false);
+
+                    setLoading(false);
+                })
+        } catch (error) {
+            console.log(error)
+        }
     };
 
+    const cancelAppointmentHandler = async () => {
+        setLoading(true);
+        try {
+            const filteredAppointment = filteredAppointments[detail.index]
+
+            const goingData = {
+                appId: filteredAppointment.appId,
+                appDay: filteredAppointment.appDay,
+                appHour: filteredAppointment.appHour,
+                appStatus: false,
+                doctorId: filteredAppointment.doctorId,
+                doctors: null,
+                patientId: 1,
+                patients: null
+            }
+
+            const appId = filteredAppointment.appId
+
+            await axios.put(`${process.env.REACT_APP_APPOINTMENT_URL}/${appId}`, goingData)
+                .then(() => {
+                    setMessage({
+                        color: "green",
+                        text: "Appointment is deleted successfully",
+                        icon: "success",
+                    })
+                    setShowBar(true);
+                    setDetail({ ...detail, show: false });
+                    setCheckDecider(false);
+
+                    setLoading(false);
+                })
+                .catch(() => {
+                    setMessage({
+                        color: "red",
+                        text: "Appointment is not deleted",
+                        icon: "error",
+                    })
+                    setShowBar(true);
+                    setDetail({ ...detail, show: false });
+                    setCheckDecider(false);
+
+                    setLoading(false);
+                })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleCloseSchedule = () => {
+        setCheckDecider(false);
+        setNewAppointment({ ...newAppointment, hour: "", day: "" })
+    }
+
+    const handleCloseDetail = () => {
+        setCheckDecider(false);
+    }
 
     return (
         <Dialog
             open={checkDecider}
             TransitionComponent={Transition}
             keepMounted
-            onClose={handleClose}
+            onClose={schedule.show ? (handleCloseSchedule) : (handleCloseDetail)}
             aria-describedby="alert-dialog-slide-description"
         >
             <DialogContent>
@@ -82,11 +161,11 @@ export default function AlertDialogSlide(props) {
                 </div>
             </DialogContent>
             <DialogActions>
-                {detail.show && (<Button onClick={cancelAppointment}>CANCEL APPOINTMENT</Button>)}
-
+                {detail.show && (<Button onClick={cancelAppointmentHandler}>CANCEL APPOINTMENT</Button>)}
                 {schedule.show && (<Button onClick={chooseAppointment}>CHOOSE</Button>)}
 
-                <Button onClick={handleClose}>CLOSE</Button>
+                {detail.show && (<Button onClick={handleCloseDetail}>CLOSE</Button>)}
+                {schedule.show && (<Button onClick={handleCloseSchedule}>CLOSE</Button>)}
             </DialogActions>
         </Dialog>
     );

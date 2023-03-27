@@ -8,7 +8,7 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import axios from "axios";
 
 const AppBar = (props) => {
-    const { setUser, userIndex, setUserIndex, role, setRole } = props;
+    const { setUser, userIndex, setUserIndex, userId, role, setRole } = props;
 
     const [name, setName] = useState("");
     const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -48,7 +48,7 @@ const AppBar = (props) => {
             <RightSide>
                 <ContentWrapper>
                     <NotificationWrapper>
-                        <MailBadge />
+                        <MailBadge userId={userId} />
                     </NotificationWrapper>
                     <ProfileWrapper>
                         <ProfileMenu

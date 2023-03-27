@@ -54,7 +54,7 @@ const TabPanelWrapper = styled.div`
 
 
 export default function VerticalTabs(props) {
-    const { setNewAppointment, disabledAppointments, schedule } = props;
+    const { setNewAppointment, disabledAppointments, schedule, filteredAppointments, userId } = props;
 
     const [value, setValue] = React.useState(0);
     const [filteredByIdAndStatus, setFilteredByIdAndStatus] = React.useState([]);
@@ -92,6 +92,8 @@ export default function VerticalTabs(props) {
                         day={"Monday"}
                         setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
+                        filteredAppointments={filteredAppointments}
+                        userId={userId}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
@@ -99,6 +101,8 @@ export default function VerticalTabs(props) {
                         day={"Tuesday"}
                         setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
+                        filteredAppointments={filteredAppointments}
+                        userId={userId}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={2}>
@@ -106,6 +110,8 @@ export default function VerticalTabs(props) {
                         day={"Wednesday"}
                         setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
+                        filteredAppointments={filteredAppointments}
+                        userId={userId}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={3}>
@@ -113,6 +119,8 @@ export default function VerticalTabs(props) {
                         day={"Thursday"}
                         setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
+                        filteredAppointments={filteredAppointments}
+                        userId={userId}
                     />
                 </TabPanel>
                 <TabPanel value={value} index={4}>
@@ -120,6 +128,8 @@ export default function VerticalTabs(props) {
                         day={"Friday"}
                         setNewAppointment={setNewAppointment}
                         filteredByIdAndStatus={filteredByIdAndStatus}
+                        filteredAppointments={filteredAppointments}
+                        userId={userId}
                     />
                 </TabPanel>
             </TabPanelWrapper>

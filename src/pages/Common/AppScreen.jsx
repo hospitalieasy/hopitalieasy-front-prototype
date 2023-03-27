@@ -10,6 +10,7 @@ const AppScreen = () => {
         setUser,
         userIndex,
         setUserIndex,
+        userId,
         role,
         setRole,
     } = useContext(AuthContext)
@@ -37,6 +38,7 @@ const AppScreen = () => {
                         role={role}
                         setRole={setRole}
                         setUser={setUser}
+                        userId={userId}
                         userIndex={userIndex}
                         setUserIndex={setUserIndex}
                     />
