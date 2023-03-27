@@ -15,12 +15,10 @@ const AppointmentDetail = (props) => {
         day: "",
     })
 
-    const doctor = doctors.find((doctor) => doctor.id === filteredAppointments[detail.index].doctorId);
-
     useEffect(() => {
-        const filteredDetails = filteredAppointments.find(
-            (appointment) => appointment.doctorId === doctor.id
-        );
+        const doctor = doctors.find((doctor) => doctor.id === filteredAppointments[detail.index].doctorId);
+        const filteredDetails = filteredAppointments[detail.index]
+
         if (doctor && filteredDetails) {
             setAppointmentDetail({
                 name: doctor.name,
