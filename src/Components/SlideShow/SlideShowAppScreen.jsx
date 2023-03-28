@@ -72,7 +72,7 @@ const SlideShowAppScreen = () => {
                         <Title>See the nearest hospitals && pharmacies</Title>
                         <TextWrapper>
                             <Text>
-                                You can browse the map not only online, but also the nearest hospitals and pharmacies, which will be listed according to your location.
+                                On the map, you can examine the nearest hospitals and pharmacies not only online, but also according to your location.
                             </Text>
                             <Logo>
                                 <Image src={map} />

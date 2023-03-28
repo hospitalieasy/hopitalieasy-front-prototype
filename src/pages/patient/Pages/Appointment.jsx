@@ -123,7 +123,7 @@ const Appointment = () => {
                                     onClick={() => { showSchedule(doctor.id) }}
                                     className="appointment-get"
                                     variant="contained">
-                                    Get
+                                    GET
                                 </Button>
                             </ContentWrapper>
                         ))}

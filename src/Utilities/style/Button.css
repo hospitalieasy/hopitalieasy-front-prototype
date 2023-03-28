@@ -207,6 +207,11 @@ Animation
 .MuiButton-root.appointment-get {
   width: 100px;
   height: 35px;
+  background-color: #0042b5;
+}
+
+.MuiButton-root.appointment-get:hover {
+  background-color: #24275c;
 }
 
 @media screen and (max-width: 500px) {
@@ -218,24 +223,11 @@ Animation
   }
 }
 
-/* .MuiButton-root.appointment-delete {
-  width: 100px;
-  height: 40px;
-}
-
-@media screen and (max-width: 454px) {
-  .MuiButton-root.appointment-delete {
-    font-size: 11px;
-    width: 50px;
-    min-width: auto;
-    height: 30px;
-  }
-}
- */
 .MuiButton-root.appointment-detail {
   height: 35px;
   width: 100px;
   margin-top: -4px;
+  background-color: #1f9b00;
 }
 
 @media screen and (max-width: 454px) {
@@ -251,6 +243,11 @@ Animation
   height: 50%;
   width: 15%;
   margin-right: 12px;
+  background-color: #0042b5;
+}
+
+.MuiButton-root.home-detail:hover {
+  background-color: #24275c;
 }
 
 @media screen and (max-width: 585px) {
@@ -265,6 +262,7 @@ Animation
   width: 20%;
   margin-left: 12px;
   padding: 16px 8px;
+  background-color: #1f9b00;
 }
 
 @media screen and (max-width: 585px) {

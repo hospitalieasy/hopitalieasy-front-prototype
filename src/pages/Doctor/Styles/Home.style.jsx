@@ -41,7 +41,7 @@ export const ContentWrapper = styled.div`
     height: 90px;
     display: flex;
     align-items: center;
-    background-color: #737baf;
+    background-color: #5672fe;
     border-radius: 10px;
     padding: 0px 12px;
     margin: 12px 0px;

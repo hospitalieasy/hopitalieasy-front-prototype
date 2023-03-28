@@ -66,6 +66,7 @@ export const RoleTitle = styled.div`
 export const RoleName = styled.div`
     text-align: center;
     margin-bottom: 12px;
+    margin-top: 8px;
     letter-spacing: 1px;
     font-family: 'Roboto Condensed', sans-serif;
 `;

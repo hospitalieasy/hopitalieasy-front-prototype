@@ -15,6 +15,7 @@ export const SectionBanner = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
 `;
 
 export const SectionMap = styled.div`
@@ -24,15 +25,20 @@ export const SectionMap = styled.div`
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+
+    @media screen and (max-width: 904px) {
+       margin-top: 20px;
+    }
 `;
 
 export const ContentWrapper = styled.div`
     height: 90%;
     width: 45%;
-    margin: 0px 20px;
+    margin: 0px 16px;
 
     @media screen and (max-width: 904px) {
         width: 100%;
+        margin: 0px 0px;
     }
 `;
 
@@ -40,7 +46,9 @@ export const Title = styled.div`
     width: 100%;
     color: white;
     font-size: 24px;
-    margin: 24px 0px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    text-align: center;
 
     letter-spacing: 1px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -51,7 +59,7 @@ export const Title = styled.div`
 `;
 
 export const MapWrapper = styled.div`
-    height: 65%;
+    height: 70%;
     width: 100%;
     border-radius: 10px;
 `;
