@@ -1,0 +1,279 @@
+/*
+Navbar Items and Hero Banner Items
+*/
+
+.MuiButton-root.get-started {
+  letter-spacing: 2px;
+  padding: 15px 35px;
+  background: linear-gradient(to right, #ad06fa, #019ef3);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+}
+
+.MuiButton-root.get-started:hover {
+  background: linear-gradient(to right, #1c23a8, #1c23a8);
+}
+
+.MuiButton-root.doctor {
+  background-color: #0048ff;
+}
+
+.MuiButton-root.doctor:hover {
+  background-color: #002fa4;
+}
+
+.MuiButton-root.patient {
+  background-color: #7440e5;
+}
+
+.MuiButton-root.patient:hover {
+  background-color: #1c23a8;
+}
+
+/*
+Login screen
+*/
+
+.success:hover {
+  background-color: #1e1436;
+  transition-delay: 1s;
+}
+
+.error:hover {
+  background-color: #1e1436;
+  transition-delay: 1s;
+}
+
+.MuiButton-root.login {
+  background-color: #000;
+}
+
+.MuiButton-root.login:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.sign-here {
+  padding: 5px 10px;
+  background-color: #000;
+}
+
+.MuiButton-root.sign-here:hover {
+  background-color: #1e1436;
+}
+
+/*
+Sign Up Screen
+*/
+
+.MuiButton-root.sign-login {
+  background-color: #000;
+  padding: 8px;
+  width: 150px;
+}
+
+.MuiButton-root.sign-login:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.sign-pop {
+  background-color: #000;
+  padding: 8px;
+  width: 150px;
+  margin-top: 24px;
+}
+
+.MuiButton-root.sign-pop:hover {
+  background-color: #1e1436;
+}
+
+.MuiButton-root.sign-close {
+  color: #000;
+}
+
+.MuiButton-root.sign-close:hover {
+  background-color: #3f3b49;
+  color: #fff;
+}
+
+.MuiButton-root.terms {
+  background-color: #000;
+}
+
+.MuiButton-root.terms:hover {
+  background-color: #1e1436;
+}
+
+/*
+Slide Items
+*/
+
+.MuiButton-root.prev {
+  background-color: black;
+}
+
+.MuiButton-root.prev:hover {
+  background-color: #7440e5;
+}
+
+.MuiButton-root.next {
+  background-color: black;
+}
+
+.MuiButton-root.next:hover {
+  background-color: #7440e5;
+}
+
+/*
+Information Tab
+*/
+
+.MuiButton-root.save {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+AppBar
+*/
+
+.MuiButton-root.profile {
+  padding: 0px;
+  width: 10%;
+  min-width: 0px;
+}
+
+.MuiButton-root.notification {
+  padding: 6px;
+  background: #fff;
+  min-width: 0px;
+}
+
+.MuiButton-root.notification:hover {
+  border: none;
+}
+
+/*
+Information tab
+*/
+
+.MuiButton-root.save {
+  width: 120px;
+  height: 50px;
+  background-color: rgb(255, 145, 0);
+}
+
+.MuiButton-root.save:hover {
+  background-color: rgb(121, 108, 47);
+}
+
+/*
+Animation 
+*/
+
+#snack-bar {
+  animation: 0.5s ease-out 0s 1 slideInFromBottom;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Contact Form */
+
+.MuiTextField-root.contact-input {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.MuiButton-root.contact-button {
+  background-color: #1e1436;
+  width: 250px;
+  height: 50px;
+}
+
+.MuiButton-root.contact-button:hover {
+  background-color: #1c23a8;
+}
+
+/* Appointment */
+
+.MuiButton-root.appointment-get {
+  width: 100px;
+  height: 35px;
+  background-color: #0042b5;
+}
+
+.MuiButton-root.appointment-get:hover {
+  background-color: #24275c;
+}
+
+@media screen and (max-width: 500px) {
+  .MuiButton-root.appointment-get {
+    font-size: 11px;
+    width: 55px;
+    min-width: auto;
+    height: 30px;
+  }
+}
+
+.MuiButton-root.appointment-detail {
+  height: 35px;
+  width: 100px;
+  margin-top: -4px;
+  background-color: #1f9b00;
+}
+
+@media screen and (max-width: 454px) {
+  .MuiButton-root.appointment-detail {
+    font-size: 11px;
+    height: 30px;
+  }
+}
+
+/* Doctor home page */
+
+.MuiButton-root.home-detail {
+  height: 50%;
+  width: 15%;
+  margin-right: 12px;
+  background-color: #0042b5;
+}
+
+.MuiButton-root.home-detail:hover {
+  background-color: #24275c;
+}
+
+@media screen and (max-width: 585px) {
+  .MuiButton-root.home-detail {
+    height: 40%;
+    font-size: 9px;
+  }
+}
+
+.MuiButton-root.send-result {
+  height: 75%;
+  width: 20%;
+  margin-left: 12px;
+  padding: 16px 8px;
+  background-color: #1f9b00;
+}
+
+@media screen and (max-width: 585px) {
+  .MuiButton-root.send-result {
+    height: 65%;
+    font-size: 9px;
+  }
+}
+
+@media screen and (min-width: 585px) and (max-width: 966px) {
+  .MuiButton-root.send-result {
+    font-size: 12px;
+  }
+}
