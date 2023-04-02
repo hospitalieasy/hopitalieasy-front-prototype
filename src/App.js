@@ -17,7 +17,7 @@ import PatientTestResult from "./Pages/Patient/Pages/TestResult";
 import ProtectedRoutes from "./Context/ProtectedRoutes";
 import useLocalStorage from "./Hooks/LocalStorage/useLocalStorage";
 
-// dummy text 5
+// dummy text 6
 
 const App = () => {
   /* sets the current user and index of that user and keeps it in local storage */
