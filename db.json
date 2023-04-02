@@ -1,0 +1,239 @@
+{
+  "patients": [
+    {
+      "Id": 1,
+      "Name": "Adam",
+      "Surname": "Doa",
+      "Birthdate": "1990-01-01",
+      "Email": "adam@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "updatedAt": 1677959656338,
+      "appointmentId": 101
+    },
+    {
+      "Id": 2,
+      "Name": "Jane",
+      "Surname": "Doe",
+      "Birthdate": "1992-05-15",
+      "Email": "jane@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "appointmentId": null
+    },
+    {
+      "Id": 3,
+      "Name": "Bob",
+      "Surname": "Smith",
+      "Birthdate": "1985-07-20",
+      "Email": "bob@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "appointmentId": null
+    },
+    {
+      "Id": 4,
+      "Name": "Alice",
+      "Surname": "Jones",
+      "Birthdate": "1991-03-05",
+      "Email": "alice@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "appointmentId": null
+    },
+    {
+      "Id": 5,
+      "Name": "David",
+      "Surname": "Lee",
+      "Birthdate": "1988-12-30",
+      "Email": "david@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "appointmentId": null
+    }
+  ],
+
+  "doctors": [
+    {
+      "Id": 1,
+      "Name": "Dr.Bruno",
+      "Surname": "Doa",
+      "Birthdate": "1990-01-01",
+      "Email": "bruno@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "updatedAt": 1677959656338,
+      "appointmentId": 101,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
+    },
+    {
+      "Id": 2,
+      "Name": "Dr.Jane",
+      "Surname": "Doe",
+      "Birthdate": "1992-05-15",
+      "Email": "jane@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "appointmentId": 102,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
+    },
+    {
+      "Id": 3,
+      "Name": "Dr.John",
+      "Surname": "Smith",
+      "Birthdate": "1985-07-20",
+      "Email": "john@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "appointmentId": 103,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
+    },
+    {
+      "Id": 4,
+      "Name": "Dr.David",
+      "Surname": "Jones",
+      "Birthdate": "1991-03-05",
+      "Email": "david@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "appointmentId": 104,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
+    },
+    {
+      "Id": 5,
+      "Name": "Dr.Smith",
+      "Surname": "Lee",
+      "Birthdate": "1988-12-30",
+      "Email": "smith@gmail.com",
+      "Password": "123asd123",
+      "Telno": "5053321199",
+      "appointmentId": 105,
+      "appointment": {
+        "10:00": {
+          "patientId": "",
+          "available": true
+        },
+        "11:00": {
+          "patientId": "",
+          "available": true
+        },
+        "13:00": {
+          "patientId": "",
+          "available": true
+        },
+        "14:00": {
+          "patientId": "",
+          "available": true
+        },
+        "15:00": {
+          "patientId": "",
+          "available": true
+        },
+        "16:00": {
+          "patientId": "",
+          "available": true
+        }
+      }
+    }
+  ]
+}
