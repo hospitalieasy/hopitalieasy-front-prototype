@@ -2,16 +2,56 @@ import { Button, TextField } from '@mui/material'
 import { ButtonWrapper, ContactBase, FromWrapper, InputWrapper, Title } from './Contact.style'
 import React, { useState } from 'react'
 
+import Loading from "..//Loading/Loading";
+import SnackBar from '../SnackBar/SnackBar';
+import axios from 'axios';
+
 const Contact = () => {
     const [email, setEmail] = useState("");
     const [content, setContent] = useState("");
 
-    const sendHandler = (e) => {
+    const [message, setMessage] = useState({
+        color: "",
+        text: "",
+        icon: "",
+    })
+
+    const [loading, setLoading] = useState(false);
+
+    const sendHandler = async (e) => {
         e.preventDefault();
+        setLoading(true)
 
-        // post method
+        const goingData = {
+            email: email,
+            comment: content
+        }
 
-        // snackbar
+        if (email !== "" && content !== "") {
+            await axios.post(process.env.REACT_APP_CONTACT_URL, goingData).then(() => {
+                setLoading(false)
+                setMessage({
+                    color: "green",
+                    text: "Message send successfully",
+                    icon: "success",
+                })
+            }).catch((error) => {
+                setLoading(false)
+                setMessage({
+                    color: "red",
+                    text: "Message is failed to send",
+                    icon: "error",
+                })
+                console.log(error)
+            })
+        } else {
+            setLoading(false)
+            setMessage({
+                color: "red",
+                text: "Message is failed to send",
+                icon: "error",
+            })
+        }
 
         setContent("")
         setEmail("");
@@ -50,6 +90,8 @@ const Contact = () => {
                     <Button onClick={sendHandler} className='contact-button' color={"secondary"} variant="contained">SEND</Button>
                 </ButtonWrapper>
             </FromWrapper>
+            {loading && <Loading loading={loading} />}
+            {message && <SnackBar message={message} />}
         </ContactBase>
     )
 }
