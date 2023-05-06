@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProfileBase = styled.div`
-    height: 88%;
+    height: 87%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -14,5 +14,5 @@ export const Section = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 15px 0px;
+    margin-top: -16px;
 `;

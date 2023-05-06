@@ -277,3 +277,15 @@ Animation
     font-size: 12px;
   }
 }
+
+/* Patient test result page */
+
+.MuiButton-root.show-patient-result {
+  width: 80%;
+  height: 60%;
+  background-color: #1f9b00;
+}
+
+.MuiButton-root.show-patient-result:hover {
+  background-color: #2f5843;
+}
