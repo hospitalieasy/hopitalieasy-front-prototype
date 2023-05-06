@@ -7,6 +7,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DoctorSchedule from '../DoctorSchedule/DoctorSchedule';
 import Slide from '@mui/material/Slide';
+import TestResult from '../TestResult/TestResult';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -28,12 +29,17 @@ export default function AlertDialogSlide(props) {
         patients,
         filteredAppointments,
 
+        filteredTest,
+        showResult,
+        setShowResult,
+
         userId,
     } = props;
 
     const handleClose = () => {
         setSchedule(false)
         setDetail(false);
+        setShowResult(false)
     };
 
     const CheckPopper = () => {
@@ -67,6 +73,10 @@ export default function AlertDialogSlide(props) {
                         filteredAppointments={filteredAppointments}
                         setNewAppointment={setNewAppointment}
                     />
+                )}
+
+                {showResult && (
+                    <TestResult filteredTest={filteredTest} />
                 )}
             </DialogContent>
 
