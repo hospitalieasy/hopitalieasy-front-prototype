@@ -3,11 +3,12 @@ import { TestImage, TestResultBase } from './TestResult.style'
 import React from 'react'
 
 const TestResult = (props) => {
-    const { filteredTest } = props;
+    const { filteredTest, showResult } = props;
 
+    const selectedTest = filteredTest[showResult.index]
     return (
         <TestResultBase>
-            <TestImage src={filteredTest.imgUrl} />
+            <TestImage src={selectedTest.imgUrl} />
         </TestResultBase>
     )
 }

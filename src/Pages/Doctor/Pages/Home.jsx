@@ -30,7 +30,7 @@ const Home = () => {
 
     const [detail, setDetail] = useState({
         show: false,
-        index: "",
+        index: null,
     }
     );
     const [schedule, setSchedule] = useState({
@@ -44,15 +44,21 @@ const Home = () => {
     const [filteredAppointments, setFilteredAppointments] = useState([]);
     const [newList, setNewList] = useState(false)
 
+    const [tests, setTests] = useState([]);
+    const [filteredTests, setFilteredTests] = useState([]);
+    const [showOldResults, setShowOldResults] = useState({ show: false, index: null });
+
     useEffect(() => {
         axios.get(process.env.REACT_APP_PATIENT_URL)
             .then((response) => setPatients(response.data))
             .catch((error) => console.log(error))
 
         axios.get(process.env.REACT_APP_APPOINTMENT_URL)
-            .then((response) => {
-                setCurrentAppointments(response.data)
-            })
+            .then((response) => setCurrentAppointments(response.data))
+            .catch((error) => console.log(error))
+
+        axios.get(process.env.REACT_APP_TEST_RESULT_URL)
+            .then((response) => setTests(response.data))
             .catch((error) => console.log(error))
     }, [])
 
@@ -76,6 +82,35 @@ const Home = () => {
             setFilteredAppointments(filteredAppointments);
         }
     }, [currentAppointments, userId, newList]);
+
+    useEffect(() => {
+        if (tests.length > 0) {
+            const filteredTests = tests.filter((test) => test.doctorId === userId);
+
+            const uniquePatientTests = filteredTests.reduce((accumulator, currentTest) => {
+                const existingPatientIndex = accumulator.findIndex(
+                    (test) => test.patientId === currentTest.patientId
+                );
+
+                if (existingPatientIndex === -1) {
+                    accumulator.push({
+                        patientId: currentTest.patientId,
+                        doctorId: currentTest.doctorId,
+                        imgUrl: [currentTest.imgUrl],
+                        date: [currentTest.date],
+                    });
+                } else {
+                    accumulator[existingPatientIndex].imgUrl.push(currentTest.imgUrl);
+                    accumulator[existingPatientIndex].date.push(currentTest.date);
+                }
+
+                return accumulator;
+            }, []);
+
+            setFilteredTests(uniquePatientTests);
+        }
+    }, [tests]);
+
 
     const showDetail = (patientIndex) => {
         setDetail({ show: true, index: patientIndex })
@@ -178,9 +213,13 @@ const Home = () => {
         setImage({ file: null, name: "" });
     };
 
+    const showOldResultsHandler = (index) => {
+        setShowOldResults({ show: true, index: index })
+    }
+
     return (
         <HomeBase>
-            <DefaultBox width={"95%"} height={"90%"} background={"white"} >
+            <DefaultBox width={"45%"} height={"90%"} background={"white"} margin={"0px 12px 0px 0px"}  >
                 <Title>My Appointments</Title>
                 <AppointmentWrapper>
 
@@ -221,7 +260,32 @@ const Home = () => {
                 </AppointmentWrapper>
 
             </DefaultBox>
-            {detail.show &&
+
+            <DefaultBox width={"45%"} height={"90%"} background={"white"} margin={"0px 0px 0px 12px"} >
+                <Title>Patients Have Been Tested</Title>
+                <AppointmentWrapper>
+                    {filteredTests.map((test, index) => (
+                        <ContentWrapper key={index}>
+                            <PatientName>
+                                {
+                                    patients.find(patient => patient.id === test.patientId)?.name
+                                    + " " +
+                                    patients.find(patient => patient.id === test.patientId)?.surname
+                                }
+                            </PatientName>
+                            <Button
+                                className="show-old-test"
+                                variant="contained"
+                                onClick={showOldResultsHandler(index)}
+                            >
+                                SHOW TESTS
+                            </Button>
+                        </ContentWrapper>
+                    ))}
+                </AppointmentWrapper>
+            </DefaultBox>
+
+            {(detail.show || showOldResults.show) &&
                 (<Popper
                     role={role}
                     detail={detail}
@@ -234,6 +298,10 @@ const Home = () => {
                     filteredAppointments={filteredAppointments}
 
                     userId={userId}
+
+                    filteredTests={filteredTests}
+                    showOldResults={showOldResults}
+                    setShowOldResults={setShowOldResults}
                 />)}
             {checkDecider &&
                 (<CheckPopper

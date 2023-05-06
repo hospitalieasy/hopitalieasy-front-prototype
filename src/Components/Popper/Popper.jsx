@@ -6,6 +6,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DoctorSchedule from '../DoctorSchedule/DoctorSchedule';
+import OldResults from '../OldResults/OldResults';
 import Slide from '@mui/material/Slide';
 import TestResult from '../TestResult/TestResult';
 
@@ -33,13 +34,18 @@ export default function AlertDialogSlide(props) {
         showResult,
         setShowResult,
 
+        filteredTests,
+        showOldResults,
+        setShowOldResults,
+
         userId,
     } = props;
 
     const handleClose = () => {
-        setSchedule(false)
-        setDetail(false);
-        setShowResult(false)
+        setSchedule({ show: false, index: null })
+        setDetail({ show: false, index: null })
+        setShowResult({ show: false, index: null })
+        setShowOldResults({ show: false, index: null })
     };
 
     const CheckPopper = () => {
@@ -75,8 +81,12 @@ export default function AlertDialogSlide(props) {
                     />
                 )}
 
-                {showResult && (
-                    <TestResult filteredTest={filteredTest} />
+                {showResult.show && (
+                    <TestResult showResult={showResult} filteredTest={filteredTest} />
+                )}
+
+                {showOldResults.show && (
+                    <OldResults showOldResults={showOldResults} filteredTests={filteredTests} />
                 )}
             </DialogContent>
 

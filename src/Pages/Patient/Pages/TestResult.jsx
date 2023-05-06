@@ -16,7 +16,7 @@ const TestResult = () => {
     const [tests, setTests] = useState([])
     const [filteredTest, setFilteredTest] = useState([])
 
-    const [showResult, setShowResult] = useState(false);
+    const [showResult, setShowResult] = useState({ show: false, index: null });
 
     useEffect(() => {
         axios.get(process.env.REACT_APP_DOCTOR_URL)
@@ -33,8 +33,8 @@ const TestResult = () => {
         }
     }, [tests, userId])
 
-    const showResultHandler = () => {
-        setShowResult(true)
+    const showResultHandler = (index) => {
+        setShowResult({ show: true, index: index })
     }
 
     return (
@@ -56,13 +56,13 @@ const TestResult = () => {
                                     + " " +
                                     doctors.find(doctor => doctor.id === test.doctorId)?.surname
                                 }</DoctorName>
-                                <Button className="show-patient-result" variant="contained" onClick={showResultHandler}>Show Result</Button>
+                                <Button className="show-patient-result" variant="contained" onClick={showResultHandler(index)}>Show Result</Button>
                             </ResultItem>
                         ))}
                     </ResultItems>
                 </ContentWrapper>
             </DefaultBox>
-            {showResult && (
+            {showResult.show && (
                 <Popper filteredTest={filteredTest} showResult={showResult} setShowResult={setShowResult} />
             )}
         </TestResultBase>
