@@ -14,6 +14,7 @@ export const TestImage = styled.img`
     height: 350px;
     width: 400px;
     margin-bottom: 32px;
+    border-radius: 5px;
 `;
 
 export const Title = styled.div`

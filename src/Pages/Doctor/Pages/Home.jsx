@@ -82,18 +82,16 @@ const Home = () => {
                     accumulator.push({
                         patientId: currentTest.patientId,
                         doctorId: currentTest.doctorId,
-                        imgUrl: [currentTest.imgUrl],
+                        imageUrl: [currentTest.imageUrl],
                         date: [currentTest.date],
                     });
                 } else {
-                    accumulator[existingPatientIndex].imgUrl.push(currentTest.imgUrl);
+                    accumulator[existingPatientIndex].imageUrl.push(currentTest.imageUrl);
                     accumulator[existingPatientIndex].date.push(currentTest.date);
                 }
 
                 return accumulator;
             }, []);
-
-            console.log("filteredTests: ", uniquePatientTests)
 
             setFilteredTests(uniquePatientTests);
         }
@@ -171,16 +169,18 @@ const Home = () => {
             return;
         }
 
+        setLoading(true)
+
         const formData = new FormData();
         formData.append("file", selectedImage);
 
         await axios
             .post(process.env.REACT_APP_BLOB_POST_URL, formData)
             .then(() => {
-                setLoading(true)
                 sendTestResult(index, selectedImage.name)
             })
             .catch((error) => {
+                setLoading(false)
                 setMessage({
                     color: "red",
                     text: "Failed to upload the image",
@@ -243,7 +243,7 @@ const Home = () => {
             </DefaultBox>
 
             <DefaultBox width={"45%"} height={"90%"} background={"white"} margin={"0px 0px 0px 12px"} >
-                {/*  <Title>Patients Have Been Tested</Title>
+                <Title>Patients Have Been Tested</Title>
                 <AppointmentWrapper>
                     {filteredTests.map((test, index) => (
                         <ContentWrapper key={index}>
@@ -257,13 +257,13 @@ const Home = () => {
                             <Button
                                 className="show-old-test"
                                 variant="contained"
-                                onClick={() => {showOldResultsHandler(index)}}
+                                onClick={() => { showOldResultsHandler(index) }}
                             >
                                 SHOW TESTS
                             </Button>
                         </ContentWrapper>
                     ))}
-                </AppointmentWrapper> */}
+                </AppointmentWrapper>
             </DefaultBox>
 
             {(detail.show || showOldResults.show) &&

@@ -1,21 +1,33 @@
-import { ContentWrapper, Date, OldResultsBase, TestResultImage } from './OldResults.style'
+import { ContentWrapper, Date, OldResultsBase, TestResultImage, Text, Title } from './OldResults.style'
 
+import Loading from '../Loading/Loading';
 import React from 'react'
+import { useState } from 'react';
 
 const OldResults = (props) => {
     const { showOldResults, filteredTests } = props;
 
-    const selectedPatient = filteredTests[showOldResults.index]
+    const [loading, setLoading] = useState(true)
+    const selectedPatient = filteredTests[showOldResults.index];
+
+    const handleLoading = () => {
+        setLoading(false)
+    }
+
     return (
         <OldResultsBase>
-            {selectedPatient.imgUrl.map((result, index) => (
+            {selectedPatient.imageUrl.map((imageUrl, index) => (
                 <ContentWrapper key={index}>
-                    <Date>{result.date}</Date>
-                    <TestResultImage src={result.imgUrl} />
+                    {!loading && (<Date>Appointment Date: {selectedPatient.date[index]}</Date>)}
+                    <TestResultImage onLoad={handleLoading} src={imageUrl} />
+                    <Title>My Feedback:</Title>
+                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia placeat rem quos quae, nemo sint ab sunt quidem quisquam nesciunt.
+                    </Text>
                 </ContentWrapper>
             ))}
+            {loading && (<Loading loading={loading} />)}
         </OldResultsBase>
-    )
-}
+    );
+};
 
-export default OldResults
+export default OldResults;

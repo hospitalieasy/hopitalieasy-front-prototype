@@ -17,8 +17,11 @@ const TestResult = (props) => {
     return (
         <TestResultBase>
             <TestImage src={selectedTest.imageUrl} onLoad={handleImageLoad} />
-            <Title>Doctor's Feedback: </Title>
-            <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas inventore similique nihil quae, rerum consequatur earum temporibus sit? Odio, quas?</Text>
+            {!loading && (
+                <>
+                    <Title>Doctor's Feedback: </Title><Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas inventore similique nihil quae, rerum consequatur earum temporibus sit? Odio, quas?</Text>
+                </>
+            )}
             {loading && <Loading loading={loading} />}
         </TestResultBase>
     )
