@@ -16,7 +16,6 @@ import { useState } from "react";
 const Home = () => {
     const { role, userId } = useContext(AuthContext)
 
-    const [image, setImage] = useState({ file: null, name: "" });
     const fileInputRef = useRef(null);
 
     const [checkDecider, setCheckDecider] = useState(false);
@@ -42,11 +41,10 @@ const Home = () => {
 
     const [currentAppointments, setCurrentAppointments] = useState([]);
     const [filteredAppointments, setFilteredAppointments] = useState([]);
-    const [newList, setNewList] = useState(false)
 
     const [tests, setTests] = useState([]);
     const [filteredTests, setFilteredTests] = useState([]);
-    const [showOldResults, setShowOldResults] = useState({ show: false, index: null });
+    const [showOldResults, setShowOldResults] = useState({ show: false, index: "" });
 
     useEffect(() => {
         axios.get(process.env.REACT_APP_PATIENT_URL)
@@ -63,25 +61,13 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        axios.get(process.env.REACT_APP_PATIENT_URL)
-            .then((response) => setPatients(response.data))
-            .catch((error) => console.log(error))
-
-        axios.get(process.env.REACT_APP_APPOINTMENT_URL)
-            .then((response) => {
-                setCurrentAppointments(response.data)
-            })
-            .catch((error) => console.log(error))
-    }, [newList])
-
-    useEffect(() => {
         if (currentAppointments.length > 0) {
             const filteredAppointments = currentAppointments.filter(
                 (appointment) => appointment.doctorId === userId && appointment.appStatus
             );
             setFilteredAppointments(filteredAppointments);
         }
-    }, [currentAppointments, userId, newList]);
+    }, [currentAppointments, userId]);
 
     useEffect(() => {
         if (tests.length > 0) {
@@ -107,14 +93,11 @@ const Home = () => {
                 return accumulator;
             }, []);
 
+            console.log("filteredTests: ", uniquePatientTests)
+
             setFilteredTests(uniquePatientTests);
         }
     }, [tests]);
-
-
-    const showDetail = (patientIndex) => {
-        setDetail({ show: true, index: patientIndex })
-    }
 
     const cancelAfterSendResult = async (index) => {
         try {
@@ -136,7 +119,6 @@ const Home = () => {
             await axios.put(`${process.env.REACT_APP_APPOINTMENT_URL}/${appId}`, goingData)
                 .then(() => {
                     setLoading(false);
-                    setNewList(true);
                     setMessage({
                         color: "green",
                         text: "Test result sent successfully",
@@ -154,20 +136,19 @@ const Home = () => {
         } catch (error) {
             console.log(error)
         }
-
-        setNewList(false)
     }
 
-    const sendTestResult = async (index) => {
-        const imageName = image.name
+    const sendTestResult = async (index, imageName) => {
         const selectedPatient = filteredAppointments[index]
 
         try {
             const goingData = {
-                patientId: selectedPatient.patientId,
-                doctorId: selectedPatient.doctorId,
-                imgUrl: `${process.env.REACT_APP_BLOB_POST_URL}/${imageName}`,
-                date: selectedPatient.appDay + " " + selectedPatient.appHour,
+                patientId: selectedPatient?.patientId,
+                doctorId: selectedPatient?.doctorId,
+                imageUrl: `${process.env.REACT_APP_BLOB_POST_URL}/${imageName}`,
+                date: selectedPatient?.appDay + " " + selectedPatient?.appHour,
+                patients: null,
+                doctors: null
             }
 
             await axios.post(process.env.REACT_APP_TEST_RESULT_URL, goingData)
@@ -190,16 +171,14 @@ const Home = () => {
             return;
         }
 
-        const imageName = selectedImage.name.split('.')[0];
-        setImage({ file: selectedImage, name: imageName });
+        const formData = new FormData();
+        formData.append("file", selectedImage);
 
         await axios
-            .post(process.env.REACT_APP_BLOB_POST_URL, image.file, {
-                headers: { "Content-Type": "multipart/form-data" },
-            })
+            .post(process.env.REACT_APP_BLOB_POST_URL, formData)
             .then(() => {
                 setLoading(true)
-                /* sendTestResult(index) */
+                sendTestResult(index, selectedImage.name)
             })
             .catch((error) => {
                 setMessage({
@@ -209,12 +188,14 @@ const Home = () => {
                 });
                 console.log(error);
             });
-
-        setImage({ file: null, name: "" });
     };
 
     const showOldResultsHandler = (index) => {
         setShowOldResults({ show: true, index: index })
+    }
+
+    const showDetail = (index) => {
+        setDetail({ show: true, index: index })
     }
 
     return (
@@ -262,7 +243,7 @@ const Home = () => {
             </DefaultBox>
 
             <DefaultBox width={"45%"} height={"90%"} background={"white"} margin={"0px 0px 0px 12px"} >
-                <Title>Patients Have Been Tested</Title>
+                {/*  <Title>Patients Have Been Tested</Title>
                 <AppointmentWrapper>
                     {filteredTests.map((test, index) => (
                         <ContentWrapper key={index}>
@@ -276,13 +257,13 @@ const Home = () => {
                             <Button
                                 className="show-old-test"
                                 variant="contained"
-                                onClick={showOldResultsHandler(index)}
+                                onClick={() => {showOldResultsHandler(index)}}
                             >
                                 SHOW TESTS
                             </Button>
                         </ContentWrapper>
                     ))}
-                </AppointmentWrapper>
+                </AppointmentWrapper> */}
             </DefaultBox>
 
             {(detail.show || showOldResults.show) &&

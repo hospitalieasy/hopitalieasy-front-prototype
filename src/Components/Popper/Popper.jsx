@@ -17,6 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function AlertDialogSlide(props) {
     const {
         role,
+
         detail,
         setDetail,
         schedule,
@@ -42,26 +43,26 @@ export default function AlertDialogSlide(props) {
     } = props;
 
     const handleClose = () => {
-        setSchedule({ show: false, index: null })
-        setDetail({ show: false, index: null })
-        setShowResult({ show: false, index: null })
-        setShowOldResults({ show: false, index: null })
+        setSchedule?.({ show: false, doctorId: "" })
+        setDetail?.({ show: false, index: "" })
+        setShowResult?.({ show: false, index: "" })
+        setShowOldResults?.({ show: false, index: "" })
     };
 
     const CheckPopper = () => {
-        setCheckDecider(true);
+        setCheckDecider?.(true);
     }
 
     return (
         <Dialog
-            open={detail.show || schedule.show}
+            open={detail?.show || schedule?.show || showResult?.show || showOldResults?.show}
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
         >
             <DialogContent>
-                {detail.show && (
+                {detail?.show && (
                     <AppointmentDetail
                         role={role}
                         detail={detail}
@@ -71,7 +72,7 @@ export default function AlertDialogSlide(props) {
                     />
                 )}
 
-                {schedule.show && (
+                {schedule?.show && (
                     <DoctorSchedule
                         userId={userId}
                         schedule={schedule}
@@ -81,17 +82,17 @@ export default function AlertDialogSlide(props) {
                     />
                 )}
 
-                {showResult.show && (
+                {showResult?.show && (
                     <TestResult showResult={showResult} filteredTest={filteredTest} />
                 )}
 
-                {showOldResults.show && (
+                {showOldResults?.show && (
                     <OldResults showOldResults={showOldResults} filteredTests={filteredTests} />
                 )}
             </DialogContent>
 
             <DialogActions>
-                {detail.show && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
+                {detail?.show && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
                 <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>
         </Dialog>

@@ -16,7 +16,7 @@ const TestResult = () => {
     const [tests, setTests] = useState([])
     const [filteredTest, setFilteredTest] = useState([])
 
-    const [showResult, setShowResult] = useState({ show: false, index: null });
+    const [showResult, setShowResult] = useState({ show: false, index: "" });
 
     useEffect(() => {
         axios.get(process.env.REACT_APP_DOCTOR_URL)
@@ -33,8 +33,8 @@ const TestResult = () => {
         }
     }, [tests, userId])
 
-    const showResultHandler = (index) => {
-        setShowResult({ show: true, index: index })
+    const showResultHandler = (resultIndex) => {
+        setShowResult({ show: true, index: resultIndex })
     }
 
     return (
@@ -52,11 +52,18 @@ const TestResult = () => {
                             <ResultItem key={index}>
                                 <Date>{test.date}</Date>
                                 <DoctorName>{
+                                    "Dr." +
                                     doctors.find(doctor => doctor.id === test.doctorId)?.name
                                     + " " +
                                     doctors.find(doctor => doctor.id === test.doctorId)?.surname
                                 }</DoctorName>
-                                <Button className="show-patient-result" variant="contained" onClick={showResultHandler(index)}>Show Result</Button>
+                                <Button
+                                    className="show-patient-result"
+                                    variant="contained"
+                                    onClick={() => { showResultHandler(index) }}
+                                >
+                                    Show Result
+                                </Button>
                             </ResultItem>
                         ))}
                     </ResultItems>
