@@ -1,9 +1,8 @@
-import { AppointmentWrapper, ContentWrapper, HomeBase, InfoWrapper, PatientName, Title } from "../Styles/Home.style";
+import { AppointmentWrapper, ButtonWrapper, ContentWrapper, CurrentAppointments, HomeBase, InfoWrapper, OldAppointments, PatientName, Title } from "../Styles/Home.style";
 
 import { AuthContext } from "..//..//..//Context/AuthContext";
 import { Button } from "@mui/material";
 import CheckPopper from "..//..//..//Components/Checker/CheckPopper"
-import DefaultBox from "..//..//..//Components/DefaultBox/DefaultBox"
 import Loading from "../../../Components/Loading/Loading";
 import Popper from "..//..//..//Components/Popper/Popper";
 import SnackBar from "../../../Components/SnackBar/SnackBar";
@@ -206,10 +205,9 @@ const Home = () => {
 
     return (
         <HomeBase>
-            <DefaultBox width={"45%"} height={"90%"} background={"white"} margin={"0px 12px 0px 0px"}  >
-                <Title>My Appointments</Title>
+            <CurrentAppointments>
+                <Title>Current Appointments</Title>
                 <AppointmentWrapper>
-
                     {filteredAppointments.map((appointment, index) => (
                         <ContentWrapper key={index}>
                             <InfoWrapper>
@@ -221,35 +219,36 @@ const Home = () => {
                                     }
                                 </PatientName>
                             </InfoWrapper>
-                            <Button onClick={() => { showDetail(index) }} className="home-detail" color="primary" variant="contained">
-                                DETAIL
-                            </Button>
-                            <input
-                                ref={fileInputRef}
-                                style={{ display: "none" }}
-                                type="file"
-                                accept="image/*"
-                                onChange={(e) => {
-                                    sendImageToBlob(e.target.files[0], index)
-                                }}
-                            />
-                            <Button
-                                className="send-result"
-                                color="success"
-                                variant="contained"
-                                onClick={() => fileInputRef.current.click()}
-                            >
-                                SEND TEST RESULT
-                            </Button>
+                            <ButtonWrapper>
+                                <Button onClick={() => { showDetail(index) }} className="home-detail" color="primary" variant="contained">
+                                    DETAIL
+                                </Button>
+                                <input
+                                    ref={fileInputRef}
+                                    style={{ display: "none" }}
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={(e) => {
+                                        sendImageToBlob(e.target.files[0], index)
+                                    }}
+                                />
+                                <Button
+                                    className="send-result"
+                                    color="success"
+                                    variant="contained"
+                                    onClick={() => fileInputRef.current.click()}
+                                >
+                                    SEND RESULT
+                                </Button>
+                            </ButtonWrapper>
                         </ContentWrapper>
                     ))}
 
                 </AppointmentWrapper>
+            </CurrentAppointments>
 
-            </DefaultBox>
-
-            <DefaultBox width={"45%"} height={"90%"} background={"white"} margin={"0px 0px 0px 12px"} >
-                <Title>Patients Have Been Tested</Title>
+            <OldAppointments>
+                <Title>Tested Patients (Past Tests)</Title>
                 <AppointmentWrapper>
                     {filteredTests.map((test, index) => (
                         <ContentWrapper key={index}>
@@ -270,7 +269,7 @@ const Home = () => {
                         </ContentWrapper>
                     ))}
                 </AppointmentWrapper>
-            </DefaultBox>
+            </OldAppointments>
 
             {(detail.show || showOldResults.show) &&
                 (<Popper

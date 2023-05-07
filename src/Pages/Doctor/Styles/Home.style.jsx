@@ -6,6 +6,51 @@ export const HomeBase = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 862px) {
+        flex-direction: column;
+    }
+`;
+
+export const CurrentAppointments = styled.div`
+    width: 50%;
+    height: 85%;
+    margin-right: 12px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 12px;
+    
+    animation:  0.5s ease-out 0s 1 slideInFromBottom;
+    @keyframes slideInFromBottom {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media screen and (max-width: 862px) {
+        width: 95%;
+        height: 45%;
+        margin-bottom: 24px;
+    }
+`;
+
+export const OldAppointments = styled.div`
+    padding: 12px;
+    width: 50%;
+    height: 85%;
+    margin-right: 12px;
+    background-color: white;
+    border-radius: 10px;
+    
+    animation:  0.5s ease-out 0s 1 slideInFromBottom;
+    @keyframes slideInFromBottom {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media screen and (max-width: 862px) {
+        width: 95%;
+        height: 45%;
+    }
 `;
 
 export const Title = styled.div`
@@ -19,7 +64,12 @@ export const Title = styled.div`
     letter-spacing: 1px;
 
     @media screen and (max-width: 585px) {
-        font-size: 20px;
+        font-size: 17px;
+        width: 80%;
+    }
+
+    @media screen and (max-width: 656px) and (min-width: 586px) {
+        font-size: 21px;
     }
 `;
 
@@ -30,15 +80,12 @@ export const AppointmentWrapper = styled.div`
     flex-direction: column;
     padding: 24px;
     overflow-y: auto;
-    
-    @media screen and (max-width: 585px) {
-        
-    }
+
 `;
 
 export const ContentWrapper = styled.div`
-    width: 80%;
-    height: 90px;
+    width: 100%;
+    height: 65px;
     display: flex;
     align-items: center;
     background-color: #5672fe;
@@ -48,12 +95,13 @@ export const ContentWrapper = styled.div`
 
     @media screen and (max-width: 656px) {
         width: 100%;
+        height: 60px;
     }
 `;
 
 export const InfoWrapper = styled.div`
     height: 100%;
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,9 +121,24 @@ export const PatientName = styled.div`
     font-size: 17px;
 
     @media screen and (max-width: 585px) {
+        width: 100%;
         font-size: 13px;
     }
 `;
+
+export const ButtonWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 48%;
+    @media screen and (max-width: 425px) {
+        flex-direction: column;
+        height: 80%;
+        justify-content: space-between;
+    }
+`;
+
 
 
 
