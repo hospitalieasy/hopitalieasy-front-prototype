@@ -8,18 +8,18 @@ export const HomeBase = styled.div`
     justify-content: center;
 
     @media screen and (max-width: 862px) {
-        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 40px 0px;
     }
 `;
 
 export const CurrentAppointments = styled.div`
-    width: 50%;
+    width: 45%;
     height: 85%;
     margin-right: 12px;
     background-color: white;
     border-radius: 10px;
-    padding: 12px;
-    
+      
     animation:  0.5s ease-out 0s 1 slideInFromBottom;
     @keyframes slideInFromBottom {
     from { transform: translateY(20px); opacity: 0; }
@@ -28,15 +28,14 @@ export const CurrentAppointments = styled.div`
 
     @media screen and (max-width: 862px) {
         width: 95%;
-        height: 45%;
+        height: 65%;
         margin-bottom: 24px;
         margin-right: 0px;
     }
 `;
 
 export const OldAppointments = styled.div`
-    padding: 12px;
-    width: 50%;
+    width: 45%;
     height: 85%;
     margin-left: 12px;
     background-color: white;
@@ -50,8 +49,8 @@ export const OldAppointments = styled.div`
 
     @media screen and (max-width: 862px) {
         width: 95%;
-        height: 45%;
         margin-left: 0px;
+        height: 65%;
     }
 `;
 
@@ -61,7 +60,7 @@ export const Title = styled.div`
     display: flex;
     align-items: center;
     margin-left: 24px;
-    font-size: 28px;
+    font-size: 24px;
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 1px;
 
