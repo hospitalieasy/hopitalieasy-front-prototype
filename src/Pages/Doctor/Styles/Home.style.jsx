@@ -30,6 +30,7 @@ export const CurrentAppointments = styled.div`
         width: 95%;
         height: 45%;
         margin-bottom: 24px;
+        margin-right: 0px;
     }
 `;
 
@@ -37,7 +38,7 @@ export const OldAppointments = styled.div`
     padding: 12px;
     width: 50%;
     height: 85%;
-    margin-right: 12px;
+    margin-left: 12px;
     background-color: white;
     border-radius: 10px;
     
@@ -50,6 +51,7 @@ export const OldAppointments = styled.div`
     @media screen and (max-width: 862px) {
         width: 95%;
         height: 45%;
+        margin-left: 0px;
     }
 `;
 
@@ -138,6 +140,7 @@ export const ButtonWrapper = styled.div`
         justify-content: space-between;
     }
 `;
+
 
 
 

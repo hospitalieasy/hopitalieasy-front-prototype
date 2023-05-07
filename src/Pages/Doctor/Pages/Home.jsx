@@ -1,11 +1,13 @@
-import { AppointmentWrapper, ButtonWrapper, ContentWrapper, CurrentAppointments, HomeBase, InfoWrapper, OldAppointments, PatientName, Title } from "../Styles/Home.style";
+import { AppointmentWrapper, ButtonWrapper, ContentWrapper, CurrentAppointments, HomeBase, InfoWrapper, OldAppointments, PatientName, Title, TitleWrapper } from "../Styles/Home.style";
 
 import { AuthContext } from "..//..//..//Context/AuthContext";
 import { Button } from "@mui/material";
 import CheckPopper from "..//..//..//Components/Checker/CheckPopper"
 import Loading from "../../../Components/Loading/Loading";
 import Popper from "..//..//..//Components/Popper/Popper";
+import ScheduleIcon from '@mui/icons-material/Schedule';
 import SnackBar from "../../../Components/SnackBar/SnackBar";
+import VerifiedIcon from '@mui/icons-material/Verified';
 import axios from "axios";
 import { useContext } from "react";
 import { useEffect } from "react";
@@ -206,7 +208,9 @@ const Home = () => {
     return (
         <HomeBase>
             <CurrentAppointments>
-                <Title>Current Appointments</Title>
+                <Title>Current Appointments
+                    <ScheduleIcon color="warning" style={{ width: "10%", marginLeft: "16px", marginTop: "0px" }} />
+                </Title>
                 <AppointmentWrapper>
                     {filteredAppointments.map((appointment, index) => (
                         <ContentWrapper key={index}>
@@ -248,7 +252,9 @@ const Home = () => {
             </CurrentAppointments>
 
             <OldAppointments>
-                <Title>Tested Patients (Past Tests)</Title>
+                <Title>Tested Patients
+                    <VerifiedIcon color="error" style={{ width: "10%", marginLeft: "20px", marginTop: "0px" }} />
+                </Title>
                 <AppointmentWrapper>
                     {filteredTests.map((test, index) => (
                         <ContentWrapper key={index}>
