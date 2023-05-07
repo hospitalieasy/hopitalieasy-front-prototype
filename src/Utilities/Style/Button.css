@@ -289,3 +289,10 @@ Animation
 .MuiButton-root.show-patient-result:hover {
   background-color: #2f5843;
 }
+
+@media screen and (max-width: 585px) {
+  .MuiButton-root.show-patient-result {
+    height: 55%;
+    font-size: 9px;
+  }
+}

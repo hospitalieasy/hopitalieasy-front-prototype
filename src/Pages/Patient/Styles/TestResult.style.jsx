@@ -5,6 +5,7 @@ export const TestResultBase = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
 `;
 
 export const ContentWrapper = styled.div`
@@ -18,11 +19,51 @@ export const TitleWrapper = styled.div`
     display: flex;
     align-items: center;
     padding: 12px;
+    display: flex;
 `;
 
 export const Title = styled.div`
     font-size: 28px;
     margin-right: 24px;
+    font-weight: 500;
+
+    @media screen and (max-width: 420px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 585px) {
+        font-size: 20px;
+    }
+`;
+
+export const Ongoing = styled.div`
+    margin-left: 28px;
+    display: flex;
+
+    @media screen and (max-width: 585px) {
+        flex-direction: column;
+    }
+`;
+
+export const LabelWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 12px;
+    font-size: 17px;
+    font-weight: 500;
+
+    @media screen and (max-width: 585px) {
+        margin: 4px 0px;
+    }
+`;
+
+
+export const Label = styled.div` 
+
+    @media screen and (max-width: 585px) {
+        font-size: 14px;
+    }
 `;
 
 export const Icon = styled.div`
@@ -37,7 +78,7 @@ export const ResultItems = styled.div`
 
 export const ResultItem = styled.div`
     height: 68px;
-    width: 50%;
+    width: 100%;
     background-color: #5672fe;
     border-radius: 10px;
     display: flex;
@@ -52,6 +93,11 @@ export const Date = styled.div`
     font-size: 17px;
     font-family: 'Roboto Condensed', sans-serif;
     color: #fff;
+
+    @media screen and (max-width: 585px) {
+        font-size: 14px;
+        margin-right: 16px;
+    }
 `;
 
 export const DoctorName = styled.div`
@@ -59,5 +105,10 @@ export const DoctorName = styled.div`
     font-size: 17px;
     color: #fff;
     font-family: 'Roboto Condensed', sans-serif;
+
+    @media screen and (max-width: 585px) {
+        font-size: 14px;
+        margin-right: 16px;
+    }
 `;
 
