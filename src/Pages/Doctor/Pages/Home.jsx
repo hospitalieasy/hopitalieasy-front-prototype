@@ -169,18 +169,23 @@ const Home = () => {
             return;
         }
 
-        setLoading(true)
+        setLoading(true);
+
+        const fileExtension = selectedImage.name.substring(selectedImage.name.lastIndexOf('.'));
+        const imageNameWithoutExtension = selectedImage.name.substring(0, selectedImage.name.lastIndexOf('.'));
+        const randomNum = Math.floor(Math.random() * 200) + 1;
+        const imageName = `${imageNameWithoutExtension}${randomNum}${fileExtension}`;
 
         const formData = new FormData();
-        formData.append("file", selectedImage);
+        formData.append("file", selectedImage, imageName);
 
         await axios
             .post(process.env.REACT_APP_BLOB_POST_URL, formData)
             .then(() => {
-                sendTestResult(index, selectedImage.name)
+                sendTestResult(index, imageNameWithoutExtension + randomNum + fileExtension);
             })
             .catch((error) => {
-                setLoading(false)
+                setLoading(false);
                 setMessage({
                     color: "red",
                     text: "Failed to upload the image",
@@ -189,6 +194,7 @@ const Home = () => {
                 console.log(error);
             });
     };
+
 
     const showOldResultsHandler = (index) => {
         setShowOldResults({ show: true, index: index })
