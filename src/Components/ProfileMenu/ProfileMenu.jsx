@@ -34,7 +34,6 @@ export default function ProfileMenu(props) {
         setAnchorEl(null);
     };
 
-    let END_POINT;
     /* fetching data */
     useEffect(() => {
         if (role === "patient") {
@@ -50,6 +49,7 @@ export default function ProfileMenu(props) {
                 console.log(error);
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const showProfile = () => {

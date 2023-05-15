@@ -41,6 +41,7 @@ const SignUpForm = (props) => {
                 dispatch({ type: EMAIL_IS_NOT_UNIQUE, payload: true })
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.user.email, state.emailUnique])
 
 
@@ -63,6 +64,7 @@ const SignUpForm = (props) => {
             index++;
         }
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.data, isFetch]);
 
     const navigate = useNavigate();

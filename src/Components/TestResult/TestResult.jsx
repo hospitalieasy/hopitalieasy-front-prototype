@@ -1,4 +1,4 @@
-import { TestImage, TestResultBase, Text, Title } from './TestResult.style'
+import { TestImage, TestResultBase } from './TestResult.style'
 
 import Loading from '../Loading/Loading';
 import React from 'react'

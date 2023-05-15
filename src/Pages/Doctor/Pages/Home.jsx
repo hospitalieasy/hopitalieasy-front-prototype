@@ -1,4 +1,4 @@
-import { AppointmentWrapper, ButtonWrapper, ContentWrapper, CurrentAppointments, HomeBase, InfoWrapper, OldAppointments, PatientName, Title, TitleWrapper } from "../Styles/Home.style";
+import { AppointmentWrapper, ButtonWrapper, ContentWrapper, CurrentAppointments, HomeBase, InfoWrapper, OldAppointments, PatientName, Title } from "../Styles/Home.style";
 
 import { AuthContext } from "..//..//..//Context/AuthContext";
 import { Button } from "@mui/material";
@@ -96,6 +96,7 @@ const Home = () => {
 
             setFilteredTests(uniquePatientTests);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tests]);
 
     const cancelAfterSendResult = async (index) => {

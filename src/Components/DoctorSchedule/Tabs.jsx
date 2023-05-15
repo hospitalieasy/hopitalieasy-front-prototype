@@ -5,7 +5,6 @@ import ListItem from './ListItems';
 import PropTypes from 'prop-types';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import axios from 'axios';
 import styled from 'styled-components';
 
 function TabPanel(props) {
@@ -67,6 +66,7 @@ export default function VerticalTabs(props) {
         const filterIdAndStatus = disabledAppointments.filter(appointment => appointment.doctorId === schedule.doctorId && appointment.appStatus);
 
         setFilteredByIdAndStatus(filterIdAndStatus)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

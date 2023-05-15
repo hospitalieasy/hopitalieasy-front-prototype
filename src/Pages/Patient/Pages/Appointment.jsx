@@ -1,7 +1,6 @@
 import { AppointmentBase, AppointmentItem, AppointmentWrapper, AvailableAppointment, ContentWrapper, CurrentAppointments, DoctorInfoWrapperAvailable, DoctorInfoWrapperCurrent, DoctorNameAvailable, DoctorNameCurrent, Section, Title, TitleWrapperOne, TitleWrapperSecond } from "../Styles/Appointment.style";
 
 import { AuthContext } from "../../../Context/AuthContext";
-import BasicRating from "../../../Components/Rating/Rating";
 import { Button } from "@mui/material";
 import CheckPopper from "..//..//..//Components/Checker/CheckPopper"
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';

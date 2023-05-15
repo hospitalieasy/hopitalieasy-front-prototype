@@ -1,14 +1,13 @@
 import { AppBarBase, ContentWrapper, LeftSide, NotificationWrapper, ProfileWrapper, RightSide, SpeedDialWrapper, Title } from "./AppBar.style"
 import { useEffect, useState } from "react";
 
-import MailBadge from "../MailBadge/MailBadge"
 import Menu from "../Menu/Menu"
 import MenuMobile from "../MenuMobile/MenuMobile";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import axios from "axios";
 
 const AppBar = (props) => {
-    const { setUser, userIndex, setUserIndex, userId, role, setRole } = props;
+    const { setUser, userIndex, setUserIndex, role, setRole } = props;
 
     const [name, setName] = useState("");
     const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -17,6 +16,7 @@ const AppBar = (props) => {
     let END_POINT;
     useEffect(() => {
         if (role === "doctor") {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             END_POINT = process.env.REACT_APP_DOCTOR_URL;
         } else {
             END_POINT = process.env.REACT_APP_PATIENT_URL;

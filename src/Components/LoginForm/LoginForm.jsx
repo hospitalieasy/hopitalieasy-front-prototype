@@ -25,6 +25,7 @@ const LoginForm = (props) => {
     useEffect(() => {
         if (title === "Doctor Login") {
             setRole("doctor");
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             END_POINT = process.env.REACT_APP_DOCTOR_URL;
         } else {
             setRole("patient");

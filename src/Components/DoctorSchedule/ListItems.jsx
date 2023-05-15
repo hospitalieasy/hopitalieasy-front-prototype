@@ -16,7 +16,6 @@ export default function ListItem(props) {
 
     const [selectedIndex, setSelectedIndex] = React.useState();
     const [filteredDisabled, setFilteredDisabled] = React.useState([]);
-    const [disabledByDay, setDisabledByDay] = React.useState([]);
 
     const handleListItemClick = (event, index) => {
         setSelectedIndex(index);
