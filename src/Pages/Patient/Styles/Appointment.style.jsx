@@ -98,7 +98,6 @@ export const ContentWrapper = styled.div`
 
 export const DoctorInfoWrapperAvailable = styled.div`
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
     @media screen and (max-width: 585px) {
