@@ -6,7 +6,9 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DoctorSchedule from '../DoctorSchedule/DoctorSchedule';
+import OldResults from '../OldResults/OldResults';
 import Slide from '@mui/material/Slide';
+import TestResult from '../TestResult/TestResult';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -15,6 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function AlertDialogSlide(props) {
     const {
         role,
+
         detail,
         setDetail,
         schedule,
@@ -28,28 +31,38 @@ export default function AlertDialogSlide(props) {
         patients,
         filteredAppointments,
 
+        filteredTest,
+        showResult,
+        setShowResult,
+
+        filteredTests,
+        showOldResults,
+        setShowOldResults,
+
         userId,
     } = props;
 
     const handleClose = () => {
-        setSchedule(false)
-        setDetail(false);
+        setSchedule?.({ show: false, doctorId: "" })
+        setDetail?.({ show: false, index: "" })
+        setShowResult?.({ show: false, index: "" })
+        setShowOldResults?.({ show: false, index: "" })
     };
 
     const CheckPopper = () => {
-        setCheckDecider(true);
+        setCheckDecider?.(true);
     }
 
     return (
         <Dialog
-            open={detail.show || schedule.show}
+            open={detail?.show || schedule?.show || showResult?.show || showOldResults?.show}
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
         >
             <DialogContent>
-                {detail.show && (
+                {detail?.show && (
                     <AppointmentDetail
                         role={role}
                         detail={detail}
@@ -59,7 +72,7 @@ export default function AlertDialogSlide(props) {
                     />
                 )}
 
-                {schedule.show && (
+                {schedule?.show && (
                     <DoctorSchedule
                         userId={userId}
                         schedule={schedule}
@@ -68,10 +81,18 @@ export default function AlertDialogSlide(props) {
                         setNewAppointment={setNewAppointment}
                     />
                 )}
+
+                {showResult?.show && (
+                    <TestResult showResult={showResult} filteredTest={filteredTest} />
+                )}
+
+                {showOldResults?.show && (
+                    <OldResults showOldResults={showOldResults} filteredTests={filteredTests} />
+                )}
             </DialogContent>
 
             <DialogActions>
-                {detail.show && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
+                {detail?.show && (<Button onClick={CheckPopper}>CANCEL APPOINTMENT</Button>)}
                 <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>
         </Dialog>

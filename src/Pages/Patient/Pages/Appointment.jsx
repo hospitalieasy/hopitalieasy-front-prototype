@@ -116,7 +116,6 @@ const Appointment = () => {
                         {filteredDoctors.map((doctor, index) => (
                             <ContentWrapper key={index}>
                                 <DoctorInfoWrapperAvailable>
-                                    <BasicRating rating={doctor.rate} />
                                     <DoctorNameAvailable>Dr.{doctor.name + " " + doctor.surname}</DoctorNameAvailable>
                                 </DoctorInfoWrapperAvailable>
                                 <Button

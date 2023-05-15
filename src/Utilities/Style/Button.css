@@ -240,40 +240,103 @@ Animation
 /* Doctor home page */
 
 .MuiButton-root.home-detail {
-  height: 50%;
-  width: 15%;
-  margin-right: 12px;
+  height: 55%;
+  width: 40%;
   background-color: #0042b5;
+  font-size: 13px;
 }
 
 .MuiButton-root.home-detail:hover {
   background-color: #24275c;
 }
 
-@media screen and (max-width: 585px) {
+@media screen and (max-width: 585px) and (min-width: 427px) {
   .MuiButton-root.home-detail {
     height: 40%;
     font-size: 9px;
   }
 }
 
-.MuiButton-root.send-result {
-  height: 75%;
-  width: 20%;
-  margin-left: 12px;
-  padding: 16px 8px;
-  background-color: #1f9b00;
+@media screen and (max-width: 426px) {
+  .MuiButton-root.home-detail {
+    width: 100%;
+    font-size: 9px;
+    height: 20px;
+  }
 }
 
-@media screen and (max-width: 585px) {
+.MuiButton-root.send-result {
+  height: 75%;
+  width: 45%;
+  padding: 16px 8px;
+  background-color: #1f9b00;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 585px) and (min-width: 427px) {
   .MuiButton-root.send-result {
     height: 65%;
     font-size: 9px;
+    margin-left: 12px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .MuiButton-root.send-result {
+    width: 100%;
+    font-size: 9px;
+    padding: 0px 0px;
+    height: 24px;
   }
 }
 
 @media screen and (min-width: 585px) and (max-width: 966px) {
   .MuiButton-root.send-result {
     font-size: 12px;
+  }
+}
+
+.MuiButton-root.show-old-test {
+  height: 75%;
+  width: 45%;
+  padding: 16px 8px;
+  background-color: #3b1463;
+  font-size: 12px;
+}
+
+.MuiButton-root.show-old-test:hover {
+  background-color: #2e3396;
+}
+
+@media screen and (max-width: 585px) {
+  .MuiButton-root.show-old-test {
+    height: 65%;
+    font-size: 9px;
+    margin-left: 12px;
+  }
+}
+
+@media screen and (min-width: 585px) and (max-width: 966px) {
+  .MuiButton-root.show-old-test {
+    font-size: 12px;
+  }
+}
+
+/* Patient test result page */
+
+.MuiButton-root.show-patient-result {
+  width: 80%;
+  height: 60%;
+  background-color: #1f9b00;
+}
+
+.MuiButton-root.show-patient-result:hover {
+  background-color: #2f5843;
+}
+
+@media screen and (max-width: 585px) {
+  .MuiButton-root.show-patient-result {
+    height: 55%;
+    font-size: 9px;
   }
 }

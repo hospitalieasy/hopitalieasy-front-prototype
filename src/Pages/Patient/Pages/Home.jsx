@@ -5,7 +5,7 @@ import DefaultBox from "..//..//..//Components/DefaultBox/DefaultBox";
 import SlideShowAppScreen from "../../../Components/SlideShow/SlideShowAppScreen";
 
 const Home = () => {
-    /* const [userLocation, setUserLocation] = useState(null);
+    const [userLocation, setUserLocation] = useState(null);
     const [hospitals, setHospitals] = useState([]);
     const [pharmacies, setPharmacies] = useState([]);
     const hospitalMapRef = useRef(null); // separate mapRef for hospitals
@@ -87,7 +87,7 @@ const Home = () => {
                 });
             });
         }
-    }, [userLocation, hospitals, pharmacies]); */
+    }, [userLocation, hospitals, pharmacies]);
 
     return (
         <HomeBase>
@@ -102,7 +102,7 @@ const Home = () => {
                 </DefaultBox>
             </SectionBanner>
 
-            {/* <SectionMap width={"100%"} height={"50%"}>
+            <SectionMap width={"100%"} height={"50%"}>
                 <ContentWrapper>
                     <Title>Closest Hospitals</Title>
                     <MapWrapper ref={hospitalMapRef} />
@@ -112,7 +112,7 @@ const Home = () => {
                     <Title>Closest Pharmacies</Title>
                     <MapWrapper ref={pharmacyMapRef} />
                 </ContentWrapper>
-            </SectionMap> */}
+            </SectionMap>
         </HomeBase >
     );
 };
