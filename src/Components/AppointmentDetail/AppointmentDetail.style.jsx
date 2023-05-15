@@ -112,10 +112,12 @@ export const Time = styled.div`
    margin-left: 12px;
    font-family: 'Roboto Condensed', sans-serif;
    letter-spacing: 1px;
+   font-weight: 600;
 `;
 
 export const Date = styled.div`
     margin-left: 4px;
     font-family: 'Roboto Condensed', sans-serif;
-   letter-spacing: 1px;
+    letter-spacing: 1px;
+    font-weight: 600;
 `;

@@ -1,6 +1,5 @@
 import { AppointmentDetailBase, Content, ContentWrapper, Date, Label, LeftSide, RightSide, RoleName, RoleTitle, Time, Title, UserImage } from './AppointmentDetail.style'
 
-import BasicRating from '../Rating/Rating'
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -75,13 +74,7 @@ const AppointmentDetail = (props) => {
                     </LeftSide>
                     <RightSide>
                         <Content>
-                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Rating: </span>
-                            <Label>
-                                <BasicRating rating={detailForPatient.rating} />
-                            </Label>
-                        </Content>
-                        <Content>
-                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Appointment: </span>
+                            <span style={{ fontWeight: "600", fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Appointment: </span>
                             <Time>{detailForPatient.hour}</Time>
                             <span style={{ margin: "0px 12px", fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>|</span>
                             <Date>{detailForPatient.day}</Date>
@@ -114,7 +107,7 @@ const AppointmentDetail = (props) => {
                             <Label>{detailForDoctor.telno}</Label>
                         </Content>
                         <Content>
-                            <span style={{ fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Appointment: </span>
+                            <span style={{ fontWeight: "600", fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>Appointment: </span>
                             <Time>{detailForDoctor.hour}</Time>
                             <span style={{ margin: "0px 12px", fontFamily: "'Roboto Condensed', sans-serif", letterSpacing: "1px" }}>|</span>
                             <Date>{detailForDoctor.day}</Date>
