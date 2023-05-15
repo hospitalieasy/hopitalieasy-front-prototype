@@ -17,6 +17,7 @@ const InformationTab = (props) => {
     /* fetching API */
     useEffect(() => {
         if (role === "doctor") {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             END_POINT = process.env.REACT_APP_DOCTOR_URL;
         } else {
             END_POINT = process.env.REACT_APP_PATIENT_URL;
