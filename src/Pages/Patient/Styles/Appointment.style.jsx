@@ -66,7 +66,7 @@ export const Title = styled.div`
 
 export const AppointmentWrapper = styled.div`
     width: 100%;
-    height: 275px;
+    height: 315px;
     display: flex;
     margin-top: 32px;
     flex-direction: column;
