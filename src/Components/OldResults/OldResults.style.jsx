@@ -22,7 +22,7 @@ export const ContentWrapper = styled.div`
 export const Date = styled.div`
     height: 20%;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 44px;
     font-weight: 700;
     font-size: 17px;
 
