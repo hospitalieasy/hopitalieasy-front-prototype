@@ -47,6 +47,8 @@ const Home = () => {
     const [filteredTests, setFilteredTests] = useState([]);
     const [showOldResults, setShowOldResults] = useState({ show: false, index: "" });
 
+    const [indexOfAppointment, setIndexOfAppointment] = useState("");
+
     useEffect(() => {
         axios.get(process.env.REACT_APP_PATIENT_URL)
             .then((response) => setPatients(response.data))
@@ -234,14 +236,17 @@ const Home = () => {
                                     type="file"
                                     accept="image/*"
                                     onChange={(e) => {
-                                        sendImageToBlob(e.target.files[0], index)
+                                        sendImageToBlob(e.target.files[0], indexOfAppointment)
                                     }}
                                 />
                                 <Button
                                     className="send-result"
                                     color="success"
                                     variant="contained"
-                                    onClick={() => fileInputRef.current.click()}
+                                    onClick={() => {
+                                        fileInputRef.current.click()
+                                        setIndexOfAppointment(index)
+                                    }}
                                 >
                                     SEND RESULT
                                 </Button>
