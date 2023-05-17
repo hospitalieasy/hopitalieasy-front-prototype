@@ -66,11 +66,12 @@ export const Title = styled.div`
 
 export const AppointmentWrapper = styled.div`
     width: 100%;
-    height: 315px;
+    height: 335px;
     display: flex;
     margin-top: 32px;
     flex-direction: column;
     overflow-y: scroll;
+    padding-top: 12px;
 
     @media screen and (max-width: 585px) {
         padding: 0px;
