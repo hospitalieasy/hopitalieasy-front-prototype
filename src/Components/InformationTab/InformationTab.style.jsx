@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const InformationTabBase = styled.div`
     height: 100%;
-    width: 100%;
+    width: 99%;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -40,6 +40,7 @@ export const SwitchWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 12px;
 `;
 
 export const FormLabel = styled.div`
